@@ -36,7 +36,7 @@ const FAQ_ITEMS: AccordionItem[] = [
   },
   {
     id: "losing-days",
-    trigger: "האם ימי הפסד פוגעים בכלל ה-50%?",
+    trigger: "האם ימי הפסד פוגעים בחוק עקביות 50%?",
     content: "לא. ימי הפסד לא נכללים בחישוב ה-Consistency — רק ימים רווחיים.",
   },
   {
@@ -111,7 +111,7 @@ export default function PayoutsPage() {
       {/* Main rules */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
         <RuleCard
-          title="כלל ה-50% Consistency"
+          title="חוק עקביות 50% (Consistency)"
           icon={TrendingUp}
           accountType="pa"
           source={S.CONSISTENCY_50}
@@ -172,7 +172,7 @@ export default function PayoutsPage() {
         />
 
         <RuleCard
-          title="Safety Net — 3 תשלומים ראשונים"
+          title="רשת ביטחון (Safety Net) – בשלושת התשלומים הראשונים"
           icon={ShieldAlert}
           accountType="pa"
           source={S.SAFETY_NET}
@@ -228,7 +228,7 @@ export default function PayoutsPage() {
                 סכום הבקשה חייב להיות לפחות <strong>$500</strong>.
               </p>
               <p className="mt-2" style={{ color: "var(--text-muted)" }}>
-                וגם כלל ה-50% Consistency חייב להתקיים ברגע הבקשה.
+                וגם חוק עקביות 50% חייב להתקיים בעת הבקשה.
               </p>
             </>
           }

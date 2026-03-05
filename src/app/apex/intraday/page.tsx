@@ -76,7 +76,7 @@ export default function IntradayPage() {
               אין מגבלת הפסד יומית.{" "}
               <strong>
                 שימו לב: ב-<span dir="ltr">Intraday PA</span> יש{" "}
-                <span dir="ltr">DLL</span> לפי טיירים.
+                <span dir="ltr">DLL</span> לפי רמות.
               </strong>
             </p>
           }
@@ -125,8 +125,11 @@ export default function IntradayPage() {
                   <strong>4:59 PM ET</strong> של היום הבא.
                 </p>
                 <p className="mt-2">
-                  כל פוזיציה פתוחה חייבת להיסגר לפני 4:59. הוראות עצמאיות
-                  (Standing Orders) <strong>חייבות להיבטל ידנית</strong>.
+                  הוראות שמחוברות לפוזיציה (Attached Orders), כמו סטופ/לימיט, נסגרות יחד עם הפוזיציה.
+                  הוראות עצמאיות (Standing Orders) לא נסגרות לבד – צריך לבטל אותן ידנית לפני <span dir="ltr">4:59 PM ET</span> (בדרך כלל 23:59 בישראל, תלוי בשעון קיץ).
+                </p>
+                <p className="mt-2 text-xs" style={{ color: "var(--text-muted)" }}>
+                  כדי לא לטעות, מומלץ לעבוד לפי השעה ET שמופיעה במסמכי Apex.
                 </p>
               </>
             }
@@ -139,7 +142,7 @@ export default function IntradayPage() {
             variant="warning"
             title="הוראות תלויות — שימו לב"
             source={S.CLOSE_459}
-            body="הוראות עצמאיות (Standing Orders) לא נסגרות אוטומטית ב-4:59 PM ET — חייבות להיבטל ידנית לפני המועד."
+            body="הוראות מחוברות לפוזיציה (Attached Orders), כמו סטופ/לימיט, נסגרות יחד עם הפוזיציה. הוראות עצמאיות (Standing Orders) לא נסגרות לבד – צריך לבטל אותן ידנית לפני 4:59 PM ET (בדרך כלל 23:59 בישראל, תלוי בשעון קיץ). כדי לא לטעות, מומלץ לעבוד לפי השעה ET שמופיעה במסמכי Apex."
           />
         </div>
 
@@ -169,7 +172,7 @@ export default function IntradayPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <RuleCard
-            title="כלל ה-50% Consistency"
+            title="חוק עקביות 50% (Consistency)"
             icon={TrendingUp}
             accountType="intraday-pa"
             source={S.CONSISTENCY_50}
@@ -190,7 +193,7 @@ export default function IntradayPage() {
           />
 
           <RuleCard
-            title="Safety Net — 3 התשלומים הראשונים"
+            title="רשת ביטחון (Safety Net) – בשלושת התשלומים הראשונים"
             icon={ShieldAlert}
             accountType="intraday-pa"
             source={S.SAFETY_NET}
@@ -237,22 +240,16 @@ export default function IntradayPage() {
         <div className="mt-4">
           <CalloutBox
             variant="info"
-            title="DLL לפי טיירים — Intraday PA"
+            title="DLL לפי רמות (Tier) — Intraday PA"
             accountType="intraday-pa"
             source={S.INTRADAY_PA}
             body={
               <div className="space-y-2">
                 <p>
-                  ב-<span dir="ltr">Intraday PA</span> יש{" "}
-                  <span dir="ltr">DLL</span> — שלא כמו במבחן. ה-
-                  <span dir="ltr">DLL</span> מתעדכן לפי רמת החשבון (
-                  <span dir="ltr">Tier</span>): כשעולים טייר הוא יכול לגדול,
-                  ואם יורדים טייר הוא יכול לרדת — לא מתחת לרמה הבסיסית.
+                  ב-<span dir="ltr">Intraday PA</span> יש <span dir="ltr">DLL</span> – בניגוד למבחן שבו אין <span dir="ltr">DLL</span>. ה-<span dir="ltr">DLL</span> נקבע לפי רמת החשבון. כשעולים רמה הוא יכול לגדול, ואם יורדים רמה הוא יכול להצטמצם — אבל לא ירד מתחת לרמה הבסיסית.
                 </p>
                 <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-                  הנתונים והטיירים עשויים להשתנות באתר{" "}
-                  <span dir="ltr">Apex</span>. מומלץ לבדוק גם שם לפני החלטות
-                  מסחר/תשלום.
+                  הנתונים והרמות עשויים להשתנות. מומלץ לבדוק ישירות ב-<span dir="ltr">Apex</span> לפני החלטות מסחר.
                 </p>
               </div>
             }

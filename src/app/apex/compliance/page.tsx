@@ -17,7 +17,7 @@ const APEX_URL = "https://apextraderfunding.com";
 
 const UNIVERSAL_RULES = [
   { icon: Clock, label: "כל פוזיציה חייבת להיסגר לפני 4:59 PM ET", href: "#trading-window" },
-  { icon: ArrowLeftRight, label: "אסור להגדיר (No Hedging)", href: "#hedging" },
+  { icon: ArrowLeftRight, label: "גידור אסור (No Hedging)", href: "#hedging" },
   { icon: BarChart2, label: "Contract Scaling חל על כל החשבונות", href: "#scaling" },
 ];
 
@@ -100,7 +100,7 @@ export default function CompliancePage() {
           />
           <RuleCard
             variant="prohibited"
-            title="הגדרה / Hedging"
+            title="גידור / Hedging"
             icon={ArrowLeftRight}
             accountType="universal"
             source={S.PROHIBITED}
@@ -146,12 +146,14 @@ export default function CompliancePage() {
           body={
             <div className="space-y-2">
               <p>
-                <strong style={{ color: "var(--text-primary)" }}>Attached Orders</strong> (Stop Loss / Take Profit
-                מחוברות לפוזיציה) — נסגרות אוטומטית עם הפוזיציה. ✅
+                <strong style={{ color: "var(--text-primary)" }}>הוראות מחוברות (Attached Orders)</strong> — כמו סטופ/לימיט — נסגרות יחד עם הפוזיציה. ✅
               </p>
               <p>
-                <strong style={{ color: "var(--amber-400)" }}>הוראות עצמאיות (Standing Orders)</strong> — לא נסגרות
-                אוטומטית. <strong>חייבות להיבטל ידנית לפני 4:59 PM ET.</strong> ⚠️
+                <strong style={{ color: "var(--amber-400)" }}>הוראות עצמאיות (Standing Orders)</strong> — לא נסגרות לבד.
+                <strong> חייבות להיבטל ידנית לפני <span dir="ltr">4:59 PM ET</span> (בדרך כלל 23:59 בישראל, תלוי בשעון קיץ).</strong> ⚠️
+              </p>
+              <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                כדי לא לטעות, מומלץ לעבוד לפי השעה ET שמופיעה במסמכי Apex.
               </p>
             </div>
           }
@@ -163,7 +165,7 @@ export default function CompliancePage() {
       {/* ── No Hedging ────────────────────────────────────────── */}
       <section id="hedging">
         <h2 className="text-2xl font-bold mb-6" style={{ color: "var(--text-primary)" }}>
-          כלל אי-ההגדרה — No Hedging
+          כלל אי-הגידור — No Hedging
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="card p-4 text-center" style={{ borderColor: "var(--red-edge)", backgroundColor: "var(--red-900)" }}>

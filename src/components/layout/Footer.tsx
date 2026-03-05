@@ -25,7 +25,7 @@ export function Footer() {
               <span style={{ color: "var(--text-primary)" }}>PROP FIRMS</span>
             </div>
             <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-              המדריך הישראלי לחברות פרופ טריידינג
+              המדריך הישראלי לחברות הפרופ
             </p>
           </div>
 
@@ -52,8 +52,7 @@ export function Footer() {
           }}
         >
           <p>
-            אתר זה אינו שייך ל-Apex Trader Funding ואינו מייצג אותה. המידע מוצג
-            לצורך הנגשה בעברית בלבד, על בסיס מסמכי Apex הרשמיים.
+            אתר זה אינו שייך ל-Apex Trader Funding ואינו מייצג אותה. המידע מוצג בעברית, על בסיס מסמכי Apex הרשמיים.
           </p>
           <p>
             ייתכן שנקבל עמלת הפניה בעת שימוש בקוד TLHCODE. אין כאן ייעוץ

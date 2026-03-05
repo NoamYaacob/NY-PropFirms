@@ -62,13 +62,15 @@ export default function EODPage() {
             body={
               <>
                 <p>
-                  ניתן לפתוח עסקאות החל מ-<strong>6:00 PM ET</strong> ועד
+                  אפשר לפתוח עסקאות החל מ-<strong>6:00 PM ET</strong> ועד
                   <strong> 4:59 PM ET</strong> של היום הבא.
                 </p>
                 <p className="mt-2">
-                  כל פוזיציה פתוחה חייבת להיסגר לפני 4:59 PM ET. הוראות
-                  מחוברות (Attached) נסגרות אוטומטית עם הפוזיציה — אך <strong>הוראות
-                  עצמאיות (Standing Orders) חייבות להיבטל ידנית</strong>.
+                  הוראות שמחוברות לפוזיציה (Attached Orders), כמו סטופ/לימיט, נסגרות יחד עם הפוזיציה.
+                  הוראות עצמאיות (Standing Orders) לא נסגרות לבד – צריך לבטל אותן ידנית לפני <span dir="ltr">4:59 PM ET</span> (בדרך כלל 23:59 בישראל, תלוי בשעון קיץ).
+                </p>
+                <p className="mt-2 text-xs" style={{ color: "var(--text-muted)" }}>
+                  כדי לא לטעות, מומלץ לעבוד לפי השעה ET שמופיעה במסמכי Apex.
                 </p>
               </>
             }
@@ -118,7 +120,7 @@ export default function EODPage() {
                   במבחן <span dir="ltr">Intraday</span> אין{" "}
                   <span dir="ltr">DLL</span> — אך ב-
                   <span dir="ltr">Intraday PA</span> קיים{" "}
-                  <span dir="ltr">DLL</span> לפי טיירים.
+                  <span dir="ltr">DLL</span> לפי רמות.
                 </p>
               </div>
             }
@@ -130,7 +132,7 @@ export default function EODPage() {
             variant="warning"
             title="הוראות תלויות — שימו לב"
             source={S.CLOSE_459}
-            body="הוראות מחוברות (Attached Orders) נסגרות אוטומטית עם הפוזיציה. הוראות עצמאיות (Standing Orders) לא נסגרות אוטומטית — חייבות להיבטל ידנית לפני 4:59 PM ET."
+            body="הוראות מחוברות לפוזיציה (Attached Orders), כמו סטופ/לימיט, נסגרות יחד עם הפוזיציה. הוראות עצמאיות (Standing Orders) לא נסגרות לבד – צריך לבטל אותן ידנית לפני 4:59 PM ET (בדרך כלל 23:59 בישראל, תלוי בשעון קיץ). כדי לא לטעות, מומלץ לעבוד לפי השעה ET שמופיעה במסמכי Apex."
           />
         </div>
 
@@ -160,7 +162,7 @@ export default function EODPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <RuleCard
-            title="כלל ה-50% Consistency"
+            title="חוק עקביות 50% (Consistency)"
             icon={TrendingUp}
             accountType="eod-pa"
             source={S.CONSISTENCY_50}
@@ -181,7 +183,7 @@ export default function EODPage() {
           />
 
           <RuleCard
-            title="Safety Net — 3 התשלומים הראשונים"
+            title="רשת ביטחון (Safety Net) – בשלושת התשלומים הראשונים"
             icon={ShieldAlert}
             accountType="eod-pa"
             source={S.SAFETY_NET}
@@ -235,22 +237,17 @@ export default function EODPage() {
         <div className="mt-4">
           <CalloutBox
             variant="info"
-            title="DLL לפי טיירים — EOD PA"
+            title="DLL לפי רמות (Tier) — EOD PA"
             accountType="eod-pa"
             source={S.EOD_PA}
             body={
               <div className="space-y-2">
                 <p>
-                  ב-<span dir="ltr">EOD PA</span> קיים{" "}
-                  <span dir="ltr">DLL</span> — והוא מתעדכן לפי רמת החשבון (
-                  <span dir="ltr">Tier</span>): כשעולים טייר ה-
-                  <span dir="ltr">DLL</span> יכול לגדול, ואם יורדים טייר הוא
-                  יכול לרדת — לא מתחת לרמה הבסיסית.
+                  ב-<span dir="ltr">EOD PA</span> יש{" "}
+                  <span dir="ltr">DLL</span>, והוא נקבע לפי רמת החשבון. כשעולים רמה ה-<span dir="ltr">DLL</span> יכול לגדול, ואם יורדים רמה הוא יכול להצטמצם — אבל לא ירד מתחת לרמה הבסיסית.
                 </p>
                 <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-                  הנתונים והטיירים עשויים להשתנות באתר{" "}
-                  <span dir="ltr">Apex</span>. מומלץ לבדוק גם שם לפני החלטות
-                  מסחר/תשלום.
+                  הנתונים והרמות עשויים להשתנות. מומלץ לבדוק ישירות ב-<span dir="ltr">Apex</span> לפני החלטות מסחר.
                 </p>
               </div>
             }

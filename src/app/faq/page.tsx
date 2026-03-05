@@ -48,7 +48,7 @@ const EVALUATION: AccordionItem[] = [
       <div className="space-y-2">
         <p><strong>Drawdown:</strong> מגבלת הפסד כוללת לחשבון — אם נפגעת, המבחן נכשל.</p>
         <p><strong>DLL (Daily Loss Limit):</strong> מגבלת הפסד יומית — פגיעה בה משהה מסחר ליום בלבד, לא פוסלת את המבחן. קיים רק בחשבונות EOD.</p>
-        <p><strong>מבחן Intraday:</strong> אין DLL — אך ב-PA Intraday יש DLL לפי טיירים.</p>
+        <p><strong>מבחן Intraday:</strong> אין DLL — אך ב-PA Intraday יש DLL לפי רמות.</p>
       </div>
     ),
   },
@@ -82,12 +82,12 @@ const EVALUATION: AccordionItem[] = [
 const PA: AccordionItem[] = [
   {
     id: "p1",
-    trigger: "מה זה כלל ה-50% Consistency?",
+    trigger: "מה זה חוק עקביות 50%?",
     content: "היום הרווחי ביותר שלך (Single Best Day) חייב להיות פחות מ-50% מסך הרווח הכולל. כל עוד עברת 50%, כפתור בקשת התשלום לא זמין.",
   },
   {
     id: "p2",
-    trigger: "האם ימי הפסד פוגעים בכלל ה-50%?",
+    trigger: "האם ימי הפסד פוגעים בחוק עקביות 50%?",
     content: "לא. ימי הפסד לא נכללים בחישוב. רק ימים רווחיים נלקחים בחשבון.",
   },
   {
