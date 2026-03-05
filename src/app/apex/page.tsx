@@ -24,7 +24,7 @@ const NAV_CARDS = [
 
 const COMPARISON_ROWS: ComparisonRow[] = [
   {
-    feature: "Daily Loss Limit",
+    feature: "DLL (מגבלת הפסד יומי)",
     eodValue: <span style={{ color: "var(--amber-400)" }}>יש DLL ✅</span>,
     intradayValue: <span style={{ color: "var(--green-400)" }}>אין DLL ❌</span>,
     source: S.DAILY_LOSS_LIMIT,
@@ -55,8 +55,8 @@ const FAQ_ITEMS: AccordionItem[] = [
     trigger: "מה ההבדל בין מבחן ל-PA?",
     content: (
       <div className="space-y-2">
-        <p><strong style={{ color: "var(--text-primary)" }}>מבחן (Evaluation):</strong> שלב שבו הסוחר מוכיח שהוא עומד בכללי Apex. תשלום חד-פעמי ל-30 יום. אין חיוב חודשי ואין חידוש אוטומטי.</p>
-        <p><strong style={{ color: "var(--text-primary)" }}>PA (Performance Account):</strong> חשבון המימון שנפתח לאחר עמידה מוצלחת במבחן. בשלב זה הסוחר יכול לבקש תשלומים על רווחים.</p>
+        <p><strong style={{ color: "var(--text-primary)" }}>מבחן:</strong> השלב שבו מוכיחים עמידה בכללי Apex. תשלום חד-פעמי ל-30 יום, ללא חיוב חודשי וללא חידוש אוטומטי (Evaluation).</p>
+        <p><strong style={{ color: "var(--text-primary)" }}>PA:</strong> חשבון המימון שנפתח אחרי שעוברים את המבחן. בשלב הזה אפשר לבקש תשלומים על רווחים (Performance Account).</p>
       </div>
     ),
   },
@@ -65,8 +65,8 @@ const FAQ_ITEMS: AccordionItem[] = [
     trigger: "מה ההבדל בין EOD ל-Intraday?",
     content: (
       <div className="space-y-2">
-        <p><strong style={{ color: "var(--text-primary)" }}>EOD (End of Day):</strong> ה-Drawdown מחושב פעם אחת בסיום כל יום מסחר. קיים Daily Loss Limit — פגיעה בו משהה מסחר ליום (לא פוסלת את המבחן).</p>
-        <p><strong style={{ color: "var(--text-primary)" }}>Intraday:</strong> רף ההפסד הנגרר עוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים. במבחן אין Daily Loss Limit — ב-PA יש DLL לפי רמות.</p>
+        <p><strong style={{ color: "var(--text-primary)" }}>EOD:</strong> ה-Drawdown מחושב פעם אחת בסוף יום המסחר ונשאר קבוע עד הסוף הבא. יש DLL — פגיעה בו משהה מסחר ליום, לא פוסלת את המבחן (End of Day).</p>
+        <p><strong style={{ color: "var(--text-primary)" }}>Intraday:</strong> רף ההפסד הנגרר עוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים. במבחן אין DLL — ב-PA יש DLL לפי רמות.</p>
       </div>
     ),
   },
@@ -79,13 +79,13 @@ export default function ApexHubPage() {
         Apex Trader Funding — מרכז המידע
       </h1>
       <p className="text-lg mb-8" style={{ color: "var(--text-secondary)" }}>
-        כללי Apex כפי שמופיעים כיום במסמכים הרשמיים — מסודרים לפי סוג חשבון
+        כללי Apex – מסודרים לפי סוג חשבון.
       </p>
 
       <CalloutBox
         variant="info"
         title="חשוב לדעת לפני שמתחילים"
-        body="המידע בדף זה מבוסס על כללי Apex כפי שמופיעים כיום במסמכי התמיכה הרשמיים. חלק מהכללים חלים על סוגי חשבונות שונים — ודאו שאתם קוראים את הדף המתאים לחשבון שלכם. כל כלל מקושר למקורו."
+        body={"העמוד הזה עושה סדר בכללים לפי סוג חשבון. בכל סעיף יש קישור למקור הרשמי של Apex, כדי שתוכלו לבדוק גם שם."}
       />
 
       {/* Navigation Cards */}
@@ -126,7 +126,7 @@ export default function ApexHubPage() {
       {/* Full Comparison */}
       <section className="mb-12">
         <h2 className="text-xl font-bold mb-6" style={{ color: "var(--text-primary)" }}>
-          השוואה: EOD מול Intraday
+          השוואה בין EOD ל-Intraday
         </h2>
         <ComparisonBlock rows={COMPARISON_ROWS} />
       </section>
