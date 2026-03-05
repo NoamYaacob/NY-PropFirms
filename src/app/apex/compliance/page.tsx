@@ -68,7 +68,7 @@ export default function CompliancePage() {
             body={
               <>
                 <p>אסור לאפשר לאחרים לסחור בחשבון שלך, לשתף פרטי כניסה, או לפעול ממכשירים ו-IP משותפים.</p>
-                <p className="mt-2 font-medium" style={{ color: "#FFAAAA" }}>תוצאה: סגירת כל החשבונות הקשורים.</p>
+                <p className="mt-2 font-medium" style={{ color: "var(--red-text)" }}>תוצאה: סגירת כל החשבונות הקשורים.</p>
               </>
             }
           />
@@ -81,7 +81,7 @@ export default function CompliancePage() {
             body={
               <>
                 <p>אסור לשכפל עסקאות מחשבון אחד לאחר — בין אם אוטומטית (via bot) ובין אם ידנית.</p>
-                <p className="mt-2 font-medium" style={{ color: "#FFAAAA" }}>תוצאה: סגירת כל החשבונות הקשורים.</p>
+                <p className="mt-2 font-medium" style={{ color: "var(--red-text)" }}>תוצאה: סגירת כל החשבונות הקשורים.</p>
               </>
             }
           />
@@ -94,7 +94,7 @@ export default function CompliancePage() {
             body={
               <>
                 <p>מסחר אוטומטי בתדר גבוה אסור על כל סוגיו וצורותיו.</p>
-                <p className="mt-2 font-medium" style={{ color: "#FFAAAA" }}>תוצאה: סגירת כל החשבונות הקשורים.</p>
+                <p className="mt-2 font-medium" style={{ color: "var(--red-text)" }}>תוצאה: סגירת כל החשבונות הקשורים.</p>
               </>
             }
           />
@@ -107,10 +107,10 @@ export default function CompliancePage() {
             body={
               <>
                 <p>אסור לסחור בשני כיוונים בו-זמנית, כולל על נכסים מתואמים.</p>
-                <p className="mt-1 text-xs" style={{ color: "#FFAAAA" }}>
+                <p className="mt-1 text-xs" style={{ color: "var(--red-text)" }}>
                   ❌ Long NQ + Short ES בו-זמנית = Hedge = הפרה
                 </p>
-                <p className="mt-1 text-xs" style={{ color: "#FFAAAA" }}>
+                <p className="mt-1 text-xs" style={{ color: "var(--red-text)" }}>
                   ❌ Long + Short על אותו נכס = הפרה
                 </p>
                 <p className="mt-1 text-xs" style={{ color: "var(--green-400)" }}>
@@ -168,12 +168,12 @@ export default function CompliancePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="card p-4 text-center" style={{ borderColor: "var(--red-edge)", backgroundColor: "var(--red-900)" }}>
             <p className="text-2xl mb-2">❌</p>
-            <p className="text-sm font-medium" style={{ color: "#FFAAAA" }}>Long NQ + Short ES</p>
+            <p className="text-sm font-medium" style={{ color: "var(--red-text)" }}>Long NQ + Short ES</p>
             <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>נכסים מתואמים = Hedge</p>
           </div>
           <div className="card p-4 text-center" style={{ borderColor: "var(--red-edge)", backgroundColor: "var(--red-900)" }}>
             <p className="text-2xl mb-2">❌</p>
-            <p className="text-sm font-medium" style={{ color: "#FFAAAA" }}>Long + Short על אותו נכס</p>
+            <p className="text-sm font-medium" style={{ color: "var(--red-text)" }}>Long + Short על אותו נכס</p>
             <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>הפרה ישירה</p>
           </div>
           <div className="card p-4 text-center" style={{ borderColor: "var(--green-edge)", backgroundColor: "var(--green-900)" }}>

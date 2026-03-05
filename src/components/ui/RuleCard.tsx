@@ -50,7 +50,7 @@ export function RuleCard({
           )}
           <h3
             className="font-semibold text-base"
-            style={{ color: isProhibited ? "#FFAAAA" : "var(--text-primary)" }}
+            style={{ color: isProhibited ? "var(--red-text)" : "var(--text-primary)" }}
           >
             {title}
           </h3>

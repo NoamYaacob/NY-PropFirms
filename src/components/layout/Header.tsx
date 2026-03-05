@@ -3,6 +3,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 const NAV = [
   { label: "ראשי", href: "/" },
@@ -89,7 +90,7 @@ export function Header() {
         style={{
           backgroundColor: scrolled || mobileOpen ? "var(--surface-overlay)" : "transparent",
           borderBottom: scrolled ? "1px solid var(--surface-border)" : "1px solid transparent",
-          boxShadow: scrolled ? "0 4px 12px rgba(0,0,0,0.4)" : "none",
+          boxShadow: scrolled ? "var(--shadow-header)" : "none",
         }}
       >
         <div className="container-page flex items-center justify-between h-16">
@@ -99,7 +100,8 @@ export function Header() {
             <span style={{ color: "var(--text-primary)" }}>PROP FIRMS</span>
           </Link>
 
-          {/* Desktop nav */}
+          {/* Desktop nav + theme toggle + mobile hamburger (all on the opposite side from logo) */}
+          <div className="flex items-center gap-1">
           <nav className="hidden md:flex items-center gap-1">
             {NAV.map((item) => {
               const isActive = pathname === item.href || pathname.startsWith(item.href + "/");
@@ -170,6 +172,8 @@ export function Header() {
             })}
           </nav>
 
+          <ThemeToggle />
+
           {/* Mobile hamburger */}
           <button
             className="md:hidden p-2 rounded-md"
@@ -179,6 +183,7 @@ export function Header() {
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
+          </div>
         </div>
       </header>
 

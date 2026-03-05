@@ -18,13 +18,19 @@ export const metadata: Metadata = {
   description: "כללי Apex Trader Funding בעברית — ממסמכים רשמיים בלבד",
 };
 
+const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}else if(window.matchMedia('(prefers-color-scheme: light)').matches){document.documentElement.setAttribute('data-theme','light');}else{document.documentElement.setAttribute('data-theme','dark');}}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="he" dir="rtl" className={heebo.variable}>
+    <html lang="he" dir="rtl" className={heebo.variable} data-theme="dark">
+      <head>
+        {/* Inline script: sets data-theme before first paint to prevent flash */}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="antialiased">
         <Providers>
           <Header />

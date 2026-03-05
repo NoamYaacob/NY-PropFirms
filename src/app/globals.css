@@ -46,9 +46,65 @@
   --red-500: #EB5757;
   --red-900: #200A0A;
   --red-edge: #4A1010;
+  --red-text: #FFAAAA;
+
+  /* Shadows */
+  --shadow-header: 0 4px 12px rgba(0,0,0,0.4);
 
   /* Font (loaded via next/font/google, overrides this at runtime) */
   --font-heebo: "Heebo", "Arial Hebrew", Arial, sans-serif;
+}
+
+/* ─── Light theme tokens ─────────────────────────────────── */
+[data-theme="light"] {
+  /* Surface */
+  --surface-base:          #FAFAFC;
+  --surface-raised:        #FFFFFF;
+  --surface-overlay:       #F2F3F7;
+  --surface-subtle:        #F6F7FB;
+  --surface-border:        #D9DBE6;
+  --surface-border-strong: #C2C6D8;
+
+  /* Text */
+  --text-primary:   #12131A;
+  --text-secondary: #44475A;
+  --text-muted:     #6B6F86;
+  --text-inverse:   #EAEAF0;
+  --text-link:      #1A5FBB;
+
+  /* Gold */
+  --gold-500: #B88A28;
+  --gold-400: #9A7320;
+  --gold-300: #7C5B0E;
+  --gold-900: #FFF9E6;
+  --gold-edge: #D4B050;
+
+  /* Teal */
+  --teal-500: #1580BB;
+  --teal-400: #0D6B98;
+  --teal-900: #E0F3FC;
+  --teal-edge: #88C8E8;
+
+  /* Amber */
+  --amber-500: #D96800;
+  --amber-400: #C05A00;
+  --amber-900: #FFF4E0;
+  --amber-edge: #F8C080;
+
+  /* Green */
+  --green-500: #16602E;
+  --green-400: #1A7036;
+  --green-900: #E8F5EE;
+  --green-edge: #80C8A0;
+
+  /* Red */
+  --red-500: #C82828;
+  --red-900: #FFF0F0;
+  --red-edge: #F09090;
+  --red-text: #B01C1C;
+
+  /* Shadows */
+  --shadow-header: 0 4px 12px rgba(0,0,0,0.12);
 }
 
 @theme inline {
@@ -60,6 +116,7 @@ body {
   background: var(--surface-base);
   color: var(--text-primary);
   font-family: var(--font-heebo);
+  transition: background-color 200ms ease, color 200ms ease;
 }
 
 /* ─── Smooth scroll ──────────────────────────────────────────── */
@@ -83,25 +140,28 @@ html {
   background: var(--surface-raised);
   border: 1px solid var(--surface-border);
   border-radius: 12px;
+  transition: background-color 200ms ease, border-color 200ms ease;
 }
 .card-overlay {
   background: var(--surface-overlay);
   border: 1px solid var(--surface-border-strong);
   border-radius: 12px;
+  transition: background-color 200ms ease, border-color 200ms ease;
 }
 .card-featured {
   background: var(--surface-overlay);
   border: 1px solid var(--gold-edge);
   border-radius: 24px;
   box-shadow: 0 0 0 1px rgba(201,168,76,0.2), 0 4px 24px rgba(201,168,76,0.08);
+  transition: background-color 200ms ease, border-color 200ms ease;
 }
 
 /* Callout accent border (RTL: border on the right = reading start) */
-.callout-info     { background: var(--teal-900);  border: 1px solid var(--teal-edge);  border-inline-start: 3px solid var(--teal-500); }
-.callout-warning  { background: var(--amber-900); border: 1px solid var(--amber-edge); border-inline-start: 3px solid var(--amber-500); }
-.callout-success  { background: var(--green-900); border: 1px solid var(--green-edge); border-inline-start: 3px solid var(--green-500); }
-.callout-prohibited { background: var(--red-900); border: 1px solid var(--red-edge);  border-inline-start: 3px solid var(--red-500); }
-.callout-verify   { background: var(--amber-900); border: 1px solid var(--amber-edge); border-inline-start: 3px dashed var(--amber-500); }
+.callout-info     { background: var(--teal-900);  border: 1px solid var(--teal-edge);  border-inline-start: 3px solid var(--teal-500);  transition: background-color 200ms ease, border-color 200ms ease; }
+.callout-warning  { background: var(--amber-900); border: 1px solid var(--amber-edge); border-inline-start: 3px solid var(--amber-500); transition: background-color 200ms ease, border-color 200ms ease; }
+.callout-success  { background: var(--green-900); border: 1px solid var(--green-edge); border-inline-start: 3px solid var(--green-500); transition: background-color 200ms ease, border-color 200ms ease; }
+.callout-prohibited { background: var(--red-900); border: 1px solid var(--red-edge);  border-inline-start: 3px solid var(--red-500);  transition: background-color 200ms ease, border-color 200ms ease; }
+.callout-verify   { background: var(--amber-900); border: 1px solid var(--amber-edge); border-inline-start: 3px dashed var(--amber-500); transition: background-color 200ms ease, border-color 200ms ease; }
 
 /* Sticky CTA safe area */
 .sticky-cta-bar {
