@@ -100,11 +100,11 @@ export function PayoutTablesWidget() {
           <div className="flex flex-col gap-1.5" style={{ color: "var(--text-secondary)" }}>
             <p>
               <span className="font-medium" style={{ color: "var(--text-primary)" }}>סוף יום (EOD): </span>
-              רף ה־Drawdown נקבע לפי מצב החשבון בסוף יום המסחר.
+              רף ההפסד המותר (Drawdown) נקבע לפי מצב החשבון בסוף יום המסחר.
             </p>
             <p>
               <span className="font-medium" style={{ color: "var(--text-primary)" }}>אינטרה-דיי (Intraday): </span>
-              רף ה־Drawdown עוקב בזמן אמת אחרי השיא (Trailing).
+              רף ההפסד המותר (Drawdown) עוקב בזמן אמת אחרי השיא (Trailing).
             </p>
           </div>
           <p className="mt-2.5 text-xs" style={{ color: "var(--text-muted)" }}>
@@ -240,7 +240,7 @@ export function PayoutTablesWidget() {
                         className="block text-xs font-normal mt-0.5"
                         style={{ color: "var(--text-muted)", opacity: 0.7 }}
                       >
-                        הערכה — לא שדה רשמי של Apex
+                        זהו חישוב לפי מגבלת 20 חשבונות PA – לא שורת טבלה רשמית של Apex.
                       </span>
                     </td>
                     {ACCOUNT_SIZES.map((size) => (
