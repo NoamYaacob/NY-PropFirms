@@ -12,8 +12,8 @@ import {
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 const TABS: { key: TabKey; label: string }[] = [
-  { key: "intraday", label: "Intraday Trailing DD" },
-  { key: "eod",      label: "EOD" },
+  { key: "intraday", label: "אינטרה-דיי (Trailing)" },
+  { key: "eod",      label: "סוף יום (EOD)" },
 ];
 
 const PAYOUT_ROWS = [
@@ -95,18 +95,21 @@ export function PayoutTablesWidget() {
           }}
         >
           <p className="font-semibold mb-2" style={{ color: "var(--text-primary)" }}>
-            מה ההבדל בין Intraday ל-EOD?
+            מה ההבדל בין אינטרה-דיי ל־סוף יום?
           </p>
           <div className="flex flex-col gap-1.5" style={{ color: "var(--text-secondary)" }}>
             <p>
-              <span className="font-medium" style={{ color: "var(--text-primary)" }}>EOD: </span>
-              ה-Drawdown המרכזי מחושב לפי מצב החשבון בסוף היום (End Of Day), אך הכללים נאכפים גם במהלך היום.
+              <span className="font-medium" style={{ color: "var(--text-primary)" }}>סוף יום (EOD): </span>
+              רף ה־Drawdown נקבע לפי מצב החשבון בסוף יום המסחר.
             </p>
             <p>
-              <span className="font-medium" style={{ color: "var(--text-primary)" }}>Intraday: </span>
-              ה-Drawdown עוקב בזמן אמת במהלך היום (Trailing).
+              <span className="font-medium" style={{ color: "var(--text-primary)" }}>אינטרה-דיי (Intraday): </span>
+              רף ה־Drawdown עוקב בזמן אמת אחרי השיא (Trailing).
             </p>
           </div>
+          <p className="mt-2.5 text-xs" style={{ color: "var(--text-muted)" }}>
+            הנתונים עשויים להשתנות באתר Apex. מומלץ לבדוק גם שם לפני בקשת תשלום.
+          </p>
         </div>
 
         {/* ── Tabs ── */}
