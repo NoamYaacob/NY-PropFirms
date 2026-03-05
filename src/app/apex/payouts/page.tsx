@@ -8,6 +8,7 @@ import { Accordion, AccordionItem } from "@/components/ui/Accordion";
 import { Button } from "@/components/ui/Button";
 import { CouponChip } from "@/components/ui/CouponChip";
 import { S } from "@/lib/sources";
+import { PayoutTablesWidget } from "@/components/ui/PayoutTablesWidget";
 
 export const metadata: Metadata = {
   title: "תשלומים — כללי PA | NY Prop Firms",
@@ -66,6 +67,8 @@ export default function PayoutsPage() {
         body="כל הכללים בדף זה מבוססים על מסמכי Apex הרשמיים הקיימים כרגע. כל כלל מקושר למקורו."
         source={S.PAYOUT_RULES}
       />
+
+      <PayoutTablesWidget />
 
       {/* Main rules */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
