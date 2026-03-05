@@ -29,9 +29,32 @@ export default function EODPage() {
       <h1 className="text-4xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>
         Apex EOD — כללי המבחן וחשבון מימון
       </h1>
-      <p className="text-base mb-10" style={{ color: "var(--text-secondary)" }}>
+      <p className="text-base mb-6" style={{ color: "var(--text-secondary)" }}>
         כל הכללים מבוססים על מסמכי Apex הרשמיים הקיימים כרגע.
       </p>
+
+      {/* Key stats */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
+        <div className="card p-4 text-center">
+          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>
+            <span dir="ltr">Daily Loss Limit</span> — מבחן
+          </p>
+          <p className="font-bold" style={{ color: "var(--amber-400)" }}>
+            יש <span dir="ltr">DLL</span> ✅
+          </p>
+          <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>
+            מגבלה יומית — לא פוסלת
+          </p>
+        </div>
+        <div className="card p-4 text-center">
+          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>שיטת Drawdown</p>
+          <p className="font-bold" style={{ color: "var(--text-secondary)" }}>חישוב בסוף יום</p>
+        </div>
+        <div className="card p-4 text-center">
+          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>תקופת שימוש</p>
+          <p className="font-bold" style={{ color: "var(--text-primary)" }}>30 יום</p>
+        </div>
+      </div>
 
       {/* ── EVALUATION ─────────────────────────────────────────── */}
       <section id="evaluation">

@@ -59,11 +59,11 @@ const EVALUATION: AccordionItem[] = [
   },
   {
     id: "e4",
-    trigger: "מה ההבדל בין Trailing Threshold ב-Intraday לבין ה-Drawdown ב-EOD?",
+    trigger: "מה ההבדל בין רף הפסד נגרר (Intraday) לבין ה-Drawdown (EOD)?",
     content: (
       <div className="space-y-2">
         <p><strong>EOD Drawdown:</strong> מחושב פעם אחת בסיום כל יום מסחר ונשאר קבוע לאורך יום המסחר הבא.</p>
-        <p><strong>Intraday Trailing Threshold:</strong> עוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים (Unrealized PnL). עולה עם כל שיא חדש — ולעולם לא יורד.</p>
+        <p><strong>רף הפסד נגרר (Intraday):</strong> עוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים (Unrealized PnL). עולה עם כל שיא חדש — ולעולם לא יורד.</p>
       </div>
     ),
   },
@@ -134,11 +134,11 @@ const TERMS: AccordionItem[] = [
   {
     id: "t2",
     trigger: "מה זה Intraday?",
-    content: "חשבון עם רף נגרר (Trailing Drawdown) שעוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים. במבחן אין DLL — ב-PA יש.",
+    content: "חשבון עם רף הפסד נגרר שעוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים. במבחן אין DLL — ב-PA יש.",
   },
   {
     id: "t3",
-    trigger: "מה זה Trailing Drawdown?",
+    trigger: "מה זה רף הפסד נגרר?",
     content: "רמת הפסד מקסימלית שזזה כלפי מעלה עם שיא החשבון — אך לעולם אינה יורדת. נפוצה בחשבונות Intraday.",
   },
   {

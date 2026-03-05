@@ -48,7 +48,7 @@ export default function IntradayPage() {
         </div>
         <div className="card p-4 text-center">
           <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>שיטת Drawdown</p>
-          <p className="font-bold" style={{ color: "var(--teal-400)" }}>Trailing בזמן אמת</p>
+          <p className="font-bold" style={{ color: "var(--teal-400)" }}>רף הפסד נגרר (Trailing) בזמן אמת</p>
         </div>
         <div className="card p-4 text-center">
           <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>תקופת שימוש</p>
@@ -72,7 +72,7 @@ export default function IntradayPage() {
             <p>
               בשלב המבחן, חשבונות <span dir="ltr">Intraday</span> לא כפופים
               ל-<span dir="ltr">Daily Loss Limit</span>. כל ניהול הסיכון
-              נעשה דרך ה-<span dir="ltr">Trailing Threshold</span> בלבד —
+              נעשה דרך רף הפסד נגרר בלבד —
               אין מגבלת הפסד יומית.{" "}
               <strong>
                 שימו לב: ב-<span dir="ltr">Intraday PA</span> יש{" "}
@@ -84,22 +84,22 @@ export default function IntradayPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
           <RuleCard
-            title="Trailing Threshold — בזמן אמת"
+            title="רף הפסד נגרר — בזמן אמת"
             icon={Activity}
             accountType="intraday"
             source={S.INTRADAY_EVALUATIONS}
             body={
               <>
                 <p>
-                  ה-Trailing Threshold עוקב אחרי <strong>שיא החשבון</strong>{" "}
+                  רף ההפסד הנגרר עוקב אחרי <strong>שיא החשבון</strong>{" "}
                   בזמן אמת, כולל רווחים פתוחים (Unrealized PnL).
                 </p>
                 <p className="mt-2">
-                  ה-Threshold עולה עם כל שיא חדש —{" "}
+                  הרף עולה עם כל שיא חדש —{" "}
                   <strong>אך לעולם לא יורד</strong>.
                 </p>
                 <p className="mt-2 text-xs" style={{ color: "var(--text-muted)" }}>
-                  Threshold = שיא החשבון (כולל רווחים פתוחים) פחות רמת ה-Drawdown
+                  רף = שיא החשבון (כולל רווחים פתוחים) פחות רמת ה-Drawdown
                 </p>
               </>
             }

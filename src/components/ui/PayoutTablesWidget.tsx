@@ -12,7 +12,7 @@ import {
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 const TABS: { key: TabKey; label: string }[] = [
-  { key: "intraday", label: "אינטרה-דיי (Trailing)" },
+  { key: "intraday", label: "Intraday" },
   { key: "eod",      label: "סוף יום (EOD)" },
 ];
 
@@ -104,7 +104,7 @@ export function PayoutTablesWidget() {
             </p>
             <p>
               <span className="font-medium" style={{ color: "var(--text-primary)" }}>אינטרה-דיי (Intraday): </span>
-              רף ההפסד המותר (Drawdown) עוקב בזמן אמת אחרי השיא (Trailing).
+              רף ההפסד (Drawdown) נגרר בזמן אמת אחרי שיא החשבון.
             </p>
           </div>
           <p className="mt-2.5 text-xs" style={{ color: "var(--text-muted)" }}>

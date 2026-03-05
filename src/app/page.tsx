@@ -19,13 +19,13 @@ const COMPARISON_ROWS: ComparisonRow[] = [
   {
     feature: "שיטת Drawdown",
     eodValue: "חישוב בסוף יום המסחר",
-    intradayValue: "Trailing בזמן אמת",
+    intradayValue: "רף הפסד נגרר (Trailing) בזמן אמת",
     source: S.INTRADAY_EVALUATIONS,
   },
   {
     feature: "מה קורה בפגיעה",
     eodValue: "מסחר מושהה ליום — המבחן לא נכשל",
-    intradayValue: "אין פגיעה יומית — רק תקרת Trailing",
+    intradayValue: "אין פגיעה יומית — רק רף הפסד נגרר",
     source: S.DAILY_LOSS_LIMIT,
   },
 ];
@@ -41,7 +41,7 @@ const CATEGORY_CARDS = [
   {
     icon: Activity,
     title: "Apex Intraday",
-    desc: "כללי מבחן וחשבון PA לחשבונות Trailing",
+    desc: "כללי מבחן וחשבון PA לחשבונות Intraday",
     href: "/apex/intraday",
     color: "var(--teal-400)",
   },

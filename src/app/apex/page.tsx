@@ -32,7 +32,7 @@ const COMPARISON_ROWS: ComparisonRow[] = [
   {
     feature: "שיטת Drawdown",
     eodValue: "חישוב בסוף יום",
-    intradayValue: "Trailing בזמן אמת",
+    intradayValue: "רף הפסד נגרר (Trailing) בזמן אמת",
     source: S.INTRADAY_EVALUATIONS,
   },
   {
@@ -66,7 +66,7 @@ const FAQ_ITEMS: AccordionItem[] = [
     content: (
       <div className="space-y-2">
         <p><strong style={{ color: "var(--text-primary)" }}>EOD (End of Day):</strong> ה-Drawdown מחושב פעם אחת בסיום כל יום מסחר. קיים Daily Loss Limit — פגיעה בו משהה מסחר ליום (לא פוסלת את המבחן).</p>
-        <p><strong style={{ color: "var(--text-primary)" }}>Intraday:</strong> ה-Trailing Threshold עוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים. במבחן אין Daily Loss Limit — ב-PA יש DLL לפי רמות.</p>
+        <p><strong style={{ color: "var(--text-primary)" }}>Intraday:</strong> רף ההפסד הנגרר עוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים. במבחן אין Daily Loss Limit — ב-PA יש DLL לפי רמות.</p>
       </div>
     ),
   },
