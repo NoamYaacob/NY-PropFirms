@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -26,6 +26,8 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [apexOpen, setApexOpen] = useState(false);
   const pathname = usePathname();
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const apexWrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -37,6 +39,48 @@ export function Header() {
     setMobileOpen(false);
     setApexOpen(false);
   }, [pathname]);
+
+  // Close on outside click
+  useEffect(() => {
+    if (!apexOpen) return;
+    const onMouseDown = (e: MouseEvent) => {
+      if (apexWrapperRef.current && !apexWrapperRef.current.contains(e.target as Node)) {
+        setApexOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onMouseDown);
+    return () => document.removeEventListener("mousedown", onMouseDown);
+  }, [apexOpen]);
+
+  // Close on Esc
+  useEffect(() => {
+    if (!apexOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setApexOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [apexOpen]);
+
+  // Cleanup timer on unmount
+  useEffect(() => () => { if (closeTimer.current) clearTimeout(closeTimer.current); }, []);
+
+  const cancelClose = useCallback(() => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  }, []);
+
+  const scheduleClose = useCallback(() => {
+    cancelClose();
+    closeTimer.current = setTimeout(() => setApexOpen(false), 200);
+  }, [cancelClose]);
+
+  const openDropdown = useCallback(() => {
+    cancelClose();
+    setApexOpen(true);
+  }, [cancelClose]);
 
   return (
     <>
@@ -61,20 +105,30 @@ export function Header() {
               const isActive = pathname === item.href || pathname.startsWith(item.href + "/");
               if (item.children) {
                 return (
-                  <div key={item.href} className="relative">
+                  // Hover zone covers both the trigger button AND the dropdown panel,
+                  // so moving between them never fires a leave event.
+                  <div
+                    key={item.href}
+                    ref={apexWrapperRef}
+                    className="relative"
+                    onMouseEnter={openDropdown}
+                    onMouseLeave={scheduleClose}
+                  >
                     <button
                       onClick={() => setApexOpen((v) => !v)}
                       className="flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium transition-colors"
                       style={{ color: isActive ? "var(--gold-300)" : "var(--text-secondary)" }}
-                      onMouseEnter={() => setApexOpen(true)}
-                      onMouseLeave={() => setApexOpen(false)}
                     >
                       {item.label}
                       <ChevronDown
                         size={14}
-                        style={{ transform: apexOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 200ms" }}
+                        style={{
+                          transform: apexOpen ? "rotate(180deg)" : "rotate(0deg)",
+                          transition: "transform 200ms",
+                        }}
                       />
                     </button>
+
                     {apexOpen && (
                       <div
                         className="absolute top-full mt-1 rounded-xl py-2 min-w-[160px]"
@@ -84,8 +138,6 @@ export function Header() {
                           boxShadow: "0 8px 24px rgba(0,0,0,0.5)",
                           insetInlineEnd: 0,
                         }}
-                        onMouseEnter={() => setApexOpen(true)}
-                        onMouseLeave={() => setApexOpen(false)}
                       >
                         {item.children.map((child) => (
                           <Link
@@ -130,7 +182,7 @@ export function Header() {
         </div>
       </header>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer — unchanged */}
       {mobileOpen && (
         <div
           className="fixed inset-0 z-[90] flex flex-col pt-16 md:hidden"
