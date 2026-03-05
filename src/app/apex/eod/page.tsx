@@ -105,17 +105,21 @@ export default function EODPage() {
             body={
               <div className="space-y-2">
                 <p>
-                  בחשבונות EOD קיים Daily Loss Limit — מגבלת הפסד יומית
+                  בחשבונות <span dir="ltr">EOD</span> קיים{" "}
+                  <span dir="ltr">Daily Loss Limit</span> — מגבלת הפסד יומית
                   כוללת (realized + unrealized).
                 </p>
                 <p>
                   <strong style={{ color: "var(--text-primary)" }}>
-                    פגיעה ב-DLL: המסחר מושהה לשארית יום המסחר — המבחן לא
-                    נכשל.
+                    פגיעה ב-<span dir="ltr">DLL</span>: המסחר מושהה לשארית יום
+                    המסחר — המבחן לא נכשל. חוזרים לסחור בסשן הבא.
                   </strong>
                 </p>
-                <p>
-                  ✅ <strong>חשבונות Intraday אינם כפופים ל-DLL כלל.</strong>
+                <p style={{ color: "var(--text-muted)" }}>
+                  במבחן <span dir="ltr">Intraday</span> אין{" "}
+                  <span dir="ltr">DLL</span> — אך ב-
+                  <span dir="ltr">Intraday PA</span> קיים{" "}
+                  <span dir="ltr">DLL</span> לפי טיירים.
                 </p>
               </div>
             }
@@ -223,6 +227,32 @@ export default function EODPage() {
             accountType="pa"
             source={S.PAYOUT_RULES}
             body="לטריידר מותר להחזיק עד 20 חשבונות PA פעילים בו-זמנית. חריגה ממגבלה זו חוסמת את האפשרות לבקש תשלומים."
+          />
+        </div>
+
+        {/* DLL in EOD PA — tier-based */}
+        <div className="mt-4">
+          <CalloutBox
+            variant="info"
+            title="DLL לפי טיירים — EOD PA"
+            accountType="eod-pa"
+            source={S.EOD_PA}
+            body={
+              <div className="space-y-2">
+                <p>
+                  ב-<span dir="ltr">EOD PA</span> קיים{" "}
+                  <span dir="ltr">DLL</span> — והוא מתעדכן לפי רמת החשבון (
+                  <span dir="ltr">Tier</span>): כשעולים טייר ה-
+                  <span dir="ltr">DLL</span> יכול לגדול, ואם יורדים טייר הוא
+                  יכול לרדת — לא מתחת לרמה הבסיסית.
+                </p>
+                <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                  הנתונים והטיירים עשויים להשתנות באתר{" "}
+                  <span dir="ltr">Apex</span>. מומלץ לבדוק גם שם לפני החלטות
+                  מסחר/תשלום.
+                </p>
+              </div>
+            }
           />
         </div>
 

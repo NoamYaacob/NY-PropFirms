@@ -68,6 +68,44 @@ export default function PayoutsPage() {
         source={S.PAYOUT_RULES}
       />
 
+      {/* DLL explainer — compact accordion above payout tables */}
+      <div className="mt-4 mb-2">
+        <Accordion
+          items={[
+            {
+              id: "what-is-dll",
+              trigger: "מה זה DLL (Daily Loss Limit)?",
+              content: (
+                <div className="space-y-2 text-sm" style={{ color: "var(--text-secondary)" }}>
+                  <p>
+                    <span dir="ltr">DLL</span> הוא גבול הפסד יומי. אם מגיעים
+                    אליו, המערכת סוגרת פוזיציות ועוצרת מסחר לשארית היום.
+                    החשבון לא נפסל — חוזרים לסחור בסשן הבא.
+                  </p>
+                  <p>
+                    במבחן <span dir="ltr">EOD</span> יש{" "}
+                    <span dir="ltr">DLL</span> קבוע לסשן. במבחן{" "}
+                    <span dir="ltr">Intraday</span> אין{" "}
+                    <span dir="ltr">DLL</span>. ב-<span dir="ltr">PA</span>{" "}
+                    קיים <span dir="ltr">DLL</span>, והוא יכול להשתנות לפי
+                    טיירים בהתאם להתקדמות החשבון.
+                  </p>
+                  <a
+                    href={S.DAILY_LOSS_LIMIT.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs hover:underline"
+                    style={{ color: "var(--teal-400)" }}
+                  >
+                    {S.DAILY_LOSS_LIMIT.title} ↗
+                  </a>
+                </div>
+              ),
+            },
+          ]}
+        />
+      </div>
+
       <PayoutTablesWidget />
 
       {/* Main rules */}

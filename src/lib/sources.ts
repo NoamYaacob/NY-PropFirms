@@ -20,6 +20,14 @@ export const S = {
     title: "Daily Loss Limit Explained",
     href: "https://support.apextraderfunding.com/hc/en-us/articles/47257193113371",
   },
+  EOD_PA: {
+    title: "EOD Performance Accounts (PA)",
+    href: "https://support.apextraderfunding.com/hc/en-us/articles/47204516592795-EOD-Performance-Accounts-PA",
+  },
+  INTRADAY_PA: {
+    title: "Intraday Trailing Drawdown Performance Accounts (PA)",
+    href: "https://support.apextraderfunding.com/hc/en-us/articles/47206242141979-Intraday-Trailing-Drawdown-Performance-Accounts-PA",
+  },
   PAYOUT_RULES: {
     title: "PA Payout Rules and Payout Method",
     href: "https://support.apextraderfunding.com/hc/en-us/articles/31519771933211",

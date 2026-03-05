@@ -10,7 +10,7 @@ import { S } from "@/lib/sources";
 
 export const metadata: Metadata = {
   title: "Apex Intraday — מבחן ו-PA | NY Prop Firms",
-  description: "כללי חשבון Intraday של Apex: Trailing Threshold, ללא DLL, Consistency 50%, Safety Net ועוד",
+  description: "כללי חשבון Intraday של Apex: Trailing Threshold, ללא DLL במבחן, DLL לפי טיירים ב-PA, Consistency 50%, Safety Net ועוד",
 };
 
 const APEX_URL = "https://apextraderfunding.com";
@@ -36,8 +36,15 @@ export default function IntradayPage() {
       {/* Key differences callout at top */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
         <div className="card p-4 text-center">
-          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>Daily Loss Limit</p>
-          <p className="font-bold" style={{ color: "var(--green-400)" }}>אין DLL ❌</p>
+          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>
+            <span dir="ltr">Daily Loss Limit</span> — מבחן
+          </p>
+          <p className="font-bold" style={{ color: "var(--green-400)" }}>
+            אין <span dir="ltr">DLL</span> ❌
+          </p>
+          <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>
+            ב-<span dir="ltr">PA Intraday</span> יש <span dir="ltr">DLL</span>
+          </p>
         </div>
         <div className="card p-4 text-center">
           <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>שיטת Drawdown</p>
@@ -58,10 +65,21 @@ export default function IntradayPage() {
         {/* No DLL — prominent */}
         <CalloutBox
           variant="success"
-          title="אין Daily Loss Limit — Intraday בלבד"
+          title="אין Daily Loss Limit — מבחן Intraday בלבד"
           accountType="intraday"
-          source={S.DAILY_LOSS_LIMIT}
-          body="חשבונות Intraday אינם כפופים ל-Daily Loss Limit. כל ניהול הסיכון מתבצע דרך ה-Trailing Threshold בלבד — אין מגבלת הפסד יומית."
+          source={S.INTRADAY_EVALUATIONS}
+          body={
+            <p>
+              בשלב המבחן, חשבונות <span dir="ltr">Intraday</span> אינם כפופים
+              ל-<span dir="ltr">Daily Loss Limit</span>. כל ניהול הסיכון
+              מתבצע דרך ה-<span dir="ltr">Trailing Threshold</span> בלבד —
+              אין מגבלת הפסד יומית.{" "}
+              <strong>
+                שימו לב: ב-<span dir="ltr">Intraday PA</span> קיים{" "}
+                <span dir="ltr">DLL</span> לפי טיירים.
+              </strong>
+            </p>
+          }
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
@@ -210,6 +228,32 @@ export default function IntradayPage() {
             accountType="pa"
             source={S.PAYOUT_RULES}
             body="לטריידר מותר להחזיק עד 20 חשבונות PA פעילים בו-זמנית. חריגה ממגבלה זו חוסמת בקשות תשלום."
+          />
+        </div>
+
+        {/* DLL in Intraday PA — tier-based */}
+        <div className="mt-4">
+          <CalloutBox
+            variant="info"
+            title="DLL לפי טיירים — Intraday PA"
+            accountType="intraday-pa"
+            source={S.INTRADAY_PA}
+            body={
+              <div className="space-y-2">
+                <p>
+                  ב-<span dir="ltr">Intraday PA</span> קיים{" "}
+                  <span dir="ltr">DLL</span> — בניגוד לשלב המבחן. ה-
+                  <span dir="ltr">DLL</span> מתעדכן לפי רמת החשבון (
+                  <span dir="ltr">Tier</span>): כשעולים טייר הוא יכול לגדול,
+                  ואם יורדים טייר הוא יכול לרדת — לא מתחת לרמה הבסיסית.
+                </p>
+                <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                  הנתונים והטיירים עשויים להשתנות באתר{" "}
+                  <span dir="ltr">Apex</span>. מומלץ לבדוק גם שם לפני החלטות
+                  מסחר/תשלום.
+                </p>
+              </div>
+            }
           />
         </div>
 
