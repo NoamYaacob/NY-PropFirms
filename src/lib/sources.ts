@@ -26,7 +26,7 @@ export const S = {
   },
   PA_COMPLIANCE: {
     title: "Performance Account (PA) and Compliance",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/31519788944411",
+    href: "https://support.apextraderfunding.com/hc/en-us/articles/31519788944411-Performance-Account-PA-and-Compliance",
   },
   PAYOUT_RULES: {
     title: "PA Payout Rules and Payout Method",
@@ -54,7 +54,7 @@ export const S = {
   },
   PROHIBITED: {
     title: "Prohibited Activities",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/40463668243099",
+    href: "https://support.apextraderfunding.com/hc/en-us/articles/40463668243099-Prohibited-Activities",
   },
   CLOSE_459: {
     title: "In Which Markets Must Trades Be Closed Earlier Than Before 4:59 PM ET?",

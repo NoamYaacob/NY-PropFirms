@@ -1,17 +1,16 @@
-import { ExternalLink } from "lucide-react";
-
 export interface SourceBadgeProps {
   title: string;
   href: string;
   short?: boolean;
 }
 
-export function SourceBadge({ title, href, short = false }: SourceBadgeProps) {
+export function SourceBadge({ title, href }: SourceBadgeProps) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      title={title}
       className="inline-flex items-center gap-1 text-xs font-medium rounded-full px-2.5 py-0.5 transition-colors duration-150 hover:underline"
       style={{
         backgroundColor: "var(--teal-900)",
@@ -19,8 +18,7 @@ export function SourceBadge({ title, href, short = false }: SourceBadgeProps) {
         border: "1px solid var(--teal-edge)",
       }}
     >
-      {short ? "מקור" : title.length > 42 ? title.slice(0, 42) + "…" : title}
-      <ExternalLink size={11} />
+      מקור רשמי ↗
     </a>
   );
 }

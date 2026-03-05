@@ -104,7 +104,7 @@ export default function CompliancePage() {
             title="הגדרה / Hedging"
             icon={ArrowLeftRight}
             accountType="universal"
-            source={S.APEX_30_RULES}
+            source={S.PA_COMPLIANCE}
             body={
               <>
                 <p>אסור לסחור בשני כיוונים בו-זמנית, כולל על נכסים מתואמים.</p>
@@ -184,8 +184,8 @@ export default function CompliancePage() {
           </div>
         </div>
         <div className="mt-3">
-          <a href={S.APEX_30_RULES.href} target="_blank" rel="noopener noreferrer" className="text-xs hover:underline" style={{ color: "var(--teal-400)" }}>
-            {S.APEX_30_RULES.title} ↗
+          <a href={S.PA_COMPLIANCE.href} target="_blank" rel="noopener noreferrer" title={S.PA_COMPLIANCE.title} className="text-xs hover:underline" style={{ color: "var(--teal-400)" }}>
+            מקור רשמי ↗
           </a>
         </div>
       </section>
