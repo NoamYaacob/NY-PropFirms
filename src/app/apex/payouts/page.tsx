@@ -37,12 +37,12 @@ const FAQ_ITEMS: AccordionItem[] = [
   {
     id: "losing-days",
     trigger: "האם ימי הפסד פוגעים בכלל ה-50%?",
-    content: "לא. ימי הפסד אינם נכללים בחישוב ה-Consistency. רק ימים רווחיים נלקחים בחשבון.",
+    content: "לא. ימי הפסד לא נכללים בחישוב ה-Consistency — רק ימים רווחיים.",
   },
   {
     id: "20-pa",
     trigger: "מה קורה אם יש לי יותר מ-20 חשבונות PA?",
-    content: "החריגה מ-20 חשבונות פעילים חוסמת את האפשרות לבקש תשלומים בכולם — עד שמספר החשבונות יורד מתחת ל-20.",
+    content: "אם חורגים מ-20 חשבונות פעילים — בקשות תשלום נחסמות בכולם עד שמספרם יורד ל-20 ומטה.",
   },
 ];
 
@@ -84,7 +84,7 @@ export default function PayoutsPage() {
                   </p>
                   <p>
                     במבחן <span dir="ltr">EOD</span> יש{" "}
-                    <span dir="ltr">DLL</span> קבוע לסשן. במבחן{" "}
+                    <span dir="ltr">DLL</span> קבוע ליום המסחר. במבחן{" "}
                     <span dir="ltr">Intraday</span> אין{" "}
                     <span dir="ltr">DLL</span>. ב-<span dir="ltr">PA</span>{" "}
                     קיים <span dir="ltr">DLL</span>, והוא יכול להשתנות לפי
@@ -118,15 +118,15 @@ export default function PayoutsPage() {
           body={
             <>
               <p>
-                יומך הרווחי ביותר חייב להוות <strong>פחות מ-50%</strong> מסך
-                הרווח הצבור.
+                היום הרווחי ביותר שלך חייב להיות <strong>פחות מ-50%</strong> מסך
+                הרווח הכולל.
               </p>
               <p className="mt-2">
-                כל עוד יחס זה גבוה מ-50%, כפתור בקשת התשלום אינו זמין.
-                ברגע שהיחס יורד מתחת ל-50% — ניתן לבקש תשלום.
+                כל עוד עברת 50%, כפתור בקשת התשלום לא זמין.
+                ברגע שהיחס יורד מתחת ל-50% — אפשר לבקש תשלום.
               </p>
               <p className="mt-2" style={{ color: "var(--green-400)" }}>
-                ✅ ימי הפסד אינם נכללים בחישוב — רק ימים רווחיים.
+                ✅ ימי הפסד לא נכללים בחישוב — רק ימים רווחיים.
               </p>
             </>
           }
@@ -199,7 +199,7 @@ export default function PayoutsPage() {
                 </tbody>
               </table>
               <p className="text-xs mt-3" style={{ color: "var(--text-muted)" }}>
-                חריג: אם יש לפחות $500 מעל רמת ה-Safety Net, ניתן לבקש תשלום מינימלי זה.
+                חריג: אם יש לפחות $500 מעל הרף — אפשר לבקש תשלום מינימלי של $500.
               </p>
             </div>
           }
@@ -210,7 +210,7 @@ export default function PayoutsPage() {
           icon={Users}
           accountType="pa"
           source={S.PAYOUT_RULES}
-          body="לטריידר מותר להחזיק עד 20 חשבונות PA פעילים בו-זמנית. חריגה מגבולה זו חוסמת בקשות תשלום בכל החשבונות עד שהמספר יורד מתחת ל-20."
+          body="לטריידר מותר להחזיק עד 20 חשבונות PA פעילים בו-זמנית. חריגה מגבול זה חוסמת בקשות תשלום בכל החשבונות עד שהמספר יורד מתחת ל-20."
         />
 
         <RuleCard
@@ -221,14 +221,14 @@ export default function PayoutsPage() {
           body={
             <>
               <p>
-                לפני הגשת בקשת תשלום ב-EOD PA נדרשים לפחות{" "}
-                <strong>5 ימי מסחר מאפיינים</strong> — ימים שבוצעה בהם לפחות עסקה אחת.
+                לבקשת תשלום מ-EOD PA נדרשים לפחות{" "}
+                <strong>5 ימי מסחר מאפיינים (Qualifying Trading Days)</strong> — ימים שבוצעה בהם לפחות עסקה אחת.
               </p>
               <p className="mt-2">
                 סכום הבקשה חייב להיות לפחות <strong>$500</strong>.
               </p>
               <p className="mt-2" style={{ color: "var(--text-muted)" }}>
-                בנוסף, כלל ה-50% Consistency חייב להיות מתקיים ברגע הבקשה.
+                וגם כלל ה-50% Consistency חייב להתקיים ברגע הבקשה.
               </p>
             </>
           }

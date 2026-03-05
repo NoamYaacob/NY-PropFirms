@@ -67,7 +67,7 @@ export default function CompliancePage() {
             source={S.PROHIBITED}
             body={
               <>
-                <p>אסור לאפשר לאחרים לסחור בחשבון שלך, לשתף אישורי כניסה, או לפעול ממכשירים ו-IP משותפים.</p>
+                <p>אסור לאפשר לאחרים לסחור בחשבון שלך, לשתף פרטי כניסה, או לפעול ממכשירים ו-IP משותפים.</p>
                 <p className="mt-2 font-medium" style={{ color: "#FFAAAA" }}>תוצאה: סגירת כל החשבונות הקשורים.</p>
               </>
             }
@@ -133,7 +133,7 @@ export default function CompliancePage() {
           <TimelineStrip
             variant="vertical"
             steps={[
-              { label: "שוק נפתח — 6:00 PM ET", sublabel: "ניתן לפתוח עסקאות" },
+              { label: "שוק נפתח — 6:00 PM ET", sublabel: "אפשר לפתוח עסקאות" },
               { label: "מועד אחרון לסגירה — 4:59 PM ET", sublabel: "כל פוזיציה חייבת להיסגר", variant: "warning" },
               { label: "פוזיציה פתוחה = הפרה — 5:00 PM ET", sublabel: "הפרת כלל זמן המסחר", variant: "danger" },
             ]}
@@ -150,8 +150,8 @@ export default function CompliancePage() {
                 מחוברות לפוזיציה) — נסגרות אוטומטית עם הפוזיציה. ✅
               </p>
               <p>
-                <strong style={{ color: "var(--amber-400)" }}>Unattached Standing Orders</strong> — אינן נסגרות
-                אוטומטית. <strong>חייבות לבטל ידנית לפני 4:59 PM ET.</strong> ⚠️
+                <strong style={{ color: "var(--amber-400)" }}>הוראות עצמאיות (Standing Orders)</strong> — לא נסגרות
+                אוטומטית. <strong>חייבות להיבטל ידנית לפני 4:59 PM ET.</strong> ⚠️
               </p>
             </div>
           }

@@ -95,7 +95,7 @@ export default function HomePage() {
               className="text-xl md:text-2xl font-medium"
               style={{ color: "var(--text-secondary)" }}
             >
-              מדריך ברור לחוקי חברות פרופ בעברית.
+              מדריך ברור לכללי חברות פרופ בעברית.
             </p>
             <p className="text-base" style={{ color: "var(--text-muted)" }}>
               כל מה שצריך לדעת לפני שמתחילים.

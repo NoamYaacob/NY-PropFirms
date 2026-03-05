@@ -70,12 +70,12 @@ export default function IntradayPage() {
           source={S.INTRADAY_EVALUATIONS}
           body={
             <p>
-              בשלב המבחן, חשבונות <span dir="ltr">Intraday</span> אינם כפופים
+              בשלב המבחן, חשבונות <span dir="ltr">Intraday</span> לא כפופים
               ל-<span dir="ltr">Daily Loss Limit</span>. כל ניהול הסיכון
-              מתבצע דרך ה-<span dir="ltr">Trailing Threshold</span> בלבד —
+              נעשה דרך ה-<span dir="ltr">Trailing Threshold</span> בלבד —
               אין מגבלת הפסד יומית.{" "}
               <strong>
-                שימו לב: ב-<span dir="ltr">Intraday PA</span> קיים{" "}
+                שימו לב: ב-<span dir="ltr">Intraday PA</span> יש{" "}
                 <span dir="ltr">DLL</span> לפי טיירים.
               </strong>
             </p>
@@ -96,7 +96,7 @@ export default function IntradayPage() {
                 </p>
                 <p className="mt-2">
                   ה-Threshold עולה עם כל שיא חדש —{" "}
-                  <strong>אך לעולם אינו יורד</strong>.
+                  <strong>אך לעולם לא יורד</strong>.
                 </p>
                 <p className="mt-2 text-xs" style={{ color: "var(--text-muted)" }}>
                   Threshold = שיא החשבון (כולל רווחים פתוחים) פחות רמת ה-Drawdown
@@ -110,7 +110,7 @@ export default function IntradayPage() {
             icon={Clock}
             accountType="intraday"
             source={S.EVALUATION_FEES}
-            body="רכישה חד-פעמית של 30 ימי לוח. אין חיוב חודשי, אין חידוש אוטומטי. בתום 30 הימים החשבון נסגר ופג אוטומטית. אין אפשרות להאריך."
+            body="רכישה חד-פעמית של 30 ימי לוח. אין חיוב חודשי ואין חידוש אוטומטי. בסוף 30 הימים החשבון נסגר אוטומטית — ואין אפשרות להאריך."
           />
 
           <RuleCard
@@ -125,8 +125,8 @@ export default function IntradayPage() {
                   <strong>4:59 PM ET</strong> של היום הבא.
                 </p>
                 <p className="mt-2">
-                  כל פוזיציה פתוחה חייבת להיסגר לפני 4:59. הוראות Unattached
-                  (Standing Orders) <strong>חייבות לבטל ידנית</strong>.
+                  כל פוזיציה פתוחה חייבת להיסגר לפני 4:59. הוראות עצמאיות
+                  (Standing Orders) <strong>חייבות להיבטל ידנית</strong>.
                 </p>
               </>
             }
@@ -139,7 +139,7 @@ export default function IntradayPage() {
             variant="warning"
             title="הוראות תלויות — שימו לב"
             source={S.CLOSE_459}
-            body="הוראות Unattached Standing Orders אינן נסגרות אוטומטית ב-4:59 PM ET — יש לבטל ידנית לפני המועד."
+            body="הוראות עצמאיות (Standing Orders) לא נסגרות אוטומטית ב-4:59 PM ET — חייבות להיבטל ידנית לפני המועד."
           />
         </div>
 
@@ -176,14 +176,14 @@ export default function IntradayPage() {
             body={
               <>
                 <p>
-                  יומך הרווחי ביותר חייב להוות <strong>פחות מ-50%</strong>{" "}
-                  מסך הרווח הצבור.
+                  היום הרווחי ביותר שלך חייב להיות <strong>פחות מ-50%</strong>{" "}
+                  מסך הרווח הכולל.
                 </p>
                 <p className="mt-2">
-                  כל עוד יחס זה גבוה מ-50%, כפתור בקשת התשלום אינו זמין.
+                  כל עוד עברת 50%, כפתור בקשת התשלום לא זמין.
                 </p>
                 <p className="mt-2" style={{ color: "var(--green-400)" }}>
-                  ✅ ימי הפסד אינם נכללים בחישוב.
+                  ✅ ימי הפסד לא נכללים בחישוב.
                 </p>
               </>
             }
@@ -197,11 +197,11 @@ export default function IntradayPage() {
             body={
               <>
                 <p>
-                  ב-3 התשלומים הראשונים, יתרת החשבון לאחר המשיכה חייבת
+                  ב-3 התשלומים הראשונים, יתרת החשבון אחרי המשיכה חייבת
                   להישאר מעל: <strong>יתרה התחלתית + Drawdown + $100</strong>.
                 </p>
                 <p className="mt-2">
-                  מהתשלום הרביעי ואילך — כלל ה-Safety Net אינו חל.
+                  מהתשלום הרביעי ואילך — ה-Safety Net לא חל.
                 </p>
               </>
             }
@@ -243,8 +243,8 @@ export default function IntradayPage() {
             body={
               <div className="space-y-2">
                 <p>
-                  ב-<span dir="ltr">Intraday PA</span> קיים{" "}
-                  <span dir="ltr">DLL</span> — בניגוד לשלב המבחן. ה-
+                  ב-<span dir="ltr">Intraday PA</span> יש{" "}
+                  <span dir="ltr">DLL</span> — שלא כמו במבחן. ה-
                   <span dir="ltr">DLL</span> מתעדכן לפי רמת החשבון (
                   <span dir="ltr">Tier</span>): כשעולים טייר הוא יכול לגדול,
                   ואם יורדים טייר הוא יכול לרדת — לא מתחת לרמה הבסיסית.

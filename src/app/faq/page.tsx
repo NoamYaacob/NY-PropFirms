@@ -48,7 +48,7 @@ const EVALUATION: AccordionItem[] = [
       <div className="space-y-2">
         <p><strong>Drawdown:</strong> מגבלת הפסד כוללת לחשבון — אם נפגעת, המבחן נכשל.</p>
         <p><strong>DLL (Daily Loss Limit):</strong> מגבלת הפסד יומית — פגיעה בה משהה מסחר ליום בלבד, לא פוסלת את המבחן. קיים רק בחשבונות EOD.</p>
-        <p><strong>חשבונות Intraday:</strong> אין DLL כלל — רק Trailing Threshold.</p>
+        <p><strong>מבחן Intraday:</strong> אין DLL — אך ב-PA Intraday יש DLL לפי טיירים.</p>
       </div>
     ),
   },
@@ -63,7 +63,7 @@ const EVALUATION: AccordionItem[] = [
     content: (
       <div className="space-y-2">
         <p><strong>EOD Drawdown:</strong> מחושב פעם אחת בסיום כל יום מסחר ונשאר קבוע לאורך יום המסחר הבא.</p>
-        <p><strong>Intraday Trailing Threshold:</strong> עוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים. עולה עם כל שיא חדש — אך לעולם אינו יורד.</p>
+        <p><strong>Intraday Trailing Threshold:</strong> עוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים (Unrealized PnL). עולה עם כל שיא חדש — ולעולם לא יורד.</p>
       </div>
     ),
   },
@@ -75,7 +75,7 @@ const EVALUATION: AccordionItem[] = [
   {
     id: "e6",
     trigger: "האם ניתן להשתמש ב-EA (Expert Advisor) במבחן?",
-    content: "מסחר אוטומטי מותר אם אינו HFT ואינו כולל שיתוף חשבון. יש לאמת ישירות מול Apex לגבי EA ספציפי לפני השימוש.",
+    content: "מסחר אוטומטי מותר אם לא מדובר ב-HFT ולא כולל שיתוף חשבון. מומלץ לאמת ישירות מול Apex לגבי EA ספציפי לפני השימוש.",
   },
 ];
 
@@ -83,12 +83,12 @@ const PA: AccordionItem[] = [
   {
     id: "p1",
     trigger: "מה זה כלל ה-50% Consistency?",
-    content: "יומך הרווחי ביותר (Single Best Day) חייב להוות פחות מ-50% מסך הרווח הצבור. כל עוד היחס גבוה מ-50%, כפתור בקשת התשלום אינו זמין.",
+    content: "היום הרווחי ביותר שלך (Single Best Day) חייב להיות פחות מ-50% מסך הרווח הכולל. כל עוד עברת 50%, כפתור בקשת התשלום לא זמין.",
   },
   {
     id: "p2",
     trigger: "האם ימי הפסד פוגעים בכלל ה-50%?",
-    content: "לא. ימי הפסד אינם נכללים בחישוב. רק ימים רווחיים נלקחים בחשבון.",
+    content: "לא. ימי הפסד לא נכללים בחישוב. רק ימים רווחיים נלקחים בחשבון.",
   },
   {
     id: "p3",
@@ -98,7 +98,7 @@ const PA: AccordionItem[] = [
   {
     id: "p5",
     trigger: "מהו Safety Net ומתי הוא חל?",
-    content: "Safety Net חל ב-3 התשלומים הראשונים. הוא מחייב שיתרת החשבון לאחר המשיכה תישאר מעל רמה מינימלית. מהתשלום הרביעי ואילך הכלל אינו חל.",
+    content: "Safety Net חל ב-3 התשלומים הראשונים. הוא מחייב שיתרת החשבון לאחר המשיכה תישאר מעל רמה מינימלית. מהתשלום הרביעי ואילך הכלל לא חל.",
   },
   {
     id: "p6",
@@ -134,7 +134,7 @@ const TERMS: AccordionItem[] = [
   {
     id: "t2",
     trigger: "מה זה Intraday?",
-    content: "חשבון עם Trailing Drawdown שעוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים. אין DLL.",
+    content: "חשבון עם רף נגרר (Trailing Drawdown) שעוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים. במבחן אין DLL — ב-PA יש.",
   },
   {
     id: "t3",
