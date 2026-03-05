@@ -11,9 +11,9 @@ const APEX_URL = "https://apextraderfunding.com";
 
 const COMPARISON_ROWS: ComparisonRow[] = [
   {
-    feature: "Daily Loss Limit",
-    eodValue: <span style={{ color: "var(--amber-400)" }}>✅ יש DLL</span>,
-    intradayValue: <span style={{ color: "var(--green-400)" }}>❌ אין DLL</span>,
+    feature: "DLL (מגבלת הפסד יומי)",
+    eodValue: <span style={{ color: "var(--amber-400)" }}>✅ במבחן יש DLL</span>,
+    intradayValue: <span style={{ color: "var(--green-400)" }}>❌ במבחן אין DLL</span>,
     source: S.DAILY_LOSS_LIMIT,
   },
   {
@@ -34,28 +34,28 @@ const CATEGORY_CARDS = [
   {
     icon: Sunset,
     title: "Apex EOD",
-    desc: "כללי מבחן וחשבון PA לחשבונות End of Day",
+    desc: "כללי המבחן וחשבון ה-PA במסלול סוף יום (EOD)",
     href: "/apex/eod",
     color: "#7EA0FF",
   },
   {
     icon: Activity,
     title: "Apex Intraday",
-    desc: "כללי מבחן וחשבון PA לחשבונות Intraday",
+    desc: "כללי המבחן וחשבון ה-PA במסלול אינטרה-דיי (Intraday)",
     href: "/apex/intraday",
     color: "var(--teal-400)",
   },
   {
     icon: Wallet,
     title: "תשלומים",
-    desc: "כללי תשלום PA, Consistency, Safety Net",
+    desc: "כללי תשלום ב-PA, עקביות, רשת ביטחון",
     href: "/apex/payouts",
     color: "var(--gold-400)",
   },
   {
     icon: Shield,
     title: "עמידה בכללים",
-    desc: "פעילויות אסורות, כלל 4:59, No Hedging",
+    desc: "איסור גידור, כלל 4:59, פעילות אסורה",
     href: "/apex/compliance",
     color: "var(--green-400)",
   },
@@ -95,13 +95,13 @@ export default function HomePage() {
               className="text-xl md:text-2xl font-medium"
               style={{ color: "var(--text-secondary)" }}
             >
-              מדריך ברור לכללי חברות פרופ בעברית.
+              המדריך הישראלי לחוקי חברות פרופ
             </p>
             <p className="text-base" style={{ color: "var(--text-muted)" }}>
-              כל מה שצריך לדעת לפני שמתחילים.
+              כל מה שחשוב לדעת לפני שמתחילים
             </p>
             <p className="text-sm" style={{ color: "var(--text-muted)", opacity: 0.6 }}>
-              כרגע: Apex. בקרוב: חברות נוספות.
+              כרגע: Apex. בהמשך: חברות נוספות.
             </p>
           </div>
 
@@ -130,7 +130,7 @@ export default function HomePage() {
         <section className="mb-16">
           <StepFlowStrip
             steps={[
-              { number: 1, label: "בחר סוג חשבון: EOD או Intraday", href: "/apex" },
+              { number: 1, label: "בחר סוג: סוף יום (EOD) או אינטרה-דיי (Intraday)", href: "/apex" },
               { number: 2, label: "קרא את הכללים הרלוונטיים" },
               { number: 3, label: "פתח מבחן עם קוד TLHCODE", href: APEX_URL },
             ]}
