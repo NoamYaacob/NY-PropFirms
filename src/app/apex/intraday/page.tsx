@@ -51,8 +51,8 @@ export default function IntradayPage() {
           <p className="font-bold" style={{ color: "var(--teal-400)" }}>Trailing בזמן אמת</p>
         </div>
         <div className="card p-4 text-center">
-          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>גישה</p>
-          <p className="font-bold" style={{ color: "var(--text-primary)" }}>30 ימי לוח</p>
+          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>תקופת שימוש</p>
+          <p className="font-bold" style={{ color: "var(--text-primary)" }}>30 יום</p>
         </div>
       </div>
 
@@ -106,11 +106,11 @@ export default function IntradayPage() {
           />
 
           <RuleCard
-            title="גישה לחשבון המבחן"
+            title="תקופת שימוש — חשבון מבחן"
             icon={Clock}
             accountType="intraday"
             source={S.EVALUATION_FEES}
-            body="רכישה חד-פעמית של 30 ימי לוח. אין חיוב חודשי ואין חידוש אוטומטי. בסוף 30 הימים החשבון נסגר אוטומטית — ואין אפשרות להאריך."
+            body="רכישה חד-פעמית ל-30 יום. אין חיוב חודשי ואין חידוש אוטומטי. בסוף 30 הימים החשבון נסגר אוטומטית — ואין אפשרות להאריך."
           />
 
           <RuleCard
@@ -215,10 +215,10 @@ export default function IntradayPage() {
             body={
               <>
                 <p>
-                  <strong style={{ color: "var(--gold-300)" }}>100% לטריידר</strong> על $25,000 הרווחים הראשונים.
+                  <strong style={{ color: "var(--gold-300)" }}>100% לסוחר</strong> על $25,000 הרווחים הראשונים.
                 </p>
                 <p className="mt-2">
-                  <strong>90% לטריידר / 10% ל-Apex</strong> על כל רווח מעל $25,000.
+                  <strong>90% לסוחר / 10% ל-Apex</strong> על כל רווח מעל $25,000.
                 </p>
               </>
             }
@@ -229,7 +229,7 @@ export default function IntradayPage() {
             icon={ShieldAlert}
             accountType="pa"
             source={S.PAYOUT_RULES}
-            body="לטריידר מותר להחזיק עד 20 חשבונות PA פעילים בו-זמנית. חריגה ממגבלה זו חוסמת בקשות תשלום."
+            body="לסוחר מותר להחזיק עד 20 חשבונות PA פעילים בו-זמנית. חריגה ממגבלה זו חוסמת בקשות תשלום."
           />
         </div>
 

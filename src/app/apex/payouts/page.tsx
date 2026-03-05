@@ -22,12 +22,12 @@ const FAQ_ITEMS: AccordionItem[] = [
   {
     id: "min-days",
     trigger: "כמה ימי מסחר נדרשים לפני בקשת תשלום?",
-    content: "על EOD PA נדרשים לפחות 5 ימי מסחר מאפיינים (Qualifying Trading Days) — ימים שבוצעה בהם לפחות עסקה אחת. בנוסף, סכום הבקשה חייב להיות לפחות $500.",
+    content: "על EOD PA נדרשים לפחות 5 ימי מסחר כשירים (Qualifying Trading Days) — ימים שבוצעה בהם לפחות עסקה אחת. סכום הבקשה המינימלי: $500.",
   },
   {
     id: "second-payout",
     trigger: "האם אפשר לבקש תשלום שני מאותו PA?",
-    content: "כן — ניתן לבקש עד 6 תשלומים מאותו PA. לאחר התשלום ה-6 החשבון נסגר.",
+    content: "כן — אפשר לבקש עד 6 תשלומים מאותו PA. לאחר התשלום ה-6 החשבון נסגר.",
   },
   {
     id: "after-6",
@@ -147,7 +147,7 @@ export default function PayoutsPage() {
                 }}
               >
                 <p className="font-semibold" style={{ color: "var(--gold-300)" }}>
-                  100% לטריידר
+                  100% לסוחר
                 </p>
                 <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
                   על $25,000 הרווחים הראשונים לחשבון
@@ -161,7 +161,7 @@ export default function PayoutsPage() {
                 }}
               >
                 <p className="font-semibold" style={{ color: "var(--text-primary)" }}>
-                  90% לטריידר / 10% ל-Apex
+                  90% לסוחר / 10% ל-Apex
                 </p>
                 <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
                   על כל רווח מעל $25,000
@@ -210,7 +210,7 @@ export default function PayoutsPage() {
           icon={Users}
           accountType="pa"
           source={S.PAYOUT_RULES}
-          body="לטריידר מותר להחזיק עד 20 חשבונות PA פעילים בו-זמנית. חריגה מגבול זה חוסמת בקשות תשלום בכל החשבונות עד שהמספר יורד מתחת ל-20."
+          body="לסוחר מותר להחזיק עד 20 חשבונות PA פעילים בו-זמנית. חריגה מגבול זה חוסמת בקשות תשלום בכל החשבונות עד שהמספר יורד מתחת ל-20."
         />
 
         <RuleCard
@@ -222,7 +222,7 @@ export default function PayoutsPage() {
             <>
               <p>
                 לבקשת תשלום מ-EOD PA נדרשים לפחות{" "}
-                <strong>5 ימי מסחר מאפיינים (Qualifying Trading Days)</strong> — ימים שבוצעה בהם לפחות עסקה אחת.
+                <strong>5 ימי מסחר כשירים (Qualifying Trading Days)</strong> — ימים שבוצעה בהם לפחות עסקה אחת.
               </p>
               <p className="mt-2">
                 סכום הבקשה חייב להיות לפחות <strong>$500</strong>.

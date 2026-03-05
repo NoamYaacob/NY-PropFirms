@@ -41,13 +41,13 @@ export default function EODPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <RuleCard
-            title="גישה לחשבון המבחן"
+            title="תקופת שימוש — חשבון מבחן"
             icon={Clock}
             accountType="eod"
             source={S.EVALUATION_FEES}
             body={
               <p>
-                כל מבחן הוא <strong>רכישה חד-פעמית</strong> של 30 ימי לוח.
+                כל מבחן הוא <strong>רכישה חד-פעמית</strong> ל-30 יום.
                 החשבון לא מתחדש אוטומטית ואין חיוב חודשי. בסוף היום ה-30
                 החשבון פג ב-11:59 PM ET — אין אפשרות להאריך.
               </p>
@@ -210,12 +210,12 @@ export default function EODPage() {
               <>
                 <p>
                   <strong style={{ color: "var(--gold-300)" }}>
-                    100% לטריידר
+                    100% לסוחר
                   </strong>{" "}
                   על $25,000 הרווחים הראשונים לחשבון.
                 </p>
                 <p className="mt-2">
-                  <strong>90% לטריידר / 10% ל-Apex</strong> על כל רווח מעל
+                  <strong>90% לסוחר / 10% ל-Apex</strong> על כל רווח מעל
                   $25,000.
                 </p>
               </>
@@ -227,7 +227,7 @@ export default function EODPage() {
             icon={ShieldAlert}
             accountType="pa"
             source={S.PAYOUT_RULES}
-            body="לטריידר מותר להחזיק עד 20 חשבונות PA פעילים בו-זמנית. חריגה ממגבלה זו חוסמת את האפשרות לבקש תשלומים."
+            body="לסוחר מותר להחזיק עד 20 חשבונות PA פעילים בו-זמנית. חריגה ממגבלה זו חוסמת את האפשרות לבקש תשלומים."
           />
         </div>
 

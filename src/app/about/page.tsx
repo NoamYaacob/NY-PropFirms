@@ -23,7 +23,7 @@ export default function AboutPage() {
         <div className="text-base leading-relaxed space-y-3" style={{ color: "var(--text-secondary)" }}>
           <p>
             NY Prop Firms הוא אתר שנוצר כדי <strong style={{ color: "var(--text-primary)" }}>להנגיש בעברית</strong> את
-            כללי חברות הפרופ טריידינג לציבור הטריידרים הישראלי.
+            כללי חברות הפרופ לציבור הסוחרים הישראלי.
           </p>
           <p>
             אנחנו לא Apex Trader Funding, לא שותפים שלה, ולא מייצגים אותה
@@ -37,7 +37,7 @@ export default function AboutPage() {
       {/* How we work */}
       <section className="mb-8">
         <h2 className="text-xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>
-          כיצד אנו עובדים
+          איך אנחנו עובדים
         </h2>
         <div className="text-base leading-relaxed space-y-3" style={{ color: "var(--text-secondary)" }}>
           <p>
@@ -92,7 +92,7 @@ export default function AboutPage() {
           }}
         >
           <p>
-            ייתכן שנקבל עמלת הפניה מ-Apex Trader Funding כאשר משתמשים
+            ייתכן שנקבל עמלת הפניה מ-Apex Trader Funding כשמשתמשים
             פותחים חשבון דרך קוד TLHCODE.
           </p>
           <p className="mt-2">

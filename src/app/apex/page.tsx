@@ -55,8 +55,8 @@ const FAQ_ITEMS: AccordionItem[] = [
     trigger: "מה ההבדל בין מבחן ל-PA?",
     content: (
       <div className="space-y-2">
-        <p><strong style={{ color: "var(--text-primary)" }}>מבחן (Evaluation):</strong> שלב בחינה בו הטריידר מוכיח שהוא עומד בכללי Apex. תשלום חד-פעמי ל-30 ימי לוח. אין חיוב חודשי ואין חידוש אוטומטי.</p>
-        <p><strong style={{ color: "var(--text-primary)" }}>PA (Performance Account):</strong> חשבון המימון שנפתח לאחר עמידה מוצלחת במבחן. בשלב זה הטריידר יכול לבקש תשלומים על רווחים.</p>
+        <p><strong style={{ color: "var(--text-primary)" }}>מבחן (Evaluation):</strong> שלב שבו הסוחר מוכיח שהוא עומד בכללי Apex. תשלום חד-פעמי ל-30 יום. אין חיוב חודשי ואין חידוש אוטומטי.</p>
+        <p><strong style={{ color: "var(--text-primary)" }}>PA (Performance Account):</strong> חשבון המימון שנפתח לאחר עמידה מוצלחת במבחן. בשלב זה הסוחר יכול לבקש תשלומים על רווחים.</p>
       </div>
     ),
   },
