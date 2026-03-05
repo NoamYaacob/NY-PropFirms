@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Activity, Clock, Gauge, ShieldAlert, Wallet, TrendingUp } from "lucide-react";
+import { Activity, Clock, ShieldAlert, Wallet, TrendingUp } from "lucide-react";
 import { RuleCard } from "@/components/ui/RuleCard";
 import { CalloutBox } from "@/components/ui/CalloutBox";
 import { SectionDivider } from "@/components/ui/SectionDivider";
@@ -114,13 +114,6 @@ export default function IntradayPage() {
             }
           />
 
-          <RuleCard
-            title="יחס סיכון/תגמול — מקסימום 5:1"
-            icon={Gauge}
-            accountType="universal"
-            source={S.APEX_30_RULES}
-            body="ה-Stop Loss של כל עסקה אינו יכול לעלות על פי 5 מיעד הרווח של אותה עסקה."
-          />
         </div>
 
         <CalloutBox

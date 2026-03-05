@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Clock, Gauge, TrendingUp, BarChart2, ShieldAlert, Wallet } from "lucide-react";
+import { Clock, TrendingUp, BarChart2, ShieldAlert, Wallet } from "lucide-react";
 import { RuleCard } from "@/components/ui/RuleCard";
 import { CalloutBox } from "@/components/ui/CalloutBox";
 import { SectionDivider } from "@/components/ui/SectionDivider";
@@ -72,19 +72,6 @@ export default function EODPage() {
                   Unattached (Standing Orders) חייבות לבטל ידנית</strong>.
                 </p>
               </>
-            }
-          />
-
-          <RuleCard
-            title="יחס סיכון/תגמול — מקסימום 5:1"
-            icon={Gauge}
-            accountType="universal"
-            source={S.APEX_30_RULES}
-            body={
-              <p>
-                ה-Stop Loss של כל עסקה אינו יכול לעלות על פי 5 מיעד הרווח
-                של אותה עסקה. עסקה שפותחת עם יחס גבוה מ-5:1 היא הפרה.
-              </p>
             }
           />
 

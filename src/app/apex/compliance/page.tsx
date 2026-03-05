@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Clock, Gauge, BarChart2, UserX, Copy, Zap, ArrowLeftRight } from "lucide-react";
+import { Clock, BarChart2, UserX, Copy, Zap, ArrowLeftRight } from "lucide-react";
 import { RuleCard } from "@/components/ui/RuleCard";
 import { CalloutBox } from "@/components/ui/CalloutBox";
 import { TimelineStrip } from "@/components/ui/TimelineStrip";
@@ -9,7 +9,7 @@ import { S } from "@/lib/sources";
 
 export const metadata: Metadata = {
   title: "עמידה בכללים ופעילות אסורה — Apex | NY Prop Firms",
-  description: "עמידה בכללים של Apex: פעילות אסורה, כלל 4:59 PM ET, No Hedging, 5:1 R:R, Contract Scaling",
+  description: "עמידה בכללים של Apex: פעילות אסורה, כלל 4:59 PM ET, No Hedging, Contract Scaling",
 };
 
 const APEX_URL = "https://apextraderfunding.com";
@@ -18,7 +18,6 @@ const APEX_URL = "https://apextraderfunding.com";
 const UNIVERSAL_RULES = [
   { icon: Clock, label: "כל פוזיציה חייבת להיסגר לפני 4:59 PM ET", href: "#trading-window" },
   { icon: ArrowLeftRight, label: "אסור להגדיר (No Hedging)", href: "#hedging" },
-  { icon: Gauge, label: "יחס סיכון/תגמול מקסימלי: 5:1", href: "#rr" },
   { icon: BarChart2, label: "Contract Scaling חל על כל החשבונות", href: "#scaling" },
 ];
 
@@ -104,7 +103,7 @@ export default function CompliancePage() {
             title="הגדרה / Hedging"
             icon={ArrowLeftRight}
             accountType="universal"
-            source={S.PA_COMPLIANCE}
+            source={S.PROHIBITED}
             body={
               <>
                 <p>אסור לסחור בשני כיוונים בו-זמנית, כולל על נכסים מתואמים.</p>
@@ -183,31 +182,6 @@ export default function CompliancePage() {
             <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>Long בלבד או Short בלבד</p>
           </div>
         </div>
-        <div className="mt-3">
-          <a href={S.PA_COMPLIANCE.href} target="_blank" rel="noopener noreferrer" title={S.PA_COMPLIANCE.title} className="text-xs hover:underline" style={{ color: "var(--teal-400)" }}>
-            מקור רשמי ↗
-          </a>
-        </div>
-      </section>
-
-      <SectionDivider variant="section" />
-
-      {/* ── 5:1 R:R ────────────────────────────────────────────── */}
-      <section id="rr">
-        <RuleCard
-          title="יחס סיכון/תגמול — מקסימום 5:1"
-          icon={Gauge}
-          accountType="universal"
-          source={S.APEX_30_RULES}
-          body={
-            <>
-              <p>ה-Stop Loss של כל עסקה אינו יכול לעלות על פי 5 מיעד הרווח של אותה עסקה.</p>
-              <p className="mt-2 text-xs" style={{ color: "var(--text-muted)" }}>
-                אם יעד הרווח הוא X — ה-Stop Loss המקסימלי הוא 5X.
-              </p>
-            </>
-          }
-        />
       </section>
 
       <SectionDivider variant="section" />

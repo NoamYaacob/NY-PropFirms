@@ -4,10 +4,6 @@ export interface Source {
 }
 
 export const S = {
-  APEX_30_RULES: {
-    title: "Apex 3.0 Payout and Trading Rules",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/30306093336603",
-  },
   EVALUATION_FEES: {
     title: "Evaluation Plan Fees and Access Explained",
     href: "https://support.apextraderfunding.com/hc/en-us/articles/46723099925403",
@@ -23,10 +19,6 @@ export const S = {
   DAILY_LOSS_LIMIT: {
     title: "Daily Loss Limit Explained",
     href: "https://support.apextraderfunding.com/hc/en-us/articles/47257193113371",
-  },
-  PA_COMPLIANCE: {
-    title: "Performance Account (PA) and Compliance",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/31519788944411-Performance-Account-PA-and-Compliance",
   },
   PAYOUT_RULES: {
     title: "PA Payout Rules and Payout Method",

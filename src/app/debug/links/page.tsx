@@ -14,19 +14,17 @@ interface LinkEntry {
 }
 
 const SOURCE_LINKS: LinkEntry[] = [
-  { key: "APEX_30_RULES",        label: S.APEX_30_RULES.title,        url: S.APEX_30_RULES.href,        usedIn: "/apex/compliance — 5:1 R:R RuleCard" },
-  { key: "EVALUATION_FEES",      label: S.EVALUATION_FEES.title,      url: S.EVALUATION_FEES.href,      usedIn: "/apex/eod — שכר הערכה" },
+  { key: "EVALUATION_FEES",      label: S.EVALUATION_FEES.title,      url: S.EVALUATION_FEES.href,      usedIn: "/apex/eod, /apex/intraday — שכר הערכה" },
   { key: "EOD_EVALUATIONS",      label: S.EOD_EVALUATIONS.title,      url: S.EOD_EVALUATIONS.href,      usedIn: "/apex/eod — EOD evaluation rules" },
   { key: "INTRADAY_EVALUATIONS", label: S.INTRADAY_EVALUATIONS.title, url: S.INTRADAY_EVALUATIONS.href, usedIn: "/apex/intraday — Intraday evaluation rules" },
   { key: "DAILY_LOSS_LIMIT",     label: S.DAILY_LOSS_LIMIT.title,     url: S.DAILY_LOSS_LIMIT.href,     usedIn: "/apex/eod, /apex/intraday — Daily Loss Limit" },
-  { key: "PA_COMPLIANCE",        label: S.PA_COMPLIANCE.title,        url: S.PA_COMPLIANCE.href,        usedIn: "/apex/compliance — Hedging card + No Hedging section link" },
-  { key: "PAYOUT_RULES",         label: S.PAYOUT_RULES.title,         url: S.PAYOUT_RULES.href,         usedIn: "/apex/payouts — Payout rules callout" },
+  { key: "PAYOUT_RULES",         label: S.PAYOUT_RULES.title,         url: S.PAYOUT_RULES.href,         usedIn: "/apex/eod, /apex/intraday, /apex/payouts — Payout rules" },
   { key: "CONSISTENCY_50",       label: S.CONSISTENCY_50.title,       url: S.CONSISTENCY_50.href,       usedIn: "/apex/payouts — Consistency 50% rule" },
   { key: "SAFETY_NET",           label: S.SAFETY_NET.title,           url: S.SAFETY_NET.href,           usedIn: "/apex/payouts — Safety Net rule" },
   { key: "EOD_PAYOUTS",          label: S.EOD_PAYOUTS.title,          url: S.EOD_PAYOUTS.href,          usedIn: "/apex/payouts — EOD payout table source" },
   { key: "INTRADAY_PAYOUTS",     label: S.INTRADAY_PAYOUTS.title,     url: S.INTRADAY_PAYOUTS.href,     usedIn: "/apex/payouts — Intraday payout table source" },
   { key: "CONTRACT_SCALING",     label: S.CONTRACT_SCALING.title,     url: S.CONTRACT_SCALING.href,     usedIn: "/apex/compliance — Contract Scaling RuleCard" },
-  { key: "PROHIBITED",           label: S.PROHIBITED.title,           url: S.PROHIBITED.href,           usedIn: "/apex/compliance — Trade Copying, MAC/IP, HFT cards" },
+  { key: "PROHIBITED",           label: S.PROHIBITED.title,           url: S.PROHIBITED.href,           usedIn: "/apex/compliance — MAC/IP, Trade Copying, HFT, Hedging cards" },
   { key: "CLOSE_459",            label: S.CLOSE_459.title,            url: S.CLOSE_459.href,            usedIn: "/apex/compliance — 4:59 PM ET CalloutBox" },
 ];
 
