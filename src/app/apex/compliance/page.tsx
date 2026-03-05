@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Clock, Shield, Gauge, BarChart2, UserX, Copy, Zap, ArrowLeftRight } from "lucide-react";
+import { Clock, Gauge, BarChart2, UserX, Copy, Zap, ArrowLeftRight } from "lucide-react";
 import { RuleCard } from "@/components/ui/RuleCard";
 import { CalloutBox } from "@/components/ui/CalloutBox";
 import { TimelineStrip } from "@/components/ui/TimelineStrip";
 import { SectionDivider } from "@/components/ui/SectionDivider";
-import { SourcesList } from "@/components/ui/SourcesList";
 import { Button } from "@/components/ui/Button";
 import { S } from "@/lib/sources";
 
@@ -15,13 +14,6 @@ export const metadata: Metadata = {
 
 const APEX_URL = "https://apextraderfunding.com";
 
-const PAGE_SOURCES = [
-  S.PROHIBITED,
-  S.CLOSE_459,
-  S.APEX_30_RULES,
-  S.CONTRACT_SCALING,
-  S.PA_COMPLIANCE,
-];
 
 const UNIVERSAL_RULES = [
   { icon: Clock, label: "כל פוזיציה חייבת להיסגר לפני 4:59 PM ET", href: "#trading-window" },
@@ -142,9 +134,9 @@ export default function CompliancePage() {
           <TimelineStrip
             variant="vertical"
             steps={[
-              { label: "6:00 PM ET — שוק נפתח", sublabel: "ניתן לפתוח עסקאות" },
-              { label: "4:59 PM ET — מועד אחרון לסגירה", sublabel: "כל פוזיציה חייבת להיסגר", variant: "warning" },
-              { label: "5:00 PM ET — פוזיציה פתוחה = הפרה", sublabel: "הפרת כלל זמן המסחר", variant: "danger" },
+              { label: "שוק נפתח — 6:00 PM ET", sublabel: "ניתן לפתוח עסקאות" },
+              { label: "מועד אחרון לסגירה — 4:59 PM ET", sublabel: "כל פוזיציה חייבת להיסגר", variant: "warning" },
+              { label: "פוזיציה פתוחה = הפרה — 5:00 PM ET", sublabel: "הפרת כלל זמן המסחר", variant: "danger" },
             ]}
           />
         </div>
@@ -253,8 +245,6 @@ export default function CompliancePage() {
         <Button label="לכל כללי Apex ←" href="/apex" variant="secondary" />
       </div>
 
-      <SectionDivider variant="section" />
-      <SourcesList sources={PAGE_SOURCES} />
     </div>
   );
 }

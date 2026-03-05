@@ -38,7 +38,7 @@ const GENERAL: AccordionItem[] = [
 const EVALUATION: AccordionItem[] = [
   {
     id: "e1",
-    trigger: "כמה ימי מסחר צריך להשלים בהערכה?",
+    trigger: "כמה ימי מסחר צריך להשלים במבחן?",
     content: "בחשבונות הנוכחיים (EOD ו-Intraday): אין מינימום ימי מסחר. ניתן לעבור ברגע שמגיעים ליעד הרווח תוך שמירה על כל הכללים.",
   },
   {
@@ -46,16 +46,16 @@ const EVALUATION: AccordionItem[] = [
     trigger: "מה זה Daily Loss Limit ואיך זה שונה מה-Drawdown?",
     content: (
       <div className="space-y-2">
-        <p><strong>Drawdown:</strong> מגבלת הפסד כוללת לחשבון — אם נפגעת, ההערכה נכשלת.</p>
-        <p><strong>DLL (Daily Loss Limit):</strong> מגבלת הפסד יומית — פגיעה בה משהה מסחר ליום בלבד, לא פוסלת את ההערכה. קיים רק בחשבונות EOD.</p>
+        <p><strong>Drawdown:</strong> מגבלת הפסד כוללת לחשבון — אם נפגעת, המבחן נכשל.</p>
+        <p><strong>DLL (Daily Loss Limit):</strong> מגבלת הפסד יומית — פגיעה בה משהה מסחר ליום בלבד, לא פוסלת את המבחן. קיים רק בחשבונות EOD.</p>
         <p><strong>חשבונות Intraday:</strong> אין DLL כלל — רק Trailing Threshold.</p>
       </div>
     ),
   },
   {
     id: "e3",
-    trigger: "האם הגישה להערכה מתחדשת?",
-    content: "לא. הערכות נוכחיות הן תשלום חד-פעמי ל-30 ימי לוח. לאחר 30 יום החשבון נסגר ופג. אין חידוש אוטומטי ואין אפשרות להאריך.",
+    trigger: "האם הגישה למבחן מתחדשת?",
+    content: "לא. המבחנים הנוכחיים הם תשלום חד-פעמי ל-30 ימי לוח. לאחר 30 יום החשבון נסגר ופג. אין חידוש אוטומטי ואין אפשרות להאריך.",
   },
   {
     id: "e4",
@@ -70,11 +70,11 @@ const EVALUATION: AccordionItem[] = [
   {
     id: "e5",
     trigger: "מה קורה אם לא סגרתי פוזיציה לפני 4:59 PM ET?",
-    content: "זוהי הפרת כלל — Apex עשויה לסגור את הפוזיציה אוטומטית, אך האחריות על סגירה בזמן היא של הטריידר. הפרות עלולות לפסול את ההערכה.",
+    content: "זוהי הפרת כלל — Apex עשויה לסגור את הפוזיציה אוטומטית, אך האחריות על סגירה בזמן היא של הטריידר. הפרות עלולות לפסול את המבחן.",
   },
   {
     id: "e6",
-    trigger: "האם ניתן להשתמש ב-EA (Expert Advisor) להערכה?",
+    trigger: "האם ניתן להשתמש ב-EA (Expert Advisor) במבחן?",
     content: "מסחר אוטומטי מותר אם אינו HFT ואינו כולל שיתוף חשבון. יש לאמת ישירות מול Apex לגבי EA ספציפי לפני השימוש.",
   },
 ];
@@ -93,17 +93,7 @@ const PA: AccordionItem[] = [
   {
     id: "p3",
     trigger: "מה קורה אחרי 6 תשלומים?",
-    content: "החשבון נסגר אוטומטית. יש לפתוח הערכה חדשה ולעבור אותה כדי לקבל PA חדש.",
-  },
-  {
-    id: "p4",
-    trigger: "מה זה כלל ה-30% Consistency שקראתי עליו?",
-    content: (
-      <div className="space-y-2">
-        <p>כלל ה-30% הוא כלל Legacy — חל רק על חשבונות מדור קודם שכבר לא ניתן לפתוח.</p>
-        <p>בחשבונות הנוכחיים (EOD ו-Intraday) חל <strong>כלל ה-50%</strong> — לא 30%.</p>
-      </div>
-    ),
+    content: "החשבון נסגר אוטומטית. יש לפתוח מבחן חדש ולעבור אותו כדי לקבל PA חדש.",
   },
   {
     id: "p5",
@@ -121,7 +111,7 @@ const COUPON: AccordionItem[] = [
   {
     id: "c1",
     trigger: "מה זה קוד TLHCODE?",
-    content: "קוד הנחה שניתן להזין בעת פתיחת הערכה באתר Apex Trader Funding.",
+    content: "קוד הנחה שניתן להזין בעת פתיחת מבחן באתר Apex Trader Funding.",
   },
   {
     id: "c2",
@@ -154,13 +144,13 @@ const TERMS: AccordionItem[] = [
   {
     id: "t4",
     trigger: "מה זה PA?",
-    content: "Performance Account — חשבון המימון שנפתח לאחר עמידה מוצלחת בהערכה. בחשבון זה הטריידר יכול לבקש תשלומים על רווחים.",
+    content: "Performance Account — חשבון המימון שנפתח לאחר עמידה מוצלחת במבחן. בחשבון זה הטריידר יכול לבקש תשלומים על רווחים.",
   },
 ];
 
 const CATEGORIES = [
   { id: "general", label: "כלליות", items: GENERAL },
-  { id: "evaluation", label: "הערכה", items: EVALUATION },
+  { id: "evaluation", label: "מבחן", items: EVALUATION },
   { id: "pa", label: "PA ותשלומים", items: PA },
   { id: "coupon", label: "קוד TLHCODE", items: COUPON },
   { id: "terms", label: "מונחים", items: TERMS },
@@ -207,7 +197,7 @@ export default function FAQPage() {
       {/* TLHCODE CTA */}
       <div className="mt-12 flex flex-col sm:flex-row items-center gap-4">
         <CouponChip size="sm" />
-        <Button label="פתח הערכה ב-Apex" href={APEX_URL} variant="primary" external />
+        <Button label="פתח מבחן ב-Apex" href={APEX_URL} variant="primary" external />
       </div>
 
       <div className="mt-8">

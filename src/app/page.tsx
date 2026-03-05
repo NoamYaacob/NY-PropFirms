@@ -24,7 +24,7 @@ const COMPARISON_ROWS: ComparisonRow[] = [
   },
   {
     feature: "מה קורה בפגיעה",
-    eodValue: "מסחר מושהה ליום — הערכה לא נכשלת",
+    eodValue: "מסחר מושהה ליום — המבחן לא נכשל",
     intradayValue: "אין פגיעה יומית — רק תקרת Trailing",
     source: S.DAILY_LOSS_LIMIT,
   },
@@ -34,14 +34,14 @@ const CATEGORY_CARDS = [
   {
     icon: Sunset,
     title: "Apex EOD",
-    desc: "כללי הערכה וחשבון PA לחשבונות End of Day",
+    desc: "כללי מבחן וחשבון PA לחשבונות End of Day",
     href: "/apex/eod",
     color: "#7EA0FF",
   },
   {
     icon: Activity,
     title: "Apex Intraday",
-    desc: "כללי הערכה וחשבון PA לחשבונות Trailing",
+    desc: "כללי מבחן וחשבון PA לחשבונות Trailing",
     href: "/apex/intraday",
     color: "var(--teal-400)",
   },
@@ -140,7 +140,7 @@ export default function HomePage() {
             steps={[
               { number: 1, label: "בחר סוג חשבון: EOD או Intraday", href: "/apex" },
               { number: 2, label: "קרא את הכללים הרלוונטיים" },
-              { number: 3, label: "פתח הערכה עם קוד TLHCODE", href: APEX_URL },
+              { number: 3, label: "פתח מבחן עם קוד TLHCODE", href: APEX_URL },
             ]}
           />
         </section>
@@ -213,11 +213,11 @@ export default function HomePage() {
             className="text-xl font-bold text-center"
             style={{ color: "var(--text-primary)" }}
           >
-            קוד הנחה לפתיחת הערכה
+            קוד הנחה לפתיחת מבחן
           </h2>
           <CouponChip size="lg" />
           <Button
-            label="פתח הערכה ב-Apex"
+            label="פתח מבחן ב-Apex"
             href={APEX_URL}
             variant="primary"
             size="lg"

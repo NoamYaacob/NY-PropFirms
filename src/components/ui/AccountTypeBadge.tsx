@@ -5,7 +5,6 @@ export type AccountType =
   | "pa"
   | "eod-pa"
   | "intraday-pa"
-  | "legacy"
   | "verify";
 
 interface Config {
@@ -51,12 +50,6 @@ const CONFIG: Record<AccountType, Config> = {
     bg: "var(--teal-900)",
     color: "var(--teal-400)",
     border: "var(--teal-edge)",
-  },
-  legacy: {
-    label: "Legacy בלבד",
-    bg: "#1A1010",
-    color: "#CC8888",
-    border: "#4A2020",
   },
   verify: {
     label: "יש לאמת ישירות",

@@ -16,9 +16,9 @@ export const metadata: Metadata = {
 const APEX_URL = "https://apextraderfunding.com";
 
 const NAV_CARDS = [
-  { icon: Sunset, title: "EOD — שלב ההערכה", href: "/apex/eod#evaluation", color: "#7EA0FF", badge: "הערכה" },
+  { icon: Sunset, title: "EOD — שלב המבחן", href: "/apex/eod#evaluation", color: "#7EA0FF", badge: "מבחן" },
   { icon: Sunset, title: "EOD — שלב ה-PA", href: "/apex/eod#pa", color: "#7EA0FF", badge: "PA" },
-  { icon: Activity, title: "Intraday — שלב ההערכה", href: "/apex/intraday#evaluation", color: "var(--teal-400)", badge: "הערכה" },
+  { icon: Activity, title: "Intraday — שלב המבחן", href: "/apex/intraday#evaluation", color: "var(--teal-400)", badge: "מבחן" },
   { icon: Activity, title: "Intraday — שלב ה-PA", href: "/apex/intraday#pa", color: "var(--teal-400)", badge: "PA" },
 ];
 
@@ -52,11 +52,11 @@ const COMPARISON_ROWS: ComparisonRow[] = [
 const FAQ_ITEMS: AccordionItem[] = [
   {
     id: "eval-vs-pa",
-    trigger: "מה ההבדל בין הערכה ל-PA?",
+    trigger: "מה ההבדל בין מבחן ל-PA?",
     content: (
       <div className="space-y-2">
-        <p><strong style={{ color: "var(--text-primary)" }}>הערכה (Evaluation):</strong> שלב בחינה בו הטריידר מוכיח שהוא עומד בכללי Apex. תשלום חד-פעמי ל-30 ימי לוח. אין חיוב חודשי ואין חידוש אוטומטי.</p>
-        <p><strong style={{ color: "var(--text-primary)" }}>PA (Performance Account):</strong> חשבון המימון שנפתח לאחר עמידה מוצלחת בהערכה. בשלב זה הטריידר יכול לבקש תשלומים על רווחים.</p>
+        <p><strong style={{ color: "var(--text-primary)" }}>מבחן (Evaluation):</strong> שלב בחינה בו הטריידר מוכיח שהוא עומד בכללי Apex. תשלום חד-פעמי ל-30 ימי לוח. אין חיוב חודשי ואין חידוש אוטומטי.</p>
+        <p><strong style={{ color: "var(--text-primary)" }}>PA (Performance Account):</strong> חשבון המימון שנפתח לאחר עמידה מוצלחת במבחן. בשלב זה הטריידר יכול לבקש תשלומים על רווחים.</p>
       </div>
     ),
   },
@@ -65,7 +65,7 @@ const FAQ_ITEMS: AccordionItem[] = [
     trigger: "מה ההבדל בין EOD ל-Intraday?",
     content: (
       <div className="space-y-2">
-        <p><strong style={{ color: "var(--text-primary)" }}>EOD (End of Day):</strong> ה-Drawdown מחושב פעם אחת בסיום כל יום מסחר. קיים Daily Loss Limit — פגיעה בו משהה מסחר ליום (לא פוסלת הערכה).</p>
+        <p><strong style={{ color: "var(--text-primary)" }}>EOD (End of Day):</strong> ה-Drawdown מחושב פעם אחת בסיום כל יום מסחר. קיים Daily Loss Limit — פגיעה בו משהה מסחר ליום (לא פוסלת את המבחן).</p>
         <p><strong style={{ color: "var(--text-primary)" }}>Intraday:</strong> ה-Trailing Threshold עוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים. אין Daily Loss Limit כלל.</p>
       </div>
     ),
@@ -135,7 +135,7 @@ export default function ApexHubPage() {
       {/* Page CTAs */}
       <div className="flex flex-col sm:flex-row items-center gap-4 mt-8">
         <CouponChip size="sm" />
-        <Button label="פתח הערכה ב-Apex" href={APEX_URL} variant="primary" external />
+        <Button label="פתח מבחן ב-Apex" href={APEX_URL} variant="primary" external />
       </div>
     </div>
   );

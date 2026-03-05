@@ -51,7 +51,7 @@ export function CouponChip({ size = "sm" }: CouponChipProps) {
       </span>
       <CopyButton value={COUPON} size="md" label="העתק קוד" />
       <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-        הזן את הקוד בעת פתיחת ההערכה באתר Apex
+        הזן את הקוד בעת פתיחת המבחן באתר Apex
       </p>
     </div>
   );

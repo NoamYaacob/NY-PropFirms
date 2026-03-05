@@ -20,7 +20,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           {/* Logo */}
           <div>
-            <div className="font-bold text-base mb-1">
+            <div className="font-bold text-base mb-1" dir="ltr">
               <span style={{ color: "var(--gold-300)" }}>NY </span>
               <span style={{ color: "var(--text-primary)" }}>PROP FIRMS</span>
             </div>

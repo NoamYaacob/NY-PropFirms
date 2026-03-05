@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { TrendingUp, ShieldAlert, Wallet, Users } from "lucide-react";
+import { TrendingUp, ShieldAlert, Wallet, Users, Clock } from "lucide-react";
 import { RuleCard } from "@/components/ui/RuleCard";
 import { CalloutBox } from "@/components/ui/CalloutBox";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { TimelineStrip } from "@/components/ui/TimelineStrip";
 import { Accordion, AccordionItem } from "@/components/ui/Accordion";
-import { SourcesList } from "@/components/ui/SourcesList";
 import { Button } from "@/components/ui/Button";
 import { CouponChip } from "@/components/ui/CouponChip";
 import { S } from "@/lib/sources";
@@ -17,19 +16,12 @@ export const metadata: Metadata = {
 
 const APEX_URL = "https://apextraderfunding.com";
 
-const PAGE_SOURCES = [
-  S.CONSISTENCY_50,
-  S.SAFETY_NET,
-  S.EOD_PAYOUTS,
-  S.INTRADAY_PAYOUTS,
-  S.PAYOUT_RULES,
-];
 
 const FAQ_ITEMS: AccordionItem[] = [
   {
-    id: "8days-consecutive",
-    trigger: "האם 8 ימי המסחר חייבים להיות רצופים?",
-    content: "לא — מדובר ב-8 ימי מסחר בלבד, לאו דווקא ברצף.",
+    id: "min-days",
+    trigger: "כמה ימי מסחר נדרשים לפני בקשת תשלום?",
+    content: "על EOD PA נדרשים לפחות 5 ימי מסחר מאפיינים (Qualifying Trading Days) — ימים שבוצעה בהם לפחות עסקה אחת. בנוסף, סכום הבקשה חייב להיות לפחות $500.",
   },
   {
     id: "second-payout",
@@ -39,7 +31,7 @@ const FAQ_ITEMS: AccordionItem[] = [
   {
     id: "after-6",
     trigger: "מה קורה אחרי 6 תשלומים?",
-    content: "החשבון נסגר אוטומטית. יש לפתוח הערכה חדשה ולעבור אותה כדי לקבל PA חדש.",
+    content: "החשבון נסגר אוטומטית. יש לפתוח מבחן חדש ולעבור אותו כדי לקבל PA חדש.",
   },
   {
     id: "losing-days",
@@ -179,6 +171,27 @@ export default function PayoutsPage() {
           source={S.PAYOUT_RULES}
           body="לטריידר מותר להחזיק עד 20 חשבונות PA פעילים בו-זמנית. חריגה מגבולה זו חוסמת בקשות תשלום בכל החשבונות עד שהמספר יורד מתחת ל-20."
         />
+
+        <RuleCard
+          title="תנאי מינימום לבקשת תשלום"
+          icon={Clock}
+          accountType="eod-pa"
+          source={S.EOD_PAYOUTS}
+          body={
+            <>
+              <p>
+                לפני הגשת בקשת תשלום ב-EOD PA נדרשים לפחות{" "}
+                <strong>5 ימי מסחר מאפיינים</strong> — ימים שבוצעה בהם לפחות עסקה אחת.
+              </p>
+              <p className="mt-2">
+                סכום הבקשה חייב להיות לפחות <strong>$500</strong>.
+              </p>
+              <p className="mt-2" style={{ color: "var(--text-muted)" }}>
+                בנוסף, כלל ה-50% Consistency חייב להיות מתקיים ברגע הבקשה.
+              </p>
+            </>
+          }
+        />
       </div>
 
       {/* 6-payout timeline */}
@@ -197,8 +210,8 @@ export default function PayoutsPage() {
           ]}
         />
         <p className="text-sm mt-4" style={{ color: "var(--text-secondary)" }}>
-          לאחר התשלום ה-6 המאושר, החשבון נסגר אוטומטית. יש לעבור הערכה
-          חדשה כדי לפתוח PA חדש.
+          לאחר התשלום ה-6 המאושר, החשבון נסגר אוטומטית. יש לעבור מבחן
+          חדש כדי לפתוח PA חדש.
         </p>
         <div className="flex gap-3 mt-3 flex-wrap">
           <a href={S.EOD_PAYOUTS.href} target="_blank" rel="noopener noreferrer" className="text-xs hover:underline" style={{ color: "var(--teal-400)" }}>
@@ -209,33 +222,6 @@ export default function PayoutsPage() {
           </a>
         </div>
       </div>
-
-      {/* ── Verify section — 8-day rule ─────────────────────── */}
-      <SectionDivider variant="section" />
-
-      <section>
-        <h2 className="text-xl font-semibold mb-4" style={{ color: "var(--text-secondary)" }}>
-          תנאי תשלום שכדאי לאמת ישירות מול Apex
-        </h2>
-        <CalloutBox
-          variant="verify"
-          title="תנאי המינימום לבקשת תשלום — יש לאמת ישירות"
-          source={S.PAYOUT_RULES}
-          body={
-            <>
-              <p>
-                על פי מסמכי Apex, קיים תנאי הקשור למספר ימי מסחר מינימליים
-                ולמינימום ימים רווחיים לפני בקשת תשלום. המידע הספציפי מופיע
-                בדף הכללים של Apex.
-              </p>
-              <p className="mt-2 font-medium" style={{ color: "var(--amber-400)" }}>
-                ⚠️ אנו ממליצים לאמת כלל זה ישירות במסמכי Apex לפני הגשת
-                בקשת תשלום.
-              </p>
-            </>
-          }
-        />
-      </section>
 
       {/* FAQ */}
       <SectionDivider variant="section" />
@@ -249,11 +235,8 @@ export default function PayoutsPage() {
       {/* CTA */}
       <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
         <CouponChip size="sm" />
-        <Button label="פתח הערכה ב-Apex" href={APEX_URL} variant="primary" external />
+        <Button label="פתח מבחן ב-Apex" href={APEX_URL} variant="primary" external />
       </div>
-
-      <SectionDivider variant="section" />
-      <SourcesList sources={PAGE_SOURCES} />
     </div>
   );
 }

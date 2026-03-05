@@ -1,33 +1,20 @@
 import type { Metadata } from "next";
-import { Activity, Clock, Gauge, BarChart2, ShieldAlert, Wallet, TrendingUp } from "lucide-react";
+import { Activity, Clock, Gauge, ShieldAlert, Wallet, TrendingUp } from "lucide-react";
 import { RuleCard } from "@/components/ui/RuleCard";
 import { CalloutBox } from "@/components/ui/CalloutBox";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { TimelineStrip } from "@/components/ui/TimelineStrip";
-import { SourcesList } from "@/components/ui/SourcesList";
 import { Button } from "@/components/ui/Button";
 import { CouponChip } from "@/components/ui/CouponChip";
 import { S } from "@/lib/sources";
 
 export const metadata: Metadata = {
-  title: "Apex Intraday — הערכה ו-PA | NY Prop Firms",
+  title: "Apex Intraday — מבחן ו-PA | NY Prop Firms",
   description: "כללי חשבון Intraday של Apex: Trailing Threshold, ללא DLL, Consistency 50%, Safety Net ועוד",
 };
 
 const APEX_URL = "https://apextraderfunding.com";
 
-const PAGE_SOURCES = [
-  S.INTRADAY_EVALUATIONS,
-  S.EVALUATION_FEES,
-  S.DAILY_LOSS_LIMIT,
-  S.APEX_30_RULES,
-  S.CONTRACT_SCALING,
-  S.CLOSE_459,
-  S.CONSISTENCY_50,
-  S.SAFETY_NET,
-  S.INTRADAY_PAYOUTS,
-  S.PAYOUT_RULES,
-];
 
 export default function IntradayPage() {
   return (
@@ -40,7 +27,7 @@ export default function IntradayPage() {
       </nav>
 
       <h1 className="text-4xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>
-        Apex Intraday — כללי הערכה וחשבון מימון
+        Apex Intraday — כללי המבחן וחשבון מימון
       </h1>
       <p className="text-base mb-6" style={{ color: "var(--text-secondary)" }}>
         כל הכללים מבוססים על מסמכי Apex הרשמיים הקיימים כרגע.
@@ -65,7 +52,7 @@ export default function IntradayPage() {
       {/* ── EVALUATION ─────────────────────────────────────────── */}
       <section id="evaluation">
         <h2 className="text-2xl font-bold mb-6" style={{ color: "var(--gold-300)" }}>
-          שלב ההערכה — Intraday Evaluation
+          שלב המבחן — Intraday Evaluation
         </h2>
 
         {/* No DLL — prominent */}
@@ -101,7 +88,7 @@ export default function IntradayPage() {
           />
 
           <RuleCard
-            title="גישה לחשבון ההערכה"
+            title="גישה לחשבון המבחן"
             icon={Clock}
             accountType="intraday"
             source={S.EVALUATION_FEES}
@@ -145,7 +132,7 @@ export default function IntradayPage() {
 
         <div className="mt-8">
           <Button
-            label="פתח הערכה Intraday עם קוד TLHCODE"
+            label="פתח מבחן Intraday עם קוד TLHCODE"
             href={APEX_URL}
             variant="primary"
             size="lg"
@@ -157,7 +144,7 @@ export default function IntradayPage() {
       {/* ── Phase Divider ─────────────────────────────────────── */}
       <SectionDivider
         variant="phase"
-        rightLabel="← שלב ההערכה"
+        rightLabel="← שלב המבחן"
         leftLabel="שלב ה-PA ←"
       />
 
@@ -249,7 +236,7 @@ export default function IntradayPage() {
             ]}
           />
           <p className="text-sm mt-4" style={{ color: "var(--text-secondary)" }}>
-            לאחר התשלום ה-6, החשבון נסגר אוטומטית. יש לפתוח הערכה חדשה.
+            לאחר התשלום ה-6, החשבון נסגר אוטומטית. יש לפתוח מבחן חדש.
           </p>
           <div className="mt-2">
             <a href={S.INTRADAY_PAYOUTS.href} target="_blank" rel="noopener noreferrer" className="text-xs hover:underline" style={{ color: "var(--teal-400)" }}>
@@ -260,12 +247,10 @@ export default function IntradayPage() {
 
         <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
           <CouponChip size="sm" />
-          <Button label="פתח הערכה ב-Apex" href={APEX_URL} variant="primary" external />
+          <Button label="פתח מבחן ב-Apex" href={APEX_URL} variant="primary" external />
         </div>
       </section>
 
-      <SectionDivider variant="section" />
-      <SourcesList sources={PAGE_SOURCES} />
     </div>
   );
 }

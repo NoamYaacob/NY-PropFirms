@@ -4,30 +4,17 @@ import { RuleCard } from "@/components/ui/RuleCard";
 import { CalloutBox } from "@/components/ui/CalloutBox";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { TimelineStrip } from "@/components/ui/TimelineStrip";
-import { SourcesList } from "@/components/ui/SourcesList";
 import { Button } from "@/components/ui/Button";
 import { CouponChip } from "@/components/ui/CouponChip";
 import { S } from "@/lib/sources";
 
 export const metadata: Metadata = {
-  title: "Apex EOD — הערכה ו-PA | NY Prop Firms",
+  title: "Apex EOD — מבחן ו-PA | NY Prop Firms",
   description: "כללי חשבון EOD של Apex: Daily Loss Limit, Contract Scaling, Consistency 50%, Safety Net ועוד",
 };
 
 const APEX_URL = "https://apextraderfunding.com";
 
-const PAGE_SOURCES = [
-  S.EOD_EVALUATIONS,
-  S.EVALUATION_FEES,
-  S.DAILY_LOSS_LIMIT,
-  S.APEX_30_RULES,
-  S.CONTRACT_SCALING,
-  S.CLOSE_459,
-  S.CONSISTENCY_50,
-  S.SAFETY_NET,
-  S.EOD_PAYOUTS,
-  S.PAYOUT_RULES,
-];
 
 export default function EODPage() {
   return (
@@ -40,7 +27,7 @@ export default function EODPage() {
       </nav>
 
       <h1 className="text-4xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>
-        Apex EOD — כללי הערכה וחשבון מימון
+        Apex EOD — כללי המבחן וחשבון מימון
       </h1>
       <p className="text-base mb-10" style={{ color: "var(--text-secondary)" }}>
         כל הכללים מבוססים על מסמכי Apex הרשמיים הקיימים כרגע.
@@ -49,18 +36,18 @@ export default function EODPage() {
       {/* ── EVALUATION ─────────────────────────────────────────── */}
       <section id="evaluation">
         <h2 className="text-2xl font-bold mb-6" style={{ color: "var(--gold-300)" }}>
-          שלב ההערכה — EOD Evaluation
+          שלב המבחן — EOD Evaluation
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <RuleCard
-            title="גישה לחשבון ההערכה"
+            title="גישה לחשבון המבחן"
             icon={Clock}
             accountType="eod"
             source={S.EVALUATION_FEES}
             body={
               <p>
-                כל הערכה הינה <strong>רכישה חד-פעמית</strong> של 30 ימי לוח.
+                כל מבחן הינו <strong>רכישה חד-פעמית</strong> של 30 ימי לוח.
                 החשבון אינו מתחדש אוטומטית ואינו כולל חיובים חודשיים. עם
                 סיום 30 הימים, החשבון נסגר ופג אוטומטית ב-11:59 PM ET ביום
                 ה-30. אין אפשרות להאריך.
@@ -136,8 +123,8 @@ export default function EODPage() {
                 </p>
                 <p>
                   <strong style={{ color: "var(--text-primary)" }}>
-                    פגיעה ב-DLL: המסחר מושהה לשארית יום המסחר — הערכה לא
-                    נכשלת.
+                    פגיעה ב-DLL: המסחר מושהה לשארית יום המסחר — המבחן לא
+                    נכשל.
                   </strong>
                 </p>
                 <p>
@@ -157,7 +144,7 @@ export default function EODPage() {
 
         <div className="mt-8">
           <Button
-            label="פתח הערכה EOD עם קוד TLHCODE"
+            label="פתח מבחן EOD עם קוד TLHCODE"
             href={APEX_URL}
             variant="primary"
             size="lg"
@@ -169,7 +156,7 @@ export default function EODPage() {
       {/* ── Phase Divider ────────────────────────────────────────── */}
       <SectionDivider
         variant="phase"
-        rightLabel="← שלב ההערכה"
+        rightLabel="← שלב המבחן"
         leftLabel="שלב ה-PA ←"
       />
 
@@ -268,7 +255,7 @@ export default function EODPage() {
             ]}
           />
           <p className="text-sm mt-4" style={{ color: "var(--text-secondary)" }}>
-            לאחר התשלום ה-6, החשבון נסגר אוטומטית. יש לפתוח הערכה חדשה כדי
+            לאחר התשלום ה-6, החשבון נסגר אוטומטית. יש לפתוח מבחן חדש כדי
             לקבל PA חדש.
           </p>
           <div className="mt-3">
@@ -287,12 +274,10 @@ export default function EODPage() {
         {/* CTA */}
         <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
           <CouponChip size="sm" />
-          <Button label="פתח הערכה ב-Apex" href={APEX_URL} variant="primary" external />
+          <Button label="פתח מבחן ב-Apex" href={APEX_URL} variant="primary" external />
         </div>
       </section>
 
-      <SectionDivider variant="section" />
-      <SourcesList sources={PAGE_SOURCES} />
     </div>
   );
 }

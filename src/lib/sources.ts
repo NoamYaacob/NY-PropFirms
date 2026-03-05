@@ -60,16 +60,4 @@ export const S = {
     title: "In Which Markets Must Trades Be Closed Earlier Than Before 4:59 PM ET?",
     href: "https://support.apextraderfunding.com/hc/en-us/articles/4413998546587",
   },
-  LEGACY_RULES: {
-    title: "Legacy Evaluation Rules",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/31519769997083",
-  },
-  LEGACY_PRODUCTS: {
-    title: "Legacy Products Overview",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/47114837287067",
-  },
-  LEGACY_CONSISTENCY: {
-    title: "Legacy 30% Consistency Rule — Windfall",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/40463260337819",
-  },
 } satisfies Record<string, Source>;

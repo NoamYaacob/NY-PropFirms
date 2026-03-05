@@ -50,7 +50,7 @@ export function Header() {
       >
         <div className="container-page flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-1.5 font-bold text-lg tracking-tight">
+          <Link href="/" className="flex items-center gap-1.5 font-bold text-lg tracking-tight" dir="ltr">
             <span style={{ color: "var(--gold-300)" }}>NY</span>
             <span style={{ color: "var(--text-primary)" }}>PROP FIRMS</span>
           </Link>
