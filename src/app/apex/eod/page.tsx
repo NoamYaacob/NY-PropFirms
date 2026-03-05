@@ -126,12 +126,14 @@ export default function EODPage() {
           />
         </div>
 
-        <CalloutBox
-          variant="warning"
-          title="הוראות תלויות — שימו לב"
-          source={S.CLOSE_459}
-          body="הוראות Attached Orders (Stop / Limit מחוברות לפוזיציה) נסגרות אוטומטית עם הפוזיציה. הוראות Unattached Standing Orders חייבות לבטל ידנית — הן אינן נסגרות אוטומטית עם 4:59 PM ET."
-        />
+        <div className="mt-6">
+          <CalloutBox
+            variant="warning"
+            title="הוראות תלויות — שימו לב"
+            source={S.CLOSE_459}
+            body="הוראות Attached Orders (Stop / Limit מחוברות לפוזיציה) נסגרות אוטומטית עם הפוזיציה. הוראות Unattached Standing Orders חייבות לבטל ידנית — הן אינן נסגרות אוטומטית עם 4:59 PM ET."
+          />
+        </div>
 
         <div className="mt-8">
           <Button

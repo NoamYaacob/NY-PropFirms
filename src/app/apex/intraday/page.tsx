@@ -134,12 +134,14 @@ export default function IntradayPage() {
 
         </div>
 
-        <CalloutBox
-          variant="warning"
-          title="הוראות תלויות — שימו לב"
-          source={S.CLOSE_459}
-          body="הוראות Unattached Standing Orders אינן נסגרות אוטומטית ב-4:59 PM ET — יש לבטל ידנית לפני המועד."
-        />
+        <div className="mt-6">
+          <CalloutBox
+            variant="warning"
+            title="הוראות תלויות — שימו לב"
+            source={S.CLOSE_459}
+            body="הוראות Unattached Standing Orders אינן נסגרות אוטומטית ב-4:59 PM ET — יש לבטל ידנית לפני המועד."
+          />
+        </div>
 
         <div className="mt-8">
           <Button
