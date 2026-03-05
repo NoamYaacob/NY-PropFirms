@@ -1,19 +1,123 @@
 @import "tailwindcss";
 
+/* ─── Design Tokens ─────────────────────────────────────────── */
 :root {
-  --background: #09090E;
-  --foreground: #EAEAF0;
+  /* Surface */
+  --surface-base:          #09090E;
+  --surface-raised:        #111118;
+  --surface-overlay:       #1A1A24;
+  --surface-subtle:        #13131C;
+  --surface-border:        #252530;
+  --surface-border-strong: #38384A;
+
+  /* Text */
+  --text-primary:   #EAEAF0;
+  --text-secondary: #8A8A9E;
+  --text-muted:     #55556A;
+  --text-inverse:   #09090E;
+  --text-link:      #5B9CF6;
+
+  /* Gold — primary brand */
+  --gold-500: #C9A84C;
+  --gold-400: #DDB95A;
+  --gold-300: #EDCB72;
+  --gold-900: #2A2010;
+  --gold-edge: #4A3A18;
+
+  /* Teal — source / info */
+  --teal-500: #2D9CDB;
+  --teal-400: #52B5F0;
+  --teal-900: #0D2030;
+  --teal-edge: #1A4060;
+
+  /* Amber — warning / conditional */
+  --amber-500: #F2994A;
+  --amber-400: #FFAD6A;
+  --amber-900: #2A1800;
+  --amber-edge: #5A3010;
+
+  /* Green — universal / confirmed */
+  --green-500: #27AE60;
+  --green-400: #44CC7A;
+  --green-900: #0A2015;
+  --green-edge: #1A5030;
+
+  /* Red — prohibited only */
+  --red-500: #EB5757;
+  --red-900: #200A0A;
+  --red-edge: #4A1010;
+
+  /* Font (loaded via next/font/google, overrides this at runtime) */
   --font-heebo: "Heebo", "Arial Hebrew", Arial, sans-serif;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-heebo);
 }
 
+/* ─── Base ───────────────────────────────────────────────────── */
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--surface-base);
+  color: var(--text-primary);
   font-family: var(--font-heebo);
 }
+
+/* ─── Smooth scroll ──────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Reusable utility classes ───────────────────────────────── */
+.container-page {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container-page { padding-inline: 2rem; }
+}
+
+/* Card base */
+.card {
+  background: var(--surface-raised);
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+}
+.card-overlay {
+  background: var(--surface-overlay);
+  border: 1px solid var(--surface-border-strong);
+  border-radius: 12px;
+}
+.card-featured {
+  background: var(--surface-overlay);
+  border: 1px solid var(--gold-edge);
+  border-radius: 24px;
+  box-shadow: 0 0 0 1px rgba(201,168,76,0.2), 0 4px 24px rgba(201,168,76,0.08);
+}
+
+/* Callout accent border (RTL: border on the right = reading start) */
+.callout-info     { background: var(--teal-900);  border: 1px solid var(--teal-edge);  border-inline-start: 3px solid var(--teal-500); }
+.callout-warning  { background: var(--amber-900); border: 1px solid var(--amber-edge); border-inline-start: 3px solid var(--amber-500); }
+.callout-success  { background: var(--green-900); border: 1px solid var(--green-edge); border-inline-start: 3px solid var(--green-500); }
+.callout-prohibited { background: var(--red-900); border: 1px solid var(--red-edge);  border-inline-start: 3px solid var(--red-500); }
+.callout-verify   { background: var(--amber-900); border: 1px solid var(--amber-edge); border-inline-start: 3px dashed var(--amber-500); }
+
+/* Sticky CTA safe area */
+.sticky-cta-bar {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+/* Accordion animation */
+.accordion-content {
+  overflow: hidden;
+  transition: max-height 300ms cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 300ms ease;
+}
+
+/* Toast */
+.toast {
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+.toast-visible  { opacity: 1; transform: translateY(0); }
+.toast-hidden   { opacity: 0; transform: translateY(12px); pointer-events: none; }

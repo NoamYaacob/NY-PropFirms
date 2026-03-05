@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Heebo } from "next/font/google";
 import "./globals.css";
+import { Providers } from "@/components/providers/Providers";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { StickyMobileCTABar } from "@/components/layout/StickyMobileCTABar";
 
 const heebo = Heebo({
   subsets: ["hebrew", "latin"],
@@ -21,7 +25,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="he" dir="rtl" className={heebo.variable}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <Providers>
+          <Header />
+          <main className="pt-16">{children}</main>
+          <Footer />
+          <StickyMobileCTABar />
+        </Providers>
+      </body>
     </html>
   );
 }
