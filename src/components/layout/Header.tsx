@@ -14,7 +14,7 @@ const NAV = [
       { label: "EOD", href: "/apex/eod" },
       { label: "Intraday", href: "/apex/intraday" },
       { label: "תשלומים", href: "/apex/payouts" },
-      { label: "ציות", href: "/apex/compliance" },
+      { label: "עמידה בכללים", href: "/apex/compliance" },
     ],
   },
   { label: "שאלות נפוצות", href: "/faq" },

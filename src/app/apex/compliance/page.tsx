@@ -8,8 +8,8 @@ import { Button } from "@/components/ui/Button";
 import { S } from "@/lib/sources";
 
 export const metadata: Metadata = {
-  title: "ציות ופעילות אסורה — Apex | NY Prop Firms",
-  description: "כללי ציות Apex: פעילות אסורה, כלל 4:59 PM ET, No Hedging, 5:1 R:R, Contract Scaling",
+  title: "עמידה בכללים ופעילות אסורה — Apex | NY Prop Firms",
+  description: "עמידה בכללים של Apex: פעילות אסורה, כלל 4:59 PM ET, No Hedging, 5:1 R:R, Contract Scaling",
 };
 
 const APEX_URL = "https://apextraderfunding.com";
@@ -28,11 +28,11 @@ export default function CompliancePage() {
       <nav className="text-sm mb-6 flex items-center gap-2" style={{ color: "var(--text-muted)" }}>
         <a href="/apex" className="hover:text-[var(--text-secondary)]">Apex</a>
         <span>/</span>
-        <span style={{ color: "var(--text-secondary)" }}>ציות</span>
+        <span style={{ color: "var(--text-secondary)" }}>עמידה בכללים</span>
       </nav>
 
       <h1 className="text-4xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>
-        כללי ציות ופעילות אסורה
+        עמידה בכללים ופעילות אסורה
       </h1>
       <p className="text-base mb-8" style={{ color: "var(--text-secondary)" }}>
         כללים אלו חלים על כל סוגי חשבונות Apex הנוכחיים — כל כלל מקושר למקורו.

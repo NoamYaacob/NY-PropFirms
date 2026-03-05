@@ -54,7 +54,7 @@ const CATEGORY_CARDS = [
   },
   {
     icon: Shield,
-    title: "ציות",
+    title: "עמידה בכללים",
     desc: "פעילויות אסורות, כלל 4:59, No Hedging",
     href: "/apex/compliance",
     color: "var(--green-400)",

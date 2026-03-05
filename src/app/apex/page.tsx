@@ -10,7 +10,7 @@ import { S } from "@/lib/sources";
 
 export const metadata: Metadata = {
   title: "Apex — כל הכללים | NY Prop Firms",
-  description: "מרכז הכללים של Apex Trader Funding בעברית — EOD, Intraday, תשלומים, ציות",
+  description: "מרכז הכללים של Apex Trader Funding בעברית — EOD, Intraday, תשלומים, עמידה בכללים",
 };
 
 const APEX_URL = "https://apextraderfunding.com";
