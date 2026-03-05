@@ -83,17 +83,6 @@ export default function HomePage() {
         />
 
         <div className="relative z-10 flex flex-col items-center gap-6 max-w-2xl mx-auto">
-          <div
-            className="text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-2"
-            style={{
-              backgroundColor: "var(--gold-900)",
-              color: "var(--gold-300)",
-              border: "1px solid var(--gold-edge)",
-            }}
-          >
-            מסמכים רשמיים בלבד
-          </div>
-
           <h1
             className="text-5xl md:text-6xl font-bold tracking-tight leading-none"
             style={{ color: "var(--text-primary)" }}
@@ -101,17 +90,20 @@ export default function HomePage() {
             <span style={{ color: "var(--gold-300)" }}>NY</span> PROP FIRMS
           </h1>
 
-          <p
-            className="text-xl md:text-2xl font-medium"
-            style={{ color: "var(--text-secondary)" }}
-          >
-            המדריך הישראלי לחברות פרופ טריידינג
-          </p>
-
-          <p className="text-base max-w-lg" style={{ color: "var(--text-muted)" }}>
-            כללי Apex Trader Funding בעברית — כפי שמופיעים כיום במסמכים הרשמיים.
-            כל כלל מקושר למקורו.
-          </p>
+          <div className="flex flex-col items-center gap-2">
+            <p
+              className="text-xl md:text-2xl font-medium"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              מדריך ברור לחוקי חברות פרופ בעברית.
+            </p>
+            <p className="text-base" style={{ color: "var(--text-muted)" }}>
+              כל מה שצריך לדעת לפני שמתחילים.
+            </p>
+            <p className="text-sm" style={{ color: "var(--text-muted)", opacity: 0.6 }}>
+              כרגע: Apex. בקרוב: חברות נוספות.
+            </p>
+          </div>
 
           <div className="flex flex-col sm:flex-row items-center gap-3 mt-2">
             <Button
