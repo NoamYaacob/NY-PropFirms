@@ -28,10 +28,10 @@ export const EOD_EVAL_PRICES: Record<AccountSize, PriceEntry> = {
 // ─── Intraday evaluation prices ───────────────────────────────────────────────
 
 export const INTRADAY_EVAL_PRICES: Record<AccountSize, PriceEntry> = {
-  "25K":  { fullPrice: "$117",  discountedPrice: "$17.55" },
-  "50K":  { fullPrice: "$131",  discountedPrice: "$19.65" },
-  "100K": { fullPrice: "$198",  discountedPrice: "$29.70" },
-  "150K": { fullPrice: "$265",  discountedPrice: "$39.75" },
+  "25K":  { fullPrice: "$118.00",  discountedPrice: "$17.70" },
+  "50K":  { fullPrice: "$131.33",  discountedPrice: "$19.70" },
+  "100K": { fullPrice: "$198.00",  discountedPrice: "$29.70" },
+  "150K": { fullPrice: "$264.67",  discountedPrice: "$39.70" },
 };
 
 // ─── PA activation prices (fixed, not promotional) ────────────────────────────
