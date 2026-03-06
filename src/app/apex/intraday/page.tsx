@@ -76,10 +76,10 @@ export default function IntradayPage() {
             ב-<span dir="ltr">PA</span> יש מגבלת הפסד יומי (<span dir="ltr">DLL</span>) ✅
           </p>
           <p className="text-xs mt-1.5" style={{ color: "var(--text-muted)" }}>
-            לפי רמות (<span dir="ltr">Tier</span>) · נבדק בזמן אמת · נעצרת פעילות עד הסשן הבא
+            לפי רמות (<span dir="ltr">Level/Tier</span>) • נבדק בזמן אמת • ההגבלה מתאפסת בסשן הבא
           </p>
           <p className="text-xs mt-1" style={{ color: "var(--text-muted)", opacity: 0.65 }}>
-            בשלב המבחן <span dir="ltr">Intraday</span> אין <span dir="ltr">DLL</span>
+            בשלב המבחן (<span dir="ltr">Intraday</span>) אין <span dir="ltr">DLL</span>
           </p>
         </div>
       </div>
@@ -172,7 +172,7 @@ export default function IntradayPage() {
             variant="info"
             title="DLL לפי רמות (Tier) — שלב ה-PA (Intraday)"
             accountType="intraday-pa"
-            source={S.DAILY_LOSS_LIMIT}
+            source={S.INTRADAY_PA}
             body={
               <div className="space-y-2">
                 <p>
@@ -260,8 +260,7 @@ export default function IntradayPage() {
                 נעשה דרך רף הפסד נגרר בלבד — אין מגבלת הפסד יומית.
               </p>
               <p>
-                <strong>חשוב:</strong> בשלב ה-<span dir="ltr">PA</span> יש{" "}
-                <span dir="ltr">DLL</span> לפי רמות.{" "}
+                <strong>חשוב: זה נכון רק לשלב המבחן. ב-<span dir="ltr">PA</span> יש <span dir="ltr">DLL</span>.</strong>{" "}
                 <a
                   href="#pa-dll"
                   style={{ color: "var(--teal-400)", textDecoration: "underline" }}
@@ -319,9 +318,7 @@ export default function IntradayPage() {
                   הוראות המחוברות לפוזיציה (כמו סטופ ולימיט) נסגרות אוטומטית
                   כשהפוזיציה נסגרת. הוראות עצמאיות שאינן מחוברות לפוזיציה{" "}
                   <strong>אינן מבוטלות אוטומטית</strong> — יש לבטל אותן ידנית
-                  לפני <span dir="ltr">4:59 PM ET</span>. בישראל זה בדרך כלל
-                  סביב חצות, אבל עשוי להשתנות לפי שעון קיץ — עבדו לפי{" "}
-                  <span dir="ltr">ET</span>.
+                  לפני <span dir="ltr">4:59 PM ET</span>.
                 </p>
               </>
             }
@@ -333,7 +330,7 @@ export default function IntradayPage() {
             variant="warning"
             title="הוראות תלויות — שימו לב"
             source={S.CLOSE_459}
-            body="הוראות המחוברות לפוזיציה (כמו סטופ ולימיט) נסגרות אוטומטית כשהפוזיציה נסגרת. הוראות עצמאיות שאינן מחוברות לפוזיציה אינן מבוטלות אוטומטית — יש לבטל אותן ידנית לפני 4:59 PM ET. בישראל זה בדרך כלל סביב חצות, אבל עשוי להשתנות לפי שעון קיץ — עבדו לפי ET."
+            body="הוראות המחוברות לפוזיציה (כמו סטופ ולימיט) נסגרות אוטומטית כשהפוזיציה נסגרת. הוראות עצמאיות שאינן מחוברות לפוזיציה אינן מבוטלות אוטומטית — יש לבטל אותן ידנית לפני 4:59 PM ET."
           />
         </div>
 
