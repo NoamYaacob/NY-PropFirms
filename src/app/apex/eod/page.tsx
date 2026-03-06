@@ -156,7 +156,7 @@ export default function EODPage() {
 
         <div className="mt-10">
           <Button
-            label="פתח מבחן EOD עם קוד TLHCODE"
+            label="פתח מבחן EOD עם קוד NOAM"
             href={APEX_URL}
             variant="primary"
             size="lg"

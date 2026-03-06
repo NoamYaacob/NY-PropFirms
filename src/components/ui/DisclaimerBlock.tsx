@@ -49,7 +49,7 @@ export function DisclaimerBlock({ variant = "inline" }: DisclaimerBlockProps) {
         .
       </p>
       <p>
-        ייתכן שנקבל עמלת הפניה בעת שימוש בקוד TLHCODE. אין בכך משום
+        ייתכן שנקבל עמלת הפניה בעת שימוש בקוד <span dir="ltr">NOAM</span>. אין בכך משום
         המלצה לפתוח חשבון.
       </p>
     </div>

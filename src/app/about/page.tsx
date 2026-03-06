@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { ExternalLink } from "lucide-react";
 import { DisclaimerBlock } from "@/components/ui/DisclaimerBlock";
 import { SectionDivider } from "@/components/ui/SectionDivider";
+import { CopyButton } from "@/components/ui/CopyButton";
+import { SECONDARY_COUPON } from "@/lib/coupons";
 
 export const metadata: Metadata = {
   title: "אודות | NY Prop Firms",
@@ -93,12 +95,29 @@ export default function AboutPage() {
         >
           <p>
             ייתכן שנקבל עמלת הפניה מ-Apex Trader Funding כשמשתמשים
-            פותחים חשבון דרך קוד TLHCODE.
+            פותחים חשבון דרך קוד <span dir="ltr">NOAM</span>.
           </p>
           <p className="mt-2">
             אין בכך משום המלצה לפתוח חשבון. ההחלטה לפתוח חשבון היא שלכם
             בלבד, לאחר קריאה עצמאית של כל הכללים ושיקול דעת עצמאי.
           </p>
+        </div>
+      </section>
+
+      <SectionDivider variant="subtle" />
+
+      {/* Secondary coupon — subtle, not featured */}
+      <section className="mb-8">
+        <h2 className="text-base font-semibold mb-2" style={{ color: "var(--text-secondary)" }}>
+          קוד נוסף
+        </h2>
+        <div className="text-sm leading-relaxed space-y-2" style={{ color: "var(--text-muted)" }}>
+          <p>
+            ברוב המקרים קוד הקופון הראשי הוא <span dir="ltr">NOAM</span>. אם מסיבה כלשהי הוא לא
+            מתקבל בקופה, אפשר לנסות גם את <span dir="ltr">TLHCODE</span>.
+          </p>
+          <p>(שני הקודים נועדו לאותו דבר – פשוט חלופה טכנית.)</p>
+          <CopyButton value={SECONDARY_COUPON} label="העתק TLHCODE" size="sm" />
         </div>
       </section>
 

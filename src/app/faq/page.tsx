@@ -110,7 +110,7 @@ const PA: AccordionItem[] = [
 const COUPON: AccordionItem[] = [
   {
     id: "c1",
-    trigger: "מה זה קוד TLHCODE?",
+    trigger: "מה זה קוד NOAM?",
     content: "קוד הנחה שאפשר להזין בעת פתיחת מבחן באתר Apex Trader Funding.",
   },
   {
@@ -152,7 +152,7 @@ const CATEGORIES = [
   { id: "general", label: "כלליות", items: GENERAL },
   { id: "evaluation", label: "מבחן", items: EVALUATION },
   { id: "pa", label: "PA ותשלומים", items: PA },
-  { id: "coupon", label: "קוד TLHCODE", items: COUPON },
+  { id: "coupon", label: "קוד הנחה", items: COUPON },
   { id: "terms", label: "מונחים", items: TERMS },
 ];
 
@@ -194,7 +194,7 @@ export default function FAQPage() {
         </section>
       ))}
 
-      {/* TLHCODE CTA */}
+      {/* Coupon CTA */}
       <div className="mt-12 flex flex-col sm:flex-row items-center gap-4">
         <CouponChip size="sm" />
         <Button label="פתח מבחן ב-Apex" href={APEX_URL} variant="primary" external />

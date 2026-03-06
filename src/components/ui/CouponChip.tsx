@@ -1,7 +1,6 @@
 import { Tag } from "lucide-react";
 import { CopyButton } from "./CopyButton";
-
-const COUPON = "TLHCODE";
+import { PRIMARY_COUPON } from "@/lib/coupons";
 
 interface CouponChipProps {
   size?: "sm" | "lg";
@@ -20,11 +19,12 @@ export function CouponChip({ size = "sm" }: CouponChipProps) {
         <Tag size={14} style={{ color: "var(--gold-400)" }} />
         <span
           className="font-mono font-bold tracking-widest"
+          dir="ltr"
           style={{ color: "var(--gold-300)", fontSize: "15px", letterSpacing: "0.08em" }}
         >
-          {COUPON}
+          {PRIMARY_COUPON}
         </span>
-        <CopyButton value={COUPON} size="sm" />
+        <CopyButton value={PRIMARY_COUPON} size="sm" />
       </div>
     );
   }
@@ -45,11 +45,12 @@ export function CouponChip({ size = "sm" }: CouponChipProps) {
       </div>
       <span
         className="font-mono font-bold tracking-widest"
+        dir="ltr"
         style={{ color: "var(--gold-300)", fontSize: "28px", letterSpacing: "0.1em" }}
       >
-        {COUPON}
+        {PRIMARY_COUPON}
       </span>
-      <CopyButton value={COUPON} size="md" label="העתק קוד" />
+      <CopyButton value={PRIMARY_COUPON} size="md" label="העתק קוד" />
       <p className="text-sm" style={{ color: "var(--text-muted)" }}>
         הזן את הקוד בעת פתיחת המבחן באתר Apex
       </p>
