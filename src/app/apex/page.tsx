@@ -30,9 +30,9 @@ const COMPARISON_ROWS: ComparisonRow[] = [
     source: S.DAILY_LOSS_LIMIT,
   },
   {
-    feature: "שיטת Drawdown (רף הפסד)",
-    eodValue: "חישוב בסוף יום",
-    intradayValue: "רף הפסד נגרר (Trailing) בזמן אמת",
+    feature: "שיטת רף הפסד",
+    eodValue: "רף הפסד בסוף יום",
+    intradayValue: "רף הפסד נגרר בזמן אמת",
     source: S.INTRADAY_EVALUATIONS,
   },
   {
