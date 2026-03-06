@@ -64,4 +64,8 @@ export const S = {
     title: "In Which Markets Must Trades Be Closed Earlier Than Before 4:59 PM ET?",
     href: "https://support.apextraderfunding.com/hc/en-us/articles/4413998546587",
   },
+  EVALUATION_PLANS: {
+    title: "Apex Evaluation Plans",
+    href: "https://apextraderfunding.com/evaluation-plans",
+  },
 } satisfies Record<string, Source>;

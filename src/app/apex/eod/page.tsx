@@ -6,6 +6,7 @@ import { SectionDivider } from "@/components/ui/SectionDivider";
 import { TimelineStrip } from "@/components/ui/TimelineStrip";
 import { Button } from "@/components/ui/Button";
 import { CouponChip } from "@/components/ui/CouponChip";
+import { PricingTable } from "@/components/ui/PricingTable";
 import { S } from "@/lib/sources";
 
 export const metadata: Metadata = {
@@ -57,33 +58,7 @@ export default function EODPage() {
       </div>
 
       {/* ── PRICING ─────────────────────────────────────────────── */}
-      <div
-        className="mb-10 rounded-xl p-4"
-        style={{
-          backgroundColor: "var(--gold-900)",
-          border: "1px solid var(--gold-edge)",
-        }}
-      >
-        <p className="text-xs font-semibold mb-3" style={{ color: "var(--gold-400)", letterSpacing: "0.05em" }}>
-          מחירים
-        </p>
-        <div className="space-y-2 text-sm">
-          <div className="flex items-baseline justify-between gap-6">
-            <span style={{ color: "var(--text-muted)" }}>מחיר המבחן</span>
-            <span style={{ color: "var(--text-primary)" }}>תשלום חד־פעמי ל-30 ימים</span>
-          </div>
-          <div className="flex items-baseline justify-between gap-6">
-            <span style={{ color: "var(--text-muted)" }}>מחיר <span dir="ltr">PA</span></span>
-            <span className="font-bold" style={{ color: "var(--gold-300)" }}>
-              <span dir="ltr">$99</span>
-            </span>
-          </div>
-        </div>
-        <p className="text-xs mt-3 pt-3" style={{ color: "var(--text-muted)", borderTop: "1px solid var(--gold-edge)" }}>
-          בקופה אפשר להזין את קוד הקופון{" "}
-          <span dir="ltr" style={{ color: "var(--gold-400)", fontWeight: 600 }}>NOAM</span>
-        </p>
-      </div>
+      <PricingTable type="eod" paPrice={99} />
 
       {/* ── EVALUATION ─────────────────────────────────────────── */}
       <section id="evaluation">
