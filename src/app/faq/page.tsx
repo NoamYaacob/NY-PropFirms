@@ -46,8 +46,8 @@ const EVALUATION: AccordionItem[] = [
     trigger: "מה זה Daily Loss Limit ואיך זה שונה מה-Drawdown?",
     content: (
       <div className="space-y-2">
-        <p><strong>Drawdown:</strong> מגבלת הפסד כוללת לחשבון — אם נפגעת, המבחן נכשל.</p>
-        <p><strong>DLL (Daily Loss Limit):</strong> מגבלת הפסד יומית — פגיעה בה משהה מסחר ליום בלבד, לא פוסלת את המבחן. קיים רק בחשבונות EOD.</p>
+        <p><strong>Drawdown (רף הפסד):</strong> מגבלת הפסד כוללת לחשבון — אם נפגעת, המבחן נכשל.</p>
+        <p><strong>DLL (מגבלת הפסד יומי):</strong> מגבלת הפסד יומית — פגיעה בה משהה מסחר ליום בלבד, לא פוסלת את המבחן. קיים רק בחשבונות EOD.</p>
         <p><strong>מבחן Intraday:</strong> אין DLL — אך ב-PA Intraday יש DLL לפי רמות.</p>
       </div>
     ),
@@ -59,10 +59,10 @@ const EVALUATION: AccordionItem[] = [
   },
   {
     id: "e4",
-    trigger: "מה ההבדל בין רף הפסד נגרר (Intraday) לבין ה-Drawdown (EOD)?",
+    trigger: "מה ההבדל בין רף הפסד נגרר (Intraday) לבין רף ההפסד (EOD)?",
     content: (
       <div className="space-y-2">
-        <p><strong>EOD Drawdown:</strong> מחושב פעם אחת בסיום כל יום מסחר ונשאר קבוע לאורך יום המסחר הבא.</p>
+        <p><strong>רף הפסד EOD:</strong> מחושב פעם אחת בסיום כל יום מסחר ונשאר קבוע לאורך יום המסחר הבא.</p>
         <p><strong>רף הפסד נגרר (Intraday):</strong> עוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים (Unrealized PnL). עולה עם כל שיא חדש — ולעולם לא יורד.</p>
       </div>
     ),
@@ -98,7 +98,7 @@ const PA: AccordionItem[] = [
   {
     id: "p5",
     trigger: "מהו Safety Net ומתי הוא חל?",
-    content: "Safety Net חל ב-3 התשלומים הראשונים. הוא מחייב שיתרת החשבון לאחר המשיכה תישאר מעל רמה מינימלית. מהתשלום הרביעי ואילך הכלל לא חל.",
+    content: "רשת הביטחון (Safety Net) חלה ב-3 התשלומים הראשונים. היא מחייבת שיתרת החשבון לאחר המשיכה תישאר מעל רמה מינימלית. מהתשלום הרביעי ואילך הכלל לא חל.",
   },
   {
     id: "p6",
@@ -129,7 +129,7 @@ const TERMS: AccordionItem[] = [
   {
     id: "t1",
     trigger: "מה זה EOD?",
-    content: "End of Day. סוג חשבון שה-Drawdown שלו מחושב פעם אחת בסיום יום המסחר ונשאר קבוע לאורך יום המסחר הבא.",
+    content: "סוף יום (End of Day). סוג חשבון שרף ההפסד שלו מחושב פעם אחת בסיום יום המסחר ונשאר קבוע לאורך יום המסחר הבא.",
   },
   {
     id: "t2",
@@ -144,7 +144,7 @@ const TERMS: AccordionItem[] = [
   {
     id: "t4",
     trigger: "מה זה PA?",
-    content: "Performance Account — חשבון המימון שנפתח לאחר עמידה מוצלחת במבחן. בחשבון זה הסוחר יכול לבקש תשלומים על רווחים.",
+    content: "חשבון מימון (Performance Account) שנפתח לאחר עמידה מוצלחת במבחן. בחשבון זה אפשר לבקש תשלומים על רווחים.",
   },
 ];
 

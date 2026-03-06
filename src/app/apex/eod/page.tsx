@@ -10,7 +10,7 @@ import { S } from "@/lib/sources";
 
 export const metadata: Metadata = {
   title: "Apex EOD — מבחן ו-PA | NY Prop Firms",
-  description: "כללי חשבון EOD של Apex: Daily Loss Limit, Contract Scaling, Consistency 50%, Safety Net ועוד",
+  description: "כללי חשבון EOD של Apex: DLL (מגבלת הפסד יומי), Contract Scaling, עקביות 50%, רשת ביטחון ועוד",
 };
 
 const APEX_URL = "https://apextraderfunding.com";
@@ -47,7 +47,7 @@ export default function EODPage() {
           </p>
         </div>
         <div className="card p-4 text-center">
-          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>שיטת Drawdown</p>
+          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>שיטת Drawdown (רף הפסד)</p>
           <p className="font-bold" style={{ color: "var(--text-secondary)" }}>חישוב בסוף יום</p>
         </div>
         <div className="card p-4 text-center">
@@ -111,7 +111,7 @@ export default function EODPage() {
                 </p>
                 <p className="mt-2">
                   הגישה לכמות המלאה נפתחת כשיתרת ה-EOD עוברת:{" "}
-                  <strong>יתרה התחלתית + Drawdown מקסימלי + $100</strong>.
+                  <strong>יתרה התחלתית + רף הפסד מקסימלי + <span dir="ltr">$100</span></strong>.
                   אחרי שהגישה נפתחת — היא נשארת גם אם היתרה יורדת.
                 </p>
               </>
@@ -214,13 +214,13 @@ export default function EODPage() {
               <>
                 <p>
                   ב-3 התשלומים הראשונים, יתרת החשבון אחרי המשיכה חייבת
-                  להישאר מעל: <strong>יתרה התחלתית + Drawdown + $100</strong>.
+                  להישאר מעל: <strong>יתרה התחלתית + רף הפסד + <span dir="ltr">$100</span></strong>.
                 </p>
                 <p className="mt-2">
-                  מהתשלום הרביעי ואילך — ה-Safety Net לא חל.
+                  מהתשלום הרביעי ואילך — רשת הביטחון לא חלה.
                 </p>
                 <p className="mt-2" style={{ color: "var(--text-muted)" }}>
-                  חריג: אם יש לפחות $500 מעל הרף — אפשר לבקש תשלום מינימלי של $500.
+                  חריג: אם יש לפחות <span dir="ltr">$500</span> מעל הרף — אפשר לבקש תשלום מינימלי של <span dir="ltr">$500</span>.
                 </p>
               </>
             }

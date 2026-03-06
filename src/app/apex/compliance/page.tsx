@@ -206,7 +206,7 @@ export default function CompliancePage() {
               </div>
               <div className="flex items-center gap-3">
                 <span className="w-6 h-6 rounded-full text-xs flex items-center justify-center font-bold shrink-0" style={{ backgroundColor: "var(--surface-overlay)", color: "var(--gold-300)", border: "1px solid var(--gold-edge)" }}>2</span>
-                <span>יתרת EOD עוברת את הרף (יתרה + Drawdown + $100): גישה לכמות המלאה</span>
+                <span>יתרת EOD עוברת את הרף (יתרה + רף הפסד + <span dir="ltr">$100</span>): גישה לכמות המלאה</span>
               </div>
               <div className="flex items-center gap-3">
                 <span className="w-6 h-6 rounded-full text-xs flex items-center justify-center font-bold shrink-0" style={{ backgroundColor: "var(--surface-overlay)", color: "var(--gold-300)", border: "1px solid var(--gold-edge)" }}>3</span>

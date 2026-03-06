@@ -30,13 +30,13 @@ const COMPARISON_ROWS: ComparisonRow[] = [
     source: S.DAILY_LOSS_LIMIT,
   },
   {
-    feature: "שיטת Drawdown",
+    feature: "שיטת Drawdown (רף הפסד)",
     eodValue: "חישוב בסוף יום",
     intradayValue: "רף הפסד נגרר (Trailing) בזמן אמת",
     source: S.INTRADAY_EVALUATIONS,
   },
   {
-    feature: "תנאי Consistency (PA)",
+    feature: "תנאי עקביות (Consistency) ב-PA",
     eodValue: "50% מהיום הרווחי ביותר",
     intradayValue: "50% מהיום הרווחי ביותר",
     source: S.CONSISTENCY_50,
@@ -65,7 +65,7 @@ const FAQ_ITEMS: AccordionItem[] = [
     trigger: "מה ההבדל בין EOD ל-Intraday?",
     content: (
       <div className="space-y-2">
-        <p><strong style={{ color: "var(--text-primary)" }}>EOD:</strong> ה-Drawdown מחושב פעם אחת בסוף יום המסחר ונשאר קבוע עד הסוף הבא. יש DLL — פגיעה בו משהה מסחר ליום, לא פוסלת את המבחן (End of Day).</p>
+        <p><strong style={{ color: "var(--text-primary)" }}>EOD:</strong> רף ההפסד מחושב פעם אחת בסוף יום המסחר ונשאר קבוע עד הסוף הבא. יש DLL — פגיעה בו משהה מסחר ליום, לא פוסלת את המבחן (End of Day).</p>
         <p><strong style={{ color: "var(--text-primary)" }}>Intraday:</strong> רף ההפסד הנגרר עוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים. במבחן אין DLL — ב-PA יש DLL לפי רמות.</p>
       </div>
     ),

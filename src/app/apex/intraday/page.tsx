@@ -10,7 +10,7 @@ import { S } from "@/lib/sources";
 
 export const metadata: Metadata = {
   title: "Apex Intraday — מבחן ו-PA | NY Prop Firms",
-  description: "כללי חשבון Intraday של Apex: Trailing Threshold, ללא DLL במבחן, DLL לפי טיירים ב-PA, Consistency 50%, Safety Net ועוד",
+  description: "כללי חשבון Intraday של Apex: רף הפסד נגרר, ללא DLL במבחן, DLL לפי רמות ב-PA, עקביות 50%, רשת ביטחון ועוד",
 };
 
 const APEX_URL = "https://apextraderfunding.com";
@@ -47,7 +47,7 @@ export default function IntradayPage() {
           </p>
         </div>
         <div className="card p-4 text-center">
-          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>שיטת Drawdown</p>
+          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>שיטת Drawdown (רף הפסד)</p>
           <p className="font-bold" style={{ color: "var(--teal-400)" }}>רף הפסד נגרר (Trailing) בזמן אמת</p>
         </div>
         <div className="card p-4 text-center">
@@ -99,7 +99,7 @@ export default function IntradayPage() {
                   <strong>אך לעולם לא יורד</strong>.
                 </p>
                 <p className="mt-2 text-xs" style={{ color: "var(--text-muted)" }}>
-                  רף = שיא החשבון (כולל רווחים פתוחים) פחות רמת ה-Drawdown
+                  רף = שיא החשבון (כולל רווחים פתוחים) פחות רף ההפסד
                 </p>
               </>
             }
@@ -201,10 +201,10 @@ export default function IntradayPage() {
               <>
                 <p>
                   ב-3 התשלומים הראשונים, יתרת החשבון אחרי המשיכה חייבת
-                  להישאר מעל: <strong>יתרה התחלתית + Drawdown + $100</strong>.
+                  להישאר מעל: <strong>יתרה התחלתית + רף הפסד + <span dir="ltr">$100</span></strong>.
                 </p>
                 <p className="mt-2">
-                  מהתשלום הרביעי ואילך — ה-Safety Net לא חל.
+                  מהתשלום הרביעי ואילך — רשת הביטחון לא חלה.
                 </p>
               </>
             }

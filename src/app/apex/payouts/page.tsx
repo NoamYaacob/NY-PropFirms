@@ -12,7 +12,7 @@ import { PayoutTablesWidget } from "@/components/ui/PayoutTablesWidget";
 
 export const metadata: Metadata = {
   title: "תשלומים — כללי PA | NY Prop Firms",
-  description: "כללי תשלום PA של Apex: Consistency 50%, Safety Net, חלוקת רווחים, 6 תשלומים לחשבון",
+  description: "כללי תשלום PA של Apex: עקביות 50%, רשת ביטחון, חלוקת רווחים, 6 תשלומים לחשבון",
 };
 
 const APEX_URL = "https://apextraderfunding.com";
@@ -37,7 +37,7 @@ const FAQ_ITEMS: AccordionItem[] = [
   {
     id: "losing-days",
     trigger: "האם ימי הפסד פוגעים בחוק עקביות 50%?",
-    content: "לא. ימי הפסד לא נכללים בחישוב ה-Consistency — רק ימים רווחיים.",
+    content: "לא. ימי הפסד לא נכללים בחישוב העקביות — רק ימים רווחיים.",
   },
   {
     id: "20-pa",
@@ -88,7 +88,7 @@ export default function PayoutsPage() {
                     <span dir="ltr">Intraday</span> אין{" "}
                     <span dir="ltr">DLL</span>. ב-<span dir="ltr">PA</span>{" "}
                     קיים <span dir="ltr">DLL</span>, והוא יכול להשתנות לפי
-                    טיירים בהתאם להתקדמות החשבון.
+                    רמות בהתאם להתקדמות החשבון.
                   </p>
                   <a
                     href={S.DAILY_LOSS_LIMIT.href}
@@ -182,7 +182,7 @@ export default function PayoutsPage() {
                 <thead>
                   <tr style={{ borderBottom: "1px solid var(--surface-border)" }}>
                     <th className="text-right py-1.5 font-medium" style={{ color: "var(--text-muted)" }}>תשלום</th>
-                    <th className="text-right py-1.5 font-medium" style={{ color: "var(--text-muted)" }}>חל Safety Net?</th>
+                    <th className="text-right py-1.5 font-medium" style={{ color: "var(--text-muted)" }}>חלה רשת הביטחון?</th>
                   </tr>
                 </thead>
                 <tbody>
