@@ -15,7 +15,6 @@ export const metadata: Metadata = {
 
 const APEX_URL = "https://apextraderfunding.com";
 
-
 export default function IntradayPage() {
   return (
     <div className="container-page py-12">
@@ -27,145 +26,71 @@ export default function IntradayPage() {
       </nav>
 
       <h1 className="text-4xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>
-        Apex Intraday — כללי המבחן וחשבון מימון
+        Apex <span dir="ltr">Intraday</span> — כללי המבחן וחשבון מימון
       </h1>
-      <p className="text-base mb-6" style={{ color: "var(--text-secondary)" }}>
-        כל הכללים מבוססים על מסמכי Apex הרשמיים הקיימים כרגע.
+      <p className="text-base mb-4" style={{ color: "var(--text-secondary)" }}>
+        כל הכללים מבוססים על מסמכי <span dir="ltr">Apex</span> הרשמיים הקיימים כרגע.
       </p>
 
-      {/* Key differences callout at top */}
+      {/* Stage toggle — PA is the primary stage */}
+      <div
+        className="inline-flex rounded-xl overflow-hidden mb-8"
+        style={{ border: "1px solid var(--surface-border)" }}
+      >
+        <a
+          href="#pa"
+          className="px-5 py-2.5 text-sm font-semibold"
+          style={{
+            backgroundColor: "var(--teal-900)",
+            color: "var(--teal-400)",
+            borderInlineEnd: "1px solid var(--teal-edge)",
+          }}
+        >
+          שלב ה-<span dir="ltr">PA</span>
+        </a>
+        <a
+          href="#test"
+          className="px-5 py-2.5 text-sm font-semibold"
+          style={{ backgroundColor: "transparent", color: "var(--text-muted)" }}
+        >
+          שלב המבחן
+        </a>
+      </div>
+
+      {/* Key stats — Card C leads with PA having DLL */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
-        <div className="card p-4 text-center">
-          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>
-            <span dir="ltr">Daily Loss Limit</span> — מבחן
-          </p>
-          <p className="font-bold" style={{ color: "var(--green-400)" }}>
-            אין <span dir="ltr">DLL</span> ❌
-          </p>
-          <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>
-            ב-<span dir="ltr">PA Intraday</span> יש <span dir="ltr">DLL</span>
-          </p>
-        </div>
-        <div className="card p-4 text-center">
-          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>רף הפסד – איך זה עובד</p>
-          <p className="font-bold" style={{ color: "var(--teal-400)" }}>רף הפסד נגרר בזמן אמת (Intraday)</p>
-        </div>
         <div className="card p-4 text-center">
           <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>תוקף המבחן</p>
           <p className="font-bold" style={{ color: "var(--text-primary)" }}>30 ימים</p>
         </div>
+
+        <div className="card p-4 text-center">
+          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>רף הפסד – איך זה עובד</p>
+          <p className="font-bold" style={{ color: "var(--teal-400)" }}>
+            רף הפסד נגרר בזמן אמת (<span dir="ltr">Intraday</span>)
+          </p>
+        </div>
+
+        <div className="card p-4 text-center">
+          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>
+            <span dir="ltr">DLL</span> ב-<span dir="ltr">PA</span>
+          </p>
+          <p className="font-bold" style={{ color: "var(--teal-400)" }}>
+            יש <span dir="ltr">DLL</span> ✅
+          </p>
+          <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>
+            לפי רמות (<span dir="ltr">Tier-based</span>)
+          </p>
+          <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)", opacity: 0.7 }}>
+            במבחן <span dir="ltr">Intraday</span> אין <span dir="ltr">DLL</span>
+          </p>
+        </div>
       </div>
 
-      {/* ── EVALUATION ─────────────────────────────────────────── */}
-      <section id="evaluation">
-        <h2 className="text-2xl font-bold mb-6" style={{ color: "var(--gold-300)" }}>
-          שלב המבחן (Intraday)
-        </h2>
-
-        {/* No DLL — prominent */}
-        <CalloutBox
-          variant="success"
-          title="אין Daily Loss Limit — מבחן Intraday בלבד"
-          accountType="intraday"
-          source={S.INTRADAY_EVALUATIONS}
-          body={
-            <p>
-              בשלב המבחן, חשבונות <span dir="ltr">Intraday</span> לא כפופים
-              ל-<span dir="ltr">Daily Loss Limit</span>. כל ניהול הסיכון
-              נעשה דרך רף הפסד נגרר בלבד —
-              אין מגבלת הפסד יומית.{" "}
-              <strong>
-                שימו לב: ב-<span dir="ltr">Intraday PA</span> יש{" "}
-                <span dir="ltr">DLL</span> לפי רמות.
-              </strong>
-            </p>
-          }
-        />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-          <RuleCard
-            title="רף הפסד נגרר — בזמן אמת"
-            icon={Activity}
-            accountType="intraday"
-            source={S.INTRADAY_EVALUATIONS}
-            body={
-              <>
-                <p>
-                  רף ההפסד הנגרר עוקב אחרי <strong>שיא החשבון</strong>{" "}
-                  בזמן אמת, כולל רווחים פתוחים (Unrealized PnL).
-                </p>
-                <p className="mt-2">
-                  הרף עולה עם כל שיא חדש —{" "}
-                  <strong>אך לעולם לא יורד</strong>.
-                </p>
-                <p className="mt-2 text-xs" style={{ color: "var(--text-muted)" }}>
-                  רף = שיא החשבון (כולל רווחים פתוחים) פחות רף ההפסד
-                </p>
-              </>
-            }
-          />
-
-          <RuleCard
-            title="תוקף המבחן"
-            icon={Clock}
-            accountType="intraday"
-            source={S.EVALUATION_FEES}
-            body="רכישה חד-פעמית ל-30 ימים. אין חיוב חודשי ואין חידוש אוטומטי. בסוף 30 הימים החשבון נסגר אוטומטית — ואין אפשרות להאריך."
-          />
-
-          <RuleCard
-            title="חלון המסחר — 4:59 PM ET"
-            icon={Clock}
-            accountType="universal"
-            source={S.CLOSE_459}
-            body={
-              <>
-                <p>
-                  פתיחת עסקאות בין <strong>6:00 PM ET</strong> לבין{" "}
-                  <strong>4:59 PM ET</strong> של היום הבא.
-                </p>
-                <p className="mt-2">
-                  הוראות המחוברות לפוזיציה (כמו סטופ ולימיט) נסגרות אוטומטית כשהפוזיציה נסגרת.
-                  הוראות עצמאיות שאינן מחוברות לפוזיציה <strong>אינן מבוטלות אוטומטית</strong> — יש לבטל אותן ידנית לפני <span dir="ltr">4:59 PM ET</span>.
-                  בישראל זה בדרך כלל סביב חצות, אבל עשוי להשתנות לפי שעון קיץ — עבדו לפי <span dir="ltr">ET</span>.
-                </p>
-              </>
-            }
-          />
-
-        </div>
-
-        <div className="mt-6">
-          <CalloutBox
-            variant="warning"
-            title="הוראות תלויות — שימו לב"
-            source={S.CLOSE_459}
-            body="הוראות המחוברות לפוזיציה (כמו סטופ ולימיט) נסגרות אוטומטית כשהפוזיציה נסגרת. הוראות עצמאיות שאינן מחוברות לפוזיציה אינן מבוטלות אוטומטית — יש לבטל אותן ידנית לפני 4:59 PM ET. בישראל זה בדרך כלל סביב חצות, אבל עשוי להשתנות לפי שעון קיץ — עבדו לפי ET."
-          />
-        </div>
-
-        <div className="mt-8">
-          <Button
-            label="פתח מבחן Intraday עם קוד TLHCODE"
-            href={APEX_URL}
-            variant="primary"
-            size="lg"
-            external
-          />
-        </div>
-      </section>
-
-      {/* ── Phase Divider ─────────────────────────────────────── */}
-      <SectionDivider
-        variant="phase"
-        rightLabel="← שלב המבחן"
-        leftLabel="שלב ה-PA ←"
-      />
-
-      {/* ── PA SECTION ─────────────────────────────────────────── */}
+      {/* ── PA SECTION — appears first ─────────────────────────── */}
       <section id="pa">
         <h2 className="text-2xl font-bold mb-6" style={{ color: "var(--teal-400)" }}>
-          שלב ה-PA — Intraday Performance Account
+          שלב ה-<span dir="ltr">PA</span> (<span dir="ltr">Intraday</span>)
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -199,7 +124,10 @@ export default function IntradayPage() {
               <>
                 <p>
                   ב-3 התשלומים הראשונים, יתרת החשבון אחרי המשיכה חייבת
-                  להישאר מעל: <strong>יתרה התחלתית + רף הפסד + <span dir="ltr">$100</span></strong>.
+                  להישאר מעל:{" "}
+                  <strong>
+                    יתרה התחלתית + רף הפסד + <span dir="ltr">$100</span>
+                  </strong>.
                 </p>
                 <p className="mt-2">
                   מהתשלום הרביעי ואילך — רשת הביטחון לא חלה.
@@ -216,10 +144,12 @@ export default function IntradayPage() {
             body={
               <>
                 <p>
-                  <strong style={{ color: "var(--gold-300)" }}>100% לסוחר</strong> על <span dir="ltr">$25,000</span> הרווחים הראשונים.
+                  <strong style={{ color: "var(--gold-300)" }}>100% לסוחר</strong>{" "}
+                  על <span dir="ltr">$25,000</span> הרווחים הראשונים.
                 </p>
                 <p className="mt-2">
-                  <strong>90% לסוחר / 10% ל-Apex</strong> על כל רווח מעל <span dir="ltr">$25,000</span>.
+                  <strong>90% לסוחר / 10% ל-<span dir="ltr">Apex</span></strong>{" "}
+                  על כל רווח מעל <span dir="ltr">$25,000</span>.
                 </p>
               </>
             }
@@ -230,27 +160,38 @@ export default function IntradayPage() {
             icon={ShieldAlert}
             accountType="pa"
             source={S.PAYOUT_RULES}
-            body="לסוחר מותר להחזיק עד 20 חשבונות PA פעילים בו-זמנית. חריגה ממגבלה זו חוסמת בקשות תשלום."
+            body={
+              <p>
+                לסוחר מותר להחזיק עד 20 חשבונות <span dir="ltr">PA</span> פעילים
+                בו-זמנית. חריגה ממגבלה זו חוסמת בקשות תשלום.
+              </p>
+            }
           />
         </div>
 
-        {/* DLL in Intraday PA — tier-based */}
-        <div className="mt-4">
+        {/* DLL in Intraday PA — tier-based, anchor target for inline link */}
+        <div id="pa-dll" className="mt-4">
           <CalloutBox
             variant="info"
-            title="DLL לפי רמות (Tier) — Intraday PA"
+            title="DLL לפי רמות (Tier) — שלב ה-PA (Intraday)"
             accountType="intraday-pa"
             source={S.INTRADAY_PA}
             body={
               <div className="space-y-2">
                 <p>
-                  ב-<span dir="ltr">Intraday PA</span> יש <span dir="ltr">DLL</span> — בניגוד למבחן שבו אין. הרף קבוע לסשן, מנוטר בזמן אמת על כל ההון (ממומש ובלתי-ממומש). פגיעה בו: פוזיציות נסגרות אוטומטית, המסחר נעצר עד סוף אותו יום מסחר.
+                  ב-<span dir="ltr">Intraday PA</span> יש{" "}
+                  <span dir="ltr">DLL</span> — בניגוד למבחן שבו אין. הרף קבוע לסשן,
+                  מנוטר בזמן אמת על כל ההון (ממומש ובלתי-ממומש). פגיעה בו:
+                  פוזיציות נסגרות אוטומטית, המסחר נעצר עד סוף אותו יום מסחר.
                 </p>
                 <p>
-                  ה-<span dir="ltr">DLL</span> נקבע לפי רמת החשבון. כשעולים רמה הוא יכול לגדול, ואם יורדים רמה הוא עשוי להצטמצם — אבל לא מתחת לרמה הבסיסית. מתאפס ב-<span dir="ltr">6:00 PM ET</span>.
+                  ה-<span dir="ltr">DLL</span> נקבע לפי רמת החשבון. כשעולים רמה
+                  הוא יכול לגדול, ואם יורדים רמה הוא עשוי להצטמצם — אבל לא
+                  מתחת לרמה הבסיסית. מתאפס ב-<span dir="ltr">6:00 PM ET</span>.
                 </p>
                 <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-                  הרמות עשויות להשתנות — בדקו ישירות ב-<span dir="ltr">Apex</span> לפני החלטות מסחר.
+                  הרמות עשויות להשתנות — בדקו ישירות ב-<span dir="ltr">Apex</span>{" "}
+                  לפני החלטות מסחר.
                 </p>
               </div>
             }
@@ -276,7 +217,13 @@ export default function IntradayPage() {
             לאחר התשלום ה-6, החשבון נסגר אוטומטית. יש לפתוח מבחן חדש.
           </p>
           <div className="mt-2">
-            <a href={S.INTRADAY_PAYOUTS.href} target="_blank" rel="noopener noreferrer" className="text-xs hover:underline" style={{ color: "var(--teal-400)" }}>
+            <a
+              href={S.INTRADAY_PAYOUTS.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs hover:underline"
+              style={{ color: "var(--teal-400)" }}
+            >
               {S.INTRADAY_PAYOUTS.title} ↗
             </a>
           </div>
@@ -288,6 +235,120 @@ export default function IntradayPage() {
         </div>
       </section>
 
+      {/* ── Phase Divider ─────────────────────────────────────── */}
+      <SectionDivider
+        variant="phase"
+        rightLabel="שלב המבחן ↓"
+        leftLabel="↑ שלב ה-PA"
+      />
+
+      {/* ── EVALUATION SECTION — appears second ───────────────── */}
+      <section id="test">
+        <h2 className="text-2xl font-bold mb-6" style={{ color: "var(--gold-300)" }}>
+          שלב המבחן (<span dir="ltr">Intraday</span>)
+        </h2>
+
+        {/* No DLL in eval — explicit note that PA DOES have DLL */}
+        <CalloutBox
+          variant="success"
+          title="שלב המבחן — אין DLL"
+          accountType="intraday"
+          source={S.INTRADAY_EVALUATIONS}
+          body={
+            <div className="space-y-2">
+              <p>
+                בשלב המבחן, חשבונות <span dir="ltr">Intraday</span> לא כפופים
+                ל-<span dir="ltr">Daily Loss Limit (DLL)</span>. כל ניהול הסיכון
+                נעשה דרך רף הפסד נגרר בלבד — אין מגבלת הפסד יומית.
+              </p>
+              <p>
+                <strong>חשוב:</strong> בשלב ה-<span dir="ltr">PA</span> יש{" "}
+                <span dir="ltr">DLL</span> לפי רמות.{" "}
+                <a
+                  href="#pa-dll"
+                  style={{ color: "var(--teal-400)", textDecoration: "underline" }}
+                >
+                  קפוץ לכללי <span dir="ltr">DLL</span> ב-<span dir="ltr">PA</span> ↑
+                </a>
+              </p>
+            </div>
+          }
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <RuleCard
+            title="רף הפסד נגרר — בזמן אמת"
+            icon={Activity}
+            accountType="intraday"
+            source={S.INTRADAY_EVALUATIONS}
+            body={
+              <>
+                <p>
+                  רף ההפסד הנגרר עוקב אחרי <strong>שיא החשבון</strong>{" "}
+                  בזמן אמת, כולל רווחים פתוחים (<span dir="ltr">Unrealized PnL</span>).
+                </p>
+                <p className="mt-2">
+                  הרף עולה עם כל שיא חדש —{" "}
+                  <strong>אך לעולם לא יורד</strong>.
+                </p>
+                <p className="mt-2 text-xs" style={{ color: "var(--text-muted)" }}>
+                  רף = שיא החשבון (כולל רווחים פתוחים) פחות רף ההפסד
+                </p>
+              </>
+            }
+          />
+
+          <RuleCard
+            title="תוקף המבחן"
+            icon={Clock}
+            accountType="intraday"
+            source={S.EVALUATION_FEES}
+            body="רכישה חד-פעמית ל-30 ימים. אין חיוב חודשי ואין חידוש אוטומטי. בסוף 30 הימים החשבון נסגר אוטומטית — ואין אפשרות להאריך."
+          />
+
+          <RuleCard
+            title="חלון המסחר — 4:59 PM ET"
+            icon={Clock}
+            accountType="universal"
+            source={S.CLOSE_459}
+            body={
+              <>
+                <p>
+                  פתיחת עסקאות בין <strong>6:00 PM ET</strong> לבין{" "}
+                  <strong>4:59 PM ET</strong> של היום הבא.
+                </p>
+                <p className="mt-2">
+                  הוראות המחוברות לפוזיציה (כמו סטופ ולימיט) נסגרות אוטומטית
+                  כשהפוזיציה נסגרת. הוראות עצמאיות שאינן מחוברות לפוזיציה{" "}
+                  <strong>אינן מבוטלות אוטומטית</strong> — יש לבטל אותן ידנית
+                  לפני <span dir="ltr">4:59 PM ET</span>. בישראל זה בדרך כלל
+                  סביב חצות, אבל עשוי להשתנות לפי שעון קיץ — עבדו לפי{" "}
+                  <span dir="ltr">ET</span>.
+                </p>
+              </>
+            }
+          />
+        </div>
+
+        <div className="mt-6">
+          <CalloutBox
+            variant="warning"
+            title="הוראות תלויות — שימו לב"
+            source={S.CLOSE_459}
+            body="הוראות המחוברות לפוזיציה (כמו סטופ ולימיט) נסגרות אוטומטית כשהפוזיציה נסגרת. הוראות עצמאיות שאינן מחוברות לפוזיציה אינן מבוטלות אוטומטית — יש לבטל אותן ידנית לפני 4:59 PM ET. בישראל זה בדרך כלל סביב חצות, אבל עשוי להשתנות לפי שעון קיץ — עבדו לפי ET."
+          />
+        </div>
+
+        <div className="mt-8">
+          <Button
+            label="פתח מבחן Intraday עם קוד TLHCODE"
+            href={APEX_URL}
+            variant="primary"
+            size="lg"
+            external
+          />
+        </div>
+      </section>
     </div>
   );
 }
