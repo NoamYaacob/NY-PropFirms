@@ -107,7 +107,7 @@ export default function HomePage() {
 
           <div className="flex flex-col sm:flex-row items-center gap-3 mt-2">
             <Button
-              label="פתח חשבון עם קוד NOAM"
+              label="פתח חשבון עם הקוד NOAM"
               href={APEX_URL}
               variant="primary"
               size="lg"
@@ -132,7 +132,7 @@ export default function HomePage() {
             steps={[
               { number: 1, label: "בחר סוג: סוף יום (EOD) או אינטרה-דיי (Intraday)", href: "/apex" },
               { number: 2, label: "קרא את הכללים הרלוונטיים" },
-              { number: 3, label: "פתח מבחן עם קוד NOAM", href: APEX_URL },
+              { number: 3, label: "פתח מבחן עם הקוד NOAM", href: APEX_URL },
             ]}
           />
         </section>

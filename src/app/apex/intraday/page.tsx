@@ -180,7 +180,7 @@ export default function IntradayPage() {
 
         <div className="mt-8">
           <Button
-            label="פתח מבחן Intraday עם קוד NOAM"
+            label="פתח מבחן Intraday עם הקוד NOAM"
             href={APEX_URL}
             variant="primary"
             size="lg"
