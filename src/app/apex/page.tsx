@@ -18,7 +18,7 @@ const APEX_URL = "https://apextraderfunding.com";
 const NAV_CARDS = [
   { icon: Sunset, title: "EOD — שלב המבחן", href: "/apex/eod#evaluation", color: "#7EA0FF", badge: "מבחן" },
   { icon: Sunset, title: "EOD — שלב ה-PA", href: "/apex/eod#pa", color: "#7EA0FF", badge: "PA" },
-  { icon: Activity, title: "Intraday — שלב המבחן", href: "/apex/intraday#evaluation", color: "var(--teal-400)", badge: "מבחן" },
+  { icon: Activity, title: "Intraday — שלב המבחן", href: "/apex/intraday#test", color: "var(--teal-400)", badge: "מבחן" },
   { icon: Activity, title: "Intraday — שלב ה-PA", href: "/apex/intraday#pa", color: "var(--teal-400)", badge: "PA" },
 ];
 
