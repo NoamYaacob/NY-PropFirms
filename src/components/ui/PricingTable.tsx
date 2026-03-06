@@ -1,20 +1,23 @@
 import {
-  EOD_EVAL_PRICES,
-  INTRADAY_EVAL_PRICES,
-  EOD_PA_PRICE,
-  INTRADAY_PA_PRICE,
+  EOD_TEST_PRICES,
+  INTRADAY_TEST_PRICES,
   ACCOUNT_SIZES,
-} from "@/lib/pricing";
+} from "@/lib/testPricing";
 import { PRIMARY_COUPON } from "@/lib/coupons";
 
 interface PricingTableProps {
-  /** "eod" or "intraday" — picks the right prices from the config */
   type: "eod" | "intraday";
 }
 
+// PA prices are fixed and do not change with promotions.
+const PA_PRICES = {
+  eod:      "$99",
+  intraday: "$79",
+} as const;
+
 export function PricingTable({ type }: PricingTableProps) {
-  const evalPrices = type === "eod" ? EOD_EVAL_PRICES : INTRADAY_EVAL_PRICES;
-  const paPrice    = type === "eod" ? EOD_PA_PRICE    : INTRADAY_PA_PRICE;
+  const testPrices = type === "eod" ? EOD_TEST_PRICES : INTRADAY_TEST_PRICES;
+  const paPrice    = PA_PRICES[type];
 
   return (
     <div
@@ -40,7 +43,7 @@ export function PricingTable({ type }: PricingTableProps) {
         </p>
       </div>
 
-      {/* ── Price table ───────────────────────────────────────── */}
+      {/* ── Test price table ───────────────────────────────────── */}
       <div style={{ backgroundColor: "var(--surface-overlay)" }}>
         <table className="w-full text-sm border-collapse">
           <thead>
@@ -67,7 +70,7 @@ export function PricingTable({ type }: PricingTableProps) {
           </thead>
           <tbody>
             {ACCOUNT_SIZES.map((size, i) => {
-              const { fullPrice, discountedPrice } = evalPrices[size];
+              const { fullPrice, discountedPrice } = testPrices[size];
               return (
                 <tr
                   key={size}
@@ -102,7 +105,7 @@ export function PricingTable({ type }: PricingTableProps) {
           </tbody>
         </table>
 
-        {/* ── Footer notes ─────────────────────────────────────── */}
+        {/* ── Footer notes ──────────────────────────────────────── */}
         <div
           className="px-4 py-3 space-y-1"
           style={{ borderTop: "1px solid var(--surface-border)" }}
@@ -116,13 +119,16 @@ export function PricingTable({ type }: PricingTableProps) {
               {PRIMARY_COUPON}
             </span>
           </p>
-          <p className="text-xs" style={{ color: "var(--text-muted)", opacity: 0.65 }}>
+          <p
+            className="text-xs"
+            style={{ color: "var(--text-muted)", opacity: 0.65 }}
+          >
             תשלום המבחן הוא חד־פעמי ל-30 ימים.
           </p>
         </div>
       </div>
 
-      {/* ── PA price — always shown, visually separated ───────── */}
+      {/* ── PA price — fixed, always shown, visually separated ─── */}
       <div
         className="px-4 py-3 flex items-center justify-between gap-4"
         style={{
