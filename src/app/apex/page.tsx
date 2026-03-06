@@ -24,9 +24,15 @@ const NAV_CARDS = [
 
 const COMPARISON_ROWS: ComparisonRow[] = [
   {
-    feature: "DLL (מגבלת הפסד יומי)",
+    feature: "DLL במבחן",
     eodValue: <span style={{ color: "var(--amber-400)" }}>יש DLL ✅</span>,
     intradayValue: <span style={{ color: "var(--green-400)" }}>אין DLL ❌</span>,
+    source: S.INTRADAY_EVALUATIONS,
+  },
+  {
+    feature: "DLL ב-PA",
+    eodValue: <span style={{ color: "var(--amber-400)" }}>יש DLL (tier-based) ✅</span>,
+    intradayValue: <span style={{ color: "var(--amber-400)" }}>יש DLL (tier-based) ✅</span>,
     source: S.DAILY_LOSS_LIMIT,
   },
   {
@@ -55,8 +61,8 @@ const FAQ_ITEMS: AccordionItem[] = [
     trigger: "מה ההבדל בין מבחן ל-PA?",
     content: (
       <div className="space-y-2">
-        <p><strong style={{ color: "var(--text-primary)" }}>מבחן:</strong> השלב שבו מוכיחים עמידה בכללי Apex. תשלום חד-פעמי ל-30 יום, ללא חיוב חודשי וללא חידוש אוטומטי (Evaluation).</p>
-        <p><strong style={{ color: "var(--text-primary)" }}>PA:</strong> חשבון המימון שנפתח אחרי שעוברים את המבחן. בשלב הזה אפשר לבקש תשלומים על רווחים (Performance Account).</p>
+        <p><strong style={{ color: "var(--text-primary)" }}>מבחן (<span dir="ltr">Evaluation</span>):</strong> השלב שבו מוכיחים עמידה בכללי Apex. תשלום חד-פעמי ל-30 יום, ללא חיוב חודשי וללא חידוש אוטומטי.</p>
+        <p><strong style={{ color: "var(--text-primary)" }}>חשבון PA (<span dir="ltr">Performance Account</span>):</strong> חשבון המימון שנפתח אחרי שעוברים את המבחן. בשלב הזה אפשר לבקש תשלומים על רווחים.</p>
       </div>
     ),
   },
@@ -65,8 +71,8 @@ const FAQ_ITEMS: AccordionItem[] = [
     trigger: "מה ההבדל בין EOD ל-Intraday?",
     content: (
       <div className="space-y-2">
-        <p><strong style={{ color: "var(--text-primary)" }}>EOD:</strong> רף ההפסד מחושב פעם אחת בסוף יום המסחר ונשאר קבוע עד הסוף הבא. יש DLL — פגיעה בו משהה מסחר ליום, לא פוסלת את המבחן (End of Day).</p>
-        <p><strong style={{ color: "var(--text-primary)" }}>Intraday:</strong> רף ההפסד הנגרר עוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים. במבחן אין DLL — ב-PA יש DLL לפי רמות.</p>
+        <p><strong style={{ color: "var(--text-primary)" }}><span dir="ltr">EOD</span> (<span dir="ltr">End of Day</span>):</strong> רף ההפסד מחושב פעם אחת בסוף יום המסחר ונשאר קבוע עד הסוף הבא. יש <span dir="ltr">DLL</span> — פגיעה בו המסחר נעצר לאותו יום, לא פוסלת את המבחן.</p>
+        <p><strong style={{ color: "var(--text-primary)" }}><span dir="ltr">Intraday</span>:</strong> רף ההפסד הנגרר עוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים. במבחן אין <span dir="ltr">DLL</span> — ב-<span dir="ltr">PA</span> יש <span dir="ltr">DLL</span> לפי רמות.</p>
       </div>
     ),
   },
