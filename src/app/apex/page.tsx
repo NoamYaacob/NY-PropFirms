@@ -36,7 +36,7 @@ const COMPARISON_ROWS: ComparisonRow[] = [
     source: S.INTRADAY_EVALUATIONS,
   },
   {
-    feature: "תנאי עקביות (Consistency) ב-PA",
+    feature: "חוק עקביות (Consistency) ב-PA",
     eodValue: "50% מהיום הרווחי ביותר",
     intradayValue: "50% מהיום הרווחי ביותר",
     source: S.CONSISTENCY_50,
