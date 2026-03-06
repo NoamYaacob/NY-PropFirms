@@ -218,10 +218,10 @@ export default function IntradayPage() {
             body={
               <>
                 <p>
-                  <strong style={{ color: "var(--gold-300)" }}>100% לסוחר</strong> על $25,000 הרווחים הראשונים.
+                  <strong style={{ color: "var(--gold-300)" }}>100% לסוחר</strong> על <span dir="ltr">$25,000</span> הרווחים הראשונים.
                 </p>
                 <p className="mt-2">
-                  <strong>90% לסוחר / 10% ל-Apex</strong> על כל רווח מעל $25,000.
+                  <strong>90% לסוחר / 10% ל-Apex</strong> על כל רווח מעל <span dir="ltr">$25,000</span>.
                 </p>
               </>
             }

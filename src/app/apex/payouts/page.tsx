@@ -150,7 +150,7 @@ export default function PayoutsPage() {
                   100% לסוחר
                 </p>
                 <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
-                  על $25,000 הרווחים הראשונים לחשבון
+                  על <span dir="ltr">$25,000</span> הרווחים הראשונים לחשבון
                 </p>
               </div>
               <div
@@ -164,7 +164,7 @@ export default function PayoutsPage() {
                   90% לסוחר / 10% ל-Apex
                 </p>
                 <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
-                  על כל רווח מעל $25,000
+                  על כל רווח מעל <span dir="ltr">$25,000</span>
                 </p>
               </div>
             </div>
@@ -199,7 +199,7 @@ export default function PayoutsPage() {
                 </tbody>
               </table>
               <p className="text-xs mt-3" style={{ color: "var(--text-muted)" }}>
-                חריג: אם יש לפחות $500 מעל הרף — אפשר לבקש תשלום מינימלי של $500.
+                חריג: אם יש לפחות <span dir="ltr">$500</span> מעל הרף — אפשר לבקש תשלום מינימלי של <span dir="ltr">$500</span>.
               </p>
             </div>
           }
@@ -225,7 +225,7 @@ export default function PayoutsPage() {
                 <strong>5 ימי מסחר כשירים (Qualifying Trading Days)</strong> — ימים שבוצעה בהם לפחות עסקה אחת.
               </p>
               <p className="mt-2">
-                סכום הבקשה חייב להיות לפחות <strong>$500</strong>.
+                סכום הבקשה חייב להיות לפחות <strong><span dir="ltr">$500</span></strong>.
               </p>
               <p className="mt-2" style={{ color: "var(--text-muted)" }}>
                 וגם חוק עקביות 50% חייב להתקיים בעת הבקשה.
