@@ -78,17 +78,19 @@ export default function PayoutsPage() {
               content: (
                 <div className="space-y-2 text-sm" style={{ color: "var(--text-secondary)" }}>
                   <p>
-                    <span dir="ltr">DLL</span> הוא גבול הפסד יומי. אם מגיעים
-                    אליו, המערכת סוגרת פוזיציות ועוצרת מסחר לשארית היום.
-                    החשבון לא נפסל — חוזרים לסחור בסשן הבא.
+                    <span dir="ltr">DLL</span> היא מגבלת הפסד יומי. הרף קבוע
+                    לסשן ומנוטר בזמן אמת על כל ההון (ממומש ובלתי-ממומש). אם
+                    מגיעים אליו — פוזיציות נסגרות אוטומטית, המסחר נעצר עד
+                    סוף אותו יום מסחר. החשבון לא נפסל — חוזרים לסחור מ-<span dir="ltr">6:00 PM ET</span>.
+                    ה-<span dir="ltr">DLL</span> מתאפס עם פתיחת כל סשן.
                   </p>
                   <p>
                     במבחן <span dir="ltr">EOD</span> יש{" "}
-                    <span dir="ltr">DLL</span> קבוע ליום המסחר. במבחן{" "}
+                    <span dir="ltr">DLL</span> קבוע. במבחן{" "}
                     <span dir="ltr">Intraday</span> אין{" "}
                     <span dir="ltr">DLL</span>. ב-<span dir="ltr">PA</span>{" "}
-                    קיים <span dir="ltr">DLL</span>, והוא יכול להשתנות לפי
-                    רמות בהתאם להתקדמות החשבון.
+                    קיים <span dir="ltr">DLL</span> לפי רמות — יכול לגדול עם
+                    עליית רמה, אך לא ירד מתחת לרמה הבסיסית.
                   </p>
                   <a
                     href={S.DAILY_LOSS_LIMIT.href}

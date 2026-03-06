@@ -25,7 +25,7 @@ const SOURCE_LINKS: LinkEntry[] = [
   { key: "SAFETY_NET",           label: S.SAFETY_NET.title,           url: S.SAFETY_NET.href,           usedIn: "/apex/payouts — Safety Net rule" },
   { key: "EOD_PAYOUTS",          label: S.EOD_PAYOUTS.title,          url: S.EOD_PAYOUTS.href,          usedIn: "/apex/payouts — EOD payout table source" },
   { key: "INTRADAY_PAYOUTS",     label: S.INTRADAY_PAYOUTS.title,     url: S.INTRADAY_PAYOUTS.href,     usedIn: "/apex/payouts — Intraday payout table source" },
-  { key: "CONTRACT_SCALING",     label: S.CONTRACT_SCALING.title,     url: S.CONTRACT_SCALING.href,     usedIn: "/apex/compliance — Contract Scaling RuleCard" },
+  { key: "CONTRACT_SCALING",     label: S.CONTRACT_SCALING.title,     url: S.CONTRACT_SCALING.href,     usedIn: "— הוסר מהאתר, שמור במקורות לבדיקה בלבד" },
   { key: "PROHIBITED",           label: S.PROHIBITED.title,           url: S.PROHIBITED.href,           usedIn: "/apex/compliance — MAC/IP, Trade Copying, HFT, Hedging cards" },
   { key: "CLOSE_459",            label: S.CLOSE_459.title,            url: S.CLOSE_459.href,            usedIn: "/apex/compliance — 4:59 PM ET CalloutBox" },
 ];

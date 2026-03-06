@@ -31,8 +31,8 @@ const COMPARISON_ROWS: ComparisonRow[] = [
   },
   {
     feature: "DLL ב-PA",
-    eodValue: <span style={{ color: "var(--amber-400)" }}>יש DLL (tier-based) ✅</span>,
-    intradayValue: <span style={{ color: "var(--amber-400)" }}>יש DLL (tier-based) ✅</span>,
+    eodValue: <span style={{ color: "var(--amber-400)" }}>יש DLL (לפי רמות) ✅</span>,
+    intradayValue: <span style={{ color: "var(--amber-400)" }}>יש DLL (לפי רמות) ✅</span>,
     source: S.DAILY_LOSS_LIMIT,
   },
   {

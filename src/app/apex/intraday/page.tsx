@@ -244,10 +244,13 @@ export default function IntradayPage() {
             body={
               <div className="space-y-2">
                 <p>
-                  ב-<span dir="ltr">Intraday PA</span> יש <span dir="ltr">DLL</span> – בניגוד למבחן שבו אין <span dir="ltr">DLL</span>. ה-<span dir="ltr">DLL</span> נקבע לפי רמת החשבון. כשעולים רמה הוא יכול לגדול, ואם יורדים רמה הוא יכול להצטמצם — אבל לא ירד מתחת לרמה הבסיסית.
+                  ב-<span dir="ltr">Intraday PA</span> יש <span dir="ltr">DLL</span> — בניגוד למבחן שבו אין. הרף קבוע לסשן, מנוטר בזמן אמת על כל ההון (ממומש ובלתי-ממומש). פגיעה בו: פוזיציות נסגרות אוטומטית, המסחר נעצר עד סוף אותו יום מסחר.
+                </p>
+                <p>
+                  ה-<span dir="ltr">DLL</span> נקבע לפי רמת החשבון. כשעולים רמה הוא יכול לגדול, ואם יורדים רמה הוא עשוי להצטמצם — אבל לא מתחת לרמה הבסיסית. מתאפס ב-<span dir="ltr">6:00 PM ET</span>.
                 </p>
                 <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-                  הנתונים והרמות עשויים להשתנות. מומלץ לבדוק ישירות ב-<span dir="ltr">Apex</span> לפני החלטות מסחר.
+                  הרמות עשויות להשתנות — בדקו ישירות ב-<span dir="ltr">Apex</span> לפני החלטות מסחר.
                 </p>
               </div>
             }

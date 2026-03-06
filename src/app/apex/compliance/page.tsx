@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Clock, BarChart2, UserX, Copy, Zap, ArrowLeftRight } from "lucide-react";
+import { Clock, UserX, Copy, Zap, ArrowLeftRight } from "lucide-react";
 import { RuleCard } from "@/components/ui/RuleCard";
 import { CalloutBox } from "@/components/ui/CalloutBox";
 import { TimelineStrip } from "@/components/ui/TimelineStrip";
@@ -9,7 +9,7 @@ import { S } from "@/lib/sources";
 
 export const metadata: Metadata = {
   title: "עמידה בכללים ופעילות אסורה — Apex | NY Prop Firms",
-  description: "עמידה בכללים של Apex: פעילות אסורה, כלל 4:59 PM ET, No Hedging, Contract Scaling",
+  description: "עמידה בכללים של Apex: פעילות אסורה, כלל 4:59 PM ET, No Hedging",
 };
 
 const APEX_URL = "https://apextraderfunding.com";
@@ -18,7 +18,6 @@ const APEX_URL = "https://apextraderfunding.com";
 const UNIVERSAL_RULES = [
   { icon: Clock, label: "כל פוזיציה חייבת להיסגר לפני 4:59 PM ET", href: "#trading-window" },
   { icon: ArrowLeftRight, label: "גידור אסור (No Hedging)", href: "#hedging" },
-  { icon: BarChart2, label: "Contract Scaling חל על כל החשבונות", href: "#scaling" },
 ];
 
 export default function CompliancePage() {
@@ -150,7 +149,7 @@ export default function CompliancePage() {
               </p>
               <p>
                 <strong style={{ color: "var(--amber-400)" }}>הוראות עצמאיות (Standing Orders)</strong> — לא נסגרות לבד.
-                <strong> חייבות להיבטל ידנית לפני <span dir="ltr">4:59 PM ET</span> (בדרך כלל 23:59 בישראל, תלוי בשעון קיץ).</strong> ⚠️
+                <strong> חייבות להיבטל ידנית לפני <span dir="ltr">4:59 PM ET</span> (בישראל זה בדרך כלל סביב חצות — עשוי להשתנות לפי שעון קיץ, עבדו לפי <span dir="ltr">ET</span>).</strong> ⚠️
               </p>
               <p className="text-xs" style={{ color: "var(--text-muted)" }}>
                 כדי לא לטעות, מומלץ לעבוד לפי השעה ET שמופיעה במסמכי Apex.
@@ -184,37 +183,6 @@ export default function CompliancePage() {
             <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>Long בלבד או Short בלבד</p>
           </div>
         </div>
-      </section>
-
-      <SectionDivider variant="section" />
-
-      {/* ── Contract Scaling ─────────────────────────────────── */}
-      <section id="scaling">
-        <h2 className="text-2xl font-bold mb-4" style={{ color: "var(--text-primary)" }}>
-          Contract Scaling Rule
-        </h2>
-        <RuleCard
-          title="Contract Scaling — 3 שלבים"
-          icon={BarChart2}
-          accountType="universal"
-          source={S.CONTRACT_SCALING}
-          body={
-            <div className="flex flex-col gap-3 mt-1">
-              <div className="flex items-center gap-3">
-                <span className="w-6 h-6 rounded-full text-xs flex items-center justify-center font-bold shrink-0" style={{ backgroundColor: "var(--surface-overlay)", color: "var(--gold-300)", border: "1px solid var(--gold-edge)" }}>1</span>
-                <span>כניסה: מותר לסחור בחצי מכמות החוזים המקסימלית</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="w-6 h-6 rounded-full text-xs flex items-center justify-center font-bold shrink-0" style={{ backgroundColor: "var(--surface-overlay)", color: "var(--gold-300)", border: "1px solid var(--gold-edge)" }}>2</span>
-                <span>יתרת EOD עוברת את הרף (יתרה + רף הפסד + <span dir="ltr">$100</span>): גישה לכמות המלאה</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="w-6 h-6 rounded-full text-xs flex items-center justify-center font-bold shrink-0" style={{ backgroundColor: "var(--surface-overlay)", color: "var(--gold-300)", border: "1px solid var(--gold-edge)" }}>3</span>
-                <span>הגישה המלאה נשארת — גם אם היתרה יורדת מתחת לרף</span>
-              </div>
-            </div>
-          }
-        />
       </section>
 
       <div className="mt-10">

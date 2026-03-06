@@ -123,20 +123,22 @@ export default function EODPage() {
               <div className="space-y-2">
                 <p>
                   בחשבונות <span dir="ltr">EOD</span> קיים{" "}
-                  <span dir="ltr">Daily Loss Limit</span> — מגבלת הפסד יומית
-                  כוללת (ממומש ובלתי-ממומש).
+                  <span dir="ltr">DLL</span> — מגבלת הפסד יומית כוללת
+                  (ממומש ובלתי-ממומש). הרף קבוע לאורך כל הסשן ומנוטר בזמן אמת.
                 </p>
                 <p>
                   <strong style={{ color: "var(--text-primary)" }}>
-                    פגיעה ב-<span dir="ltr">DLL</span>: המסחר נעצר עד סוף אותו יום מסחר
-                    — המבחן לא נכשל. חוזרים לסחור בסשן הבא.
+                    פגיעה ב-<span dir="ltr">DLL</span>: פוזיציות נסגרות
+                    אוטומטית, המסחר נעצר עד סוף אותו יום מסחר — המבחן לא
+                    נכשל. חוזרים לסחור מ-<span dir="ltr">6:00 PM ET</span>.
                   </strong>
                 </p>
                 <p style={{ color: "var(--text-muted)" }}>
+                  ה-<span dir="ltr">DLL</span> מתאפס עם פתיחת הסשן הבא
+                  (<span dir="ltr">6:00 PM ET</span>).
                   במבחן <span dir="ltr">Intraday</span> אין{" "}
-                  <span dir="ltr">DLL</span> — אך ב-
-                  <span dir="ltr">Intraday PA</span> קיים{" "}
-                  <span dir="ltr">DLL</span> לפי רמות.
+                  <span dir="ltr">DLL</span> — אך ב-<span dir="ltr">Intraday PA</span>{" "}
+                  קיים <span dir="ltr">DLL</span> לפי רמות.
                 </p>
               </div>
             }
