@@ -86,7 +86,7 @@ export default function IntradayPage() {
       </div>
 
       {/* ── PRICING ─────────────────────────────────────────────── */}
-      <PricingTable type="intraday" paPrice={79} />
+      <PricingTable type="intraday" />
 
       {/* ── EVALUATION SECTION — appears first ────────────────────── */}
       <section id="test">

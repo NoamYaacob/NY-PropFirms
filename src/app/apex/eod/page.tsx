@@ -58,7 +58,7 @@ export default function EODPage() {
       </div>
 
       {/* ── PRICING ─────────────────────────────────────────────── */}
-      <PricingTable type="eod" paPrice={99} />
+      <PricingTable type="eod" />
 
       {/* ── EVALUATION ─────────────────────────────────────────── */}
       <section id="evaluation">
