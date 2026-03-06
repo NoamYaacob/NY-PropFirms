@@ -99,11 +99,11 @@ export function PayoutTablesWidget() {
           </p>
           <div className="flex flex-col gap-1.5" style={{ color: "var(--text-secondary)" }}>
             <p>
-              <span className="font-medium" style={{ color: "var(--text-primary)" }}>סוף יום (EOD): </span>
+              <span className="font-medium" style={{ color: "var(--text-primary)" }}>סוף יום (<span dir="ltr">EOD</span>): </span>
               רף ההפסד נקבע לפי מצב החשבון בסיום יום המסחר.
             </p>
             <p>
-              <span className="font-medium" style={{ color: "var(--text-primary)" }}>אינטרה-דיי (Intraday): </span>
+              <span className="font-medium" style={{ color: "var(--text-primary)" }}>אינטרה-דיי (<span dir="ltr">Intraday</span>): </span>
               רף ההפסד נגרר בזמן אמת אחרי שיא החשבון.
             </p>
           </div>
