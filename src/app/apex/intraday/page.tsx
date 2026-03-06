@@ -51,15 +51,15 @@ export default function IntradayPage() {
           <p className="font-bold" style={{ color: "var(--teal-400)" }}>רף הפסד נגרר בזמן אמת (Intraday)</p>
         </div>
         <div className="card p-4 text-center">
-          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>תקופת שימוש</p>
-          <p className="font-bold" style={{ color: "var(--text-primary)" }}>30 יום</p>
+          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>תוקף המבחן</p>
+          <p className="font-bold" style={{ color: "var(--text-primary)" }}>30 ימים</p>
         </div>
       </div>
 
       {/* ── EVALUATION ─────────────────────────────────────────── */}
       <section id="evaluation">
         <h2 className="text-2xl font-bold mb-6" style={{ color: "var(--gold-300)" }}>
-          שלב המבחן — Intraday Evaluation
+          שלב המבחן (Intraday)
         </h2>
 
         {/* No DLL — prominent */}
@@ -106,11 +106,11 @@ export default function IntradayPage() {
           />
 
           <RuleCard
-            title="תקופת שימוש — חשבון מבחן"
+            title="תוקף המבחן"
             icon={Clock}
             accountType="intraday"
             source={S.EVALUATION_FEES}
-            body="רכישה חד-פעמית ל-30 יום. אין חיוב חודשי ואין חידוש אוטומטי. בסוף 30 הימים החשבון נסגר אוטומטית — ואין אפשרות להאריך."
+            body="רכישה חד-פעמית ל-30 ימים. אין חיוב חודשי ואין חידוש אוטומטי. בסוף 30 הימים החשבון נסגר אוטומטית — ואין אפשרות להאריך."
           />
 
           <RuleCard
@@ -125,11 +125,9 @@ export default function IntradayPage() {
                   <strong>4:59 PM ET</strong> של היום הבא.
                 </p>
                 <p className="mt-2">
-                  הוראות שמחוברות לפוזיציה (Attached Orders), כמו סטופ/לימיט, נסגרות יחד עם הפוזיציה.
-                  הוראות עצמאיות (Standing Orders) לא נסגרות לבד – צריך לבטל אותן ידנית לפני <span dir="ltr">4:59 PM ET</span> (בדרך כלל 23:59 בישראל, תלוי בשעון קיץ).
-                </p>
-                <p className="mt-2 text-xs" style={{ color: "var(--text-muted)" }}>
-                  כדי לא לטעות, מומלץ לעבוד לפי השעה ET שמופיעה במסמכי Apex.
+                  הוראות המחוברות לפוזיציה (כמו סטופ ולימיט) נסגרות אוטומטית כשהפוזיציה נסגרת.
+                  הוראות עצמאיות שאינן מחוברות לפוזיציה <strong>אינן מבוטלות אוטומטית</strong> — יש לבטל אותן ידנית לפני <span dir="ltr">4:59 PM ET</span>.
+                  בישראל זה בדרך כלל סביב חצות, אבל עשוי להשתנות לפי שעון קיץ — עבדו לפי <span dir="ltr">ET</span>.
                 </p>
               </>
             }
@@ -142,7 +140,7 @@ export default function IntradayPage() {
             variant="warning"
             title="הוראות תלויות — שימו לב"
             source={S.CLOSE_459}
-            body="הוראות מחוברות לפוזיציה (Attached Orders), כמו סטופ/לימיט, נסגרות יחד עם הפוזיציה. הוראות עצמאיות (Standing Orders) לא נסגרות לבד – צריך לבטל אותן ידנית לפני 4:59 PM ET (בדרך כלל 23:59 בישראל, תלוי בשעון קיץ). כדי לא לטעות, מומלץ לעבוד לפי השעה ET שמופיעה במסמכי Apex."
+            body="הוראות המחוברות לפוזיציה (כמו סטופ ולימיט) נסגרות אוטומטית כשהפוזיציה נסגרת. הוראות עצמאיות שאינן מחוברות לפוזיציה אינן מבוטלות אוטומטית — יש לבטל אותן ידנית לפני 4:59 PM ET. בישראל זה בדרך כלל סביב חצות, אבל עשוי להשתנות לפי שעון קיץ — עבדו לפי ET."
           />
         </div>
 

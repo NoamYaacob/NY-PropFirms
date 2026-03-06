@@ -118,6 +118,8 @@ export function Header() {
                   >
                     <button
                       onClick={() => setApexOpen((v) => !v)}
+                      aria-haspopup="true"
+                      aria-expanded={apexOpen}
                       className="flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium transition-colors"
                       style={{ color: isActive ? "var(--gold-300)" : "var(--text-secondary)" }}
                     >
@@ -134,6 +136,8 @@ export function Header() {
                     {apexOpen && (
                       <div
                         className="absolute top-full mt-1 rounded-xl py-2 min-w-[160px]"
+                        onMouseEnter={cancelClose}
+                        onMouseLeave={scheduleClose}
                         style={{
                           backgroundColor: "var(--surface-overlay)",
                           border: "1px solid var(--surface-border-strong)",
