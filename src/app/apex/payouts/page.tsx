@@ -5,8 +5,6 @@ import { CalloutBox } from "@/components/ui/CalloutBox";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { TimelineStrip } from "@/components/ui/TimelineStrip";
 import { Accordion, AccordionItem } from "@/components/ui/Accordion";
-import { Button } from "@/components/ui/Button";
-import { CouponChip } from "@/components/ui/CouponChip";
 import { S } from "@/lib/sources";
 import { PayoutTablesWidget } from "@/components/ui/PayoutTablesWidget";
 
@@ -15,14 +13,12 @@ export const metadata: Metadata = {
   description: "כללי תשלום PA של Apex: עקביות 50%, רשת ביטחון, חלוקת רווחים, 6 תשלומים לחשבון",
 };
 
-const APEX_URL = "https://apextraderfunding.com";
-
 
 const FAQ_ITEMS: AccordionItem[] = [
   {
     id: "min-days",
     trigger: "כמה ימי מסחר נדרשים לפני בקשת תשלום?",
-    content: "על EOD PA נדרשים לפחות 5 ימי מסחר כשירים (Qualifying Trading Days) — ימים שבוצעה בהם לפחות עסקה אחת. סכום הבקשה המינימלי: $500.",
+    content: "על EOD PA נדרשים לפחות 5 ימי מסחר כשירים — ימים שבוצעה בהם לפחות עסקה אחת. סכום הבקשה המינימלי: $500.",
   },
   {
     id: "second-payout",
@@ -224,7 +220,7 @@ export default function PayoutsPage() {
             <>
               <p>
                 לבקשת תשלום מ-EOD PA נדרשים לפחות{" "}
-                <strong>5 ימי מסחר כשירים (Qualifying Trading Days)</strong> — ימים שבוצעה בהם לפחות עסקה אחת.
+                <strong>5 ימי מסחר כשירים</strong> — ימים שבוצעה בהם לפחות עסקה אחת.
               </p>
               <p className="mt-2">
                 סכום הבקשה חייב להיות לפחות <strong><span dir="ltr">$500</span></strong>.
@@ -275,11 +271,6 @@ export default function PayoutsPage() {
         <Accordion items={FAQ_ITEMS} />
       </section>
 
-      {/* CTA */}
-      <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
-        <CouponChip size="sm" />
-        <Button label="פתח מבחן ב-Apex" href={APEX_URL} variant="primary" external />
-      </div>
     </div>
   );
 }

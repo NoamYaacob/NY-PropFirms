@@ -12,7 +12,7 @@ import {
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 const TABS: { key: TabKey; label: string }[] = [
-  { key: "intraday", label: "Intraday" },
+  { key: "intraday", label: "אינטרה-דיי (Intraday)" },
   { key: "eod",      label: "סוף יום (EOD)" },
 ];
 
@@ -80,7 +80,7 @@ export function PayoutTablesWidget() {
           תנאי תשלום לפי גודל חשבון
         </h2>
         <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
-          מינימומים ומקסימומים לכל גודל חשבון — Tradovate
+          נתוני Tradovate לפי גודל חשבון
         </p>
       </div>
 
@@ -100,11 +100,11 @@ export function PayoutTablesWidget() {
           <div className="flex flex-col gap-1.5" style={{ color: "var(--text-secondary)" }}>
             <p>
               <span className="font-medium" style={{ color: "var(--text-primary)" }}>סוף יום (EOD): </span>
-              רף ההפסד המותר (Drawdown) נקבע לפי מצב החשבון בסוף יום המסחר.
+              רף ההפסד נקבע לפי מצב החשבון בסיום יום המסחר.
             </p>
             <p>
               <span className="font-medium" style={{ color: "var(--text-primary)" }}>אינטרה-דיי (Intraday): </span>
-              רף ההפסד (Drawdown) נגרר בזמן אמת אחרי שיא החשבון.
+              רף ההפסד נגרר בזמן אמת אחרי שיא החשבון.
             </p>
           </div>
           <p className="mt-2.5 text-xs" style={{ color: "var(--text-muted)" }}>
