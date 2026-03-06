@@ -73,10 +73,10 @@ export default function IntradayPage() {
 
         <div className="card p-4 text-center">
           <p className="font-semibold text-sm leading-snug" style={{ color: "var(--teal-400)" }}>
-            ב-<span dir="ltr">PA</span> יש מגבלת הפסד יומי (<span dir="ltr">DLL</span>) ✅
+            בשלב ה-<span dir="ltr">PA</span> יש מגבלת הפסד יומי (<span dir="ltr">DLL</span>) ✅
           </p>
           <p className="text-xs mt-1.5" style={{ color: "var(--text-muted)" }}>
-            לפי רמות (<span dir="ltr">Level/Tier</span>) • נבדק בזמן אמת • ההגבלה מתאפסת בסשן הבא
+            לפי רמות (<span dir="ltr">Tier</span>) • מנוטר בזמן אמת • מתאפס בסשן הבא
           </p>
           <p className="text-xs mt-1" style={{ color: "var(--text-muted)", opacity: 0.65 }}>
             בשלב המבחן (<span dir="ltr">Intraday</span>) אין <span dir="ltr">DLL</span>
@@ -170,22 +170,23 @@ export default function IntradayPage() {
         <div id="pa-dll" className="mt-4">
           <CalloutBox
             variant="info"
-            title="DLL לפי רמות (Tier) — שלב ה-PA (Intraday)"
+            title="מגבלת הפסד יומי (DLL) לפי רמות — שלב ה-PA"
             accountType="intraday-pa"
-            source={S.INTRADAY_PA}
+            source={S.SCALING_LEVELS_PA}
             body={
               <div className="space-y-2">
                 <p>
-                  ב-<span dir="ltr">Intraday PA</span> יש{" "}
+                  בשלב ה-<span dir="ltr">PA</span> יש{" "}
                   <span dir="ltr">DLL</span> — בניגוד למבחן שבו אין. הרף מנוטר
                   בזמן אמת על כל ההון (ממומש ובלתי-ממומש). כשנפגעים ברף:
-                  פוזיציות נסגרות אוטומטית, המסחר נעצר עד סוף אותו סשן,
-                  ומתחדש בפתיחת הסשן הבא (<span dir="ltr">6:00 PM ET</span>).
+                  פוזיציות נסגרות אוטומטית, המסחר נעצר עד סוף הסשן,
+                  ומתחדש בפתיחת הסשן הבא.
                 </p>
                 <p>
-                  ה-<span dir="ltr">DLL</span> נקבע לפי רמת החשבון (<span dir="ltr">Tier</span>).
-                  כשעולים רמה הוא יכול לגדול; ירידת רמה עשויה לצמצם אותו —
-                  אבל לא מתחת לרמה 1 (הרמה הבסיסית). מתאפס בכל פתיחת סשן.
+                  <strong>הרמה נקבעת פעם אחת בסוף יום המסחר הקודם</strong> ונכנסת
+                  לתוקף בסשן הבא — היא אינה משתנה באמצע הסשן. רמה 1 היא
+                  הרצפה: גם אם יורדים, ה-<span dir="ltr">DLL</span> לא
+                  יורד מתחת לרמה 1.
                 </p>
                 <p className="text-xs" style={{ color: "var(--text-muted)" }}>
                   הרמות עשויות להשתנות — בדקו ישירות ב-<span dir="ltr">Apex</span>{" "}

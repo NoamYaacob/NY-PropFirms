@@ -48,6 +48,10 @@ export const S = {
     title: "Intraday Trailing Drawdown Payouts",
     href: "https://support.apextraderfunding.com/hc/en-us/articles/47206370796827",
   },
+  SCALING_LEVELS_PA: {
+    title: "Scaling Levels (PA) Explained",
+    href: "https://support.apextraderfunding.com/hc/en-us/articles/46729420990235-Scaling-Levels-PA-Explained",
+  },
   CONTRACT_SCALING: {
     title: "Contract Scaling Rule",
     href: "https://support.apextraderfunding.com/hc/en-us/articles/40463165052955",
