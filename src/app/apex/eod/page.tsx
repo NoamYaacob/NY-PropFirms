@@ -10,7 +10,7 @@ import { S } from "@/lib/sources";
 
 export const metadata: Metadata = {
   title: "Apex EOD — מבחן ו-PA | NY Prop Firms",
-  description: "כללי חשבון EOD של Apex: DLL (מגבלת הפסד יומי), Contract Scaling, עקביות 50%, רשת ביטחון ועוד",
+  description: "כללי חשבון EOD של Apex: DLL (מגבלת הפסד יומי), גודל פוזיציה קבוע, עקביות 50%, רשת ביטחון ועוד",
 };
 
 const APEX_URL = "https://apextraderfunding.com";
@@ -51,26 +51,26 @@ export default function EODPage() {
           <p className="font-bold" style={{ color: "var(--text-secondary)" }}>רף הפסד בסוף יום (EOD)</p>
         </div>
         <div className="card p-4 text-center">
-          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>תקופת שימוש</p>
-          <p className="font-bold" style={{ color: "var(--text-primary)" }}>30 יום</p>
+          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>תוקף המבחן</p>
+          <p className="font-bold" style={{ color: "var(--text-primary)" }}>30 ימים</p>
         </div>
       </div>
 
       {/* ── EVALUATION ─────────────────────────────────────────── */}
       <section id="evaluation">
         <h2 className="text-2xl font-bold mb-6" style={{ color: "var(--gold-300)" }}>
-          שלב המבחן — EOD Evaluation
+          שלב המבחן (EOD)
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <RuleCard
-            title="תקופת שימוש — חשבון מבחן"
+            title="תוקף המבחן"
             icon={Clock}
             accountType="eod"
             source={S.EVALUATION_FEES}
             body={
               <p>
-                כל מבחן הוא <strong>רכישה חד-פעמית</strong> ל-30 יום.
+                כל מבחן הוא <strong>רכישה חד-פעמית</strong> ל-30 ימים.
                 החשבון לא מתחדש אוטומטית ואין חיוב חודשי. בסוף היום ה-30
                 החשבון פג ב-11:59 PM ET — אין אפשרות להאריך.
               </p>
@@ -89,41 +89,34 @@ export default function EODPage() {
                   <strong> 4:59 PM ET</strong> של היום הבא.
                 </p>
                 <p className="mt-2">
-                  הוראות שמחוברות לפוזיציה (Attached Orders), כמו סטופ/לימיט, נסגרות יחד עם הפוזיציה.
-                  הוראות עצמאיות (Standing Orders) לא נסגרות לבד – צריך לבטל אותן ידנית לפני <span dir="ltr">4:59 PM ET</span> (בדרך כלל 23:59 בישראל, תלוי בשעון קיץ).
-                </p>
-                <p className="mt-2 text-xs" style={{ color: "var(--text-muted)" }}>
-                  כדי לא לטעות, מומלץ לעבוד לפי השעה ET שמופיעה במסמכי Apex.
+                  הוראות המחוברות לפוזיציה (כמו סטופ ולימיט) נסגרות אוטומטית כשהפוזיציה נסגרת.
+                  הוראות עצמאיות שאינן מחוברות לפוזיציה <strong>אינן מבוטלות אוטומטית</strong> — יש לבטל אותן ידנית לפני <span dir="ltr">4:59 PM ET</span>.
+                  בישראל זה בדרך כלל סביב חצות, אבל עשוי להשתנות לפי שעון קיץ — עבדו לפי <span dir="ltr">ET</span>.
                 </p>
               </>
             }
           />
 
           <RuleCard
-            title="Contract Scaling Rule"
+            title="גודל פוזיציה — שלב המבחן"
             icon={BarChart2}
             accountType="eod"
-            source={S.CONTRACT_SCALING}
+            source={S.EOD_EVALUATIONS}
             body={
-              <>
-                <p>
-                  בתחילה מותר לסחור רק בחצי ממספר החוזים המרבי.
-                </p>
-                <p className="mt-2">
-                  הגישה לכמות המלאה נפתחת כשיתרת ה-EOD עוברת:{" "}
-                  <strong>יתרה התחלתית + רף הפסד מקסימלי + <span dir="ltr">$100</span></strong>.
-                  אחרי שהגישה נפתחת — היא נשארת גם אם היתרה יורדת.
-                </p>
-              </>
+              <p>
+                בשלב המבחן גודל הפוזיציה קבוע — אין מנגנון{" "}
+                <span dir="ltr">Scaling</span>. גודל החוזה המרבי נקבע לפי
+                סוג החשבון שנרכש ואינו משתנה במהלך המבחן.
+              </p>
             }
           />
         </div>
 
         {/* DLL Callout — high priority */}
-        <div className="mt-4">
+        <div className="mt-6">
           <CalloutBox
             variant="info"
-            title="Daily Loss Limit (DLL) — EOD בלבד"
+            title="מגבלת הפסד יומי (DLL) — מבחן EOD"
             accountType="eod"
             source={S.DAILY_LOSS_LIMIT}
             body={
@@ -135,7 +128,7 @@ export default function EODPage() {
                 </p>
                 <p>
                   <strong style={{ color: "var(--text-primary)" }}>
-                    פגיעה ב-<span dir="ltr">DLL</span>: המסחר נעצר לשארית היום
+                    פגיעה ב-<span dir="ltr">DLL</span>: המסחר נעצר עד סוף אותו יום מסחר
                     — המבחן לא נכשל. חוזרים לסחור בסשן הבא.
                   </strong>
                 </p>
@@ -150,16 +143,16 @@ export default function EODPage() {
           />
         </div>
 
-        <div className="mt-6">
+        <div className="mt-8">
           <CalloutBox
             variant="warning"
             title="הוראות תלויות — שימו לב"
             source={S.CLOSE_459}
-            body="הוראות מחוברות לפוזיציה (Attached Orders), כמו סטופ/לימיט, נסגרות יחד עם הפוזיציה. הוראות עצמאיות (Standing Orders) לא נסגרות לבד – צריך לבטל אותן ידנית לפני 4:59 PM ET (בדרך כלל 23:59 בישראל, תלוי בשעון קיץ). כדי לא לטעות, מומלץ לעבוד לפי השעה ET שמופיעה במסמכי Apex."
+            body="הוראות המחוברות לפוזיציה (כמו סטופ ולימיט) נסגרות אוטומטית כשהפוזיציה נסגרת. הוראות עצמאיות שאינן מחוברות לפוזיציה אינן מבוטלות אוטומטית — יש לבטל אותן ידנית לפני 4:59 PM ET. בישראל זה בדרך כלל סביב חצות, אבל עשוי להשתנות לפי שעון קיץ — עבדו לפי ET."
           />
         </div>
 
-        <div className="mt-8">
+        <div className="mt-10">
           <Button
             label="פתח מבחן EOD עם קוד TLHCODE"
             href={APEX_URL}
