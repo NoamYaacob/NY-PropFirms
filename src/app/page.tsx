@@ -17,8 +17,8 @@ const COMPARISON_ROWS: ComparisonRow[] = [
     source: S.DAILY_LOSS_LIMIT,
   },
   {
-    feature: "שיטת רף הפסד",
-    eodValue: "רף הפסד בסוף יום",
+    feature: "רף הפסד – איך זה עובד",
+    eodValue: "רף הפסד בסוף יום (EOD)",
     intradayValue: "רף הפסד נגרר בזמן אמת",
     source: S.INTRADAY_EVALUATIONS,
   },

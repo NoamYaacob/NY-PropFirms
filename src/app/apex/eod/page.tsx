@@ -47,8 +47,8 @@ export default function EODPage() {
           </p>
         </div>
         <div className="card p-4 text-center">
-          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>שיטת רף הפסד</p>
-          <p className="font-bold" style={{ color: "var(--text-secondary)" }}>רף הפסד בסוף יום</p>
+          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>רף הפסד – איך זה עובד</p>
+          <p className="font-bold" style={{ color: "var(--text-secondary)" }}>רף הפסד בסוף יום (EOD)</p>
         </div>
         <div className="card p-4 text-center">
           <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>תקופת שימוש</p>
