@@ -24,7 +24,7 @@ const COMPARISON_ROWS: ComparisonRow[] = [
   },
   {
     feature: "מה קורה בפגיעה",
-    eodValue: "מסחר מושהה ליום — המבחן לא נכשל",
+    eodValue: "המסחר נעצר לאותו יום — המבחן לא נכשל",
     intradayValue: "אין פגיעה יומית — רק רף הפסד נגרר",
     source: S.DAILY_LOSS_LIMIT,
   },

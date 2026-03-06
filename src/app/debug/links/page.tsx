@@ -14,7 +14,7 @@ interface LinkEntry {
 }
 
 const SOURCE_LINKS: LinkEntry[] = [
-  { key: "EVALUATION_FEES",      label: S.EVALUATION_FEES.title,      url: S.EVALUATION_FEES.href,      usedIn: "/apex/eod, /apex/intraday — שכר הערכה" },
+  { key: "EVALUATION_FEES",      label: S.EVALUATION_FEES.title,      url: S.EVALUATION_FEES.href,      usedIn: "/apex/eod, /apex/intraday — שכר המבחן" },
   { key: "EOD_EVALUATIONS",      label: S.EOD_EVALUATIONS.title,      url: S.EOD_EVALUATIONS.href,      usedIn: "/apex/eod — EOD evaluation rules" },
   { key: "INTRADAY_EVALUATIONS", label: S.INTRADAY_EVALUATIONS.title, url: S.INTRADAY_EVALUATIONS.href, usedIn: "/apex/intraday — Intraday evaluation rules" },
   { key: "DAILY_LOSS_LIMIT",     label: S.DAILY_LOSS_LIMIT.title,     url: S.DAILY_LOSS_LIMIT.href,     usedIn: "/apex/eod (eval DLL callout), /apex/intraday (eval callout), /apex/payouts (DLL accordion link)" },

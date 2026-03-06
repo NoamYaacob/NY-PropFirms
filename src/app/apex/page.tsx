@@ -71,7 +71,7 @@ const FAQ_ITEMS: AccordionItem[] = [
     trigger: "מה ההבדל בין EOD ל-Intraday?",
     content: (
       <div className="space-y-2">
-        <p><strong style={{ color: "var(--text-primary)" }}><span dir="ltr">EOD</span> (<span dir="ltr">End of Day</span>):</strong> רף ההפסד מחושב פעם אחת בסוף יום המסחר ונשאר קבוע עד הסוף הבא. יש <span dir="ltr">DLL</span> — פגיעה בו המסחר נעצר לאותו יום, לא פוסלת את המבחן.</p>
+        <p><strong style={{ color: "var(--text-primary)" }}><span dir="ltr">EOD</span> (<span dir="ltr">End of Day</span>):</strong> רף ההפסד מחושב פעם אחת בסוף יום המסחר ונשאר קבוע עד הסוף הבא. יש מגבלת הפסד יומי (<span dir="ltr">DLL</span>) — פגיעה בו המסחר נעצר לאותו יום, לא פוסלת את המבחן.</p>
         <p><strong style={{ color: "var(--text-primary)" }}><span dir="ltr">Intraday</span>:</strong> רף ההפסד הנגרר עוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים. במבחן אין <span dir="ltr">DLL</span> — ב-<span dir="ltr">PA</span> יש <span dir="ltr">DLL</span> לפי רמות.</p>
       </div>
     ),

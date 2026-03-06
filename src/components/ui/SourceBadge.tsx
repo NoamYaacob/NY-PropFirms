@@ -18,7 +18,7 @@ export function SourceBadge({ title, href }: SourceBadgeProps) {
         border: "1px solid var(--teal-edge)",
       }}
     >
-      מקור רשמי ↗
+      מקור ↗
     </a>
   );
 }

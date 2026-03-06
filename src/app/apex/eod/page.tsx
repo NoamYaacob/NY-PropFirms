@@ -135,8 +135,8 @@ export default function EODPage() {
                 </p>
                 <p>
                   <strong style={{ color: "var(--text-primary)" }}>
-                    פגיעה ב-<span dir="ltr">DLL</span>: המסחר מושהה לשארית יום
-                    המסחר — המבחן לא נכשל. חוזרים לסחור בסשן הבא.
+                    פגיעה ב-<span dir="ltr">DLL</span>: המסחר נעצר לשארית היום
+                    — המבחן לא נכשל. חוזרים לסחור בסשן הבא.
                   </strong>
                 </p>
                 <p style={{ color: "var(--text-muted)" }}>
