@@ -29,23 +29,23 @@ const COMPARISON_ROWS: ComparisonRow[] = [
   },
   {
     feature: "סטופ יומי ב-PA",
-    eodValue: <span style={{ color: "var(--green-400)" }}>יש (לפי רמות) ✅</span>,
-    intradayValue: <span style={{ color: "var(--green-400)" }}>יש (לפי רמות) ✅</span>,
+    eodValue: <span style={{ color: "var(--green-400)" }}>יש ✅</span>,
+    intradayValue: <span style={{ color: "var(--green-400)" }}>יש ✅</span>,
   },
   {
     feature: "רף הפסד",
-    eodValue: "מחושב בסוף יום",
-    intradayValue: "נגרר בזמן אמת",
+    eodValue: "בסוף יום",
+    intradayValue: "נגרר",
   },
   {
-    feature: "חוק עקביות ב-PA",
-    eodValue: "50% מהיום הרווחי ביותר",
-    intradayValue: "50% מהיום הרווחי ביותר",
+    feature: "עקביות ב-PA",
+    eodValue: "50% מיום הרווח",
+    intradayValue: "50% מיום הרווח",
   },
   {
-    feature: "מספר תשלומים מקסימלי",
-    eodValue: "6 תשלומים לחשבון",
-    intradayValue: "6 תשלומים לחשבון",
+    feature: "תשלומים",
+    eodValue: "עד 6",
+    intradayValue: "עד 6",
   },
 ];
 
@@ -125,10 +125,10 @@ export default function ApexHubPage() {
 
       {/* Full Comparison */}
       <section className="mb-12">
-        <h2 className="text-xl font-bold mb-6" style={{ color: "var(--text-primary)" }}>
-          השוואה בין EOD ל-Intraday
+        <h2 className="text-xl font-bold mb-4" style={{ color: "var(--text-primary)" }}>
+          EOD מול Intraday
         </h2>
-        <ComparisonBlock rows={COMPARISON_ROWS} showSources={false} />
+        <ComparisonBlock rows={COMPARISON_ROWS} showSources={false} compact />
       </section>
 
       {/* Page CTAs */}

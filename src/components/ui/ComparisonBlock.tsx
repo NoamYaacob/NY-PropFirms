@@ -28,9 +28,9 @@ export function ComparisonBlock({ rows, compact = false, showSources = true }: C
           borderBottom: "1px solid var(--surface-border)",
         }}
       >
-        <div className="px-4 py-3">כלל / תכונה</div>
-        <div className="px-4 py-3 text-center" style={{ color: "#7EA0FF" }}>EOD</div>
-        <div className="px-4 py-3 text-center" style={{ color: "var(--teal-400)" }}>Intraday</div>
+        <div className="px-2 sm:px-4 py-2 sm:py-3">כלל</div>
+        <div className="px-2 sm:px-4 py-2 sm:py-3 text-center" style={{ color: "#7EA0FF" }}>EOD</div>
+        <div className="px-2 sm:px-4 py-2 sm:py-3 text-center" style={{ color: "var(--teal-400)" }}>Intraday</div>
       </div>
 
       {/* Rows */}
@@ -44,25 +44,23 @@ export function ComparisonBlock({ rows, compact = false, showSources = true }: C
           }}
         >
           <div
-            className={`px-4 ${compact ? "py-3" : "py-4"} text-sm font-medium`}
+            className="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm font-medium"
             style={{ color: "var(--text-primary)" }}
           >
             {row.feature}
           </div>
           <div
-            className={`px-4 ${compact ? "py-3" : "py-4"} text-sm text-center`}
+            className="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-center"
             style={{ color: "var(--text-secondary)" }}
           >
             {row.eodValue}
           </div>
           <div
-            className={`px-4 ${compact ? "py-3" : "py-4"} text-sm`}
+            className="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-center"
             style={{ color: "var(--text-secondary)" }}
           >
-            <div className="flex flex-col items-center gap-1">
-              {row.intradayValue}
-              {showSources && row.source && <SourceBadge {...row.source} short />}
-            </div>
+            {row.intradayValue}
+            {showSources && row.source && <SourceBadge {...row.source} short />}
           </div>
         </div>
       ))}
