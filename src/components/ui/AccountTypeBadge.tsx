@@ -67,7 +67,7 @@ export function AccountTypeBadge({ type }: AccountTypeBadgeProps) {
   const cfg = CONFIG[type];
   return (
     <span
-      className="inline-flex items-center text-xs font-medium rounded-full px-2.5 py-0.5"
+      className="inline-flex items-center shrink-0 whitespace-nowrap text-xs font-medium rounded-full px-2.5 py-1 leading-none"
       style={{
         backgroundColor: cfg.bg,
         color: cfg.color,
