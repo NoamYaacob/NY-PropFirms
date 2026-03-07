@@ -47,8 +47,8 @@ const EVALUATION: AccordionItem[] = [
     content: (
       <div className="space-y-2">
         <p><strong>רף הפסד (Drawdown):</strong> מגבלת הפסד כוללת לחשבון — אם נפגעת, המבחן נכשל.</p>
-        <p><strong>מגבלת הפסד יומי (DLL):</strong> מגבלת הפסד יומית — פגיעה בה עוצרת את המסחר לאותו יום בלבד, לא פוסלת את המבחן. קיים רק בחשבונות EOD.</p>
-        <p><strong>מבחן Intraday:</strong> אין DLL — אך ב-PA Intraday יש DLL לפי רמות.</p>
+        <p><strong>מגבלת הפסד יומי (DLL):</strong> מגבלת הפסד יומית — פגיעה בה עוצרת את המסחר לאותו יום בלבד, לא פוסלת את המבחן ולא סוגרת את ה-PA. קיים במבחן EOD — ובשני סוגי ה-PA לפי רמות.</p>
+        <p><strong>מבחן Intraday:</strong> אין DLL בשלב המבחן — אך ב-PA Intraday יש DLL לפי רמות.</p>
       </div>
     ),
   },

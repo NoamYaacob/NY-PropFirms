@@ -281,14 +281,18 @@ export default function EODPage() {
         <div className="mt-4">
           <CalloutBox
             variant="info"
-            title="DLL לפי רמות (Tier) — EOD PA"
+            title="סטופ יומי לפי רמות — EOD PA"
             accountType="eod-pa"
             source={S.EOD_PA}
             body={
               <div className="space-y-2">
                 <p>
-                  ב-<span dir="ltr">EOD PA</span> יש{" "}
-                  <span dir="ltr">DLL</span>, והוא נקבע לפי רמת החשבון. כשעולים רמה ה-<span dir="ltr">DLL</span> יכול לגדול, ואם יורדים רמה הוא יכול להצטמצם — אבל לא ירד מתחת לרמה הבסיסית.
+                  ב-<span dir="ltr">EOD PA</span> יש סטופ יומי (<span dir="ltr">DLL</span>) הנקבע לפי רמת החשבון (<span dir="ltr">Tier</span>).
+                  הרמה קובעת גם את מספר החוזים המקסימלי וגם את גודל הסטופ היומי לסשן הבא.
+                </p>
+                <p>
+                  <strong>הרמה נקבעת פעם ביום לפי יתרת סוף היום</strong> — אינה משתנה תוך כדי סשן. לא ירדת מתחת לרמה 1.
+                  פגיעה בסטופ היומי: פוזיציות נסגרות אוטומטית, המסחר נעצר עד הסשן הבא — ה-<span dir="ltr">PA</span> לא נסגר.
                 </p>
                 <p className="text-xs" style={{ color: "var(--text-muted)" }}>
                   הנתונים והרמות עשויים להשתנות. מומלץ לבדוק ישירות ב-<span dir="ltr">Apex</span> לפני החלטות מסחר.

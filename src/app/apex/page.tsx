@@ -206,6 +206,20 @@ export default function ApexHubPage() {
         </div>
       </section>
 
+      {/* DLL + Tier explanation */}
+      <section className="mb-12 space-y-4">
+        <CalloutBox
+          variant="info"
+          title="סטופ יומי (DLL)"
+          body="הסטופ היומי הוא מגבלת ההפסד המקסימלית לאותו יום מסחר. אם מגיעים אליה, הפוזיציות נסגרות אוטומטית והמסחר נעצר עד הסשן הבא. במבחן EOD יש סטופ יומי, במבחן Intraday אין. ב-PA הסטופ היומי נקבע לפי רמות."
+        />
+        <CalloutBox
+          variant="info"
+          title="מה זה רמה (Tier)?"
+          body="רמה היא דרגת הסקיילינג של חשבון ה-PA. היא קובעת כמה חוזים מותר להחזיק ומה גודל הסטופ היומי בסשן הבא. הרמה נקבעת פעם ביום לפי יתרת סוף היום, לא משתנה תוך כדי יום, ולא יורדת מתחת לרמה 1."
+        />
+      </section>
+
       {/* Page CTAs */}
       <div className="flex flex-col sm:flex-row items-center gap-4 mt-8">
         <CouponChip size="sm" />

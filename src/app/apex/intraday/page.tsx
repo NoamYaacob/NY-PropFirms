@@ -308,23 +308,19 @@ export default function IntradayPage() {
         <div id="pa-dll" className="mt-4">
           <CalloutBox
             variant="info"
-            title="מגבלת הפסד יומי (DLL) לפי רמות — שלב ה-PA"
+            title="סטופ יומי לפי רמות — Intraday PA"
             accountType="intraday-pa"
             source={S.SCALING_LEVELS_PA}
             body={
               <div className="space-y-2">
                 <p>
-                  בשלב ה-<span dir="ltr">PA</span> יש{" "}
-                  <span dir="ltr">DLL</span> — בניגוד למבחן שבו אין. הרף מנוטר
-                  בזמן אמת על כל ההון (ממומש ובלתי-ממומש). כשנפגעים ברף:
-                  פוזיציות נסגרות אוטומטית, המסחר נעצר עד סוף הסשן,
-                  ומתחדש בפתיחת הסשן הבא.
+                  בשלב ה-<span dir="ltr">PA</span> יש סטופ יומי (<span dir="ltr">DLL</span>) — בניגוד למבחן שבו אין.
+                  הרמה (<span dir="ltr">Tier</span>) קובעת גם את מספר החוזים המקסימלי וגם את גודל הסטופ היומי לסשן הבא.
+                  הרף מנוטר בזמן אמת על כל ההון (ממומש ובלתי-ממומש).
                 </p>
                 <p>
-                  <strong>הרמה נקבעת פעם אחת בסוף יום המסחר הקודם</strong> ונכנסת
-                  לתוקף בסשן הבא — היא אינה משתנה באמצע הסשן. רמה 1 היא
-                  הרצפה: גם אם יורדים, ה-<span dir="ltr">DLL</span> לא
-                  יורד מתחת לרמה 1.
+                  <strong>הרמה נקבעת פעם ביום לפי יתרת סוף היום</strong> — אינה משתנה תוך כדי סשן. רמה 1 היא הרצפה: גם אם יורדים, הסטופ לא ירד מתחת לרמה 1.
+                  פגיעה בסטופ: פוזיציות נסגרות אוטומטית, המסחר נעצר עד הסשן הבא — ה-<span dir="ltr">PA</span> לא נסגר.
                 </p>
                 <p className="text-xs" style={{ color: "var(--text-muted)" }}>
                   הרמות עשויות להשתנות — בדקו ישירות ב-<span dir="ltr">Apex</span>{" "}
