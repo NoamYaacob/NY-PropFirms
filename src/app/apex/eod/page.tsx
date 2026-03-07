@@ -172,8 +172,8 @@ export default function EODPage() {
       {/* ── Phase Divider ────────────────────────────────────────── */}
       <SectionDivider
         variant="phase"
-        rightLabel="← שלב המבחן"
-        leftLabel="שלב ה-PA ←"
+        rightLabel="שלב ה-PA ↓"
+        leftLabel="↑ שלב המבחן"
       />
 
       {/* ── PA SECTION ─────────────────────────────────────────── */}
