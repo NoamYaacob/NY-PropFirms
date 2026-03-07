@@ -170,11 +170,44 @@ export default function PayoutsPage() {
         />
 
         <RuleCard
-          title="רשת ביטחון (Safety Net)"
+          title="רשת ביטחון לפי גודל חשבון"
           icon={ShieldAlert}
           accountType="pa"
           source={S.EOD_PAYOUTS}
-          body="רשת הביטחון היא רף ההפסד של החשבון בתוספת $100, והיא נשארת בתוקף לאורך כל חיי חשבון ה-PA. רק רווח שמעל רשת הביטחון ניתן למשיכה."
+          body={
+            <div>
+              <p className="text-sm mb-1" style={{ color: "var(--text-secondary)" }}>
+                רף ההפסד של החשבון בתוספת <span dir="ltr">$100</span>
+              </p>
+              <table className="w-full text-sm border-collapse mb-1">
+                <thead>
+                  <tr style={{ borderBottom: "1px solid var(--surface-border)" }}>
+                    <th className="text-right py-1.5 font-medium" style={{ color: "var(--text-muted)" }}>גודל חשבון</th>
+                    <th className="text-right py-1.5 font-medium" style={{ color: "var(--text-muted)" }}>רשת ביטחון</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { size: "$25K", net: "$26,100" },
+                    { size: "$50K", net: "$52,100" },
+                    { size: "$100K", net: "$103,100" },
+                    { size: "$150K", net: "$154,100" },
+                  ].map((row) => (
+                    <tr key={row.size} style={{ borderBottom: "1px solid var(--surface-border)" }}>
+                      <td className="py-1.5" dir="ltr">{row.size}</td>
+                      <td className="py-1.5 font-semibold" dir="ltr" style={{ color: "var(--teal-400)" }}>{row.net}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                רשת הביטחון נשארת בתוקף לאורך כל חיי חשבון ה-PA. רק רווח שמעל רשת הביטחון ניתן למשיכה.
+              </p>
+              <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>
+                סכומי רשת הביטחון משתנים לפי גודל החשבון.
+              </p>
+            </div>
+          }
         />
 
         <RuleCard
