@@ -36,10 +36,6 @@ export const S = {
     title: "50% Consistency Requirement",
     href: "https://support.apextraderfunding.com/hc/en-us/articles/47237316722075",
   },
-  SAFETY_NET: {
-    title: "Safety Net Requirement Rule",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/40463578114715",
-  },
   EOD_PAYOUTS: {
     title: "EOD Payouts",
     href: "https://support.apextraderfunding.com/hc/en-us/articles/47205823183003",

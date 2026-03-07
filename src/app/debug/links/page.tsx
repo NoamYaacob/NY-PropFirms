@@ -22,7 +22,6 @@ const SOURCE_LINKS: LinkEntry[] = [
   { key: "INTRADAY_PA",          label: S.INTRADAY_PA.title,          url: S.INTRADAY_PA.href,          usedIn: "/apex/intraday — Intraday PA DLL tier-based explainer" },
   { key: "PAYOUT_RULES",         label: S.PAYOUT_RULES.title,         url: S.PAYOUT_RULES.href,         usedIn: "/apex/eod, /apex/intraday, /apex/payouts — Payout rules" },
   { key: "CONSISTENCY_50",       label: S.CONSISTENCY_50.title,       url: S.CONSISTENCY_50.href,       usedIn: "/apex/payouts — Consistency 50% rule" },
-  { key: "SAFETY_NET",           label: S.SAFETY_NET.title,           url: S.SAFETY_NET.href,           usedIn: "/apex/payouts — Safety Net rule" },
   { key: "EOD_PAYOUTS",          label: S.EOD_PAYOUTS.title,          url: S.EOD_PAYOUTS.href,          usedIn: "/apex/payouts — EOD payout table source" },
   { key: "INTRADAY_PAYOUTS",     label: S.INTRADAY_PAYOUTS.title,     url: S.INTRADAY_PAYOUTS.href,     usedIn: "/apex/payouts — Intraday payout table source" },
   { key: "CONTRACT_SCALING",     label: S.CONTRACT_SCALING.title,     url: S.CONTRACT_SCALING.href,     usedIn: "— הוסר מהאתר, שמור במקורות לבדיקה בלבד" },

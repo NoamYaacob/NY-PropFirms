@@ -170,37 +170,11 @@ export default function PayoutsPage() {
         />
 
         <RuleCard
-          title="רשת ביטחון (Safety Net) – בשלושת התשלומים הראשונים"
+          title="רשת ביטחון (Safety Net)"
           icon={ShieldAlert}
           accountType="pa"
-          source={S.SAFETY_NET}
-          body={
-            <div>
-              <table className="w-full text-sm border-collapse">
-                <thead>
-                  <tr style={{ borderBottom: "1px solid var(--surface-border)" }}>
-                    <th className="text-right py-1.5 font-medium" style={{ color: "var(--text-muted)" }}>תשלום</th>
-                    <th className="text-right py-1.5 font-medium" style={{ color: "var(--text-muted)" }}>חלה רשת הביטחון?</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {["תשלום 1", "תשלום 2", "תשלום 3"].map((t) => (
-                    <tr key={t} style={{ borderBottom: "1px solid var(--surface-border)" }}>
-                      <td className="py-1.5">{t}</td>
-                      <td className="py-1.5" style={{ color: "var(--amber-400)" }}>✅ כן</td>
-                    </tr>
-                  ))}
-                  <tr>
-                    <td className="py-1.5">תשלום 4+</td>
-                    <td className="py-1.5" style={{ color: "var(--green-400)" }}>❌ לא</td>
-                  </tr>
-                </tbody>
-              </table>
-              <p className="text-xs mt-3" style={{ color: "var(--text-muted)" }}>
-                חריג: אם יש לפחות <span dir="ltr">$500</span> מעל הרף — אפשר לבקש תשלום מינימלי של <span dir="ltr">$500</span>.
-              </p>
-            </div>
-          }
+          source={S.EOD_PAYOUTS}
+          body="רשת הביטחון היא רף ההפסד של החשבון בתוספת $100, והיא נשארת בתוקף לאורך כל חיי חשבון ה-PA. רק רווח שמעל רשת הביטחון ניתן למשיכה."
         />
 
         <RuleCard

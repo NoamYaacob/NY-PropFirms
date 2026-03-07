@@ -229,24 +229,11 @@ export default function IntradayPage() {
           />
 
           <RuleCard
-            title="רשת ביטחון (Safety Net) – בשלושת התשלומים הראשונים"
+            title="רשת ביטחון (Safety Net)"
             icon={ShieldAlert}
             accountType="intraday-pa"
-            source={S.SAFETY_NET}
-            body={
-              <>
-                <p>
-                  ב-3 התשלומים הראשונים, יתרת החשבון אחרי המשיכה חייבת
-                  להישאר מעל:{" "}
-                  <strong>
-                    יתרה התחלתית + רף הפסד + <span dir="ltr">$100</span>
-                  </strong>.
-                </p>
-                <p className="mt-2">
-                  מהתשלום הרביעי ואילך — רשת הביטחון לא חלה.
-                </p>
-              </>
-            }
+            source={S.INTRADAY_PAYOUTS}
+            body="רשת הביטחון היא רף ההפסד של החשבון בתוספת $100, והיא נשארת בתוקף לאורך כל חיי חשבון ה-PA. רק רווח שמעל רשת הביטחון ניתן למשיכה."
           />
 
           <RuleCard
