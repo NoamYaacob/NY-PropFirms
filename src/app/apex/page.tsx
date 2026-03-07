@@ -6,7 +6,6 @@ import { ComparisonBlock, ComparisonRow } from "@/components/ui/ComparisonBlock"
 import { Accordion, AccordionItem } from "@/components/ui/Accordion";
 import { Button } from "@/components/ui/Button";
 import { CouponChip } from "@/components/ui/CouponChip";
-import { S } from "@/lib/sources";
 
 export const metadata: Metadata = {
   title: "Apex — כל הכללים | NY Prop Firms",
@@ -24,34 +23,29 @@ const NAV_CARDS = [
 
 const COMPARISON_ROWS: ComparisonRow[] = [
   {
-    feature: "DLL במבחן",
-    eodValue: <span style={{ color: "var(--amber-400)" }}>יש DLL ✅</span>,
-    intradayValue: <span style={{ color: "var(--green-400)" }}>אין DLL ❌</span>,
-    source: S.INTRADAY_EVALUATIONS,
+    feature: "סטופ יומי במבחן",
+    eodValue: <span style={{ color: "var(--green-400)" }}>יש ✅</span>,
+    intradayValue: <span style={{ color: "var(--red-400)" }}>אין ❌</span>,
   },
   {
-    feature: "DLL ב-PA",
-    eodValue: <span style={{ color: "var(--amber-400)" }}>יש DLL (לפי רמות) ✅</span>,
-    intradayValue: <span style={{ color: "var(--amber-400)" }}>יש DLL (לפי רמות) ✅</span>,
-    source: S.DAILY_LOSS_LIMIT,
+    feature: "סטופ יומי ב-PA",
+    eodValue: <span style={{ color: "var(--green-400)" }}>יש (לפי רמות) ✅</span>,
+    intradayValue: <span style={{ color: "var(--green-400)" }}>יש (לפי רמות) ✅</span>,
   },
   {
-    feature: "רף הפסד – איך זה עובד",
-    eodValue: "רף הפסד בסוף יום (EOD)",
-    intradayValue: "רף הפסד נגרר בזמן אמת",
-    source: S.INTRADAY_EVALUATIONS,
+    feature: "רף הפסד",
+    eodValue: "מחושב בסוף יום",
+    intradayValue: "נגרר בזמן אמת",
   },
   {
-    feature: "חוק עקביות (Consistency) ב-PA",
+    feature: "חוק עקביות ב-PA",
     eodValue: "50% מהיום הרווחי ביותר",
     intradayValue: "50% מהיום הרווחי ביותר",
-    source: S.CONSISTENCY_50,
   },
   {
     feature: "מספר תשלומים מקסימלי",
     eodValue: "6 תשלומים לחשבון",
     intradayValue: "6 תשלומים לחשבון",
-    source: S.EOD_PAYOUTS,
   },
 ];
 
@@ -134,7 +128,7 @@ export default function ApexHubPage() {
         <h2 className="text-xl font-bold mb-6" style={{ color: "var(--text-primary)" }}>
           השוואה בין EOD ל-Intraday
         </h2>
-        <ComparisonBlock rows={COMPARISON_ROWS} />
+        <ComparisonBlock rows={COMPARISON_ROWS} showSources={false} />
       </section>
 
       {/* Page CTAs */}

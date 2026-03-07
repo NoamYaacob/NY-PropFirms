@@ -10,9 +10,10 @@ export interface ComparisonRow {
 interface ComparisonBlockProps {
   rows: ComparisonRow[];
   compact?: boolean;
+  showSources?: boolean;
 }
 
-export function ComparisonBlock({ rows, compact = false }: ComparisonBlockProps) {
+export function ComparisonBlock({ rows, compact = false, showSources = true }: ComparisonBlockProps) {
   return (
     <div
       className="rounded-xl overflow-hidden"
@@ -60,7 +61,7 @@ export function ComparisonBlock({ rows, compact = false }: ComparisonBlockProps)
           >
             <div className="flex flex-col items-center gap-1">
               {row.intradayValue}
-              {row.source && <SourceBadge {...row.source} short />}
+              {showSources && row.source && <SourceBadge {...row.source} short />}
             </div>
           </div>
         </div>
