@@ -162,7 +162,7 @@ export default function ApexHubPage() {
         </h2>
 
         {/* Mobile: stacked comparison cards */}
-        <div className="sm:hidden space-y-3">
+        <div className="md:hidden space-y-3">
           {MOBILE_COMPARISON.map((card, i) => (
             <div
               key={i}
@@ -201,7 +201,7 @@ export default function ApexHubPage() {
         </div>
 
         {/* Desktop: table */}
-        <div className="hidden sm:block">
+        <div className="hidden md:block">
           <ComparisonBlock rows={COMPARISON_ROWS} showSources={false} compact />
         </div>
       </section>
