@@ -141,6 +141,39 @@ export default function EODPage() {
               </>
             }
           />
+
+          <RuleCard
+            title="מקסימום חוזים — שלב המבחן"
+            icon={BarChart2}
+            accountType="eval"
+            source={S.EOD_EVALUATIONS}
+            body={
+              <div className="space-y-2">
+                <p>במבחן EOD, מספר החוזים המקסימלי נקבע לפי גודל החשבון:</p>
+                <table className="w-full text-sm border-collapse mt-1">
+                  <thead>
+                    <tr style={{ borderBottom: "1px solid var(--surface-border)" }}>
+                      <th className="text-right pb-1.5 font-medium" style={{ color: "var(--text-muted)" }}>גודל חשבון</th>
+                      <th className="text-left pb-1.5 font-medium" style={{ color: "var(--text-muted)" }}>מקסימום חוזים</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      { size: "25K", contracts: "4 חוזים" },
+                      { size: "50K", contracts: "6 חוזים" },
+                      { size: "100K", contracts: "8 חוזים" },
+                      { size: "150K", contracts: "12 חוזים" },
+                    ].map((row) => (
+                      <tr key={row.size} style={{ borderBottom: "1px solid var(--surface-border)" }}>
+                        <td className="py-1 text-right" dir="ltr">{row.size}</td>
+                        <td className="py-1 text-left font-semibold" style={{ color: "var(--teal-400)" }}>{row.contracts}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            }
+          />
         </div>
 
         {/* DLL Callout */}
