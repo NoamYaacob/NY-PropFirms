@@ -28,9 +28,9 @@ const COMPARISON_ROWS: ComparisonRow[] = [
     intradayValue: <span style={{ color: "var(--red-400)" }}>אין ❌</span>,
   },
   {
-    feature: "סטופ יומי ב-PA",
-    eodValue: <span style={{ color: "var(--green-400)" }}>יש ✅</span>,
-    intradayValue: <span style={{ color: "var(--green-400)" }}>יש ✅</span>,
+    feature: "DLL ב-PA",
+    eodValue: <span style={{ color: "var(--green-400)" }}>יש — Tier Based ✅</span>,
+    intradayValue: <span style={{ color: "var(--green-400)" }}>יש — Tier Based ✅</span>,
   },
   {
     feature: "רף הפסד",
@@ -97,8 +97,8 @@ const FAQ_ITEMS: AccordionItem[] = [
     trigger: "מה ההבדל בין EOD ל-Intraday?",
     content: (
       <div className="space-y-2">
-        <p><strong style={{ color: "var(--text-primary)" }}><span dir="ltr">EOD</span> (<span dir="ltr">End of Day</span>):</strong> רף ההפסד מחושב פעם אחת בסוף יום המסחר ונשאר קבוע עד הסוף הבא. יש מגבלת הפסד יומי (<span dir="ltr">DLL</span>) — פגיעה בו המסחר נעצר לאותו יום, לא פוסלת את המבחן.</p>
-        <p><strong style={{ color: "var(--text-primary)" }}><span dir="ltr">Intraday</span>:</strong> רף ההפסד הנגרר עוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים. במבחן אין <span dir="ltr">DLL</span> — ב-<span dir="ltr">PA</span> יש <span dir="ltr">DLL</span> לפי רמות.</p>
+        <p><strong style={{ color: "var(--text-primary)" }}><span dir="ltr">EOD</span> (<span dir="ltr">End of Day</span>):</strong> רף ההפסד מחושב פעם אחת בסוף יום המסחר ונשאר קבוע לאורך הסשן הבא. יש <span dir="ltr">DLL</span> — פגיעה בו עוצרת את המסחר לאותו יום, החשבון נשאר פעיל. ב-<span dir="ltr">PA</span> ה-<span dir="ltr">DLL</span> לפי <span dir="ltr">Tier</span>.</p>
+        <p><strong style={{ color: "var(--text-primary)" }}><span dir="ltr">Intraday</span>:</strong> רף ההפסד הנגרר עוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים. במבחן אין <span dir="ltr">DLL</span> — ב-<span dir="ltr">PA</span> יש <span dir="ltr">DLL</span> לפי <span dir="ltr">Tier</span>.</p>
       </div>
     ),
   },
@@ -211,12 +211,12 @@ export default function ApexHubPage() {
         <CalloutBox
           variant="info"
           title="סטופ יומי (DLL)"
-          body="הסטופ היומי הוא מגבלת ההפסד המקסימלית לאותו יום מסחר. אם מגיעים אליה, הפוזיציות נסגרות אוטומטית והמסחר נעצר עד הסשן הבא. במבחן EOD יש סטופ יומי, במבחן Intraday אין. ב-PA הסטופ היומי נקבע לפי רמות."
+          body="הסטופ היומי הוא מגבלת ההפסד המקסימלית לאותו יום מסחר. אם מגיעים אליו, הפוזיציות נסגרות אוטומטית והמסחר נעצר עד הסשן הבא. החשבון נשאר פעיל. במבחן EOD יש DLL, במבחן Intraday אין DLL. ב-PA יש DLL לפי Tier."
         />
         <CalloutBox
           variant="info"
-          title="מה זה רמה (Tier)?"
-          body="רמה היא דרגת הסקיילינג של חשבון ה-PA. היא קובעת כמה חוזים מותר להחזיק ומה גודל הסטופ היומי בסשן הבא. הרמה נקבעת פעם ביום לפי יתרת סוף היום, לא משתנה תוך כדי יום, ולא יורדת מתחת לרמה 1."
+          title="מה זה Tier Based DLL?"
+          body="בחשבונות PA, ה-DLL נקבע לפי ה-Tier של החשבון. ה-Tier קובע גם את גודל הסטופ היומי וגם את מספר החוזים המקסימלי. ה-Tier מתעדכן לפי יתרת סוף היום, חל על הסשן הבא, ולא משתנה תוך כדי יום מסחר. אם היתרה יורדת, ה-Tier יכול לרדת, אבל לא מתחת ל-Level 1."
         />
       </section>
 

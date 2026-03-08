@@ -85,8 +85,8 @@ export default function PayoutsPage() {
                     <span dir="ltr">DLL</span> קבוע. במבחן{" "}
                     <span dir="ltr">Intraday</span> אין{" "}
                     <span dir="ltr">DLL</span>. ב-<span dir="ltr">PA</span>{" "}
-                    קיים <span dir="ltr">DLL</span> לפי רמות — יכול לגדול עם
-                    עליית רמה, אך לא ירד מתחת לרמה הבסיסית.
+                    יש <span dir="ltr">DLL</span> לפי <span dir="ltr">Tier</span> — יכול לגדול עם עליית <span dir="ltr">Tier</span>,
+                    אך לא ירד מתחת ל-<span dir="ltr">Level 1</span>.
                   </p>
                   <a
                     href={S.DAILY_LOSS_LIMIT.href}

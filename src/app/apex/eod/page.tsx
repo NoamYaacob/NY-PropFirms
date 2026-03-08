@@ -142,7 +142,7 @@ export default function EODPage() {
                   (<span dir="ltr">6:00 PM ET</span>).
                   במבחן <span dir="ltr">Intraday</span> אין{" "}
                   <span dir="ltr">DLL</span> — אך ב-<span dir="ltr">Intraday PA</span>{" "}
-                  קיים <span dir="ltr">DLL</span> לפי רמות.
+                  יש <span dir="ltr">DLL</span> לפי <span dir="ltr">Tier</span>.
                 </p>
               </div>
             }
@@ -281,21 +281,22 @@ export default function EODPage() {
         <div className="mt-4">
           <CalloutBox
             variant="info"
-            title="סטופ יומי לפי רמות — EOD PA"
+            title="DLL לפי Tier — EOD PA"
             accountType="eod-pa"
             source={S.EOD_PA}
             body={
               <div className="space-y-2">
                 <p>
-                  ב-<span dir="ltr">EOD PA</span> יש סטופ יומי (<span dir="ltr">DLL</span>) הנקבע לפי רמת החשבון (<span dir="ltr">Tier</span>).
-                  הרמה קובעת גם את מספר החוזים המקסימלי וגם את גודל הסטופ היומי לסשן הבא.
+                  ב-<span dir="ltr">EOD PA</span> יש <span dir="ltr">DLL</span> הנקבע לפי ה-<span dir="ltr">Tier</span> של החשבון.
+                  ה-<span dir="ltr">Tier</span> קובע גם את גודל הסטופ היומי וגם את מספר החוזים המקסימלי לסשן הבא.
                 </p>
                 <p>
-                  <strong>הרמה נקבעת פעם ביום לפי יתרת סוף היום</strong> — אינה משתנה תוך כדי סשן. לא ירדת מתחת לרמה 1.
-                  פגיעה בסטופ היומי: פוזיציות נסגרות אוטומטית, המסחר נעצר עד הסשן הבא — ה-<span dir="ltr">PA</span> לא נסגר.
+                  <strong>ה-<span dir="ltr">Tier</span> מתעדכן לפי יתרת סוף היום</strong>, חל על הסשן הבא, ולא משתנה תוך כדי יום מסחר.
+                  אם היתרה יורדת, ה-<span dir="ltr">Tier</span> יכול לרדת — אבל לא מתחת ל-<span dir="ltr">Level 1</span>.
+                  פגיעה ב-<span dir="ltr">DLL</span>: פוזיציות נסגרות אוטומטית, המסחר נעצר עד הסשן הבא, החשבון נשאר פעיל.
                 </p>
                 <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-                  הנתונים והרמות עשויים להשתנות. מומלץ לבדוק ישירות ב-<span dir="ltr">Apex</span> לפני החלטות מסחר.
+                  הנתונים עשויים להשתנות. מומלץ לבדוק ישירות ב-<span dir="ltr">Apex</span> לפני החלטות מסחר.
                 </p>
               </div>
             }

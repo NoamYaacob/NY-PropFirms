@@ -11,7 +11,7 @@ import { S } from "@/lib/sources";
 
 export const metadata: Metadata = {
   title: "Apex Intraday — מבחן ו-PA | NY Prop Firms",
-  description: "כללי חשבון Intraday של Apex: רף הפסד נגרר, ללא DLL במבחן, DLL לפי רמות ב-PA, עקביות 50%, רשת ביטחון ועוד",
+  description: "כללי חשבון Intraday של Apex: רף הפסד נגרר, ללא DLL במבחן, DLL לפי Tier ב-PA, עקביות 50%, רשת ביטחון ועוד",
 };
 
 const APEX_URL = "https://apextraderfunding.com";
@@ -77,7 +77,7 @@ export default function IntradayPage() {
             בשלב ה-<span dir="ltr">PA</span> יש מגבלת הפסד יומי (<span dir="ltr">DLL</span>) ✅
           </p>
           <p className="text-xs mt-1.5" style={{ color: "var(--text-muted)" }}>
-            לפי רמות (<span dir="ltr">Tier</span>) • מנוטר בזמן אמת • מתאפס בסשן הבא
+            <span dir="ltr">Tier Based</span> • מנוטר בזמן אמת • מתאפס בסשן הבא
           </p>
           <p className="text-xs mt-1" style={{ color: "var(--text-muted)", opacity: 0.65 }}>
             בשלב המבחן (<span dir="ltr">Intraday</span>) אין <span dir="ltr">DLL</span>
@@ -308,22 +308,23 @@ export default function IntradayPage() {
         <div id="pa-dll" className="mt-4">
           <CalloutBox
             variant="info"
-            title="סטופ יומי לפי רמות — Intraday PA"
+            title="DLL לפי Tier — Intraday PA"
             accountType="intraday-pa"
             source={S.SCALING_LEVELS_PA}
             body={
               <div className="space-y-2">
                 <p>
-                  בשלב ה-<span dir="ltr">PA</span> יש סטופ יומי (<span dir="ltr">DLL</span>) — בניגוד למבחן שבו אין.
-                  הרמה (<span dir="ltr">Tier</span>) קובעת גם את מספר החוזים המקסימלי וגם את גודל הסטופ היומי לסשן הבא.
+                  בשלב ה-<span dir="ltr">PA</span> יש <span dir="ltr">DLL</span> — בניגוד למבחן שבו אין.
+                  ה-<span dir="ltr">Tier</span> קובע גם את גודל הסטופ היומי וגם את מספר החוזים המקסימלי לסשן הבא.
                   הרף מנוטר בזמן אמת על כל ההון (ממומש ובלתי-ממומש).
                 </p>
                 <p>
-                  <strong>הרמה נקבעת פעם ביום לפי יתרת סוף היום</strong> — אינה משתנה תוך כדי סשן. רמה 1 היא הרצפה: גם אם יורדים, הסטופ לא ירד מתחת לרמה 1.
-                  פגיעה בסטופ: פוזיציות נסגרות אוטומטית, המסחר נעצר עד הסשן הבא — ה-<span dir="ltr">PA</span> לא נסגר.
+                  <strong>ה-<span dir="ltr">Tier</span> מתעדכן לפי יתרת סוף היום</strong>, חל על הסשן הבא, ולא משתנה תוך כדי יום מסחר.
+                  אם היתרה יורדת, ה-<span dir="ltr">Tier</span> יכול לרדת — אבל לא מתחת ל-<span dir="ltr">Level 1</span>.
+                  פגיעה ב-<span dir="ltr">DLL</span>: פוזיציות נסגרות אוטומטית, המסחר נעצר עד הסשן הבא, החשבון נשאר פעיל.
                 </p>
                 <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-                  הרמות עשויות להשתנות — בדקו ישירות ב-<span dir="ltr">Apex</span>{" "}
+                  הנתונים עשויים להשתנות — בדקו ישירות ב-<span dir="ltr">Apex</span>{" "}
                   לפני החלטות מסחר.
                 </p>
               </div>
