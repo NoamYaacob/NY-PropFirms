@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/Button";
 import { CouponChip } from "@/components/ui/CouponChip";
 import { ComparisonBlock, ComparisonRow } from "@/components/ui/ComparisonBlock";
 import { StepFlowStrip } from "@/components/ui/StepFlowStrip";
-import { DisclaimerBlock } from "@/components/ui/DisclaimerBlock";
 const APEX_URL = "https://apextraderfunding.com";
 
 const COMPARISON_ROWS: ComparisonRow[] = [
@@ -15,13 +14,23 @@ const COMPARISON_ROWS: ComparisonRow[] = [
   },
   {
     feature: "רף הפסד",
-    eodValue: "בסוף יום",
-    intradayValue: "נגרר",
+    eodValue: "רף הפסד בסוף יום",
+    intradayValue: "רף הפסד נגרר",
   },
   {
     feature: "מה קורה בפגיעה",
     eodValue: "המסחר נעצר לאותו יום",
     intradayValue: "אין פגיעה יומית — רק רף הפסד נגרר",
+  },
+  {
+    feature: "חוק עקביות ב-PA",
+    eodValue: "50% מהרווח היומי הגבוה ביותר",
+    intradayValue: "50% מהרווח היומי הגבוה ביותר",
+  },
+  {
+    feature: "מספר תשלומים מקסימלי",
+    eodValue: "6 תשלומים לחשבון",
+    intradayValue: "6 תשלומים לחשבון",
   },
 ];
 
@@ -30,28 +39,28 @@ const CATEGORY_CARDS = [
   {
     icon: Sunset,
     title: "Apex EOD",
-    desc: "כללי המבחן וחשבון ה-PA במסלול סוף יום (EOD)",
+    desc: "יש סטופ יומי במבחן, רף הפסד בסוף יום, כללי PA ותשלומים",
     href: "/apex/eod",
     color: "#7EA0FF",
   },
   {
     icon: Activity,
     title: "Apex Intraday",
-    desc: "כללי המבחן וחשבון ה-PA במסלול אינטרה-דיי (Intraday)",
+    desc: "אין סטופ יומי במבחן, רף הפסד נגרר, כללי PA ותשלומים",
     href: "/apex/intraday",
     color: "var(--teal-400)",
   },
   {
     icon: Wallet,
     title: "תשלומים",
-    desc: "כללי תשלום ב-PA, עקביות, רשת ביטחון",
+    desc: "בקשות תשלום, עקביות, רשת ביטחון ו-PA",
     href: "/apex/payouts",
     color: "var(--gold-400)",
   },
   {
     icon: Shield,
     title: "עמידה בכללים",
-    desc: "איסור גידור, כלל 4:59, פעילות אסורה",
+    desc: "איסור גידור, שעת סגירה, פעילויות אסורות",
     href: "/apex/compliance",
     color: "var(--green-400)",
   },
@@ -91,29 +100,29 @@ export default function HomePage() {
               className="text-xl md:text-2xl font-medium"
               style={{ color: "var(--text-secondary)" }}
             >
-              המדריך הישראלי לחוקי חברות פרופ
+              כל מה שצריך לדעת לפני שפותחים חשבון פרופ
             </p>
             <p className="text-base" style={{ color: "var(--text-muted)" }}>
-              כל מה שחשוב לדעת לפני שמתחילים
+              הסבר ברור על החוקים, התשלומים וההבדלים בין המסלולים
             </p>
-            <p className="text-sm" style={{ color: "var(--text-muted)", opacity: 0.6 }}>
-              כרגע: Apex. בהמשך: חברות נוספות.
+            <p className="text-sm text-center max-w-md" style={{ color: "var(--text-muted)", opacity: 0.65 }}>
+              מיועד לסוחרים שרוצים להבין את חוקי Apex בעברית, בלי ללכת לאיבוד בין המסמכים.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center gap-3 mt-2">
             <Button
-              label="פתח חשבון עם הקוד NOAM"
-              href={APEX_URL}
+              label="הכירו את החוקים"
+              href="/apex"
               variant="primary"
               size="lg"
-              external
             />
             <Button
-              label="קרא את הכללים קודם ←"
-              href="/apex"
+              label="פתחו חשבון עם NOAM"
+              href={APEX_URL}
               variant="secondary"
               size="lg"
+              external
             />
           </div>
 
@@ -126,9 +135,9 @@ export default function HomePage() {
         <section className="mb-16">
           <StepFlowStrip
             steps={[
-              { number: 1, label: "בחר סוג: סוף יום (EOD) או אינטרה-דיי (Intraday)", href: "/apex" },
-              { number: 2, label: "קרא את הכללים הרלוונטיים" },
-              { number: 3, label: "פתח מבחן עם הקוד NOAM", href: APEX_URL },
+              { number: 1, label: "בחרו מסלול: EOD או Intraday", href: "/apex" },
+              { number: 2, label: "עברו על החוקים החשובים" },
+              { number: 3, label: "פתחו חשבון עם NOAM", href: APEX_URL },
             ]}
           />
         </section>
@@ -184,23 +193,26 @@ export default function HomePage() {
             className="text-2xl font-bold mb-6 text-center"
             style={{ color: "var(--text-primary)" }}
           >
-            EOD מול Intraday — ההבדלים המרכזיים
+            מה ההבדל בין EOD ל-Intraday?
           </h2>
 
           <ComparisonBlock rows={COMPARISON_ROWS} showSources={false} />
         </section>
 
         {/* ── Coupon Block ──────────────────────────────────── */}
-        <section className="mb-16 flex flex-col items-center gap-5">
+        <section className="mb-16 flex flex-col items-center gap-4">
           <h2
             className="text-xl font-bold text-center"
             style={{ color: "var(--text-primary)" }}
           >
-            קוד הנחה לפתיחת מבחן
+            קוד קופון לפתיחת מבחן
           </h2>
+          <p className="text-sm text-center" style={{ color: "var(--text-muted)" }}>
+            מזינים את הקוד בקופה באתר Apex
+          </p>
           <CouponChip size="lg" />
           <Button
-            label="פתח מבחן ב-Apex"
+            label="פתחו חשבון עם NOAM"
             href={APEX_URL}
             variant="primary"
             size="lg"
@@ -210,7 +222,16 @@ export default function HomePage() {
 
         {/* ── Disclaimer ────────────────────────────────────── */}
         <section className="mb-8">
-          <DisclaimerBlock variant="inline" />
+          <div
+            className="flex items-start gap-2.5 px-5 py-4 rounded-xl text-sm"
+            style={{
+              backgroundColor: "var(--surface-subtle)",
+              border: "1px solid var(--surface-border)",
+              color: "var(--text-muted)",
+            }}
+          >
+            המידע באתר מוצג בעברית לצורכי הסבר בלבד, והוא אינו מחליף את המסמכים הרשמיים של Apex. לפני פתיחת חשבון או בקשת תשלום, מומלץ לבדוק גם באתר הרשמי.
+          </div>
         </section>
       </div>
     </>
