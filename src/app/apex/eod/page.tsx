@@ -29,36 +29,37 @@ export default function EODPage() {
       </nav>
 
       <h1 className="text-4xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>
-        Apex EOD — כללי המבחן וחשבון מימון
+        Apex EOD — כללי המבחן וחשבון ה-PA
       </h1>
       <p className="text-base mb-6" style={{ color: "var(--text-secondary)" }}>
-        כל הכללים מבוססים על מסמכי Apex הרשמיים הקיימים כרגע.
+        כללי המבחן, ה-PA, התשלומים וה-DLL במסלול EOD
       </p>
 
       {/* Key stats */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
         <div className="card p-4 text-center">
-          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>
-            <span dir="ltr">Daily Loss Limit</span> — מבחן
-          </p>
-          <p className="font-bold" style={{ color: "var(--amber-400)" }}>
-            יש <span dir="ltr">DLL</span> ✅
-          </p>
-          <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>
-            מגבלה יומית — לא פוסלת
-          </p>
-        </div>
-        <div className="card p-4 text-center">
-          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>רף הפסד – איך זה עובד</p>
-          <p className="font-bold" style={{ color: "var(--text-secondary)" }}>רף הפסד בסוף יום (EOD)</p>
-        </div>
-        <div className="card p-4 text-center">
           <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>תוקף המבחן</p>
           <p className="font-bold" style={{ color: "var(--text-primary)" }}>30 ימים</p>
+        </div>
+        <div className="card p-4 text-center">
+          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>רף הפסד — איך זה עובד</p>
+          <p className="font-bold" style={{ color: "var(--text-secondary)" }}>רף הפסד מחושב בסוף יום</p>
+        </div>
+        <div className="card p-4 text-center">
+          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>סטופ יומי — מבחן</p>
+          <p className="font-bold" style={{ color: "var(--amber-400)" }}>
+            יש סטופ יומי (<span dir="ltr">DLL</span>) ✅
+          </p>
+          <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>
+            קבוע במהלך הסשן • לא נגרר
+          </p>
         </div>
       </div>
 
       {/* ── PRICING ─────────────────────────────────────────────── */}
+      <h2 className="text-xl font-bold mb-4" style={{ color: "var(--text-primary)" }}>
+        מחירי מבחן EOD
+      </h2>
       <PricingTable type="eod" />
 
       {/* ── EVALUATION ─────────────────────────────────────────── */}
@@ -69,35 +70,36 @@ export default function EODPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <RuleCard
-            title="תוקף המבחן"
-            icon={Clock}
-            accountType="eod"
-            source={S.EVALUATION_FEES}
-            body={
-              <p>
-                כל מבחן הוא <strong>רכישה חד-פעמית</strong> ל-30 ימים.
-                החשבון לא מתחדש אוטומטית ואין חיוב חודשי. בסוף היום ה-30
-                החשבון פג ב-11:59 PM ET — אין אפשרות להאריך.
-              </p>
-            }
-          />
-
-          <RuleCard
-            title="חלון המסחר — 4:59 PM ET"
+            title="חלון המסחר — עד 4:59 PM ET"
             icon={Clock}
             accountType="universal"
             source={S.CLOSE_459}
             body={
               <>
                 <p>
-                  אפשר לפתוח עסקאות החל מ-<strong>6:00 PM ET</strong> ועד
-                  <strong> 4:59 PM ET</strong> של היום הבא.
+                  אפשר לפתוח עסקאות מ-<strong>6:00 PM ET</strong> ועד{" "}
+                  <strong>4:59 PM ET</strong> של היום הבא.
                 </p>
                 <p className="mt-2">
-                  הוראות המחוברות לפוזיציה (כמו סטופ ולימיט) נסגרות אוטומטית כשהפוזיציה נסגרת.
-                  הוראות עצמאיות שאינן מחוברות לפוזיציה <strong>אינן מבוטלות אוטומטית</strong> — יש לבטל אותן ידנית לפני <span dir="ltr">4:59 PM ET</span>.
-                  בישראל זה בדרך כלל סביב חצות, אבל עשוי להשתנות לפי שעון קיץ — עבדו לפי <span dir="ltr">ET</span>.
+                  הוראות שמחוברות לפוזיציה נסגרות יחד איתה.
                 </p>
+                <p className="mt-2">
+                  הוראות עצמאיות שלא מחוברות לפוזיציה צריך לבטל ידנית לפני{" "}
+                  <span dir="ltr">4:59 PM ET</span>.
+                </p>
+              </>
+            }
+          />
+
+          <RuleCard
+            title="תוקף המבחן"
+            icon={Clock}
+            accountType="eod"
+            source={S.EVALUATION_FEES}
+            body={
+              <>
+                <p>המבחן תקף ל-30 ימים, ללא חידוש אוטומטי וללא חיוב חודשי.</p>
+                <p className="mt-2">אחרי 30 ימים הגישה נסגרת, ואין אפשרות להאריך.</p>
               </>
             }
           />
@@ -108,16 +110,15 @@ export default function EODPage() {
             accountType="eod"
             source={S.EOD_EVALUATIONS}
             body={
-              <p>
-                בשלב המבחן גודל הפוזיציה קבוע — אין מנגנון{" "}
-                <span dir="ltr">Scaling</span>. גודל החוזה המרבי נקבע לפי
-                סוג החשבון שנרכש ואינו משתנה במהלך המבחן.
-              </p>
+              <>
+                <p>בשלב המבחן גודל הפוזיציה קבוע.</p>
+                <p className="mt-2">אין מנגנון <span dir="ltr">Scaling</span> במהלך המבחן.</p>
+              </>
             }
           />
         </div>
 
-        {/* DLL Callout — high priority */}
+        {/* DLL Callout */}
         <div className="mt-6">
           <CalloutBox
             variant="info"
@@ -127,24 +128,12 @@ export default function EODPage() {
             body={
               <div className="space-y-2">
                 <p>
-                  בחשבונות <span dir="ltr">EOD</span> קיים{" "}
-                  <span dir="ltr">DLL</span> — מגבלת הפסד יומית כוללת
-                  (ממומש ובלתי-ממומש). הרף קבוע לאורך כל הסשן ומנוטר בזמן אמת.
+                  במבחן <span dir="ltr">EOD</span> יש סטופ יומי קבוע לפי גודל החשבון.
                 </p>
                 <p>
-                  <strong style={{ color: "var(--text-primary)" }}>
-                    פגיעה ב-<span dir="ltr">DLL</span>: פוזיציות נסגרות
-                    אוטומטית, המסחר נעצר עד הסשן הבא — החשבון נשאר פעיל.
-                    חוזרים לסחור מ-<span dir="ltr">6:00 PM ET</span>.
-                  </strong>
+                  אם מגיעים אליו, הפוזיציות נסגרות אוטומטית והמסחר נעצר עד הסשן הבא.
                 </p>
-                <p style={{ color: "var(--text-muted)" }}>
-                  ה-<span dir="ltr">DLL</span> מתאפס עם פתיחת הסשן הבא
-                  (<span dir="ltr">6:00 PM ET</span>).
-                  במבחן <span dir="ltr">Intraday</span> אין{" "}
-                  <span dir="ltr">DLL</span> — אך ב-<span dir="ltr">Intraday PA</span>{" "}
-                  יש <span dir="ltr">DLL</span> לפי <span dir="ltr">Tier</span>.
-                </p>
+                <p>החשבון נשאר פעיל.</p>
               </div>
             }
           />
@@ -155,13 +144,13 @@ export default function EODPage() {
             variant="warning"
             title="הוראות תלויות — שימו לב"
             source={S.CLOSE_459}
-            body="הוראות המחוברות לפוזיציה (כמו סטופ ולימיט) נסגרות אוטומטית כשהפוזיציה נסגרת. הוראות עצמאיות שאינן מחוברות לפוזיציה אינן מבוטלות אוטומטית — יש לבטל אותן ידנית לפני 4:59 PM ET. בישראל זה בדרך כלל סביב חצות, אבל עשוי להשתנות לפי שעון קיץ — עבדו לפי ET."
+            body="הוראות שמחוברות לפוזיציה (סטופ ולימיט) נסגרות אוטומטית כשהפוזיציה נסגרת. הוראות עצמאיות שאינן מחוברות לפוזיציה לא מבוטלות אוטומטית — יש לבטל אותן ידנית לפני 4:59 PM ET."
           />
         </div>
 
         <div className="mt-10">
           <Button
-            label="פתח מבחן EOD עם הקוד NOAM"
+            label="פתחו מבחן EOD עם NOAM"
             href={APEX_URL}
             variant="primary"
             size="lg"
@@ -173,14 +162,14 @@ export default function EODPage() {
       {/* ── Phase Divider ────────────────────────────────────────── */}
       <SectionDivider
         variant="phase"
-        rightLabel="שלב ה-PA ↓"
-        leftLabel="↑ שלב המבחן"
+        rightLabel="↑ שלב המבחן"
+        leftLabel="↓ שלב ה-PA"
       />
 
       {/* ── PA SECTION ─────────────────────────────────────────── */}
       <section id="pa">
         <h2 className="text-2xl font-bold mb-6" style={{ color: "var(--teal-400)" }}>
-          שלב ה-PA — EOD Performance Account
+          שלב ה-PA (EOD)
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -199,14 +188,14 @@ export default function EODPage() {
                   כל עוד עברת 50%, כפתור בקשת התשלום לא זמין.
                 </p>
                 <p className="mt-2" style={{ color: "var(--green-400)" }}>
-                  ✅ ימי הפסד לא נכללים בחישוב — רק ימים רווחיים.
+                  ✅ החישוב מתייחס רק לימים רווחיים.
                 </p>
               </>
             }
           />
 
           <RuleCard
-            title="רשת ביטחון לפי גודל תיק"
+            title="רשת ביטחון לפי גודל חשבון"
             icon={ShieldAlert}
             accountType="eod-pa"
             source={S.EOD_PAYOUTS}
@@ -217,13 +206,13 @@ export default function EODPage() {
                     רשת הביטחון היא רף ההפסד של החשבון בתוספת <span dir="ltr">$100</span>.
                   </p>
                   <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-                    רק רווח שמעל רשת הביטחון ניתן למשיכה.
+                    רק רווח מעל רשת הביטחון ניתן למשיכה.
                   </p>
                 </div>
                 <table className="w-full text-sm border-collapse">
                   <thead>
                     <tr style={{ borderBottom: "1px solid var(--surface-border)" }}>
-                      <th className="text-right pb-1.5 font-medium" style={{ color: "var(--text-muted)" }}>גודל תיק</th>
+                      <th className="text-right pb-1.5 font-medium" style={{ color: "var(--text-muted)" }}>גודל חשבון</th>
                       <th className="text-left pb-1.5 font-medium" style={{ color: "var(--text-muted)" }}>רשת ביטחון</th>
                     </tr>
                   </thead>
@@ -256,13 +245,11 @@ export default function EODPage() {
             body={
               <>
                 <p>
-                  <strong style={{ color: "var(--gold-300)" }}>
-                    100% לסוחר
-                  </strong>{" "}
+                  <strong style={{ color: "var(--gold-300)" }}>100% לסוחר</strong>{" "}
                   על <span dir="ltr">$25,000</span> הרווחים הראשונים לחשבון.
                 </p>
                 <p className="mt-2">
-                  <strong>90% לסוחר / 10% ל-Apex</strong> על כל רווח מעל
+                  <strong>90% לסוחר / 10% ל-Apex</strong> על כל רווח מעל{" "}
                   <span dir="ltr">$25,000</span>.
                 </p>
               </>
@@ -286,9 +273,12 @@ export default function EODPage() {
             accountType="eod-pa"
             body={
               <div className="space-y-2">
-                <p>בחשבונות <span dir="ltr">PA</span>, ה-<span dir="ltr">DLL</span> נקבע לפי ה-<span dir="ltr">Tier</span> של החשבון.</p>
+                <p>
+                  בחשבונות <span dir="ltr">PA</span>, ה-<span dir="ltr">DLL</span> ומקסימום
+                  החוזים נקבעים לפי ה-<span dir="ltr">Tier</span> של החשבון.
+                </p>
                 <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-                  ה-<span dir="ltr">Tier</span> קובע כמה חוזים מותר להחזיק ומה גודל ה-<span dir="ltr">DLL</span> בסשן הבא.
+                  ה-<span dir="ltr">Tier</span> מתעדכן לפי יתרת סוף היום, וחל על הסשן הבא.
                 </p>
                 <TierTableWidget />
               </div>
@@ -312,8 +302,7 @@ export default function EODPage() {
             ]}
           />
           <p className="text-sm mt-4" style={{ color: "var(--text-secondary)" }}>
-            לאחר התשלום ה-6, החשבון נסגר אוטומטית. יש לפתוח מבחן חדש כדי
-            לקבל PA חדש.
+            אחרי התשלום השישי, חשבון ה-PA נסגר.
           </p>
           <div className="mt-3">
             <a
@@ -330,8 +319,8 @@ export default function EODPage() {
 
         {/* CTA */}
         <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
-          <CouponChip size="sm" />
           <Button label="פתח מבחן ב-Apex" href={APEX_URL} variant="primary" external />
+          <CouponChip size="sm" />
         </div>
       </section>
 

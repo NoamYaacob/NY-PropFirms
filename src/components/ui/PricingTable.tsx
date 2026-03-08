@@ -52,7 +52,7 @@ export function PricingTable({ type }: PricingTableProps) {
                 className="text-right py-2.5 px-4 font-medium text-xs"
                 style={{ color: "var(--text-muted)" }}
               >
-                גודל תיק
+                גודל חשבון
               </th>
               <th
                 className="text-right py-2.5 px-4 font-medium text-xs"
