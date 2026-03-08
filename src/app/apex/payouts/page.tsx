@@ -270,6 +270,28 @@ export default function PayoutsPage() {
         </div>
       </div>
 
+      {/* Inactivity Policy */}
+      <SectionDivider variant="subtle" />
+      <section className="mb-8">
+        <h2 className="text-xl font-bold mb-4" style={{ color: "var(--text-primary)" }}>
+          מדיניות חוסר פעילות ב-PA
+        </h2>
+        <CalloutBox
+          variant="warning"
+          title="דרישת מסחר מינימלית לשמירת ה-PA"
+          body={
+            <div className="space-y-2">
+              <p>
+                כדי לשמור על חשבון PA פעיל, צריך להשלים{" "}
+                <strong>2 ימי מסחר</strong> עם רווח נטו של{" "}
+                <strong>$50 ומעלה</strong> בכל חלון מתגלגל של 30 יום.
+              </p>
+              <p>אם התנאי לא מתקיים, החשבון עלול להיסגר בגלל חוסר פעילות.</p>
+            </div>
+          }
+        />
+      </section>
+
       {/* FAQ */}
       <SectionDivider variant="section" />
       <section>

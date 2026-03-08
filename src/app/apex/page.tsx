@@ -124,8 +124,8 @@ export default function ApexHubPage() {
 
       <CalloutBox
         variant="info"
-        title="חשוב לדעת לפני שמתחילים"
-        body="העמוד הזה עושה סדר בכללים של Apex, כדי שתוכלו להבין מהר את ההבדלים בין מבחן, PA, EOD ו-Intraday."
+        title="חשוב לדעת"
+        body="האתר מתייחס רק למוצרים החדשים של Apex: EOD ו-Intraday. המוצרים הישנים (Legacy) לא מוצגים כאן כמסלולים פעילים או רלוונטיים לפתיחה חדשה."
       />
 
       {/* Navigation Cards */}

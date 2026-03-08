@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 const SUMMARY_CARDS = [
   { icon: ArrowLeftRight, label: "אין גידור — No Hedging", href: "#hedging" },
-  { icon: Clock,          label: "חובה להיות שטוח לפני 4:59 PM ET", href: "#trading-window" },
+  { icon: Clock,          label: "צריך לסגור את כל העסקאות לפני 4:59 PM ET", href: "#trading-window" },
   { icon: Zap,            label: "אין אוטומציה / אלגוריתמים / HFT", href: "#prohibited" },
 ];
 
@@ -140,7 +140,7 @@ export default function CompliancePage() {
       {/* ── 4:59 PM ET ──────────────────────────────────────────── */}
       <section id="trading-window">
         <h2 className="text-2xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>
-          חובה להיות שטוח לפני 4:59 PM ET
+          צריך לסגור את כל העסקאות לפני 4:59 PM ET
         </h2>
         <p className="text-sm mb-6" style={{ color: "var(--text-secondary)" }}>
           כל הפוזיציות חייבות להיסגר לפני <span dir="ltr">4:59 PM ET</span>.
