@@ -45,7 +45,12 @@ export function PricingTable({ type }: PricingTableProps) {
 
       {/* ── Test price table ───────────────────────────────────── */}
       <div style={{ backgroundColor: "var(--surface-overlay)" }}>
-        <table className="w-full text-sm border-collapse">
+        <table className="w-full text-sm border-collapse table-fixed">
+          <colgroup>
+            <col style={{ width: "30%" }} />
+            <col style={{ width: "35%" }} />
+            <col style={{ width: "35%" }} />
+          </colgroup>
           <thead>
             <tr style={{ borderBottom: "1px solid var(--surface-border)" }}>
               <th

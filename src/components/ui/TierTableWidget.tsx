@@ -138,7 +138,7 @@ export function TierTableWidget() {
                   Level {row.level}
                 </td>
                 <td
-                  className="px-4 py-2.5 text-sm"
+                  className="px-4 py-2.5 text-sm text-left"
                   style={{ color: "var(--text-secondary)" }}
                 >
                   {row.profitRange.includes(" ומעלה") ? (

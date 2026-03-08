@@ -31,9 +31,34 @@ export default function EODPage() {
       <h1 className="text-4xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>
         Apex EOD — כללי המבחן וחשבון ה-PA
       </h1>
-      <p className="text-base mb-6" style={{ color: "var(--text-secondary)" }}>
+      <p className="text-base mb-4" style={{ color: "var(--text-secondary)" }}>
         כללי המבחן, ה-PA, התשלומים וה-DLL במסלול EOD
       </p>
+
+      {/* Phase switcher */}
+      <div
+        className="inline-flex rounded-xl overflow-hidden mb-8"
+        style={{ border: "1px solid var(--surface-border)" }}
+      >
+        <a
+          href="#evaluation"
+          className="px-5 py-2.5 text-sm font-semibold"
+          style={{
+            backgroundColor: "var(--teal-900)",
+            color: "var(--teal-400)",
+            borderInlineEnd: "1px solid var(--teal-edge)",
+          }}
+        >
+          שלב המבחן
+        </a>
+        <a
+          href="#pa"
+          className="px-5 py-2.5 text-sm font-semibold"
+          style={{ backgroundColor: "transparent", color: "var(--text-muted)" }}
+        >
+          שלב ה-PA
+        </a>
+      </div>
 
       {/* Key stats */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
