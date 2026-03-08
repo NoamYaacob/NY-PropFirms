@@ -125,7 +125,7 @@ export default function ApexHubPage() {
       <CalloutBox
         variant="info"
         title="חשוב לדעת לפני שמתחילים"
-        body="העמוד הזה עושה סדר בכללים של Apex לפי סוג חשבון, כדי שתוכלו להבין מהר מה ההבדלים בין מבחן, PA, EOD ו-Intraday."
+        body="העמוד הזה עושה סדר בכללים של Apex, כדי שתוכלו להבין מהר את ההבדלים בין מבחן, PA, EOD ו-Intraday."
       />
 
       {/* Navigation Cards */}

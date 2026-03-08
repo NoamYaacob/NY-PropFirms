@@ -140,9 +140,15 @@ export function TierTableWidget() {
                 <td
                   className="px-4 py-2.5 text-sm"
                   style={{ color: "var(--text-secondary)" }}
-                  dir="ltr"
                 >
-                  {row.profitRange}
+                  {row.profitRange.includes(" ומעלה") ? (
+                    <>
+                      <span dir="ltr">{row.profitRange.split(" ומעלה")[0]}</span>
+                      {" ומעלה"}
+                    </>
+                  ) : (
+                    <span dir="ltr">{row.profitRange}</span>
+                  )}
                 </td>
                 <td
                   className="text-center px-4 py-2.5 text-sm font-medium tabular-nums"
