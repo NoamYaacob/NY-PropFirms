@@ -120,7 +120,7 @@ export default function EODPage() {
         <div className="mt-6">
           <CalloutBox
             variant="info"
-            title="מגבלת הפסד יומי (DLL) — מבחן EOD"
+            title="סטופ יומי (DLL) — מבחן EOD"
             accountType="eod"
             source={S.DAILY_LOSS_LIMIT}
             body={
@@ -133,8 +133,8 @@ export default function EODPage() {
                 <p>
                   <strong style={{ color: "var(--text-primary)" }}>
                     פגיעה ב-<span dir="ltr">DLL</span>: פוזיציות נסגרות
-                    אוטומטית, המסחר נעצר עד סוף אותו יום מסחר — המבחן לא
-                    נכשל. חוזרים לסחור מ-<span dir="ltr">6:00 PM ET</span>.
+                    אוטומטית, המסחר נעצר עד הסשן הבא — החשבון נשאר פעיל.
+                    חוזרים לסחור מ-<span dir="ltr">6:00 PM ET</span>.
                   </strong>
                 </p>
                 <p style={{ color: "var(--text-muted)" }}>
@@ -292,7 +292,7 @@ export default function EODPage() {
                 </p>
                 <p>
                   <strong>ה-<span dir="ltr">Tier</span> מתעדכן לפי יתרת סוף היום</strong>, חל על הסשן הבא, ולא משתנה תוך כדי יום מסחר.
-                  אם היתרה יורדת, ה-<span dir="ltr">Tier</span> יכול לרדת — אבל לא מתחת ל-<span dir="ltr">Level 1</span>.
+                  אם היתרה יורדת, ה-<span dir="ltr">DLL</span> יכול לרדת — אבל לא מתחת ל-<span dir="ltr">Level 1</span>.
                   פגיעה ב-<span dir="ltr">DLL</span>: פוזיציות נסגרות אוטומטית, המסחר נעצר עד הסשן הבא, החשבון נשאר פעיל.
                 </p>
                 <p className="text-xs" style={{ color: "var(--text-muted)" }}>

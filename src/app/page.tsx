@@ -197,6 +197,9 @@ export default function HomePage() {
           </h2>
 
           <ComparisonBlock rows={COMPARISON_ROWS} showSources={false} />
+          <p className="text-xs mt-3 text-center" style={{ color: "var(--text-muted)" }}>
+            ב-PA יש סטופ יומי לפי Tier — בשני המסלולים
+          </p>
         </section>
 
         {/* ── Coupon Block ──────────────────────────────────── */}

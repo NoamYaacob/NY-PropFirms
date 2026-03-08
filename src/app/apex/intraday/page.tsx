@@ -320,7 +320,7 @@ export default function IntradayPage() {
                 </p>
                 <p>
                   <strong>ה-<span dir="ltr">Tier</span> מתעדכן לפי יתרת סוף היום</strong>, חל על הסשן הבא, ולא משתנה תוך כדי יום מסחר.
-                  אם היתרה יורדת, ה-<span dir="ltr">Tier</span> יכול לרדת — אבל לא מתחת ל-<span dir="ltr">Level 1</span>.
+                  אם היתרה יורדת, ה-<span dir="ltr">DLL</span> יכול לרדת — אבל לא מתחת ל-<span dir="ltr">Level 1</span>.
                   פגיעה ב-<span dir="ltr">DLL</span>: פוזיציות נסגרות אוטומטית, המסחר נעצר עד הסשן הבא, החשבון נשאר פעיל.
                 </p>
                 <p className="text-xs" style={{ color: "var(--text-muted)" }}>
