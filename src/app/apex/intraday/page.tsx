@@ -113,7 +113,7 @@ export default function IntradayPage() {
                   ב-<span dir="ltr">PA</span> יש <span dir="ltr">DLL</span> לפי{" "}
                   <span dir="ltr">Tier</span>.
                 </strong>{" "}
-                <a href="#pa-dll" style={{ color: "var(--teal-400)", textDecoration: "underline" }}>
+                <a href="#tier-dll" style={{ color: "var(--teal-400)", textDecoration: "underline" }}>
                   קפוץ לכללי DLL ב-PA ↓
                 </a>
               </p>
@@ -368,7 +368,7 @@ export default function IntradayPage() {
         </div>
 
         {/* DLL in Intraday PA — tier-based */}
-        <div id="pa-dll" className="mt-4">
+        <div id="tier-dll" className="mt-4">
           <CalloutBox
             variant="info"
             title="DLL לפי Tier ב-PA"

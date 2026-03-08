@@ -15,8 +15,30 @@ const COMPARISON_ROWS: ComparisonRow[] = [
   },
   {
     feature: "סטופ יומי ב-PA",
-    eodValue: "יש לפי Tier",
-    intradayValue: "יש לפי Tier",
+    eodValue: (
+      <span>
+        יש לפי{" "}
+        <a
+          href="/apex/eod#tier-dll"
+          className="underline decoration-dotted underline-offset-2 hover:no-underline"
+          style={{ color: "inherit" }}
+        >
+          Tier
+        </a>
+      </span>
+    ),
+    intradayValue: (
+      <span>
+        יש לפי{" "}
+        <a
+          href="/apex/intraday#tier-dll"
+          className="underline decoration-dotted underline-offset-2 hover:no-underline"
+          style={{ color: "inherit" }}
+        >
+          Tier
+        </a>
+      </span>
+    ),
   },
   {
     feature: "רף הפסד",

@@ -332,7 +332,7 @@ export default function EODPage() {
         </div>
 
         {/* DLL in EOD PA — tier-based */}
-        <div className="mt-4">
+        <div id="tier-dll" className="mt-4">
           <CalloutBox
             variant="info"
             title="DLL לפי Tier ב-PA"
