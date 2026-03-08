@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { CouponChip } from "@/components/ui/CouponChip";
 import { PricingTable } from "@/components/ui/PricingTable";
 import { S } from "@/lib/sources";
+import { TierTableWidget } from "@/components/ui/TierTableWidget";
 
 export const metadata: Metadata = {
   title: "Apex Intraday — מבחן ו-PA | NY Prop Firms",
@@ -322,6 +323,7 @@ export default function IntradayPage() {
                 <p>
                   אם מגיעים ל-<span dir="ltr">DLL</span>, הפוזיציות נסגרות אוטומטית והמסחר נעצר עד הסשן הבא. החשבון נשאר פעיל.
                 </p>
+                <TierTableWidget />
                 <p className="text-xs" style={{ color: "var(--text-muted)" }}>
                   הנתונים עשויים להשתנות — בדקו ישירות ב-<span dir="ltr">Apex</span> לפני החלטות מסחר.
                 </p>
