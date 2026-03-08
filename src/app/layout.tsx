@@ -15,8 +15,34 @@ const heebo = Heebo({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ny-propfirms.com"),
   title: "NY Prop Firms — המדריך הישראלי לחברות פרופ",
-  description: "כללי Apex Trader Funding בעברית — ממסמכים רשמיים בלבד",
+  description:
+    "הסברים ברורים בעברית על Apex, EOD, Intraday, PA, תשלומים, DLL, Tier ועוד.",
+  openGraph: {
+    type: "website",
+    url: "https://ny-propfirms.com/",
+    siteName: "NY Prop Firms",
+    title: "NY Prop Firms — המדריך הישראלי לחברות פרופ",
+    description:
+      "הסברים ברורים בעברית על Apex, EOD, Intraday, PA, תשלומים, DLL, Tier ועוד.",
+    images: [
+      {
+        url: "https://ny-propfirms.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "NY Prop Firms — המדריך הישראלי לחברות פרופ",
+      },
+    ],
+    locale: "he_IL",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NY Prop Firms — המדריך הישראלי לחברות פרופ",
+    description:
+      "הסברים ברורים בעברית על Apex, EOD, Intraday, PA, תשלומים, DLL, Tier ועוד.",
+    images: ["https://ny-propfirms.com/og-image.png"],
+  },
 };
 
 const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}else if(window.matchMedia('(prefers-color-scheme: light)').matches){document.documentElement.setAttribute('data-theme','light');}else{document.documentElement.setAttribute('data-theme','dark');}}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`;
