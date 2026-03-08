@@ -14,61 +14,67 @@ export function TierTableWidget() {
   const rows = TIER_TABLES[activeSize];
 
   return (
-    <div className="mt-4 space-y-3">
-      {/* Header */}
-      <div>
-        <p className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
-          בחרו גודל חשבון
-        </p>
-        <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
-          ה-<span dir="ltr">Tier</span> קובע כמה חוזים מותר להחזיק ומה גודל ה-<span dir="ltr">DLL</span> בסשן הבא
-        </p>
+    <div
+      className="mt-4 rounded-xl overflow-hidden"
+      style={{ border: "1px solid var(--surface-border)" }}
+    >
+      {/* ── Card header: title + helper + switcher ── */}
+      <div
+        className="px-4 py-3 flex flex-col gap-2"
+        style={{
+          backgroundColor: "var(--surface-overlay)",
+          borderBottom: "1px solid var(--surface-border)",
+        }}
+      >
+        <div>
+          <p className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
+            בחרו גודל חשבון
+          </p>
+          <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
+            ה-<span dir="ltr">Tier</span> קובע כמה חוזים מותר להחזיק ומה גודל ה-<span dir="ltr">DLL</span> בסשן הבא
+          </p>
+        </div>
+
+        {/* Segmented control */}
+        <div
+          className="inline-flex self-start rounded-lg overflow-hidden"
+          style={{ border: "1px solid var(--surface-border)" }}
+          role="group"
+          aria-label="בחרו גודל חשבון"
+        >
+          {TIER_ACCOUNT_SIZES.map((size, i) => {
+            const isActive = activeSize === size;
+            const isLast = i === TIER_ACCOUNT_SIZES.length - 1;
+
+            return (
+              <button
+                key={size}
+                onClick={() => setActiveSize(size)}
+                className="px-3.5 py-1 text-sm font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
+                style={
+                  isActive
+                    ? {
+                        backgroundColor: "var(--gold-900)",
+                        color: "var(--gold-300)",
+                        borderInlineEnd: isLast ? undefined : "1px solid var(--gold-edge)",
+                      }
+                    : {
+                        backgroundColor: "transparent",
+                        color: "var(--text-muted)",
+                        borderInlineEnd: isLast ? undefined : "1px solid var(--surface-border)",
+                      }
+                }
+                aria-pressed={isActive}
+              >
+                {TIER_ACCOUNT_SIZE_LABELS[size]}
+              </button>
+            );
+          })}
+        </div>
       </div>
 
-      {/* Segmented control */}
-      <div
-        className="inline-flex rounded-xl overflow-hidden"
-        style={{ border: "1px solid var(--surface-border)" }}
-        role="group"
-        aria-label="בחרו גודל חשבון"
-      >
-        {TIER_ACCOUNT_SIZES.map((size, i) => {
-          const isActive = activeSize === size;
-          const isFirst = i === 0;
-          const isLast = i === TIER_ACCOUNT_SIZES.length - 1;
-
-          return (
-            <button
-              key={size}
-              onClick={() => setActiveSize(size)}
-              className="px-4 py-1.5 text-sm font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
-              style={{
-                ...(isActive
-                  ? {
-                      backgroundColor: "var(--gold-900)",
-                      color: "var(--gold-300)",
-                      borderInlineEnd: isLast ? undefined : "1px solid var(--gold-edge)",
-                      borderInlineStart: isFirst ? undefined : "1px solid var(--gold-edge)",
-                    }
-                  : {
-                      backgroundColor: "transparent",
-                      color: "var(--text-muted)",
-                      borderInlineEnd: isLast ? undefined : "1px solid var(--surface-border)",
-                    }),
-              }}
-              aria-pressed={isActive}
-            >
-              {TIER_ACCOUNT_SIZE_LABELS[size]}
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Tier table */}
-      <div
-        className="overflow-x-auto rounded-xl"
-        style={{ border: "1px solid var(--surface-border)" }}
-      >
+      {/* ── Tier table ── */}
+      <div className="overflow-x-auto">
         <table className="w-full text-sm border-collapse" dir="rtl">
           <thead>
             <tr
@@ -149,10 +155,19 @@ export function TierTableWidget() {
         </table>
       </div>
 
-      <p className="text-xs" style={{ color: "var(--text-muted)", opacity: 0.75 }}>
-        ה-<span dir="ltr">Tier</span> מתעדכן לפי יתרת סוף היום (
-        <span dir="ltr">4:59 PM ET</span>) וחל על הסשן הבא. לא משתנה תוך כדי יום מסחר.
-      </p>
+      {/* ── Footer note ── */}
+      <div
+        className="px-4 py-2.5"
+        style={{
+          borderTop: "1px solid var(--surface-border)",
+          backgroundColor: "var(--surface-overlay)",
+        }}
+      >
+        <p className="text-xs" style={{ color: "var(--text-muted)", opacity: 0.75 }}>
+          ה-<span dir="ltr">Tier</span> מתעדכן לפי יתרת סוף היום (
+          <span dir="ltr">4:59 PM ET</span>) וחל על הסשן הבא. לא משתנה תוך כדי יום מסחר.
+        </p>
+      </div>
     </div>
   );
 }
