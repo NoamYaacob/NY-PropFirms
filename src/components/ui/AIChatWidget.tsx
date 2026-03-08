@@ -386,71 +386,58 @@ export function AIChatWidget() {
         setTimeout(() => {
           setIsTyping(false);
           addBotMessage({
-            text: "שאלה שנייה: איזה גודל חשבון מעניין אותך כרגע?",
-            chips: ["25K", "50K", "100K", "150K", "לא בטוח עדיין"],
+            text: "שאלה שנייה: יש לך ניסיון במסחר?",
+            chips: ["אני חדש", "יש לי קצת ניסיון", "יש לי ניסיון טוב"],
           });
         }, 520);
         return;
       }
 
       if (recStep === 2) {
-        newAnswers.accountSize = answer;
+        newAnswers.experience = answer;
         setRecAnswers(newAnswers);
         setRecStep(3);
         setTimeout(() => {
           setIsTyping(false);
           addBotMessage({
-            text: "שאלה שלישית: יש לך ניסיון קודם במסחר?",
-            chips: ["כן, יש לי ניסיון", "קצת", "חדש לגמרי"],
+            text: "שאלה שלישית: מה חשוב לך יותר?",
+            chips: ["מסלול פשוט וברור", "יותר גמישות", "עוד לא בטוח"],
           });
         }, 520);
         return;
       }
 
       if (recStep === 3) {
-        newAnswers.experience = answer;
-        setRecAnswers(newAnswers);
-        setRecStep(4);
-        setTimeout(() => {
-          setIsTyping(false);
-          addBotMessage({
-            text: "שאלה אחרונה: אתה מעדיף מסלול עם חוקים פשוטים וברורים, או גמיש יותר?",
-            chips: ["פשוט וברור", "גמיש ודינמי", "לא בטוח"],
-          });
-        }, 520);
-        return;
-      }
-
-      if (recStep === 4) {
-        newAnswers.preference = answer;
+        newAnswers.priority = answer;
         setRecStep(0);
         setRecAnswers({});
 
-        const isExperienced = newAnswers.experience === "כן, יש לי ניסיון";
-        const prefersSimple =
-          newAnswers.preference === "פשוט וברור" ||
-          newAnswers.experience === "חדש לגמרי";
-        const prefersFlexible = newAnswers.preference === "גמיש ודינמי";
+        const isNew = newAnswers.experience === "אני חדש";
+        const hasGoodExp = newAnswers.experience === "יש לי ניסיון טוב";
+        const wantsSimple = newAnswers.priority === "מסלול פשוט וברור";
+        const wantsFlexible = newAnswers.priority === "יותר גמישות";
 
         let recText: string;
-        if (prefersSimple && !prefersFlexible) {
+        if (wantsSimple || isNew) {
           recText =
-            "ברמה כללית, **EOD** נשמע כמו ההתאמה הטובה יותר עבורך.\n\nהמסלול פשוט יותר לניהול — הרף מתאפס בסוף כל יום ואין צורך לעקוב אחריו בזמן אמת.\n\nאם תרצה, אפשר לעבור לנועם לפרטים אישיים.";
-        } else if (isExperienced && prefersFlexible) {
+            "ברמה כללית, נראה ש-**EOD** יכול להתאים לך יותר כי הוא מרגיש פשוט וברור יותר לניהול.\n\nהרף מתאפס בסוף כל יום — אין צורך לעקוב אחריו בזמן אמת.\n\nאם תרצה, אני יכול להעביר אותך לנועם כדי לעזור לבחור בדיוק.";
+        } else if (wantsFlexible && hasGoodExp) {
           recText =
-            "ברמה כללית, **Intraday** עשוי להתאים לך יותר.\n\nמתאים לסוחרים שמורגלים בניהול פוזיציה שוטף. שים לב: הרף הנגרר פועל בזמן אמת ודורש מודעות גבוהה.\n\nאם תרצה, אפשר לעבור לנועם לפרטים אישיים.";
+            "ברמה כללית, נראה ש-**Intraday** יכול להתאים לך יותר אם אתה מחפש יותר גמישות ומבין טוב יותר רף נגרר בזמן אמת.\n\nשים לב: Intraday דורש מודעות גבוהה תוך כדי מסחר.\n\nאם תרצה, אני יכול להעביר אותך לנועם כדי לעזור לבחור בדיוק.";
         } else {
           recText =
-            "קשה לי להמליץ בוודאות על סמך מה שספרת — יש כאן שיקולים אישיים שחשוב לקחת בחשבון.\n\nעדיף שנועם יעזור להתאים בדיוק.";
+            "קשה לי להמליץ בוודאות על סמך מה שספרת — יש כאן שיקולים אישיים שחשוב לקחת בחשבון.\n\nעדיף שנועם יעזור לך להתאים בדיוק.";
         }
 
         setTimeout(() => {
           setIsTyping(false);
           addBotMessage({
             text: recText,
+            chips: ["ספר לי על גדלי חשבון"],
             buttons: [
               { label: "אני רוצה שנועם יחזור אליי", action: "lead_form" },
-              { label: "להמשיך לשאול את הבוט", action: "continue" },
+              { label: "לקבוצת הווטסאפ", action: "whatsapp_group" },
+              { label: "להמשיך לשאול", action: "continue" },
             ],
           });
         }, 700);
