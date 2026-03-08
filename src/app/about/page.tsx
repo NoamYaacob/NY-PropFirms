@@ -142,10 +142,10 @@ export default function AboutPage() {
       {/* WhatsApp */}
       <section className="mb-10">
         <h2 className="text-xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>
-          קהילה ויצירת קשר
+          קהילת הווטסאפ
         </h2>
         <p className="text-sm mb-4" style={{ color: "var(--text-secondary)" }}>
-          אפשר להצטרף לקבוצת הווטסאפ או לשלוח לי הודעה ישירה.
+          עדכונים, הסברים ותוכן על Apex
         </p>
         <WhatsAppButtons />
       </section>

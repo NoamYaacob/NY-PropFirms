@@ -1,12 +1,12 @@
 import { ExternalLink } from "lucide-react";
 import { WA } from "@/lib/whatsapp";
 
-/** Inline WhatsApp logo — shared between float and buttons */
-function WhatsAppIcon({ size = 22 }: { size?: number }) {
+/** Inline WhatsApp logo */
+function WhatsAppIcon() {
   return (
     <svg
-      width={size}
-      height={size}
+      width={22}
+      height={22}
       viewBox="0 0 32 32"
       fill="none"
       aria-hidden="true"
@@ -22,64 +22,39 @@ function WhatsAppIcon({ size = 22 }: { size?: number }) {
   );
 }
 
-interface WaCardProps {
-  href: string;
-  label: string;
-  helper: string;
-  border?: "default" | "strong";
-}
-
-function WaCard({ href, label, helper, border = "default" }: WaCardProps) {
+/**
+ * WhatsApp community group button.
+ * Direct-message to Noam is now handled via the AI chat escalation flow.
+ */
+export function WhatsAppButtons() {
   return (
     <a
-      href={href}
+      href={WA.GROUP}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex-1 flex items-center gap-3 rounded-xl p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--surface-border-strong)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
+      className="flex items-center gap-3 rounded-xl p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--surface-border-strong)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
       style={{
         backgroundColor: "var(--surface-raised)",
-        border: `1px solid ${border === "strong" ? "var(--surface-border-strong)" : "var(--surface-border)"}`,
+        border: "1px solid var(--surface-border-strong)",
         textDecoration: "none",
       }}
     >
-      <WhatsAppIcon size={22} />
+      <WhatsAppIcon />
       <div className="flex-1 min-w-0">
-        <p className="font-semibold text-sm leading-snug" style={{ color: "var(--text-primary)" }}>
-          {label}
+        <p
+          className="font-semibold text-sm leading-snug"
+          style={{ color: "var(--text-primary)" }}
+        >
+          לקבוצת הווטסאפ
         </p>
         <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
-          {helper}
+          עדכונים, הסברים ותוכן על Apex
         </p>
       </div>
-      <ExternalLink size={13} style={{ color: "var(--text-muted)", flexShrink: 0 }} />
+      <ExternalLink
+        size={13}
+        style={{ color: "var(--text-muted)", flexShrink: 0 }}
+      />
     </a>
-  );
-}
-
-interface WhatsAppButtonsProps {
-  directHelper?: string;
-}
-
-/**
- * Paired WhatsApp buttons: group (primary weight) + direct message (secondary).
- * Use on homepage and /about. Pass directHelper to override the direct-message helper text.
- */
-export function WhatsAppButtons({
-  directHelper = "הודעה ישירה עם טקסט מוכן מראש",
-}: WhatsAppButtonsProps = {}) {
-  return (
-    <div className="flex flex-col sm:flex-row gap-3">
-      <WaCard
-        href={WA.GROUP}
-        label="לקבוצת הווטסאפ"
-        helper="עדכונים, הסברים ותוכן על Apex"
-        border="strong"
-      />
-      <WaCard
-        href={WA.DIRECT}
-        label="שלחו לי הודעה בוואטסאפ"
-        helper={directHelper}
-      />
-    </div>
   );
 }

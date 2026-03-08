@@ -5,7 +5,7 @@ import { Providers } from "@/components/providers/Providers";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { StickyMobileCTABar } from "@/components/layout/StickyMobileCTABar";
-import { WhatsAppFloat } from "@/components/ui/WhatsAppFloat";
+import { AIChatWidget } from "@/components/ui/AIChatWidget";
 
 const heebo = Heebo({
   subsets: ["hebrew", "latin"],
@@ -38,7 +38,7 @@ export default function RootLayout({
           <main className="pt-16">{children}</main>
           <Footer />
           <StickyMobileCTABar />
-          <WhatsAppFloat />
+          <AIChatWidget />
         </Providers>
       </body>
     </html>

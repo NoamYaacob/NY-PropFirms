@@ -254,12 +254,12 @@ export default function HomePage() {
             className="text-xl font-bold mb-2 text-center"
             style={{ color: "var(--text-primary)" }}
           >
-            קהילה ויצירת קשר
+            קהילת הווטסאפ
           </h2>
           <p className="text-sm text-center mb-6" style={{ color: "var(--text-muted)" }}>
-            אפשר להצטרף לקבוצת הווטסאפ או לשלוח לי הודעה ישירה.
+            עדכונים, הסברים ותוכן על Apex
           </p>
-          <WhatsAppButtons directHelper="מתלבטים בין התיקים? שלחו לי הודעה" />
+          <WhatsAppButtons />
         </section>
 
         {/* ── Disclaimer ────────────────────────────────────── */}
