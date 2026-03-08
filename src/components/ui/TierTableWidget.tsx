@@ -75,7 +75,14 @@ export function TierTableWidget() {
 
       {/* ── Tier table ── */}
       <div className="overflow-x-auto">
-        <table className="w-full text-sm border-collapse" dir="rtl">
+        <table className="w-full text-sm border-collapse table-fixed" dir="rtl">
+          {/* Fixed column widths prevent auto-distribution misalignment */}
+          <colgroup>
+            <col style={{ width: "18%" }} />
+            <col style={{ width: "38%" }} />
+            <col style={{ width: "26%" }} />
+            <col style={{ width: "18%" }} />
+          </colgroup>
           <thead>
             <tr
               style={{
@@ -83,14 +90,15 @@ export function TierTableWidget() {
                 borderBottom: "1px solid var(--surface-border-strong)",
               }}
             >
+              {/* text-left matches body cells that use dir="ltr" (content starts from left edge) */}
               <th
-                className="text-right px-4 py-2.5 font-semibold text-xs uppercase tracking-wide"
+                className="text-left px-4 py-2.5 font-semibold text-xs uppercase tracking-wide"
                 style={{ color: "var(--text-muted)" }}
               >
                 <span dir="ltr">Level</span>
               </th>
               <th
-                className="text-right px-4 py-2.5 font-semibold text-xs uppercase tracking-wide"
+                className="text-left px-4 py-2.5 font-semibold text-xs uppercase tracking-wide"
                 style={{ color: "var(--text-muted)" }}
               >
                 טווח רווח
