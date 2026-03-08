@@ -308,24 +308,22 @@ export default function IntradayPage() {
         <div id="pa-dll" className="mt-4">
           <CalloutBox
             variant="info"
-            title="DLL לפי Tier — Intraday PA"
+            title="DLL לפי Tier ב-PA"
             accountType="intraday-pa"
             source={S.SCALING_LEVELS_PA}
             body={
-              <div className="space-y-2">
+              <div className="space-y-3">
+                <p>בחשבונות <span dir="ltr">PA</span>, ה-<span dir="ltr">DLL</span> נקבע לפי ה-<span dir="ltr">Tier</span> של החשבון — בניגוד למבחן שבו אין <span dir="ltr">DLL</span>.</p>
+                <ul className="space-y-1.5 list-disc list-inside" style={{ color: "var(--text-secondary)" }}>
+                  <li>ה-<span dir="ltr">Tier</span> קובע את גודל ה-<span dir="ltr">DLL</span> ואת מספר החוזים המקסימלי.</li>
+                  <li>ה-<span dir="ltr">Tier</span> מתעדכן לפי יתרת סוף היום, וחל על הסשן הבא.</li>
+                  <li>ה-<span dir="ltr">DLL</span> יכול לעלות או לרדת, אבל לא מתחת ל-<span dir="ltr">Level 1</span>.</li>
+                </ul>
                 <p>
-                  בשלב ה-<span dir="ltr">PA</span> יש <span dir="ltr">DLL</span> — בניגוד למבחן שבו אין.
-                  ה-<span dir="ltr">Tier</span> קובע גם את גודל הסטופ היומי וגם את מספר החוזים המקסימלי לסשן הבא.
-                  הרף מנוטר בזמן אמת על כל ההון (ממומש ובלתי-ממומש).
-                </p>
-                <p>
-                  <strong>ה-<span dir="ltr">Tier</span> מתעדכן לפי יתרת סוף היום</strong>, חל על הסשן הבא, ולא משתנה תוך כדי יום מסחר.
-                  אם היתרה יורדת, ה-<span dir="ltr">DLL</span> יכול לרדת — אבל לא מתחת ל-<span dir="ltr">Level 1</span>.
-                  פגיעה ב-<span dir="ltr">DLL</span>: פוזיציות נסגרות אוטומטית, המסחר נעצר עד הסשן הבא, החשבון נשאר פעיל.
+                  אם מגיעים ל-<span dir="ltr">DLL</span>, הפוזיציות נסגרות אוטומטית והמסחר נעצר עד הסשן הבא. החשבון נשאר פעיל.
                 </p>
                 <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-                  הנתונים עשויים להשתנות — בדקו ישירות ב-<span dir="ltr">Apex</span>{" "}
-                  לפני החלטות מסחר.
+                  הנתונים עשויים להשתנות — בדקו ישירות ב-<span dir="ltr">Apex</span> לפני החלטות מסחר.
                 </p>
               </div>
             }
