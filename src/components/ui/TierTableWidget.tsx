@@ -18,10 +18,10 @@ export function TierTableWidget() {
       {/* Header */}
       <div>
         <p className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
-          בחרו גודל חשבון כדי לראות את טבלת ה-<span dir="ltr">Tier</span>
+          בחרו גודל חשבון
         </p>
         <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
-          טבלאות ה-<span dir="ltr">Tier</span> קובעות כמה חוזים מותר להחזיק ומה גודל ה-<span dir="ltr">DLL</span> בכל שלב
+          ה-<span dir="ltr">Tier</span> קובע כמה חוזים מותר להחזיק ומה גודל ה-<span dir="ltr">DLL</span> בסשן הבא
         </p>
       </div>
 
@@ -87,7 +87,7 @@ export function TierTableWidget() {
                 className="text-right px-4 py-2.5 font-semibold text-xs uppercase tracking-wide"
                 style={{ color: "var(--text-muted)" }}
               >
-                טווח יתרה
+                טווח רווח
               </th>
               <th
                 className="text-center px-4 py-2.5 font-semibold text-xs uppercase tracking-wide"
@@ -128,7 +128,7 @@ export function TierTableWidget() {
                   style={{ color: "var(--text-secondary)" }}
                   dir="ltr"
                 >
-                  {row.balanceRange}
+                  {row.profitRange}
                 </td>
                 <td
                   className="text-center px-4 py-2.5 text-sm font-medium tabular-nums"
