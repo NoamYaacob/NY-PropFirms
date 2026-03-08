@@ -362,22 +362,13 @@ export default function IntradayPage() {
             variant="info"
             title="DLL לפי Tier ב-PA"
             accountType="intraday-pa"
-            source={S.SCALING_LEVELS_PA}
             body={
-              <div className="space-y-3">
-                <p>בחשבונות <span dir="ltr">PA</span>, ה-<span dir="ltr">DLL</span> נקבע לפי ה-<span dir="ltr">Tier</span> של החשבון — בניגוד למבחן שבו אין <span dir="ltr">DLL</span>.</p>
-                <ul className="space-y-1.5 list-disc list-inside" style={{ color: "var(--text-secondary)" }}>
-                  <li>ה-<span dir="ltr">Tier</span> קובע את גודל ה-<span dir="ltr">DLL</span> ואת מספר החוזים המקסימלי.</li>
-                  <li>ה-<span dir="ltr">Tier</span> מתעדכן לפי יתרת סוף היום, וחל על הסשן הבא.</li>
-                  <li>ה-<span dir="ltr">DLL</span> יכול לעלות או לרדת, אבל לא מתחת ל-<span dir="ltr">Level 1</span>.</li>
-                </ul>
-                <p>
-                  אם מגיעים ל-<span dir="ltr">DLL</span>, הפוזיציות נסגרות אוטומטית והמסחר נעצר עד הסשן הבא. החשבון נשאר פעיל.
+              <div className="space-y-2">
+                <p>בחשבונות <span dir="ltr">PA</span>, ה-<span dir="ltr">DLL</span> נקבע לפי ה-<span dir="ltr">Tier</span> של החשבון.</p>
+                <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+                  ה-<span dir="ltr">Tier</span> קובע כמה חוזים מותר להחזיק ומה גודל ה-<span dir="ltr">DLL</span> בסשן הבא.
                 </p>
                 <TierTableWidget />
-                <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-                  הנתונים עשויים להשתנות — בדקו ישירות ב-<span dir="ltr">Apex</span> לפני החלטות מסחר.
-                </p>
               </div>
             }
           />
