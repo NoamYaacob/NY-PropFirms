@@ -259,7 +259,7 @@ export default function HomePage() {
           <p className="text-sm text-center mb-6" style={{ color: "var(--text-muted)" }}>
             אפשר להצטרף לקבוצת הווטסאפ או לשלוח לי הודעה ישירה.
           </p>
-          <WhatsAppButtons />
+          <WhatsAppButtons directHelper="מתלבטים בין התיקים? שלחו לי הודעה" />
         </section>
 
         {/* ── Disclaimer ────────────────────────────────────── */}

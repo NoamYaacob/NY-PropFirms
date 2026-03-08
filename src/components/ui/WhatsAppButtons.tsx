@@ -56,11 +56,17 @@ function WaCard({ href, label, helper, border = "default" }: WaCardProps) {
   );
 }
 
+interface WhatsAppButtonsProps {
+  directHelper?: string;
+}
+
 /**
  * Paired WhatsApp buttons: group (primary weight) + direct message (secondary).
- * Use on homepage and /about.
+ * Use on homepage and /about. Pass directHelper to override the direct-message helper text.
  */
-export function WhatsAppButtons() {
+export function WhatsAppButtons({
+  directHelper = "הודעה ישירה עם טקסט מוכן מראש",
+}: WhatsAppButtonsProps = {}) {
   return (
     <div className="flex flex-col sm:flex-row gap-3">
       <WaCard
@@ -72,7 +78,7 @@ export function WhatsAppButtons() {
       <WaCard
         href={WA.DIRECT}
         label="שלחו לי הודעה בוואטסאפ"
-        helper="הודעה ישירה עם טקסט מוכן מראש"
+        helper={directHelper}
       />
     </div>
   );
