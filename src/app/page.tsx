@@ -128,7 +128,7 @@ export default function HomePage() {
               className="text-xl md:text-2xl font-medium"
               style={{ color: "var(--text-secondary)" }}
             >
-              כל מה שצריך לדעת לפני שפותחים חשבון פרופ
+              כל מה שצריך לדעת לפני שפותחים חשבון מסחר בנוסטרו
             </p>
             <p className="text-base" style={{ color: "var(--text-muted)" }}>
               הסבר ברור על החוקים, התשלומים וההבדלים בין המסלולים
