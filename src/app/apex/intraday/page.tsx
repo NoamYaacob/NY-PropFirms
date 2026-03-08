@@ -237,6 +237,29 @@ export default function IntradayPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <RuleCard
+            title="רף הפסד נגרר ב-PA"
+            icon={Activity}
+            accountType="intraday-pa"
+            source={S.INTRADAY_PA}
+            body={
+              <div className="space-y-2">
+                <p>
+                  ב-<span dir="ltr">PA</span> במסלול <span dir="ltr">Intraday</span>, רף ההפסד הנגרר עדיין נאכף בזמן אמת.
+                </p>
+                <p>
+                  הוא עוקב אחרי השיא הגבוה ביותר של החשבון, כולל רווחים פתוחים וסגורים.
+                </p>
+                <p>
+                  <strong style={{ color: "var(--text-primary)" }}>אם היתרה נוגעת ברף או יורדת מתחתיו, הפוזיציות נסגרות אוטומטית וה-<span dir="ltr">PA</span> נסגר.</strong>
+                </p>
+                <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                  זה שונה מה-<span dir="ltr">DLL</span>, שעוצר את המסחר עד הסשן הבא אבל לא סוגר את החשבון.
+                </p>
+              </div>
+            }
+          />
+
+          <RuleCard
             title="חוק עקביות 50% (Consistency)"
             icon={TrendingUp}
             accountType="intraday-pa"
