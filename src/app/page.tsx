@@ -13,6 +13,11 @@ const COMPARISON_ROWS: ComparisonRow[] = [
     intradayValue: <span style={{ color: "var(--red-400)" }}>אין ❌</span>,
   },
   {
+    feature: "סטופ יומי ב-PA",
+    eodValue: "יש לפי Tier",
+    intradayValue: "יש לפי Tier",
+  },
+  {
     feature: "רף הפסד",
     eodValue: "רף הפסד בסוף יום",
     intradayValue: "רף הפסד נגרר",
@@ -20,7 +25,7 @@ const COMPARISON_ROWS: ComparisonRow[] = [
   {
     feature: "מה קורה בפגיעה",
     eodValue: "המסחר נעצר לאותו יום",
-    intradayValue: "אין פגיעה יומית — רק רף הפסד נגרר",
+    intradayValue: "אין פגיעה יומית, רק רף הפסד נגרר",
   },
   {
     feature: "חוק עקביות ב-PA",
@@ -197,9 +202,6 @@ export default function HomePage() {
           </h2>
 
           <ComparisonBlock rows={COMPARISON_ROWS} showSources={false} />
-          <p className="text-xs mt-3 text-center" style={{ color: "var(--text-muted)" }}>
-            ב-PA יש סטופ יומי לפי Tier — בשני המסלולים
-          </p>
         </section>
 
         {/* ── Coupon Block ──────────────────────────────────── */}
