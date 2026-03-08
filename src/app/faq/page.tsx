@@ -39,51 +39,63 @@ const EVALUATION: AccordionItem[] = [
   {
     id: "e1",
     trigger: "כמה ימי מסחר צריך להשלים במבחן?",
-    content: "בחשבונות הנוכחיים (EOD ו-Intraday): אין מינימום ימי מסחר. אפשר לעבור ברגע שמגיעים ליעד הרווח תוך שמירה על כל הכללים.",
+    content: "במבחני EOD ו-Intraday החדשים אין מינימום ימי מסחר. אפשר לעבור גם ביום אחד, אם הגעת ליעד הרווח בלי להפר כללים.",
+  },
+  {
+    id: "e3",
+    trigger: "האם הגישה למבחן מתחדשת?",
+    content: "לא. המבחן תקף ל-30 ימים, ללא חידוש אוטומטי וללא הארכה.",
   },
   {
     id: "e2",
     trigger: "מה ההבדל בין מגבלת הפסד יומי (DLL) לרף הפסד?",
     content: (
-      <div className="space-y-2">
-        <p><strong>רף הפסד (Drawdown):</strong> מגבלת הפסד כוללת לחשבון — אם נפגעת, המבחן נכשל.</p>
-        <p><strong>מגבלת הפסד יומי (DLL):</strong> מגבלת הפסד יומית — פגיעה בה עוצרת את המסחר לאותו יום בלבד, לא פוסלת את המבחן ולא סוגרת את ה-PA. קיים במבחן EOD — ובשני סוגי ה-PA לפי רמות.</p>
-        <p><strong>מבחן Intraday:</strong> אין DLL בשלב המבחן — אך ב-PA Intraday יש DLL לפי רמות.</p>
+      <div className="space-y-1.5">
+        <p><strong>DLL</strong> הוא סטופ יומי קבוע לאותו סשן. אם מגיעים אליו, המסחר באותו תיק נעצר עד יום המסחר הבא — החשבון נשאר פעיל.</p>
+        <p><strong>רף הפסד / Drawdown</strong> הוא רף החשבון עצמו. ב-EOD הוא מחושב בסוף יום ונאכף בסשן הבא. ב-Intraday הוא נגרר בזמן אמת.</p>
       </div>
     ),
   },
   {
-    id: "e3",
-    trigger: "האם הגישה למבחן מתחדשת?",
-    content: "לא. המבחנים הנוכחיים הם תשלום חד-פעמי ל-30 ימים. לאחר 30 ימים החשבון נסגר. אין חידוש אוטומטי ואין אפשרות להאריך.",
-  },
-  {
     id: "e4",
-    trigger: "מה ההבדל בין רף הפסד נגרר (Intraday) לבין רף ההפסד (EOD)?",
+    trigger: "מה ההבדל בין רף הפסד נגרר (Intraday) לבין רף הפסד (EOD)?",
     content: (
-      <div className="space-y-2">
-        <p><strong>רף הפסד EOD:</strong> מחושב פעם אחת בסיום כל יום מסחר ונשאר קבוע לאורך יום המסחר הבא.</p>
-        <p><strong>רף הפסד נגרר (Intraday):</strong> עוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים (Unrealized PnL). עולה עם כל שיא חדש — ולעולם לא יורד.</p>
+      <div className="space-y-1.5">
+        <p><strong>Intraday:</strong> רף ההפסד נגרר בזמן אמת אחרי שיא החשבון, כולל רווחים פתוחים.</p>
+        <p><strong>EOD:</strong> רף ההפסד מחושב פעם אחת בסוף יום המסחר ונשאר קבוע לאורך הסשן הבא.</p>
       </div>
     ),
   },
   {
     id: "e5",
     trigger: "מה קורה אם לא סגרתי פוזיציה לפני 4:59 PM ET?",
-    content: "זו הפרת כלל — Apex עשויה לסגור את הפוזיציה אוטומטית, אך האחריות על סגירה בזמן היא של הסוחר. הפרות עלולות לפסול את המבחן.",
-  },
-  {
-    id: "e6",
-    trigger: "האם אפשר להשתמש ב-EA (Expert Advisor) במבחן?",
-    content: "מסחר אוטומטי מותר אם לא מדובר ב-HFT ולא כולל שיתוף חשבון. מומלץ לאמת ישירות מול Apex לגבי EA ספציפי לפני השימוש.",
+    content: (
+      <div className="space-y-1.5">
+        <p>חייבים להיות שטוחים לפני <span dir="ltr">4:59 PM ET</span>. זו האחריות של הסוחר.</p>
+        <p>בשווקים מסוימים, במיוחד חקלאיים, צריך להיסגר אפילו מוקדם יותר.</p>
+        <p>אפשר לפתוח עסקאות שוב מ-<span dir="ltr">6:00 PM ET</span>.</p>
+      </div>
+    ),
   },
 ];
 
 const PA: AccordionItem[] = [
   {
+    id: "p0",
+    trigger: "מה נדרש כדי לבקש תשלום מ-PA?",
+    content: (
+      <div className="space-y-1.5">
+        <p>5 ימי מסחר כשירים לפחות — ימים שבוצעה בהם לפחות עסקה אחת.</p>
+        <p>בקשה מינימלית של <span dir="ltr">$500</span>.</p>
+        <p>חוק עקביות 50% חייב להתקיים.</p>
+        <p>התשלום הוא <strong>100% לסוחר</strong> על הסכום שאושר.</p>
+      </div>
+    ),
+  },
+  {
     id: "p1",
     trigger: "מה זה חוק עקביות 50%?",
-    content: "היום הרווחי ביותר שלך (Single Best Day) חייב להיות פחות מ-50% מסך הרווח הכולל. כל עוד עברת 50%, כפתור בקשת התשלום לא זמין.",
+    content: "היום הרווחי ביותר שלך חייב להיות פחות מ-50% מסך הרווח הכולל. כל עוד עברת 50%, כפתור בקשת התשלום לא זמין.",
   },
   {
     id: "p2",
@@ -98,12 +110,12 @@ const PA: AccordionItem[] = [
   {
     id: "p5",
     trigger: "מהו Safety Net ומתי הוא חל?",
-    content: "רשת הביטחון היא רף ההפסד של החשבון בתוספת $100, והיא נשארת בתוקף לאורך כל חיי חשבון ה-PA. רק רווח שמעל רשת הביטחון ניתן למשיכה.",
+    content: "רשת הביטחון היא רף ההפסד של החשבון בתוספת $100. רק רווח מעל רשת הביטחון ניתן למשיכה.",
   },
   {
     id: "p6",
     trigger: "כמה חשבונות PA מותר להחזיק בו-זמנית?",
-    content: "עד 20 חשבונות PA פעילים. חריגה מגבולה זו חוסמת בקשות תשלום בכל החשבונות.",
+    content: "עד 20 חשבונות PA פעילים. חריגה מגבול זה חוסמת בקשות תשלום בכל החשבונות.",
   },
 ];
 
@@ -129,12 +141,18 @@ const TERMS: AccordionItem[] = [
   {
     id: "t1",
     trigger: "מה זה EOD?",
-    content: "סוף יום (End of Day). סוג חשבון שרף ההפסד שלו מחושב פעם אחת בסיום יום המסחר ונשאר קבוע לאורך יום המסחר הבא.",
+    content: "EOD הוא מסלול שבו רף ההפסד מחושב פעם אחת בסוף יום המסחר. הרף שנקבע נשאר קבוע לאורך הסשן הבא.",
   },
   {
     id: "t2",
     trigger: "מה זה Intraday?",
-    content: "חשבון עם רף הפסד נגרר שעוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים. במבחן אין DLL — ב-PA יש.",
+    content: (
+      <div className="space-y-1.5">
+        <p>Intraday הוא מסלול שבו רף ההפסד נגרר בזמן אמת אחרי שיא החשבון.</p>
+        <p>במבחן Intraday אין DLL.</p>
+        <p>ב-PA של Intraday יש גם DLL לפי Tier וגם רף הפסד נגרר בזמן אמת.</p>
+      </div>
+    ),
   },
   {
     id: "t3",
@@ -144,16 +162,24 @@ const TERMS: AccordionItem[] = [
   {
     id: "t4",
     trigger: "מה זה PA?",
-    content: "חשבון מימון שנפתח לאחר עמידה מוצלחת במבחן. בחשבון זה אפשר לבקש תשלומים על רווחים.",
+    content: "PA הוא חשבון מדומה ממומן שנפתח אחרי מעבר המבחן. בחשבון PA אפשר לבקש תשלומים לפי כללי הזכאות.",
   },
 ];
 
 const CATEGORIES = [
-  { id: "general", label: "כלליות", items: GENERAL },
-  { id: "evaluation", label: "מבחן", items: EVALUATION },
-  { id: "pa", label: "PA ותשלומים", items: PA },
-  { id: "coupon", label: "קוד הנחה", items: COUPON },
-  { id: "terms", label: "מונחים", items: TERMS },
+  { id: "general",    label: "כלליות",        items: GENERAL },
+  { id: "evaluation", label: "מבחן",           items: EVALUATION },
+  { id: "pa",         label: "PA ותשלומים",   items: PA },
+  { id: "coupon",     label: "קוד הנחה",       items: COUPON },
+  { id: "terms",      label: "מונחים",         items: TERMS },
+];
+
+const KEY_FACTS = [
+  "אין מינימום ימי מסחר במבחן",
+  "המבחן תקף ל-30 ימים",
+  "ב-PA יש עד 6 תשלומים",
+  "התשלומים הם 100% לסוחר על סכום שאושר",
+  "חייבים להיות שטוחים לפני 4:59 PM ET",
 ];
 
 export default function FAQPage() {
@@ -162,9 +188,30 @@ export default function FAQPage() {
       <h1 className="text-4xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>
         שאלות נפוצות
       </h1>
-      <p className="text-base mb-8" style={{ color: "var(--text-secondary)" }}>
-        תשובות לשאלות הנפוצות ביותר על Apex Trader Funding — בעברית
+      <p className="text-base mb-6" style={{ color: "var(--text-secondary)" }}>
+        תשובות קצרות לשאלות החשובות על Apex — בעברית
       </p>
+
+      {/* הכי חשוב לדעת */}
+      <div
+        className="rounded-xl px-5 py-4 mb-8"
+        style={{
+          backgroundColor: "var(--surface-raised)",
+          border: "1px solid var(--surface-border)",
+        }}
+      >
+        <p className="text-sm font-semibold mb-3" style={{ color: "var(--text-primary)" }}>
+          הכי חשוב לדעת
+        </p>
+        <ul className="space-y-1.5">
+          {KEY_FACTS.map((fact) => (
+            <li key={fact} className="flex items-start gap-2 text-sm" style={{ color: "var(--text-secondary)" }}>
+              <span style={{ color: "var(--teal-400)", flexShrink: 0 }}>✓</span>
+              <span>{fact}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
 
       {/* Category anchors */}
       <div className="flex flex-wrap gap-2 mb-10">
