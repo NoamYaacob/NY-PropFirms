@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { CouponChip } from "@/components/ui/CouponChip";
 import { ComparisonBlock, ComparisonRow } from "@/components/ui/ComparisonBlock";
 import { StepFlowStrip } from "@/components/ui/StepFlowStrip";
+import { WhatsAppButtons } from "@/components/ui/WhatsAppButtons";
 const APEX_URL = "https://apextraderfunding.com";
 
 const COMPARISON_ROWS: ComparisonRow[] = [
@@ -223,6 +224,20 @@ export default function HomePage() {
             size="lg"
             external
           />
+        </section>
+
+        {/* ── WhatsApp ──────────────────────────────────────── */}
+        <section className="mb-16">
+          <h2
+            className="text-xl font-bold mb-2 text-center"
+            style={{ color: "var(--text-primary)" }}
+          >
+            קהילה ויצירת קשר
+          </h2>
+          <p className="text-sm text-center mb-6" style={{ color: "var(--text-muted)" }}>
+            אפשר להצטרף לקבוצת הווטסאפ או לשלוח לי הודעה ישירה.
+          </p>
+          <WhatsAppButtons />
         </section>
 
         {/* ── Disclaimer ────────────────────────────────────── */}

@@ -3,6 +3,7 @@ import { ExternalLink } from "lucide-react";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { CopyButton } from "@/components/ui/CopyButton";
 import { Button } from "@/components/ui/Button";
+import { WhatsAppButtons } from "@/components/ui/WhatsAppButtons";
 import { SECONDARY_COUPON } from "@/lib/coupons";
 
 export const metadata: Metadata = {
@@ -134,6 +135,19 @@ export default function AboutPage() {
             </a>
           ))}
         </div>
+      </section>
+
+      <SectionDivider variant="subtle" />
+
+      {/* WhatsApp */}
+      <section className="mb-10">
+        <h2 className="text-xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>
+          קהילה ויצירת קשר
+        </h2>
+        <p className="text-sm mb-4" style={{ color: "var(--text-secondary)" }}>
+          אפשר להצטרף לקבוצת הווטסאפ או לשלוח לי הודעה ישירה.
+        </p>
+        <WhatsAppButtons />
       </section>
 
       {/* CTA */}
