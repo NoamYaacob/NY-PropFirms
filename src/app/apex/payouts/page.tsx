@@ -158,36 +158,15 @@ export default function PayoutsPage() {
           accountType="pa"
           source={S.EOD_PAYOUTS}
           body={
-            <div className="space-y-3">
-              <div
-                className="rounded-lg p-3"
-                style={{
-                  backgroundColor: "var(--gold-900)",
-                  border: "1px solid var(--gold-edge)",
-                }}
-              >
-                <p className="font-semibold" style={{ color: "var(--gold-300)" }}>
-                  100% לסוחר
-                </p>
-                <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
-                  על <span dir="ltr">$25,000</span> הרווחים הראשונים לחשבון
-                </p>
-              </div>
-              <div
-                className="rounded-lg p-3"
-                style={{
-                  backgroundColor: "var(--surface-overlay)",
-                  border: "1px solid var(--surface-border)",
-                }}
-              >
-                <p className="font-semibold" style={{ color: "var(--text-primary)" }}>
-                  90% לסוחר / 10% ל-Apex
-                </p>
-                <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
-                  על כל רווח מעל <span dir="ltr">$25,000</span>
-                </p>
-              </div>
-            </div>
+            <>
+              <p>
+                <strong style={{ color: "var(--gold-300)" }}>100% לסוחר</strong>{" "}
+                על כל תשלום מאושר.
+              </p>
+              <p className="mt-2" style={{ color: "var(--text-muted)" }}>
+                Apex משלמים 100% מסכום התשלום שאושר, בכפוף לכללי הזכאות לתשלום.
+              </p>
+            </>
           }
         />
 

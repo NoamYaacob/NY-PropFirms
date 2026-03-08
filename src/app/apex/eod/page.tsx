@@ -312,11 +312,10 @@ export default function EODPage() {
               <>
                 <p>
                   <strong style={{ color: "var(--gold-300)" }}>100% לסוחר</strong>{" "}
-                  על <span dir="ltr">$25,000</span> הרווחים הראשונים לחשבון.
+                  על כל תשלום מאושר.
                 </p>
-                <p className="mt-2">
-                  <strong>90% לסוחר / 10% ל-Apex</strong> על כל רווח מעל{" "}
-                  <span dir="ltr">$25,000</span>.
+                <p className="mt-2" style={{ color: "var(--text-muted)" }}>
+                  Apex משלמים 100% מסכום התשלום שאושר, בכפוף לכללי הזכאות לתשלום.
                 </p>
               </>
             }
