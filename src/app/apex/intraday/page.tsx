@@ -142,7 +142,7 @@ export default function IntradayPage() {
                   </strong>
                 </p>
                 <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-                  זה שונה מה-<span dir="ltr">DLL</span>, שעוצר את המסחר עד הסשן הבא אבל לא סוגר את
+                  זה שונה מה-<span dir="ltr">DLL</span>, שעוצר את המסחר באותו תיק עד יום המסחר הבא אבל לא סוגר את
                   החשבון.
                 </p>
               </div>
@@ -269,7 +269,7 @@ export default function IntradayPage() {
                 </p>
                 <p className="text-xs" style={{ color: "var(--text-muted)" }}>
                   שים לב: זה שונה מה-<span dir="ltr">DLL</span>. פגיעה ב-<span dir="ltr">DLL</span>{" "}
-                  רק עוצרת את המסחר עד הסשן הבא — החשבון נשאר פעיל.
+                  רק עוצרת את המסחר באותו תיק עד יום המסחר הבא — החשבון נשאר פעיל.
                 </p>
               </div>
             }

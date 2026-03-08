@@ -103,9 +103,9 @@ export default function PayoutsPage() {
               content: (
                 <div className="space-y-1.5 text-sm" style={{ color: "var(--text-secondary)" }}>
                   <p><span dir="ltr">DLL</span> הוא סטופ יומי קבוע לאותו סשן.</p>
-                  <p>אם מגיעים אליו, הפוזיציות נסגרות אוטומטית והמסחר נעצר עד הסשן הבא.</p>
+                  <p>אם מגיעים אליו, הפוזיציות נסגרות אוטומטית והמסחר באותו תיק נעצר עד יום המסחר הבא.</p>
                   <p>החשבון נשאר פעיל.</p>
-                  <p>ה-<span dir="ltr">DLL</span> מתאפס בפתיחת הסשן הבא.</p>
+                  <p>ה-<span dir="ltr">DLL</span> מתאפס בפתיחת יום המסחר הבא.</p>
                   <p className="pt-1" style={{ color: "var(--text-muted)" }}>
                     ב-<span dir="ltr">PA</span> יש <span dir="ltr">DLL</span> לפי{" "}
                     <span dir="ltr">Tier</span>. הוא יכול לגדול עם החשבון, אבל לא לרדת מתחת ל-<span dir="ltr">Level 1</span>.
