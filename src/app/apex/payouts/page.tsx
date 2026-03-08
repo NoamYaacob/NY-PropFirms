@@ -181,10 +181,14 @@ export default function PayoutsPage() {
                 רף ההפסד של החשבון בתוספת <span dir="ltr">$100</span>
               </p>
               <table className="w-full text-sm border-collapse mb-1">
+                <colgroup>
+                  <col className="w-1/2" />
+                  <col className="w-1/2" />
+                </colgroup>
                 <thead>
                   <tr style={{ borderBottom: "1px solid var(--surface-border)" }}>
                     <th className="text-right py-1.5 font-medium" style={{ color: "var(--text-muted)" }}>גודל חשבון</th>
-                    <th className="text-right py-1.5 font-medium" style={{ color: "var(--text-muted)" }}>רשת ביטחון</th>
+                    <th className="text-left py-1.5 font-medium" style={{ color: "var(--text-muted)" }}>רשת ביטחון</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -195,8 +199,8 @@ export default function PayoutsPage() {
                     { size: "$150K", net: "$154,100" },
                   ].map((row) => (
                     <tr key={row.size} style={{ borderBottom: "1px solid var(--surface-border)" }}>
-                      <td className="py-1.5" dir="ltr">{row.size}</td>
-                      <td className="py-1.5 font-semibold" dir="ltr" style={{ color: "var(--teal-400)" }}>{row.net}</td>
+                      <td className="py-1.5 text-right tabular-nums" dir="ltr">{row.size}</td>
+                      <td className="py-1.5 text-left font-semibold tabular-nums" dir="ltr" style={{ color: "var(--teal-400)" }}>{row.net}</td>
                     </tr>
                   ))}
                 </tbody>
