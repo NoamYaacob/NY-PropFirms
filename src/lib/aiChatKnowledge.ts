@@ -152,8 +152,8 @@ function makeProhibited(): BotResponse {
 
 function makeRecommendationStart(): BotResponse {
   return {
-    text: "כדי לעזור לך לבחור, אשאל אותך 2–3 שאלות קצרות.\n\nמה התקציב שלך בערך לפתיחת מבחן?",
-    chips: ["$25K–$50K", "$100K", "$150K", "עוד לא החלטתי"],
+    text: "כדי לעזור לך לבחור, אשאל אותך כמה שאלות קצרות.\n\nמה רמת התקציב שלך להתחלה?",
+    chips: ["נמוך", "בינוני", "גבוה", "עוד לא החלטתי"],
     startRecommendation: true,
   };
 }

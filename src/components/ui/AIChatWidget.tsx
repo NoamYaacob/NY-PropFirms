@@ -386,17 +386,31 @@ export function AIChatWidget() {
         setTimeout(() => {
           setIsTyping(false);
           addBotMessage({
-            text: "שאלה שנייה: יש לך ניסיון קודם במסחר?",
-            chips: ["כן, יש לי ניסיון", "קצת", "חדש לגמרי"],
+            text: "שאלה שנייה: איזה גודל חשבון מעניין אותך כרגע?",
+            chips: ["25K", "50K", "100K", "150K", "לא בטוח עדיין"],
           });
         }, 520);
         return;
       }
 
       if (recStep === 2) {
-        newAnswers.experience = answer;
+        newAnswers.accountSize = answer;
         setRecAnswers(newAnswers);
         setRecStep(3);
+        setTimeout(() => {
+          setIsTyping(false);
+          addBotMessage({
+            text: "שאלה שלישית: יש לך ניסיון קודם במסחר?",
+            chips: ["כן, יש לי ניסיון", "קצת", "חדש לגמרי"],
+          });
+        }, 520);
+        return;
+      }
+
+      if (recStep === 3) {
+        newAnswers.experience = answer;
+        setRecAnswers(newAnswers);
+        setRecStep(4);
         setTimeout(() => {
           setIsTyping(false);
           addBotMessage({
@@ -407,7 +421,7 @@ export function AIChatWidget() {
         return;
       }
 
-      if (recStep === 3) {
+      if (recStep === 4) {
         newAnswers.preference = answer;
         setRecStep(0);
         setRecAnswers({});
