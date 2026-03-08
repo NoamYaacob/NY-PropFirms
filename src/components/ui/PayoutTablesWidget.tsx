@@ -80,7 +80,7 @@ export function PayoutTablesWidget() {
           תנאי תשלום לפי גודל חשבון
         </h2>
         <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
-          נתוני Tradovate לפי גודל חשבון
+          לפי גודל חשבון — Apex PA רשמי
         </p>
       </div>
 
@@ -95,12 +95,12 @@ export function PayoutTablesWidget() {
           }}
         >
           <p className="font-semibold mb-2" style={{ color: "var(--text-primary)" }}>
-            מה ההבדל בין אינטרה-דיי ל־סוף יום?
+            מה ההבדל בין EOD ל-Intraday?
           </p>
           <div className="flex flex-col gap-1.5" style={{ color: "var(--text-secondary)" }}>
             <p>
               <span className="font-medium" style={{ color: "var(--text-primary)" }}>סוף יום (<span dir="ltr">EOD</span>): </span>
-              רף ההפסד נקבע לפי מצב החשבון בסיום יום המסחר.
+              רף ההפסד נקבע לפי מצב החשבון בסוף יום המסחר.
             </p>
             <p>
               <span className="font-medium" style={{ color: "var(--text-primary)" }}>אינטרה-דיי (<span dir="ltr">Intraday</span>): </span>

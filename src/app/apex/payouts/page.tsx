@@ -18,7 +18,7 @@ const FAQ_ITEMS: AccordionItem[] = [
   {
     id: "min-days",
     trigger: "כמה ימי מסחר נדרשים לפני בקשת תשלום?",
-    content: "על EOD PA נדרשים לפחות 5 ימי מסחר כשירים — ימים שבוצעה בהם לפחות עסקה אחת. סכום הבקשה המינימלי: $500.",
+    content: "על EOD ו-Intraday PA נדרשים לפחות 5 ימי מסחר כשירים — ימים שבוצעה בהם לפחות עסקה אחת. סכום הבקשה המינימלי: $500.",
   },
   {
     id: "second-payout",
@@ -52,17 +52,46 @@ export default function PayoutsPage() {
       </nav>
 
       <h1 className="text-4xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>
-        תשלומים — כללי PA הנוכחיים
+        תשלומים — כללי ה-PA הנוכחיים
       </h1>
       <p className="text-base mb-8" style={{ color: "var(--text-secondary)" }}>
-        כללים אלו חלים על EOD PA ועל Intraday PA — כל כלל מקושר למקורו.
+        כללי משיכה ב-PA של EOD ושל Intraday — לפי הכללים הרשמיים של Apex
       </p>
 
       <CalloutBox
         variant="info"
-        body="כל הכללים בדף זה מבוססים על מסמכי Apex הרשמיים הקיימים כרגע. כל כלל מקושר למקורו."
+        title="חשוב לדעת לפני בקשת תשלום"
+        body="העמוד הזה מרכז את כללי התשלומים של חשבונות PA בלבד, כולל ימי מסחר מתאימים, מינימום לבקשה, חוק עקביות, Safety Net ותקרות תשלום."
         source={S.PAYOUT_RULES}
       />
+
+      {/* At-a-glance summary */}
+      <div
+        className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3"
+      >
+        {[
+          { value: "5", label: "ימי מסחר מתאימים" },
+          { value: "$500", label: "מינימום לבקשה" },
+          { value: "50%", label: "חוק עקביות" },
+          { value: "6", label: "תשלומים לחשבון" },
+        ].map((item) => (
+          <div
+            key={item.label}
+            className="rounded-xl px-4 py-3 flex flex-col items-center text-center"
+            style={{
+              backgroundColor: "var(--surface-raised)",
+              border: "1px solid var(--surface-border)",
+            }}
+          >
+            <span className="text-xl font-bold tabular-nums" style={{ color: "var(--teal-400)" }} dir="ltr">
+              {item.value}
+            </span>
+            <span className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
+              {item.label}
+            </span>
+          </div>
+        ))}
+      </div>
 
       {/* DLL explainer — compact accordion above payout tables */}
       <div className="mt-4 mb-2">
@@ -70,29 +99,22 @@ export default function PayoutsPage() {
           items={[
             {
               id: "what-is-dll",
-              trigger: "מה זה DLL (Daily Loss Limit)?",
+              trigger: "מה זה DLL?",
               content: (
-                <div className="space-y-2 text-sm" style={{ color: "var(--text-secondary)" }}>
-                  <p>
-                    <span dir="ltr">DLL</span> היא מגבלת הפסד יומי. הרף קבוע
-                    לסשן ומנוטר בזמן אמת על כל ההון (ממומש ובלתי-ממומש). אם
-                    מגיעים אליו — פוזיציות נסגרות אוטומטית, המסחר נעצר עד
-                    הסשן הבא. החשבון נשאר פעיל — חוזרים לסחור מ-<span dir="ltr">6:00 PM ET</span>.
-                    ה-<span dir="ltr">DLL</span> מתאפס עם פתיחת כל סשן.
-                  </p>
-                  <p>
-                    במבחן <span dir="ltr">EOD</span> יש{" "}
-                    <span dir="ltr">DLL</span> קבוע. במבחן{" "}
-                    <span dir="ltr">Intraday</span> אין{" "}
-                    <span dir="ltr">DLL</span>. ב-<span dir="ltr">PA</span>{" "}
-                    יש <span dir="ltr">DLL</span> לפי <span dir="ltr">Tier</span> — יכול לגדול עם עליית <span dir="ltr">Tier</span>,
-                    אך לא ירד מתחת ל-<span dir="ltr">Level 1</span>.
+                <div className="space-y-1.5 text-sm" style={{ color: "var(--text-secondary)" }}>
+                  <p><span dir="ltr">DLL</span> הוא סטופ יומי קבוע לאותו סשן.</p>
+                  <p>אם מגיעים אליו, הפוזיציות נסגרות אוטומטית והמסחר נעצר עד הסשן הבא.</p>
+                  <p>החשבון נשאר פעיל.</p>
+                  <p>ה-<span dir="ltr">DLL</span> מתאפס בפתיחת הסשן הבא.</p>
+                  <p className="pt-1" style={{ color: "var(--text-muted)" }}>
+                    ב-<span dir="ltr">PA</span> יש <span dir="ltr">DLL</span> לפי{" "}
+                    <span dir="ltr">Tier</span>. הוא יכול לגדול עם החשבון, אבל לא לרדת מתחת ל-<span dir="ltr">Level 1</span>.
                   </p>
                   <a
                     href={S.DAILY_LOSS_LIMIT.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs hover:underline"
+                    className="text-xs hover:underline inline-block pt-0.5"
                     style={{ color: "var(--teal-400)" }}
                   >
                     {S.DAILY_LOSS_LIMIT.title} ↗
@@ -221,19 +243,18 @@ export default function PayoutsPage() {
         <RuleCard
           title="תנאי מינימום לבקשת תשלום"
           icon={Clock}
-          accountType="eod-pa"
+          accountType="pa"
           source={S.EOD_PAYOUTS}
           body={
             <>
               <p>
-                לבקשת תשלום מ-EOD PA נדרשים לפחות{" "}
-                <strong>5 ימי מסחר כשירים</strong> — ימים שבוצעה בהם לפחות עסקה אחת.
+                נדרשים לפחות <strong>5 ימי מסחר כשירים</strong> — ימים שבוצעה בהם לפחות עסקה אחת.
               </p>
               <p className="mt-2">
                 סכום הבקשה חייב להיות לפחות <strong><span dir="ltr">$500</span></strong>.
               </p>
               <p className="mt-2" style={{ color: "var(--text-muted)" }}>
-                וגם חוק עקביות 50% חייב להתקיים בעת הבקשה.
+                חוק עקביות 50% חייב להתקיים בעת הבקשה.
               </p>
             </>
           }
