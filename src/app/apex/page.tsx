@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Sunset, Activity, Wallet, Shield, ArrowLeft } from "lucide-react";
+import { Sunset, Activity, ArrowLeft } from "lucide-react";
 import { CalloutBox } from "@/components/ui/CalloutBox";
 import { ComparisonBlock, ComparisonRow } from "@/components/ui/ComparisonBlock";
 import { Accordion, AccordionItem } from "@/components/ui/Accordion";
@@ -15,17 +15,50 @@ export const metadata: Metadata = {
 const APEX_URL = "https://apextraderfunding.com";
 
 const NAV_CARDS = [
-  { icon: Sunset, title: "EOD — שלב המבחן", href: "/apex/eod#evaluation", color: "#7EA0FF", badge: "מבחן" },
-  { icon: Sunset, title: "EOD — שלב ה-PA", href: "/apex/eod#pa", color: "#7EA0FF", badge: "PA" },
-  { icon: Activity, title: "Intraday — שלב המבחן", href: "/apex/intraday#test", color: "var(--teal-400)", badge: "מבחן" },
-  { icon: Activity, title: "Intraday — שלב ה-PA", href: "/apex/intraday#pa", color: "var(--teal-400)", badge: "PA" },
+  {
+    icon: Sunset,
+    title: "EOD — שלב ה-PA",
+    description: "DLL לפי Tier, רשת ביטחון ותשלומים",
+    href: "/apex/eod#pa",
+    color: "#7EA0FF",
+    badge: "PA",
+  },
+  {
+    icon: Sunset,
+    title: "EOD — שלב המבחן",
+    description: "סטופ יומי, רף הפסד בסוף יום ומעבר מבחן",
+    href: "/apex/eod#evaluation",
+    color: "#7EA0FF",
+    badge: "מבחן",
+  },
+  {
+    icon: Activity,
+    title: "Intraday — שלב ה-PA",
+    description: "DLL לפי Tier, רף הפסד נגרר ותשלומים",
+    href: "/apex/intraday#pa",
+    color: "var(--teal-400)",
+    badge: "PA",
+  },
+  {
+    icon: Activity,
+    title: "Intraday — שלב המבחן",
+    description: "אין סטופ יומי, רף הפסד נגרר ומעבר מבחן",
+    href: "/apex/intraday#test",
+    color: "var(--teal-400)",
+    badge: "מבחן",
+  },
 ];
 
 const COMPARISON_ROWS: ComparisonRow[] = [
   {
-    feature: "סטופ יומי",
+    feature: "סטופ יומי במבחן",
     eodValue: <span style={{ color: "var(--green-400)" }}>יש ✅</span>,
     intradayValue: <span style={{ color: "var(--red-400)" }}>אין ❌</span>,
+  },
+  {
+    feature: "סטופ יומי ב-PA",
+    eodValue: "יש לפי Tier",
+    intradayValue: "יש לפי Tier",
   },
   {
     feature: "רף הפסד",
@@ -35,7 +68,7 @@ const COMPARISON_ROWS: ComparisonRow[] = [
   {
     feature: "מה קורה בפגיעה",
     eodValue: "המסחר נעצר לאותו יום",
-    intradayValue: "אין פגיעה יומית — רק רף הפסד נגרר",
+    intradayValue: "אין פגיעה יומית, רק רף הפסד נגרר",
   },
   {
     feature: "חוק עקביות ב-PA",
@@ -49,15 +82,20 @@ const COMPARISON_ROWS: ComparisonRow[] = [
   },
 ];
 
-
 const FAQ_ITEMS: AccordionItem[] = [
   {
     id: "eval-vs-pa",
     trigger: "מה ההבדל בין מבחן ל-PA?",
     content: (
       <div className="space-y-2">
-        <p><strong style={{ color: "var(--text-primary)" }}>מבחן (<span dir="ltr">Evaluation</span>):</strong> השלב שבו מוכיחים עמידה בכללי Apex. תשלום חד-פעמי ל-30 ימים, ללא חיוב חודשי וללא חידוש אוטומטי.</p>
-        <p><strong style={{ color: "var(--text-primary)" }}>חשבון PA (<span dir="ltr">Performance Account</span>):</strong> חשבון המימון שנפתח אחרי שעוברים את המבחן. בשלב הזה אפשר לבקש תשלומים על רווחים.</p>
+        <p>
+          <strong style={{ color: "var(--text-primary)" }}>מבחן:</strong>{" "}
+          שלב המעבר לפני קבלת חשבון PA. יש לו תקופת גישה של 30 יום.
+        </p>
+        <p>
+          <strong style={{ color: "var(--text-primary)" }}>PA:</strong>{" "}
+          חשבון מדומה ממומן שנפתח אחרי מעבר המבחן, ובו אפשר לבקש תשלומים לפי הכללים.
+        </p>
       </div>
     ),
   },
@@ -66,8 +104,9 @@ const FAQ_ITEMS: AccordionItem[] = [
     trigger: "מה ההבדל בין EOD ל-Intraday?",
     content: (
       <div className="space-y-2">
-        <p><strong style={{ color: "var(--text-primary)" }}><span dir="ltr">EOD</span> (<span dir="ltr">End of Day</span>):</strong> רף ההפסד מחושב פעם אחת בסוף יום המסחר ונשאר קבוע לאורך הסשן הבא. יש <span dir="ltr">DLL</span> — פגיעה בו עוצרת את המסחר לאותו יום, החשבון נשאר פעיל. ב-<span dir="ltr">PA</span> ה-<span dir="ltr">DLL</span> לפי <span dir="ltr">Tier</span>.</p>
-        <p><strong style={{ color: "var(--text-primary)" }}><span dir="ltr">Intraday</span>:</strong> רף ההפסד הנגרר עוקב אחרי שיא החשבון בזמן אמת, כולל רווחים פתוחים. במבחן אין <span dir="ltr">DLL</span> — ב-<span dir="ltr">PA</span> יש <span dir="ltr">DLL</span> לפי <span dir="ltr">Tier</span>.</p>
+        <p>במבחן <span dir="ltr">EOD</span> יש סטופ יומי, ובמבחן <span dir="ltr">Intraday</span> אין.</p>
+        <p>ב-<span dir="ltr">PA</span> של שני המסלולים יש <span dir="ltr">DLL</span> לפי <span dir="ltr">Tier</span>.</p>
+        <p>ב-<span dir="ltr">Intraday PA</span> יש גם רף הפסד נגרר בזמן אמת.</p>
       </div>
     ),
   },
@@ -77,16 +116,16 @@ export default function ApexHubPage() {
   return (
     <div className="container-page py-12">
       <h1 className="text-4xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>
-        Apex Trader Funding — מרכז המידע
+        Apex — כל הכללים במקום אחד
       </h1>
       <p className="text-lg mb-8" style={{ color: "var(--text-secondary)" }}>
-        כללי Apex – מסודרים לפי סוג חשבון.
+        מבחן, PA, תשלומים, DLL, Tier ורשת ביטחון
       </p>
 
       <CalloutBox
         variant="info"
         title="חשוב לדעת לפני שמתחילים"
-        body={"העמוד הזה עושה סדר בכללים לפי סוג חשבון. בכל סעיף יש קישור למקור הרשמי של Apex, כדי שתוכלו לבדוק גם שם."}
+        body="העמוד הזה עושה סדר בכללים של Apex לפי סוג חשבון, כדי שתוכלו להבין מהר מה ההבדלים בין מבחן, PA, EOD ו-Intraday."
       />
 
       {/* Navigation Cards */}
@@ -98,11 +137,19 @@ export default function ApexHubPage() {
             className="card p-5 flex items-center gap-4 transition-all duration-200 hover:border-[var(--surface-border-strong)] hover:-translate-y-0.5 group"
           >
             <card.icon size={20} style={{ color: card.color, flexShrink: 0 }} />
-            <span className="font-medium flex-1 group-hover:text-[var(--gold-300)] transition-colors" style={{ color: "var(--text-primary)" }}>
-              {card.title}
-            </span>
+            <div className="flex flex-col flex-1 min-w-0">
+              <span
+                className="font-medium group-hover:text-[var(--gold-300)] transition-colors"
+                style={{ color: "var(--text-primary)" }}
+              >
+                {card.title}
+              </span>
+              <span className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
+                {card.description}
+              </span>
+            </div>
             <span
-              className="text-xs px-2 py-0.5 rounded-full"
+              className="text-xs px-2 py-0.5 rounded-full shrink-0"
               style={{
                 backgroundColor: "var(--surface-overlay)",
                 color: "var(--text-muted)",
@@ -129,7 +176,6 @@ export default function ApexHubPage() {
         <h2 className="text-xl font-bold mb-4" style={{ color: "var(--text-primary)" }}>
           EOD מול Intraday
         </h2>
-
         <ComparisonBlock rows={COMPARISON_ROWS} showSources={false} />
       </section>
 
@@ -138,19 +184,22 @@ export default function ApexHubPage() {
         <CalloutBox
           variant="info"
           title="סטופ יומי (DLL)"
-          body="הסטופ היומי הוא מגבלת ההפסד המקסימלית לאותו יום מסחר. אם מגיעים אליו, הפוזיציות נסגרות אוטומטית והמסחר נעצר עד הסשן הבא. החשבון נשאר פעיל. במבחן EOD יש סטופ יומי, במבחן Intraday אין סטופ יומי. ב-PA יש סטופ יומי לפי Tier."
+          body="הסטופ היומי הוא מגבלת ההפסד המקסימלית לאותו יום מסחר. אם מגיעים אליו, הפוזיציות נסגרות אוטומטית והמסחר נעצר עד הסשן הבא."
         />
         <CalloutBox
           variant="info"
-          title="מה זה Tier Based DLL?"
-          body="בחשבונות PA, ה-DLL נקבע לפי ה-Tier של החשבון. ה-Tier קובע גם את גודל הסטופ היומי וגם את מספר החוזים המקסימלי. ה-Tier מתעדכן לפי יתרת סוף היום, חל על הסשן הבא, ולא משתנה תוך כדי יום מסחר. אם היתרה יורדת, ה-DLL יכול לרדת, אבל לא מתחת ל-Level 1."
+          title="מה זה DLL לפי Tier?"
+          body="בחשבונות PA, ה-DLL נקבע לפי ה-Tier של החשבון. ה-Tier קובע גם את גודל ה-DLL וגם את מספר החוזים המקסימלי, ומתעדכן לפי יתרת סוף היום."
         />
       </section>
 
       {/* Page CTAs */}
-      <div className="flex flex-col sm:flex-row items-center gap-4 mt-8">
-        <CouponChip size="sm" />
+      <p className="text-sm mb-4" style={{ color: "var(--text-secondary)" }}>
+        רוצים להתחיל? אפשר לפתוח מבחן דרך Apex ולהשתמש בקוד NOAM.
+      </p>
+      <div className="flex flex-col sm:flex-row items-center gap-4">
         <Button label="פתח מבחן ב-Apex" href={APEX_URL} variant="primary" external />
+        <CouponChip size="sm" />
       </div>
     </div>
   );
