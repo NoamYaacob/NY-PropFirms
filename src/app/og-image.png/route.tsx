@@ -2,17 +2,31 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-/** Fetch the Heebo Bold woff2 from Google Fonts so Hebrew renders correctly. */
+/**
+ * Fetch Heebo Bold from Google Fonts with a hard 4-second timeout.
+ * Returns null on any failure so the route still renders (Latin fallback).
+ */
 async function loadHeebo(): Promise<ArrayBuffer | null> {
   try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 4000);
+
     const css = await fetch(
       "https://fonts.googleapis.com/css2?family=Heebo:wght@700",
-      { headers: { "User-Agent": "Mozilla/5.0 (compatible; Next.js OG)" } }
+      {
+        signal: controller.signal,
+        headers: { "User-Agent": "Mozilla/5.0 (compatible; Next.js OG)" },
+      }
     ).then((r) => r.text());
+
+    clearTimeout(timer);
 
     const url = css.match(/url\(([^)]+woff2[^)]*)\)/)?.[1];
     if (!url) return null;
-    return fetch(url).then((r) => r.arrayBuffer());
+
+    return fetch(url, { signal: AbortSignal.timeout(4000) }).then((r) =>
+      r.arrayBuffer()
+    );
   } catch {
     return null;
   }
@@ -21,7 +35,7 @@ async function loadHeebo(): Promise<ArrayBuffer | null> {
 export async function GET() {
   const fontData = await loadHeebo();
 
-  return new ImageResponse(
+  const img = new ImageResponse(
     (
       <div
         style={{
@@ -34,22 +48,22 @@ export async function GET() {
           justifyContent: "center",
           position: "relative",
           fontFamily: "Heebo, sans-serif",
-          padding: "60px",
         }}
       >
-        {/* Top gold accent bar */}
+        {/* Top gold accent bar — backgroundImage required for gradients in Satori */}
         <div
           style={{
             position: "absolute",
             top: 0,
             left: 0,
             right: 0,
-            height: "5px",
-            background: "linear-gradient(90deg, #C9A84C, #EDCB72, #C9A84C)",
+            height: "6px",
+            backgroundImage:
+              "linear-gradient(90deg, #C9A84C, #EDCB72, #C9A84C)",
           }}
         />
 
-        {/* Brand mark — mirrors the header logo */}
+        {/* Brand mark */}
         <div
           style={{
             display: "flex",
@@ -59,7 +73,7 @@ export async function GET() {
         >
           <span
             style={{
-              fontSize: 86,
+              fontSize: 88,
               fontWeight: 700,
               color: "#EDCB72",
               letterSpacing: "-2px",
@@ -69,11 +83,11 @@ export async function GET() {
           </span>
           <span
             style={{
-              fontSize: 86,
+              fontSize: 88,
               fontWeight: 700,
               color: "#EAEAF0",
               letterSpacing: "-2px",
-              marginLeft: "10px",
+              marginLeft: "12px",
             }}
           >
             PROP FIRMS
@@ -96,7 +110,7 @@ export async function GET() {
         {/* Supporting line */}
         <div
           style={{
-            fontSize: 28,
+            fontSize: 26,
             fontWeight: 400,
             color: "#55556A",
             letterSpacing: "3px",
@@ -112,8 +126,9 @@ export async function GET() {
             bottom: 0,
             left: 0,
             right: 0,
-            height: "5px",
-            background: "linear-gradient(90deg, #C9A84C, #EDCB72, #C9A84C)",
+            height: "6px",
+            backgroundImage:
+              "linear-gradient(90deg, #C9A84C, #EDCB72, #C9A84C)",
           }}
         />
       </div>
@@ -126,4 +141,12 @@ export async function GET() {
         : [],
     }
   );
+
+  // Cache aggressively — WhatsApp / social crawlers benefit from a CDN-cached response.
+  return new Response(img.body, {
+    headers: {
+      "Content-Type": "image/png",
+      "Cache-Control": "public, max-age=86400, s-maxage=86400, stale-while-revalidate=3600",
+    },
+  });
 }
