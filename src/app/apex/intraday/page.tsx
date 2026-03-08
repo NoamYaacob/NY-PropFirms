@@ -248,7 +248,7 @@ export default function IntradayPage() {
       {/* ── PA SECTION ──────────────────────────────────────────── */}
       <section id="pa">
         <h2 className="text-2xl font-bold mb-6" style={{ color: "var(--teal-400)" }}>
-          שלב ה-PA (Intraday)
+          שלב ה-PA מסוג Intraday
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
