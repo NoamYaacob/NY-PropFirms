@@ -9,7 +9,7 @@ const APEX_URL = "https://apextraderfunding.com";
 
 const COMPARISON_ROWS: ComparisonRow[] = [
   {
-    feature: "סטופ יומי במבחן",
+    feature: "סטופ יומי בבחינה",
     eodValue: <span style={{ color: "var(--green-400)" }}>יש ✅</span>,
     intradayValue: <span style={{ color: "var(--red-400)" }}>אין ❌</span>,
   },
@@ -67,14 +67,14 @@ const CATEGORY_CARDS = [
   {
     icon: Sunset,
     title: "Apex EOD",
-    desc: "יש סטופ יומי במבחן, רף הפסד בסוף יום, כללי PA ותשלומים",
+    desc: "יש סטופ יומי בבחינה, רף הפסד בסוף יום, כללי PA ותשלומים",
     href: "/apex/eod",
     color: "#7EA0FF",
   },
   {
     icon: Activity,
     title: "Apex Intraday",
-    desc: "אין סטופ יומי במבחן, רף הפסד נגרר, כללי PA ותשלומים",
+    desc: "אין סטופ יומי בבחינה, רף הפסד נגרר, כללי PA ותשלומים",
     href: "/apex/intraday",
     color: "var(--teal-400)",
   },

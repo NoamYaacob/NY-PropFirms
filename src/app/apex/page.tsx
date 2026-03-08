@@ -51,7 +51,7 @@ const NAV_CARDS = [
 
 const COMPARISON_ROWS: ComparisonRow[] = [
   {
-    feature: "סטופ יומי במבחן",
+    feature: "סטופ יומי בבחינה",
     eodValue: <span style={{ color: "var(--green-400)" }}>יש ✅</span>,
     intradayValue: <span style={{ color: "var(--red-400)" }}>אין ❌</span>,
   },
