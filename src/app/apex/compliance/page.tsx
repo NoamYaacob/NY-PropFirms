@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Clock, UserX, Copy, Zap, ArrowLeftRight } from "lucide-react";
+import { Clock, UserX, Zap, ArrowLeftRight, Globe, ShieldAlert } from "lucide-react";
 import { RuleCard } from "@/components/ui/RuleCard";
 import { CalloutBox } from "@/components/ui/CalloutBox";
 import { TimelineStrip } from "@/components/ui/TimelineStrip";
@@ -12,12 +12,10 @@ export const metadata: Metadata = {
   description: "עמידה בכללים של Apex: פעילות אסורה, כלל 4:59 PM ET, No Hedging",
 };
 
-const APEX_URL = "https://apextraderfunding.com";
-
-
-const UNIVERSAL_RULES = [
-  { icon: Clock, label: "כל פוזיציה חייבת להיסגר לפני 4:59 PM ET", href: "#trading-window" },
-  { icon: ArrowLeftRight, label: "גידור אסור (No Hedging)", href: "#hedging" },
+const SUMMARY_CARDS = [
+  { icon: ArrowLeftRight, label: "אין גידור — No Hedging", href: "#hedging" },
+  { icon: Clock,          label: "חובה להיות שטוח לפני 4:59 PM ET", href: "#trading-window" },
+  { icon: Zap,            label: "אין אוטומציה / אלגוריתמים / HFT", href: "#prohibited" },
 ];
 
 export default function CompliancePage() {
@@ -36,67 +34,74 @@ export default function CompliancePage() {
         כללים אלו חלים על כל סוגי חשבונות Apex הנוכחיים — כל כלל מקושר למקורו.
       </p>
 
-      {/* Universal rules strip */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
-        {UNIVERSAL_RULES.map((rule, i) => (
+      {/* ── Summary strip ───────────────────────────────────────── */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
+        {SUMMARY_CARDS.map((card, i) => (
           <a
             key={i}
-            href={rule.href}
+            href={card.href}
             className="card p-4 flex items-center gap-3 hover:border-[var(--surface-border-strong)] transition-colors group"
           >
-            <rule.icon size={18} style={{ color: "var(--gold-400)", flexShrink: 0 }} />
-            <span className="text-sm font-medium group-hover:text-[var(--gold-300)] transition-colors" style={{ color: "var(--text-primary)" }}>
-              {rule.label}
+            <card.icon size={18} style={{ color: "var(--gold-400)", flexShrink: 0 }} />
+            <span
+              className="text-sm font-medium group-hover:text-[var(--gold-300)] transition-colors"
+              style={{ color: "var(--text-primary)" }}
+            >
+              {card.label}
             </span>
           </a>
         ))}
       </div>
 
-      {/* ── Prohibited Activities ─────────────────────────────── */}
-      <section>
+      {/* ── Prohibited Activities ───────────────────────────────── */}
+      <section id="prohibited">
         <h2 className="text-2xl font-bold mb-6" style={{ color: "var(--text-primary)" }}>
           פעילויות אסורות
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
           <RuleCard
             variant="prohibited"
-            title="שיתוף חשבון / MAC / IP"
+            title="שיתוף חשבון / Trade Copying / MAC / IP"
             icon={UserX}
             accountType="universal"
             source={S.PROHIBITED}
             body={
               <>
-                <p>אסור לאפשר לאחרים לסחור בחשבון שלך, לשתף פרטי כניסה, או לפעול ממכשירים ו-IP משותפים.</p>
+                <p>אסור לאפשר לאחרים לסחור בחשבון שלך, לשתף פרטי כניסה, לשכפל עסקאות, או לפעול ממכשירים ו-IP משותפים.</p>
                 <p className="mt-2 font-medium" style={{ color: "var(--red-text)" }}>תוצאה: סגירת כל החשבונות הקשורים.</p>
               </>
             }
           />
+
           <RuleCard
             variant="prohibited"
-            title="העתקת עסקאות (Trade Copying)"
-            icon={Copy}
+            title="VPN / Proxy / Cloud — אסור לצורך הסוואה או עקיפה"
+            icon={Globe}
             accountType="universal"
             source={S.PROHIBITED}
             body={
               <>
-                <p>אסור לשכפל עסקאות מחשבון אחד לאחר — בין אם אוטומטית (via bot) ובין אם ידנית.</p>
+                <p>אסור להשתמש ב-VPN, Proxy, Cloud Server או כלים דומים כדי להסוות זהות, מיקום או לעקוף מגבלות וכללים.</p>
                 <p className="mt-2 font-medium" style={{ color: "var(--red-text)" }}>תוצאה: סגירת כל החשבונות הקשורים.</p>
               </>
             }
           />
+
           <RuleCard
             variant="prohibited"
-            title="מסחר אוטומטי בתדר גבוה (HFT)"
+            title="אוטומציה / אלגוריתמים / HFT — אסור"
             icon={Zap}
             accountType="universal"
             source={S.PROHIBITED}
             body={
               <>
-                <p>מסחר אוטומטי בתדר גבוה אסור על כל סוגיו וצורותיו.</p>
+                <p>Apex אוסרים שימוש באוטומציה, אלגוריתמים, בוטים, HFT או כל ניצול של סביבת הסימולציה.</p>
                 <p className="mt-2 font-medium" style={{ color: "var(--red-text)" }}>תוצאה: סגירת כל החשבונות הקשורים.</p>
               </>
             }
           />
+
           <RuleCard
             variant="prohibited"
             title="גידור / Hedging"
@@ -106,54 +111,61 @@ export default function CompliancePage() {
             body={
               <>
                 <p>אסור לסחור בשני כיוונים בו-זמנית, כולל על נכסים מתואמים.</p>
-                <p className="mt-1 text-xs" style={{ color: "var(--red-text)" }}>
-                  ❌ Long NQ + Short ES בו-זמנית = Hedge = הפרה
-                </p>
-                <p className="mt-1 text-xs" style={{ color: "var(--red-text)" }}>
-                  ❌ Long + Short על אותו נכס = הפרה
-                </p>
-                <p className="mt-1 text-xs" style={{ color: "var(--green-400)" }}>
-                  ✅ עסקה אחת בכיוון אחד בכל רגע נתון
-                </p>
+                <p className="mt-1 text-xs" style={{ color: "var(--red-text)" }}>❌ Long NQ + Short ES בו-זמנית = Hedge = הפרה</p>
+                <p className="mt-1 text-xs" style={{ color: "var(--red-text)" }}>❌ Long + Short על אותו נכס = הפרה</p>
+                <p className="mt-1 text-xs" style={{ color: "var(--green-400)" }}>✅ עסקה אחת בכיוון אחד בכל רגע נתון</p>
               </>
             }
           />
+
+          <RuleCard
+            variant="prohibited"
+            title="ניהול סיכון חובה"
+            icon={ShieldAlert}
+            accountType="universal"
+            source={S.PROHIBITED}
+            body={
+              <>
+                <p>אסור לסחור בלי סטופ או בלי תכנית סיכון ברורה.</p>
+                <p className="mt-2">אסור להשתמש ברף ההפסד של החשבון כתחליף לסטופ.</p>
+              </>
+            }
+          />
+
         </div>
       </section>
 
       <SectionDivider variant="section" />
 
-      {/* ── 4:59 PM Section ───────────────────────────────────── */}
+      {/* ── 4:59 PM ET ──────────────────────────────────────────── */}
       <section id="trading-window">
-        <h2 className="text-2xl font-bold mb-6" style={{ color: "var(--text-primary)" }}>
-          כלל 4:59 PM ET — חלון המסחר
+        <h2 className="text-2xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>
+          חובה להיות שטוח לפני 4:59 PM ET
         </h2>
+        <p className="text-sm mb-6" style={{ color: "var(--text-secondary)" }}>
+          כל הפוזיציות חייבות להיסגר לפני <span dir="ltr">4:59 PM ET</span>.
+          בשווקים מסוימים, במיוחד חקלאיים, צריך להיסגר מוקדם יותר.
+          אפשר לפתוח עסקאות שוב מ-<span dir="ltr">6:00 PM ET</span>.
+        </p>
         <div className="card p-6 mb-4">
           <TimelineStrip
             variant="vertical"
             steps={[
-              { label: "שוק נפתח — 6:00 PM ET", sublabel: "אפשר לפתוח עסקאות" },
-              { label: "מועד אחרון לסגירה — 4:59 PM ET", sublabel: "כל פוזיציה חייבת להיסגר", variant: "warning" },
-              { label: "פוזיציה פתוחה = הפרה — 5:00 PM ET", sublabel: "הפרת כלל זמן המסחר", variant: "danger" },
+              { label: "שוק נפתח — 6:00 PM ET",            sublabel: "אפשר לפתוח עסקאות" },
+              { label: "מועד אחרון לסגירה — 4:59 PM ET",  sublabel: "כל פוזיציה חייבת להיסגר", variant: "warning" },
+              { label: "פוזיציה פתוחה = הפרה — 5:00 PM ET", sublabel: "הפרת כלל זמן המסחר",  variant: "danger" },
             ]}
           />
         </div>
         <CalloutBox
           variant="warning"
-          title="הוראות תלויות — שימו לב חשוב"
+          title="הוראות תלויות — שימו לב"
           source={S.CLOSE_459}
           body={
             <div className="space-y-2">
-              <p>
-                <strong style={{ color: "var(--text-primary)" }}>הוראות מחוברות (Attached Orders)</strong> — כמו סטופ/לימיט — נסגרות יחד עם הפוזיציה. ✅
-              </p>
-              <p>
-                <strong style={{ color: "var(--amber-400)" }}>הוראות עצמאיות (Standing Orders)</strong> — לא נסגרות לבד.
-                <strong> חייבות להיבטל ידנית לפני <span dir="ltr">4:59 PM ET</span> (בישראל זה בדרך כלל סביב חצות — עשוי להשתנות לפי שעון קיץ, עבדו לפי <span dir="ltr">ET</span>).</strong> ⚠️
-              </p>
-              <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-                כדי לא לטעות, מומלץ לעבוד לפי השעה ET שמופיעה במסמכי Apex.
-              </p>
+              <p>הוראות מחוברות לפוזיציה, כמו סטופ או לימיט, נסגרות יחד עם הפוזיציה. ✅</p>
+              <p>הוראות עצמאיות שלא מחוברות לפוזיציה לא תמיד ייסגרו לבד.</p>
+              <p><strong>צריך לבטל אותן ידנית לפני <span dir="ltr">4:59 PM ET</span>.</strong> ⚠️</p>
             </div>
           }
         />
@@ -161,10 +173,10 @@ export default function CompliancePage() {
 
       <SectionDivider variant="section" />
 
-      {/* ── No Hedging ────────────────────────────────────────── */}
+      {/* ── No Hedging visual ───────────────────────────────────── */}
       <section id="hedging">
         <h2 className="text-2xl font-bold mb-6" style={{ color: "var(--text-primary)" }}>
-          כלל אי-הגידור — No Hedging
+          אין גידור — No Hedging
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="card p-4 text-center" style={{ borderColor: "var(--red-edge)", backgroundColor: "var(--red-900)" }}>
