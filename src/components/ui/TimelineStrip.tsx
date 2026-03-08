@@ -139,7 +139,10 @@ export function TimelineStrip({ steps, variant = "horizontal" }: TimelineStripPr
           className="overflow-x-auto pb-2"
           style={{ scrollbarWidth: "none" } as React.CSSProperties}
         >
-          <div className="flex items-center gap-0 min-w-max">
+          <div
+            className="flex items-center gap-0 min-w-max"
+            style={{ paddingInlineStart: "0.25rem", paddingInlineEnd: "2.75rem" }}
+          >
             {steps.map((step, i) => {
               const ns = NODE_STYLE[step.variant ?? "default"];
               return (
