@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 const SUMMARY_CARDS = [
   { icon: ArrowLeftRight, label: "אין גידור — No Hedging", href: "#hedging" },
-  { icon: Clock,          label: "צריך לסגור את כל העסקאות לפני 4:59 PM ET", href: "#trading-window" },
+  { icon: Clock,          label: "חלון המסחר — סגירה לפני 4:59 PM ET", href: "#trading-window" },
   { icon: Zap,            label: "אין אוטומציה / אלגוריתמים / HFT", href: "#prohibited" },
 ];
 
@@ -140,13 +140,23 @@ export default function CompliancePage() {
       {/* ── 4:59 PM ET ──────────────────────────────────────────── */}
       <section id="trading-window">
         <h2 className="text-2xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>
-          צריך לסגור את כל העסקאות לפני 4:59 PM ET
+          חלון המסחר — עד 4:59 PM ET
         </h2>
-        <p className="text-sm mb-6" style={{ color: "var(--text-secondary)" }}>
-          כל הפוזיציות חייבות להיסגר לפני <span dir="ltr">4:59 PM ET</span>.
+        <p className="text-sm mb-3" style={{ color: "var(--text-secondary)" }}>
+          אפשר לפתוח עסקאות מ-<span dir="ltr">6:00 PM ET</span> ועד <span dir="ltr">4:59 PM ET</span> של היום הבא.
           בשווקים מסוימים, במיוחד חקלאיים, צריך להיסגר מוקדם יותר.
-          אפשר לפתוח עסקאות שוב מ-<span dir="ltr">6:00 PM ET</span>.
         </p>
+        <div
+          className="rounded-lg px-4 py-3 mb-6 text-sm"
+          style={{ backgroundColor: "var(--surface-subtle)", border: "1px solid var(--surface-border)" }}
+        >
+          <p style={{ color: "var(--text-secondary)" }}>
+            🇮🇱 בשעון ישראל: בדרך כלל מ-01:00 עד 23:59.
+          </p>
+          <p className="text-xs mt-1.5" style={{ color: "var(--text-muted)" }}>
+            שימו לב: בשבועות שבהם יש פער בין שעון הקיץ/חורף בישראל ובארה״ב, השעות בישראל יכולות לזוז זמנית בשעה אחת.
+          </p>
+        </div>
         <div className="card p-6 mb-4">
           <TimelineStrip
             variant="vertical"
