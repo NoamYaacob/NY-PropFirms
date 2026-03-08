@@ -25,27 +25,6 @@ const COMPARISON_ROWS: ComparisonRow[] = [
   },
 ];
 
-const HOME_MOBILE_COMPARISON: Array<{
-  title: string;
-  eod: { value: string; color?: string };
-  intraday: { value: string; color?: string };
-}> = [
-  {
-    title: "סטופ יומי במבחן",
-    eod: { value: "יש", color: "var(--green-400)" },
-    intraday: { value: "אין", color: "var(--red-400)" },
-  },
-  {
-    title: "רף הפסד",
-    eod: { value: "רף הפסד בסוף יום" },
-    intraday: { value: "רף הפסד נגרר" },
-  },
-  {
-    title: "מה קורה בפגיעה",
-    eod: { value: "המסחר נעצר לאותו יום" },
-    intraday: { value: "אין פגיעה יומית — רק רף הפסד נגרר" },
-  },
-];
 
 const CATEGORY_CARDS = [
   {
@@ -208,49 +187,7 @@ export default function HomePage() {
             EOD מול Intraday — ההבדלים המרכזיים
           </h2>
 
-          {/* Mobile: stacked comparison cards */}
-          <div className="md:hidden space-y-3">
-            {HOME_MOBILE_COMPARISON.map((card, i) => (
-              <div
-                key={i}
-                className="rounded-xl p-4"
-                style={{
-                  border: "1px solid var(--surface-border)",
-                  backgroundColor: "var(--surface-raised)",
-                }}
-              >
-                <div className="text-sm font-semibold mb-3" style={{ color: "var(--text-primary)" }}>
-                  {card.title}
-                </div>
-                <div className="space-y-2">
-                  {[
-                    { label: "EOD", labelColor: "#7EA0FF", value: card.eod.value, color: card.eod.color },
-                    { label: "Intraday", labelColor: "var(--teal-400)", value: card.intraday.value, color: card.intraday.color },
-                  ].map((row) => (
-                    <div key={row.label} className="flex items-start gap-3">
-                      <span
-                        className="shrink-0 text-xs font-semibold pt-0.5"
-                        style={{ color: row.labelColor, minWidth: "52px" }}
-                      >
-                        {row.label}
-                      </span>
-                      <span
-                        className="text-xs leading-relaxed"
-                        style={{ color: row.color ?? "var(--text-secondary)" }}
-                      >
-                        {row.value}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Desktop: table */}
-          <div className="hidden md:block">
-            <ComparisonBlock rows={COMPARISON_ROWS} showSources={false} compact />
-          </div>
+          <ComparisonBlock rows={COMPARISON_ROWS} showSources={false} />
         </section>
 
         {/* ── Coupon Block ──────────────────────────────────── */}
