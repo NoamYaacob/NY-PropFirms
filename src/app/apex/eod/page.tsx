@@ -363,6 +363,7 @@ export default function EODPage() {
               { label: "תשלום 3" },
               { label: "תשלום 4" },
               { label: "תשלום 5" },
+              { label: "תשלום 6" },
               { label: "חשבון נסגר", variant: "closure" },
             ]}
           />

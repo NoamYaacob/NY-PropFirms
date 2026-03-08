@@ -252,6 +252,7 @@ export default function PayoutsPage() {
             { label: "תשלום 3" },
             { label: "תשלום 4" },
             { label: "תשלום 5" },
+            { label: "תשלום 6" },
             { label: "PA נסגר", variant: "closure" },
           ]}
         />
