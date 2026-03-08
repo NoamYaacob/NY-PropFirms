@@ -94,7 +94,7 @@ export default function EODPage() {
           <RuleCard
             title="תוקף המבחן"
             icon={Clock}
-            accountType="eod"
+            accountType="eval"
             source={S.EVALUATION_FEES}
             body={
               <>
@@ -107,7 +107,7 @@ export default function EODPage() {
           <RuleCard
             title="גודל פוזיציה — שלב המבחן"
             icon={BarChart2}
-            accountType="eod"
+            accountType="eval"
             source={S.EOD_EVALUATIONS}
             body={
               <>
@@ -123,7 +123,7 @@ export default function EODPage() {
           <CalloutBox
             variant="info"
             title="סטופ יומי (DLL) — מבחן EOD"
-            accountType="eod"
+            accountType="eval"
             source={S.DAILY_LOSS_LIMIT}
             body={
               <div className="space-y-2">

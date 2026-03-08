@@ -100,7 +100,7 @@ export default function IntradayPage() {
         <CalloutBox
           variant="success"
           title="שלב המבחן (Intraday) — אין DLL"
-          accountType="intraday"
+          accountType="eval"
           source={S.INTRADAY_EVALUATIONS}
           body={
             <div className="space-y-2">
@@ -125,7 +125,7 @@ export default function IntradayPage() {
           <RuleCard
             title="רף הפסד נגרר בזמן אמת"
             icon={Activity}
-            accountType="intraday"
+            accountType="eval"
             source={S.INTRADAY_TRAILING_DD}
             body={
               <div className="space-y-2">
@@ -152,7 +152,7 @@ export default function IntradayPage() {
           <RuleCard
             title="מקסימום חוזים — שלב המבחן"
             icon={BarChart2}
-            accountType="intraday"
+            accountType="eval"
             source={S.INTRADAY_EVALUATIONS}
             body={
               <div className="space-y-2">
@@ -185,7 +185,7 @@ export default function IntradayPage() {
           <RuleCard
             title="תוקף המבחן"
             icon={Clock}
-            accountType="intraday"
+            accountType="eval"
             source={S.EVALUATION_FEES}
             body={
               <>

@@ -1,11 +1,10 @@
 export type AccountType =
-  | "eod"
-  | "intraday"
-  | "universal"
-  | "pa"
-  | "eod-pa"
-  | "intraday-pa"
-  | "verify";
+  | "eval"         // שלב המבחן (any track)
+  | "pa"           // שלב ה-PA (any track, cross-track rules)
+  | "eod-pa"       // שלב ה-PA · EOD
+  | "intraday-pa"  // שלב ה-PA · Intraday
+  | "universal"    // כל סוגי החשבונות
+  | "verify";      // יש לאמת ישירות
 
 interface Config {
   label: string;
@@ -15,14 +14,26 @@ interface Config {
 }
 
 const CONFIG: Record<AccountType, Config> = {
-  eod: {
-    label: "EOD בלבד",
-    bg: "#1A1A30",
-    color: "#7EA0FF",
-    border: "#2A2A50",
+  eval: {
+    label: "שלב המבחן",
+    bg: "var(--gold-900)",
+    color: "var(--gold-300)",
+    border: "var(--gold-edge)",
   },
-  intraday: {
-    label: "Intraday בלבד",
+  pa: {
+    label: "שלב ה-PA",
+    bg: "#1A1530",
+    color: "#9B8AE0",
+    border: "#352A60",
+  },
+  "eod-pa": {
+    label: "שלב ה-PA · EOD",
+    bg: "#1A1530",
+    color: "#9B8AE0",
+    border: "#352A60",
+  },
+  "intraday-pa": {
+    label: "שלב ה-PA · Intraday",
     bg: "var(--teal-900)",
     color: "var(--teal-400)",
     border: "var(--teal-edge)",
@@ -32,24 +43,6 @@ const CONFIG: Record<AccountType, Config> = {
     bg: "var(--green-900)",
     color: "var(--green-400)",
     border: "var(--green-edge)",
-  },
-  pa: {
-    label: "PA בלבד",
-    bg: "#1A1530",
-    color: "#9B8AE0",
-    border: "#352A60",
-  },
-  "eod-pa": {
-    label: "EOD PA",
-    bg: "#1A1530",
-    color: "#9B8AE0",
-    border: "#352A60",
-  },
-  "intraday-pa": {
-    label: "Intraday PA",
-    bg: "var(--teal-900)",
-    color: "var(--teal-400)",
-    border: "var(--teal-edge)",
   },
   verify: {
     label: "יש לאמת ישירות",
