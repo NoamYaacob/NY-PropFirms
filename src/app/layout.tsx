@@ -28,7 +28,7 @@ export const metadata: Metadata = {
       "הסברים ברורים בעברית על Apex, EOD, Intraday, PA, תשלומים, DLL, Tier ועוד.",
     images: [
       {
-        url: "https://ny-propfirms.com/og-image.png",
+        url: "https://ny-propfirms.com/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "NY Prop Firms — המדריך הישראלי לחברות פרופ",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "NY Prop Firms — המדריך הישראלי לחברות פרופ",
     description:
       "הסברים ברורים בעברית על Apex, EOD, Intraday, PA, תשלומים, DLL, Tier ועוד.",
-    images: ["https://ny-propfirms.com/og-image.png"],
+    images: ["https://ny-propfirms.com/og-image.jpg"],
   },
 };
 
