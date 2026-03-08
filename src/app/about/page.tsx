@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { ExternalLink } from "lucide-react";
-import { DisclaimerBlock } from "@/components/ui/DisclaimerBlock";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { CopyButton } from "@/components/ui/CopyButton";
+import { Button } from "@/components/ui/Button";
 import { SECONDARY_COUPON } from "@/lib/coupons";
 
 export const metadata: Metadata = {
@@ -13,24 +13,22 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="container-page py-12 max-w-3xl">
-      <h1 className="text-4xl font-bold mb-8" style={{ color: "var(--text-primary)" }}>
-        אודות NY Prop Firms
+      <h1 className="text-4xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>
+        אודות
       </h1>
+      <p className="text-base mb-10 leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+        NY Prop Firms הוא מדריך בעברית לחוקי Apex Trader Funding.
+        המטרה שלנו היא להנגיש לסוחרים בישראל את הכללים, ההבדלים והעדכונים בצורה ברורה ופשוטה.
+      </p>
 
       {/* Who we are */}
       <section className="mb-8">
         <h2 className="text-xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>
           מי אנחנו
         </h2>
-        <div className="text-base leading-relaxed space-y-3" style={{ color: "var(--text-secondary)" }}>
-          <p>
-            NY Prop Firms הוא אתר שנוצר כדי <strong style={{ color: "var(--text-primary)" }}>להנגיש בעברית</strong> את
-            כללי חברות הפרופ לציבור הסוחרים הישראלי.
-          </p>
-          <p>
-            אנחנו לא Apex Trader Funding, לא שותפים שלה, ולא מייצגים אותה
-            בשום צורה. כל הסימנים המסחריים שייכים לבעליהם.
-          </p>
+        <div className="text-base leading-relaxed space-y-2" style={{ color: "var(--text-secondary)" }}>
+          <p>אנחנו אתר שנבנה כדי להנגיש בעברית את כללי חברות הפרופ לציבור הסוחרים הישראלי.</p>
+          <p>המיקוד שלנו כרגע הוא Apex Trader Funding.</p>
         </div>
       </section>
 
@@ -41,29 +39,21 @@ export default function AboutPage() {
         <h2 className="text-xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>
           איך אנחנו עובדים
         </h2>
-        <div className="text-base leading-relaxed space-y-3" style={{ color: "var(--text-secondary)" }}>
+        <div className="text-base leading-relaxed space-y-2" style={{ color: "var(--text-secondary)" }}>
+          <p>כל המידע באתר מבוסס על הכללים הרשמיים ומקושר למקור.</p>
+          <p>אנחנו לא מוסיפים הבטחות, לא מנהלים חשבונות ולא מבצעים מסחר עבור אחרים.</p>
           <p>
-            כל כלל המופיע באתר זה מבוסס על{" "}
-            <strong style={{ color: "var(--text-primary)" }}>מסמכי התמיכה הרשמיים</strong> של
-            Apex ומקושר ישירות למקור.
-          </p>
-          <p>
-            אנו לא מוסיפים פרשנות, לא ממליצים על אסטרטגיות מסחר, ולא מנהלים
-            חשבונות.
-          </p>
-          <p>
-            הכללים המוצגים נכונים למועד כתיבתם. Apex עשויה לשנות את כלליה
-            בכל עת — בדקו תמיד ישירות{" "}
+            כדאי תמיד לבדוק גם את{" "}
             <a
               href="https://support.apextraderfunding.com"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 underline hover:text-[var(--text-primary)]"
             >
-              במרכז התמיכה של Apex
+              המקור הרשמי של Apex
               <ExternalLink size={13} />
-            </a>
-            .
+            </a>{" "}
+            לפני החלטה.
           </p>
         </div>
       </section>
@@ -75,7 +65,11 @@ export default function AboutPage() {
         <h2 className="text-xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>
           גילוי נאות מלא
         </h2>
-        <DisclaimerBlock variant="full" />
+        <div className="text-base leading-relaxed space-y-2" style={{ color: "var(--text-secondary)" }}>
+          <p>אנחנו לא Apex Trader Funding, לא מייצגים אותם ולא פועלים מטעמם.</p>
+          <p>המידע באתר נועד לעזור להבין את הכללים, אבל לפני כל החלטה חשוב לבדוק גם את המקור הרשמי של Apex.</p>
+          <p>אין באתר ייעוץ השקעות, ייעוץ פיננסי או הבטחה לרווח.</p>
+        </div>
       </section>
 
       <SectionDivider variant="subtle" />
@@ -86,37 +80,31 @@ export default function AboutPage() {
           גילוי עמלת הפניה
         </h2>
         <div
-          className="rounded-xl p-5 text-sm leading-relaxed"
+          className="rounded-xl p-5 text-sm leading-relaxed space-y-2"
           style={{
             backgroundColor: "var(--gold-900)",
             border: "1px solid var(--gold-edge)",
             color: "var(--text-secondary)",
           }}
         >
-          <p>
-            ייתכן שנקבל עמלת הפניה מ-Apex Trader Funding כשמשתמשים
-            פותחים חשבון דרך קוד <span dir="ltr">NOAM</span>.
-          </p>
-          <p className="mt-2">
-            אין בכך משום המלצה לפתוח חשבון. ההחלטה לפתוח חשבון היא שלכם
-            בלבד, לאחר קריאה עצמאית של כל הכללים ושיקול דעת עצמאי.
-          </p>
+          <p>ייתכן שנקבל עמלת הפניה אם תפתחו חשבון דרך קוד <span dir="ltr">NOAM</span>.</p>
+          <p>אין לכם עלות נוספת בגלל זה.</p>
+          <p>השימוש בקוד הוא בחירה שלכם בלבד.</p>
         </div>
       </section>
 
       <SectionDivider variant="subtle" />
 
-      {/* Secondary coupon — subtle, not featured */}
+      {/* Secondary coupon — subtle, fallback only */}
       <section className="mb-8">
         <h2 className="text-base font-semibold mb-2" style={{ color: "var(--text-secondary)" }}>
           קוד נוסף
         </h2>
         <div className="text-sm leading-relaxed space-y-2" style={{ color: "var(--text-muted)" }}>
           <p>
-            ברוב המקרים קוד הקופון הראשי הוא <span dir="ltr">NOAM</span>. אם מסיבה כלשהי הוא לא
-            מתקבל בקופה, אפשר לנסות גם את <span dir="ltr">TLHCODE</span>.
+            ברוב המקרים הקוד הראשי הוא <span dir="ltr" className="font-medium">NOAM</span>.
+            אם מסיבה כלשהי הקוד לא מתקבל בקופה, אפשר לנסות גם את <span dir="ltr">TLHCODE</span>.
           </p>
-          <p>(שני הקודים נועדו לאותו דבר – פשוט חלופה טכנית.)</p>
           <CopyButton value={SECONDARY_COUPON} label="העתק TLHCODE" size="sm" />
         </div>
       </section>
@@ -124,14 +112,14 @@ export default function AboutPage() {
       <SectionDivider variant="subtle" />
 
       {/* Official links */}
-      <section>
+      <section className="mb-10">
         <h2 className="text-xl font-bold mb-4" style={{ color: "var(--text-primary)" }}>
           קישורים רשמיים
         </h2>
         <div className="flex flex-col gap-3">
           {[
-            { label: "אתר Apex Trader Funding", href: "https://apextraderfunding.com" },
-            { label: "מרכז התמיכה של Apex", href: "https://support.apextraderfunding.com" },
+            { label: "אתר Apex Trader Funding",  href: "https://apextraderfunding.com" },
+            { label: "מרכז התמיכה של Apex",      href: "https://support.apextraderfunding.com" },
           ].map((link) => (
             <a
               key={link.href}
@@ -147,6 +135,10 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
+
+      {/* CTA */}
+      <Button label="לכללי Apex ←" href="/apex" variant="secondary" />
+
     </div>
   );
 }
