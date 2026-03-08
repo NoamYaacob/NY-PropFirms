@@ -123,24 +123,52 @@ export default function IntradayPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
           <RuleCard
-            title="רף הפסד נגרר — בזמן אמת"
+            title="רף הפסד נגרר בזמן אמת"
             icon={Activity}
             accountType="intraday"
-            source={S.INTRADAY_EVALUATIONS}
+            source={S.INTRADAY_TRAILING_DD}
             body={
-              <>
+              <div className="space-y-2">
                 <p>
-                  רף ההפסד הנגרר עוקב אחרי <strong>שיא החשבון</strong>{" "}
-                  בזמן אמת, כולל רווחים פתוחים (<span dir="ltr">Unrealized PnL</span>).
+                  רף ההפסד במסלול <span dir="ltr">Intraday</span> עוקב בזמן אמת אחרי השיא הגבוה ביותר של החשבון.
                 </p>
-                <p className="mt-2">
-                  הרף עולה עם כל שיא חדש —{" "}
-                  <strong>אך לעולם לא יורד</strong>.
+                <p>
+                  אם רווח פתוח או סגור מעלה את החשבון לשיא חדש, רף ההפסד עולה מיד יחד איתו.
                 </p>
-                <p className="mt-2 text-xs" style={{ color: "var(--text-muted)" }}>
-                  רף = שיא החשבון (כולל רווחים פתוחים) פחות רף ההפסד
+                <p>
+                  אם אחר כך היתרה יורדת, <strong>רף ההפסד לא יורד בחזרה</strong>.
                 </p>
-              </>
+                <p>
+                  אם היתרה נוגעת ברף ההפסד או יורדת מתחתיו — הפוזיציות נסגרות אוטומטית.{" "}
+                  <strong style={{ color: "var(--text-primary)" }}>במבחן החשבון נכשל מיד. ב-<span dir="ltr">PA</span> החשבון נסגר מיד.</strong>
+                </p>
+
+                {/* Example block */}
+                <div
+                  className="rounded-lg px-3 py-2.5 text-xs space-y-1 mt-1"
+                  style={{
+                    backgroundColor: "var(--surface-overlay)",
+                    border: "1px solid var(--surface-border)",
+                    color: "var(--text-secondary)",
+                  }}
+                >
+                  <p className="font-medium" style={{ color: "var(--text-primary)" }}>
+                    כך זה עובד בדוגמה פשוטה:
+                  </p>
+                  <p>
+                    בחשבון <span dir="ltr">50K</span> עם רף נגרר של{" "}
+                    <span dir="ltr">$2,000</span> — אם החשבון עולה ל-<span dir="ltr">$50,900</span>,
+                    רף ההפסד עולה ל-<span dir="ltr">$48,900</span>.
+                  </p>
+                  <p>
+                    אם אחר כך היתרה יורדת, הרף נשאר ב-<span dir="ltr">$48,900</span> ולא יורד.
+                  </p>
+                </div>
+
+                <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                  זה שונה מ-<span dir="ltr">DLL</span>, שמתאפס כל סשן ומגביל את ההפסד היומי בלבד.
+                </p>
+              </div>
             }
           />
 

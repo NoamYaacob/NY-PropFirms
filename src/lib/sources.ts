@@ -16,6 +16,10 @@ export const S = {
     title: "Intraday Trailing Drawdown Evaluations",
     href: "https://support.apextraderfunding.com/hc/en-us/articles/45683414022299",
   },
+  INTRADAY_TRAILING_DD: {
+    title: "Intraday Trailing Drawdown Explained",
+    href: "https://support.apextraderfunding.com/hc/en-us/articles/45683513113115-Intraday-Trailing-Drawdown-Explained",
+  },
   DAILY_LOSS_LIMIT: {
     title: "Daily Loss Limit Explained",
     href: "https://support.apextraderfunding.com/hc/en-us/articles/47257193113371",
