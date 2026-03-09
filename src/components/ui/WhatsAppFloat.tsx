@@ -1,4 +1,5 @@
 "use client";
+import { usePathname } from "next/navigation";
 import { WA } from "@/lib/whatsapp";
 import { track } from "@/lib/track";
 
@@ -32,12 +33,13 @@ function WhatsAppIcon() {
  * - z-[100] — visible above content, below z-[150] sticky bar
  */
 export function WhatsAppFloat() {
+  const pathname = usePathname();
   return (
     <a
       href={WA.DIRECT}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={() => track("whatsapp_direct_click")}
+      onClick={() => track("whatsapp_direct_click", { page: pathname })}
       aria-label="שלחו לי הודעה בוואטסאפ"
       title="שלחו לי הודעה בוואטסאפ"
       className="fixed z-[100] bottom-20 right-4 md:bottom-6 md:right-6 flex items-center justify-center rounded-full transition-transform duration-200 hover:scale-110 focus:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"

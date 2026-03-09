@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { track } from "@/lib/track";
 
 export type ButtonVariant = "primary" | "secondary" | "ghost";
@@ -45,6 +46,7 @@ export function Button({
   className = "",
   onClick,
 }: ButtonProps) {
+  const pathname = usePathname();
   const base = `inline-flex items-center justify-center gap-2 ${styles[variant]} ${sizes[size]} ${fullWidth ? "w-full" : ""} ${disabled ? "opacity-40 pointer-events-none" : ""} ${className}`;
 
   const variantStyle =
@@ -84,7 +86,7 @@ export function Button({
   // This covers all Button instances site-wide without needing per-page changes.
   function handleClick() {
     if (external && href.includes("apextraderfunding.com")) {
-      track("open_apex_cta_click", { label });
+      track("open_apex_cta_click", { label, page: pathname });
     }
     onClick?.();
   }

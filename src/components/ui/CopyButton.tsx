@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Copy, Check } from "lucide-react";
 import { useToast } from "@/context/ToastContext";
+import { usePathname } from "next/navigation";
 import { track } from "@/lib/track";
 
 interface CopyButtonProps {
@@ -13,6 +14,7 @@ interface CopyButtonProps {
 export function CopyButton({ value, label = "העתק", size = "sm" }: CopyButtonProps) {
   const [copied, setCopied] = useState(false);
   const { showToast } = useToast();
+  const pathname = usePathname();
 
   async function handleCopy() {
     try {
@@ -28,7 +30,7 @@ export function CopyButton({ value, label = "העתק", size = "sm" }: CopyButto
       document.execCommand("copy");
       document.body.removeChild(el);
     }
-    track("coupon_copy_click", { value });
+    track("coupon_copy_click", { value, page: pathname });
     setCopied(true);
     showToast("הקוד הועתק ✓");
     setTimeout(() => setCopied(false), 2000);

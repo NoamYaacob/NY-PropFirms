@@ -3,6 +3,7 @@ import { Heebo } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { Providers } from "@/components/providers/Providers";
+import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { StickyMobileCTABar } from "@/components/layout/StickyMobileCTABar";
@@ -68,7 +69,9 @@ export default function RootLayout({
           <StickyMobileCTABar />
           <WhatsAppFloat />
           <AccessibilityWidget />
-          {/* Vercel Analytics — pageviews + custom events via src/lib/track.ts */}
+          {/* Custom page_*_view events for key routes (funnel analysis) */}
+          <PageViewTracker />
+          {/* Vercel Analytics — automatic pageviews + custom events via src/lib/track.ts */}
           <Analytics />
         </Providers>
       </body>

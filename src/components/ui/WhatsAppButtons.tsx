@@ -1,5 +1,6 @@
 "use client";
 import { ExternalLink } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { WA } from "@/lib/whatsapp";
 import { track } from "@/lib/track";
 
@@ -29,12 +30,13 @@ function WhatsAppIcon() {
  * Direct-message to Noam is now handled via the AI chat escalation flow.
  */
 export function WhatsAppButtons() {
+  const pathname = usePathname();
   return (
     <a
       href={WA.GROUP}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={() => track("whatsapp_group_click")}
+      onClick={() => track("whatsapp_group_click", { page: pathname })}
       className="flex items-center gap-3 rounded-xl p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--surface-border-strong)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
       style={{
         backgroundColor: "var(--surface-raised)",
