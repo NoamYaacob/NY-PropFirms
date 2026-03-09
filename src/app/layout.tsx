@@ -6,6 +6,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { StickyMobileCTABar } from "@/components/layout/StickyMobileCTABar";
 import { WhatsAppFloat } from "@/components/ui/WhatsAppFloat";
+import { AccessibilityWidget } from "@/components/ui/AccessibilityWidget";
 
 const heebo = Heebo({
   subsets: ["hebrew", "latin"],
@@ -65,6 +66,7 @@ export default function RootLayout({
           <Footer />
           <StickyMobileCTABar />
           <WhatsAppFloat />
+          <AccessibilityWidget />
         </Providers>
       </body>
     </html>

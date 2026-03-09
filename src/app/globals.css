@@ -181,3 +181,24 @@ html {
 }
 .toast-visible  { opacity: 1; transform: translateY(0); }
 .toast-hidden   { opacity: 0; transform: translateY(12px); pointer-events: none; }
+
+/* ─── Accessibility preference overrides ─────────────────────── */
+/* Applied by AccessibilityWidget to <html>. Remove with the component. */
+html.a11y-text-lg { font-size: 110%; }
+html.a11y-text-xl { font-size: 122%; }
+
+html.a11y-contrast {
+  --text-primary:   #ffffff;
+  --text-secondary: #e0e0e0;
+  --text-muted:     #b0b0b0;
+  --surface-base:        #000000;
+  --surface-raised:      #0d0d0d;
+  --surface-overlay:     #111111;
+  --surface-border:      #444444;
+  --surface-border-strong: #666666;
+}
+
+html.a11y-links a:not([role="button"]) {
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+}
