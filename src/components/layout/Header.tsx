@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { track } from "@/lib/track";
 
 const NAV = [
   { label: "ראשי", href: "/" },
@@ -11,15 +12,15 @@ const NAV = [
     label: "Apex",
     href: "/apex",
     children: [
-      { label: "כל הכללים", href: "/apex" },
-      { label: "EOD", href: "/apex/eod" },
-      { label: "Intraday", href: "/apex/intraday" },
-      { label: "תשלומים", href: "/apex/payouts" },
-      { label: "עמידה בכללים", href: "/apex/compliance" },
+      { label: "כל הכללים", href: "/apex",              trackEvent: "nav_apex_click" },
+      { label: "EOD",        href: "/apex/eod",          trackEvent: "nav_apex_click" },
+      { label: "Intraday",   href: "/apex/intraday",     trackEvent: "nav_apex_click" },
+      { label: "תשלומים",   href: "/apex/payouts",      trackEvent: "nav_apex_click" },
+      { label: "עמידה בכללים", href: "/apex/compliance", trackEvent: "nav_apex_click" },
     ],
   },
-  { label: "שאלות נפוצות", href: "/faq" },
-  { label: "אודות", href: "/about" },
+  { label: "שאלות נפוצות", href: "/faq",   trackEvent: "nav_faq_click" },
+  { label: "אודות",        href: "/about" },
 ];
 
 export function Header() {
@@ -151,6 +152,7 @@ export function Header() {
                             href={child.href}
                             className="block px-4 py-2 text-sm transition-colors hover:bg-[var(--surface-border)]"
                             style={{ color: pathname === child.href ? "var(--gold-300)" : "var(--text-primary)" }}
+                            onClick={() => child.trackEvent && track(child.trackEvent, { page: child.href })}
                           >
                             {child.label}
                           </Link>
@@ -169,6 +171,7 @@ export function Header() {
                     color: isActive ? "var(--gold-300)" : "var(--text-secondary)",
                     borderBottom: isActive ? "2px solid var(--gold-500)" : "2px solid transparent",
                   }}
+                  onClick={() => item.trackEvent && track(item.trackEvent)}
                 >
                   {item.label}
                 </Link>
@@ -206,6 +209,7 @@ export function Header() {
                   style={{
                     color: pathname === item.href ? "var(--gold-300)" : "var(--text-primary)",
                   }}
+                  onClick={() => item.trackEvent && track(item.trackEvent)}
                 >
                   {item.label}
                 </Link>
@@ -217,6 +221,7 @@ export function Header() {
                         href={child.href}
                         className="block py-2 px-4 rounded-md text-base transition-colors"
                         style={{ color: "var(--text-secondary)" }}
+                        onClick={() => child.trackEvent && track(child.trackEvent, { page: child.href })}
                       >
                         {child.label}
                       </Link>

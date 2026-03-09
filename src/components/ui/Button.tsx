@@ -1,5 +1,7 @@
+"use client";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
+import { track } from "@/lib/track";
 
 export type ButtonVariant = "primary" | "secondary" | "ghost";
 export type ButtonSize = "lg" | "md" | "sm";
@@ -13,6 +15,8 @@ interface ButtonProps {
   fullWidth?: boolean;
   disabled?: boolean;
   className?: string;
+  /** Optional extra click handler (e.g. for analytics from client callers). */
+  onClick?: () => void;
 }
 
 const styles: Record<ButtonVariant, string> = {
@@ -39,6 +43,7 @@ export function Button({
   fullWidth = false,
   disabled = false,
   className = "",
+  onClick,
 }: ButtonProps) {
   const base = `inline-flex items-center justify-center gap-2 ${styles[variant]} ${sizes[size]} ${fullWidth ? "w-full" : ""} ${disabled ? "opacity-40 pointer-events-none" : ""} ${className}`;
 
@@ -75,6 +80,15 @@ export function Button({
     </>
   );
 
+  // Auto-fire open_apex_cta_click for any external link to Apex Trader Funding.
+  // This covers all Button instances site-wide without needing per-page changes.
+  function handleClick() {
+    if (external && href.includes("apextraderfunding.com")) {
+      track("open_apex_cta_click", { label });
+    }
+    onClick?.();
+  }
+
   if (external) {
     return (
       <a
@@ -83,6 +97,7 @@ export function Button({
         rel="noopener noreferrer"
         className={finalClass}
         style={variantStyle}
+        onClick={handleClick}
       >
         {content}
       </a>
@@ -90,7 +105,7 @@ export function Button({
   }
 
   return (
-    <Link href={href} className={finalClass} style={variantStyle}>
+    <Link href={href} className={finalClass} style={variantStyle} onClick={handleClick}>
       {content}
     </Link>
   );
