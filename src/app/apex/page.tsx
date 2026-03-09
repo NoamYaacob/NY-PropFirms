@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/seo/JsonLd";
 import Link from "next/link";
 import { Sunset, Activity, ArrowLeft } from "lucide-react";
 import { CalloutBox } from "@/components/ui/CalloutBox";
@@ -8,8 +9,16 @@ import { Button } from "@/components/ui/Button";
 import { CouponChip } from "@/components/ui/CouponChip";
 
 export const metadata: Metadata = {
-  title: "Apex — כל הכללים | NY Prop Firms",
-  description: "מרכז הכללים של Apex Trader Funding בעברית — EOD, Intraday, תשלומים, עמידה בכללים",
+  title: "Apex Trader Funding בעברית — כל הכללים | NY Prop Firms",
+  description:
+    "מדריך מקיף בעברית לכל כללי Apex Trader Funding: השוואת EOD מול Intraday, כללי PA, תשלומים, DLL ו-Tier — במקום אחד.",
+  alternates: { canonical: "https://ny-propfirms.com/apex" },
+  openGraph: {
+    title: "Apex Trader Funding בעברית — כל הכללים | NY Prop Firms",
+    description:
+      "מדריך מקיף בעברית לכל כללי Apex Trader Funding: השוואת EOD מול Intraday, כללי PA, תשלומים, DLL ו-Tier — במקום אחד.",
+    url: "https://ny-propfirms.com/apex",
+  },
 };
 
 const APEX_URL = "https://apextraderfunding.com";
@@ -112,9 +121,19 @@ const FAQ_ITEMS: AccordionItem[] = [
   },
 ];
 
+const BREADCRUMB_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "בית", item: "https://ny-propfirms.com/" },
+    { "@type": "ListItem", position: 2, name: "Apex", item: "https://ny-propfirms.com/apex" },
+  ],
+};
+
 export default function ApexHubPage() {
   return (
     <div className="container-page py-12">
+      <JsonLd data={BREADCRUMB_JSONLD} />
       <h1 className="text-4xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>
         Apex — כל הכללים במקום אחד
       </h1>

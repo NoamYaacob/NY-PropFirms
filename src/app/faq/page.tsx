@@ -1,13 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Accordion, AccordionItem } from "@/components/ui/Accordion";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { CouponChip } from "@/components/ui/CouponChip";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "שאלות נפוצות | NY Prop Firms",
-  description: "תשובות לשאלות הנפוצות ביותר על Apex Trader Funding — בעברית",
+  title: "שאלות נפוצות על Apex Trader Funding בעברית | NY Prop Firms",
+  description:
+    "תשובות לשאלות הנפוצות ביותר על Apex Trader Funding בעברית: מבחן, PA, DLL, תשלומים, קופון הנחה, כללים עדכניים ועוד.",
+  alternates: { canonical: "https://ny-propfirms.com/faq" },
+  openGraph: {
+    title: "שאלות נפוצות על Apex Trader Funding בעברית | NY Prop Firms",
+    description:
+      "תשובות לשאלות הנפוצות ביותר על Apex Trader Funding בעברית: מבחן, PA, DLL, תשלומים, קופון הנחה, כללים עדכניים ועוד.",
+    url: "https://ny-propfirms.com/faq",
+  },
 };
 
 const APEX_URL = "https://apextraderfunding.com";
@@ -186,9 +195,19 @@ const KEY_FACTS = [
   "צריך לסגור את כל העסקאות לפני 4:59 PM ET",
 ];
 
+const BREADCRUMB_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "בית", item: "https://ny-propfirms.com/" },
+    { "@type": "ListItem", position: 2, name: "שאלות נפוצות", item: "https://ny-propfirms.com/faq" },
+  ],
+};
+
 export default function FAQPage() {
   return (
     <div className="container-page py-12">
+      <JsonLd data={BREADCRUMB_JSONLD} />
       <h1 className="text-4xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>
         שאלות נפוצות
       </h1>

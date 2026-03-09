@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Clock, TrendingUp, BarChart2, ShieldAlert, Wallet } from "lucide-react";
 import { RuleCard } from "@/components/ui/RuleCard";
 import { CalloutBox } from "@/components/ui/CalloutBox";
@@ -11,16 +12,35 @@ import { S } from "@/lib/sources";
 import { TierTableWidget } from "@/components/ui/TierTableWidget";
 
 export const metadata: Metadata = {
-  title: "Apex EOD — מבחן ו-PA | NY Prop Firms",
-  description: "כללי חשבון EOD של Apex: DLL (מגבלת הפסד יומי), גודל פוזיציה קבוע, עקביות 50%, רשת ביטחון ועוד",
+  title: "Apex EOD — כללי מבחן ו-PA בעברית | NY Prop Firms",
+  description:
+    "כל כללי Apex EOD בעברית: DLL לפי Tier, סטופ יומי במבחן, רף הפסד בסוף יום, עקביות 50%, רשת ביטחון ותשלומים — עם מקורות רשמיים.",
+  alternates: { canonical: "https://ny-propfirms.com/apex/eod" },
+  openGraph: {
+    title: "Apex EOD — כללי מבחן ו-PA בעברית | NY Prop Firms",
+    description:
+      "כל כללי Apex EOD בעברית: DLL לפי Tier, סטופ יומי במבחן, רף הפסד בסוף יום, עקביות 50%, רשת ביטחון ותשלומים — עם מקורות רשמיים.",
+    url: "https://ny-propfirms.com/apex/eod",
+  },
 };
 
 const APEX_URL = "https://apextraderfunding.com";
 
 
+const BREADCRUMB_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "בית", item: "https://ny-propfirms.com/" },
+    { "@type": "ListItem", position: 2, name: "Apex", item: "https://ny-propfirms.com/apex" },
+    { "@type": "ListItem", position: 3, name: "EOD", item: "https://ny-propfirms.com/apex/eod" },
+  ],
+};
+
 export default function EODPage() {
   return (
     <div className="container-page py-12">
+      <JsonLd data={BREADCRUMB_JSONLD} />
       {/* Breadcrumb */}
       <nav className="text-sm mb-6 flex items-center gap-2" style={{ color: "var(--text-muted)" }}>
         <a href="/apex" className="hover:text-[var(--text-secondary)]">Apex</a>

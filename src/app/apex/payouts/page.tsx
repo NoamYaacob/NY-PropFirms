@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { TrendingUp, ShieldAlert, Wallet, Users, Clock } from "lucide-react";
 import { RuleCard } from "@/components/ui/RuleCard";
 import { CalloutBox } from "@/components/ui/CalloutBox";
@@ -9,8 +10,16 @@ import { S } from "@/lib/sources";
 import { PayoutTablesWidget } from "@/components/ui/PayoutTablesWidget";
 
 export const metadata: Metadata = {
-  title: "תשלומים — כללי PA | NY Prop Firms",
-  description: "כללי תשלום PA של Apex: עקביות 50%, רשת ביטחון, חלוקת רווחים, 6 תשלומים לחשבון",
+  title: "תשלומים ב-Apex PA — כיצד מושכים רווחים | NY Prop Firms",
+  description:
+    "כל כללי התשלום ב-Apex PA בעברית: עקביות 50%, רשת ביטחון, מינימום 5 ימי מסחר, עד 6 תשלומים לחשבון ו-90% מהרווחים — מקור רשמי.",
+  alternates: { canonical: "https://ny-propfirms.com/apex/payouts" },
+  openGraph: {
+    title: "תשלומים ב-Apex PA — כיצד מושכים רווחים | NY Prop Firms",
+    description:
+      "כל כללי התשלום ב-Apex PA בעברית: עקביות 50%, רשת ביטחון, מינימום 5 ימי מסחר, עד 6 תשלומים לחשבון ו-90% מהרווחים — מקור רשמי.",
+    url: "https://ny-propfirms.com/apex/payouts",
+  },
 };
 
 
@@ -42,9 +51,20 @@ const FAQ_ITEMS: AccordionItem[] = [
   },
 ];
 
+const BREADCRUMB_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "בית", item: "https://ny-propfirms.com/" },
+    { "@type": "ListItem", position: 2, name: "Apex", item: "https://ny-propfirms.com/apex" },
+    { "@type": "ListItem", position: 3, name: "תשלומים", item: "https://ny-propfirms.com/apex/payouts" },
+  ],
+};
+
 export default function PayoutsPage() {
   return (
     <div className="container-page py-12">
+      <JsonLd data={BREADCRUMB_JSONLD} />
       <nav className="text-sm mb-6 flex items-center gap-2" style={{ color: "var(--text-muted)" }}>
         <a href="/apex" className="hover:text-[var(--text-secondary)]">Apex</a>
         <span>/</span>

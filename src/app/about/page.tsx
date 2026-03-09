@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { ExternalLink } from "lucide-react";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { CopyButton } from "@/components/ui/CopyButton";
@@ -7,13 +8,31 @@ import { WhatsAppButtons } from "@/components/ui/WhatsAppButtons";
 import { SECONDARY_COUPON } from "@/lib/coupons";
 
 export const metadata: Metadata = {
-  title: "אודות | NY Prop Firms",
-  description: "אודות NY Prop Firms — גילוי נאות מלא ומידע על האתר",
+  title: "אודות NY Prop Firms — מי אנחנו וגילוי נאות",
+  description:
+    "NY Prop Firms הוא מדריך בעברית לכללי Apex Trader Funding. גילוי נאות מלא: אנחנו אתר מידע עצמאי, לא Apex ולא שותפים שלה.",
+  alternates: { canonical: "https://ny-propfirms.com/about" },
+  openGraph: {
+    title: "אודות NY Prop Firms — מי אנחנו וגילוי נאות",
+    description:
+      "NY Prop Firms הוא מדריך בעברית לכללי Apex Trader Funding. גילוי נאות מלא: אנחנו אתר מידע עצמאי, לא Apex ולא שותפים שלה.",
+    url: "https://ny-propfirms.com/about",
+  },
+};
+
+const BREADCRUMB_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "בית", item: "https://ny-propfirms.com/" },
+    { "@type": "ListItem", position: 2, name: "אודות", item: "https://ny-propfirms.com/about" },
+  ],
 };
 
 export default function AboutPage() {
   return (
     <div className="container-page py-12 max-w-3xl">
+      <JsonLd data={BREADCRUMB_JSONLD} />
       <h1 className="text-4xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>
         אודות
       </h1>

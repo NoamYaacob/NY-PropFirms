@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Activity, BarChart2, Clock, ShieldAlert, Wallet, TrendingUp } from "lucide-react";
 import { RuleCard } from "@/components/ui/RuleCard";
 import { CalloutBox } from "@/components/ui/CalloutBox";
@@ -11,15 +12,34 @@ import { S } from "@/lib/sources";
 import { TierTableWidget } from "@/components/ui/TierTableWidget";
 
 export const metadata: Metadata = {
-  title: "Apex Intraday — מבחן ו-PA | NY Prop Firms",
-  description: "כללי חשבון Intraday של Apex: רף הפסד נגרר, ללא DLL במבחן, DLL לפי Tier ב-PA, עקביות 50%, רשת ביטחון ועוד",
+  title: "Apex Intraday — כללי מבחן ו-PA בעברית | NY Prop Firms",
+  description:
+    "כל כללי Apex Intraday בעברית: רף הפסד נגרר, אין DLL במבחן, DLL לפי Tier ב-PA, עקביות 50% ורשת ביטחון — עם מקורות רשמיים.",
+  alternates: { canonical: "https://ny-propfirms.com/apex/intraday" },
+  openGraph: {
+    title: "Apex Intraday — כללי מבחן ו-PA בעברית | NY Prop Firms",
+    description:
+      "כל כללי Apex Intraday בעברית: רף הפסד נגרר, אין DLL במבחן, DLL לפי Tier ב-PA, עקביות 50% ורשת ביטחון — עם מקורות רשמיים.",
+    url: "https://ny-propfirms.com/apex/intraday",
+  },
 };
 
 const APEX_URL = "https://apextraderfunding.com";
 
+const BREADCRUMB_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "בית", item: "https://ny-propfirms.com/" },
+    { "@type": "ListItem", position: 2, name: "Apex", item: "https://ny-propfirms.com/apex" },
+    { "@type": "ListItem", position: 3, name: "Intraday", item: "https://ny-propfirms.com/apex/intraday" },
+  ],
+};
+
 export default function IntradayPage() {
   return (
     <div className="container-page py-12">
+      <JsonLd data={BREADCRUMB_JSONLD} />
       {/* Breadcrumb */}
       <nav className="text-sm mb-6 flex items-center gap-2" style={{ color: "var(--text-muted)" }}>
         <a href="/apex" className="hover:text-[var(--text-secondary)]">Apex</a>

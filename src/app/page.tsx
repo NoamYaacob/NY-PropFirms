@@ -1,5 +1,20 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Sunset, Activity, Wallet, Shield, ArrowLeft } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "NY Prop Firms — המדריך הישראלי לחברות פרופ",
+  description:
+    "הסברים ברורים בעברית על Apex Trader Funding: EOD, Intraday, PA, תשלומים, DLL, Tier וכיצד לעבור את המבחן בהצלחה.",
+  alternates: { canonical: "https://ny-propfirms.com/" },
+  openGraph: {
+    title: "NY Prop Firms — המדריך הישראלי לחברות פרופ",
+    description:
+      "הסברים ברורים בעברית על Apex Trader Funding: EOD, Intraday, PA, תשלומים, DLL, Tier וכיצד לעבור את המבחן בהצלחה.",
+    url: "https://ny-propfirms.com/",
+  },
+};
 import { Button } from "@/components/ui/Button";
 import { CouponChip } from "@/components/ui/CouponChip";
 import { ComparisonBlock, ComparisonRow } from "@/components/ui/ComparisonBlock";
@@ -94,9 +109,19 @@ const CATEGORY_CARDS = [
   },
 ];
 
+const WEBSITE_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "NY Prop Firms",
+  url: "https://ny-propfirms.com",
+  description: "המדריך הישראלי לחברות פרופ — הסברים בעברית על Apex Trader Funding",
+  inLanguage: "he",
+};
+
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={WEBSITE_JSONLD} />
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section
         className="relative flex flex-col items-center justify-center text-center min-h-[90vh] px-6 py-20"
