@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import { StickyMobileCTABar } from "@/components/layout/StickyMobileCTABar";
 import { WhatsAppFloat } from "@/components/ui/WhatsAppFloat";
 import { AccessibilityWidget } from "@/components/ui/AccessibilityWidget";
+import { Analytics } from "@vercel/analytics/next";
 
 const heebo = Heebo({
   subsets: ["hebrew", "latin"],
@@ -68,6 +69,7 @@ export default function RootLayout({
           <WhatsAppFloat />
           <AccessibilityWidget />
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
