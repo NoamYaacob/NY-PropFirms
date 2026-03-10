@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
 };
 
-const APEX_URL = "https://apextraderfunding.com";
+const APEX_URL = "https://apextraderfunding.com/member/aff/go/noamyaacob?c=BSQTZBMJ";
 
 const BREADCRUMB_JSONLD = {
   "@context": "https://schema.org",

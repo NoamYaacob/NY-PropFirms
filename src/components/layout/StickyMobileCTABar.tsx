@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { CouponChip } from "@/components/ui/CouponChip";
 import { Button } from "@/components/ui/Button";
 
-const APEX_URL = "https://apextraderfunding.com";
+const APEX_URL = "https://apextraderfunding.com/member/aff/go/noamyaacob?c=BSQTZBMJ";
 
 export function StickyMobileCTABar() {
   const [visible, setVisible] = useState(false);

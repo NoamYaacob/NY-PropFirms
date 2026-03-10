@@ -20,7 +20,7 @@ import { CouponChip } from "@/components/ui/CouponChip";
 import { ComparisonBlock, ComparisonRow } from "@/components/ui/ComparisonBlock";
 import { StepFlowStrip } from "@/components/ui/StepFlowStrip";
 import { WhatsAppButtons } from "@/components/ui/WhatsAppButtons";
-const APEX_URL = "https://apextraderfunding.com";
+const APEX_URL = "https://apextraderfunding.com/member/aff/go/noamyaacob?c=BSQTZBMJ";
 
 const COMPARISON_ROWS: ComparisonRow[] = [
   {
