@@ -205,7 +205,7 @@ export default function EODPage() {
             accountType="eval"
             source={S.DAILY_LOSS_LIMIT}
             body={
-              <div className="space-y-3">
+              <div className="space-y-2">
                 <p>
                   במבחן <span dir="ltr">EOD</span> יש סטופ יומי קבוע לפי גודל החשבון.
                 </p>
@@ -213,57 +213,31 @@ export default function EODPage() {
                   אם מגיעים אליו, הפוזיציות נסגרות אוטומטית והמסחר באותו תיק נעצר עד יום המסחר הבא.
                 </p>
                 <p>החשבון נשאר פעיל.</p>
-
-                <p className="pt-1" style={{ color: "var(--text-primary)" }}>
+                <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
                   בחשבונות <span dir="ltr">EOD</span> בלבד, הסטופ היומי קבוע לפי גודל החשבון:
                 </p>
-
-                {/* DLL table */}
-                <div
-                  className="rounded-lg overflow-hidden text-sm"
-                  style={{ border: "1px solid var(--teal-edge)" }}
-                >
-                  {/* Header */}
-                  <div
-                    className="grid grid-cols-2 px-3 py-2 font-semibold"
-                    style={{
-                      background: "rgba(45,156,219,0.12)",
-                      borderBottom: "1px solid var(--teal-edge)",
-                      color: "var(--teal-400)",
-                    }}
-                  >
-                    <span>גודל חשבון</span>
-                    <span dir="ltr" className="text-right">סטופ יומי (DLL)</span>
-                  </div>
-                  {/* Rows */}
-                  {[
-                    { size: "25K", dll: "$500" },
-                    { size: "50K", dll: "$1,000" },
-                    { size: "100K", dll: "$1,500" },
-                    { size: "150K", dll: "$2,000" },
-                  ].map((row, i) => (
-                    <div
-                      key={row.size}
-                      className="grid grid-cols-2 px-3 py-2"
-                      style={{
-                        background: i % 2 === 0 ? "transparent" : "rgba(45,156,219,0.05)",
-                        borderTop: i === 0 ? undefined : "1px solid rgba(45,156,219,0.15)",
-                        color: "var(--text-secondary)",
-                      }}
-                    >
-                      <span dir="ltr">{row.size}</span>
-                      <span
-                        dir="ltr"
-                        className="text-right font-semibold"
-                        style={{ color: "var(--amber-400)" }}
-                      >
-                        {row.dll}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                <p className="text-xs leading-relaxed" style={{ color: "var(--text-muted)" }}>
+                <table className="w-full text-sm border-collapse">
+                  <thead>
+                    <tr style={{ borderBottom: "1px solid var(--surface-border)" }}>
+                      <th className="text-right pb-1.5 font-medium" style={{ color: "var(--text-muted)" }}>גודל חשבון</th>
+                      <th className="text-left pb-1.5 font-medium" style={{ color: "var(--text-muted)" }}>סטופ יומי</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      { size: "25K", dll: "$500" },
+                      { size: "50K", dll: "$1,000" },
+                      { size: "100K", dll: "$1,500" },
+                      { size: "150K", dll: "$2,000" },
+                    ].map((row) => (
+                      <tr key={row.size} style={{ borderBottom: "1px solid var(--surface-border)" }}>
+                        <td className="py-1 text-right" dir="ltr">{row.size}</td>
+                        <td className="py-1 text-left font-semibold" dir="ltr" style={{ color: "var(--amber-400)" }}>{row.dll}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <p className="text-xs" style={{ color: "var(--text-muted)" }}>
                   הסטופ היומי מתאפס בכל יום מסחר חדש. פגיעה ב-<span dir="ltr">DLL</span> לא מכשילה את החשבון, אלא עוצרת את המסחר עד ליום המסחר הבא.
                 </p>
               </div>
