@@ -203,6 +203,45 @@ export default function IntradayPage() {
           />
 
           <RuleCard
+            title="יעד רווח — שלב המבחן"
+            icon={TrendingUp}
+            accountType="eval"
+            source={S.INTRADAY_EVALUATIONS}
+            body={
+              <div className="space-y-2">
+                <p>יעד הרווח לסיום המבחן נקבע לפי גודל החשבון:</p>
+                <table className="w-full text-sm border-collapse mt-1">
+                  <thead>
+                    <tr style={{ borderBottom: "1px solid var(--surface-border)" }}>
+                      <th className="text-right pb-1.5 font-medium" style={{ color: "var(--text-muted)" }}>גודל חשבון</th>
+                      <th className="text-left pb-1.5 font-medium" style={{ color: "var(--text-muted)" }}>יעד רווח</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      { size: "25K", target: "$1,500" },
+                      { size: "50K", target: "$3,000" },
+                      { size: "100K", target: "$6,000" },
+                      { size: "150K", target: "$9,000" },
+                    ].map((row) => (
+                      <tr key={row.size} style={{ borderBottom: "1px solid var(--surface-border)" }}>
+                        <td className="py-1 text-right" dir="ltr">{row.size}</td>
+                        <td className="py-1 text-left font-semibold" dir="ltr" style={{ color: "var(--teal-400)" }}>{row.target}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                  ניתן לעבור את המבחן כבר ביום מסחר אחד בלבד.
+                </p>
+                <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                  הזמן המקסימלי להשלמת המבחן הוא עד 30 ימים.
+                </p>
+              </div>
+            }
+          />
+
+          <RuleCard
             title="תוקף המבחן"
             icon={Clock}
             accountType="eval"
