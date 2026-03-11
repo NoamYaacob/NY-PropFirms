@@ -116,7 +116,9 @@ export function PricingTable({ type }: PricingTableProps) {
           style={{ borderTop: "1px solid var(--surface-border)" }}
         >
           <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-            המחיר אחרי ההנחה עם קוד הקופון{" "}
+            המחיר לאחר ההנחה משקף{" "}
+            <span style={{ color: "var(--gold-400)", fontWeight: 600 }}>80% הנחה</span>
+            {" "}עם קוד הקופון{" "}
             <span
               dir="ltr"
               style={{ color: "var(--gold-400)", fontWeight: 600 }}

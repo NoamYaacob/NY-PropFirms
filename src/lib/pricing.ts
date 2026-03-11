@@ -19,19 +19,19 @@ export type PriceEntry = {
 // ─── EOD evaluation prices ────────────────────────────────────────────────────
 
 export const EOD_EVAL_PRICES: Record<AccountSize, PriceEntry> = {
-  "25K":  { fullPrice: "$177",  discountedPrice: "$26.55" },
-  "50K":  { fullPrice: "$197",  discountedPrice: "$29.55" },
-  "100K": { fullPrice: "$297",  discountedPrice: "$44.55" },
-  "150K": { fullPrice: "$397",  discountedPrice: "$59.55" },
+  "25K":  { fullPrice: "$177",  discountedPrice: "$35.40" },
+  "50K":  { fullPrice: "$197",  discountedPrice: "$39.40" },
+  "100K": { fullPrice: "$297",  discountedPrice: "$59.40" },
+  "150K": { fullPrice: "$397",  discountedPrice: "$79.40" },
 };
 
 // ─── Intraday evaluation prices ───────────────────────────────────────────────
 
 export const INTRADAY_EVAL_PRICES: Record<AccountSize, PriceEntry> = {
-  "25K":  { fullPrice: "$118.00",  discountedPrice: "$17.70" },
-  "50K":  { fullPrice: "$131.33",  discountedPrice: "$19.70" },
-  "100K": { fullPrice: "$198.00",  discountedPrice: "$29.70" },
-  "150K": { fullPrice: "$264.67",  discountedPrice: "$39.70" },
+  "25K":  { fullPrice: "$118.00",  discountedPrice: "$23.60" },
+  "50K":  { fullPrice: "$131.33",  discountedPrice: "$26.27" },
+  "100K": { fullPrice: "$198.00",  discountedPrice: "$39.60" },
+  "150K": { fullPrice: "$264.67",  discountedPrice: "$52.93" },
 };
 
 // ─── PA activation prices (fixed, not promotional) ────────────────────────────
