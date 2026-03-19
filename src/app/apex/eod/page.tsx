@@ -87,8 +87,9 @@ export default function EODPage() {
           <p className="font-bold" style={{ color: "var(--text-primary)" }}>30 ימים</p>
         </div>
         <div className="card p-4 text-center">
-          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>רף הפסד — איך זה עובד</p>
+          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>Max Drawdown — גבול החשבון</p>
           <p className="font-bold" style={{ color: "var(--text-secondary)" }}>רף הפסד מחושב בסוף יום</p>
+          <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>נפרד מהסטופ היומי (DLL)</p>
         </div>
         <div className="card p-4 text-center">
           <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>סטופ יומי — מבחן</p>
@@ -112,6 +113,29 @@ export default function EODPage() {
         <h2 className="text-2xl font-bold mb-6" style={{ color: "var(--gold-300)" }}>
           שלב המבחן (EOD)
         </h2>
+
+        {/* Two-limit clarification */}
+        <div className="mb-6">
+          <CalloutBox
+            variant="info"
+            title="שני גבולות סיכון נפרדים ב-EOD — חשוב להבין"
+            body={
+              <div className="space-y-1.5">
+                <p>
+                  <strong style={{ color: "var(--amber-400)" }}>סטופ יומי (<span dir="ltr">DLL</span>)</strong>
+                  {" "}— מגביל את ההפסד המותר באותו יום מסחר. פגיעה עוצרת את המסחר עד יום המחרת, אך החשבון נשאר פעיל.
+                </p>
+                <p>
+                  <strong style={{ color: "var(--teal-400)" }}>Max Drawdown (רף הפסד כללי)</strong>
+                  {" "}— גבול ההפסד הכולל של החשבון. פגיעה בו מכשילה את המבחן לחלוטין.
+                </p>
+                <p className="text-xs pt-0.5" style={{ color: "var(--text-muted)" }}>
+                  אלו שני כללים שונים לחלוטין — ה-<span dir="ltr">DLL</span> הוא הגבול היומי, ה-Max Drawdown הוא הגבול הכולל של החשבון.
+                </p>
+              </div>
+            }
+          />
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <RuleCard
@@ -246,12 +270,12 @@ export default function EODPage() {
             body={
               <div className="space-y-2">
                 <p>
-                  במבחן <span dir="ltr">EOD</span> יש סטופ יומי קבוע לפי גודל החשבון.
+                  ה-<span dir="ltr">DLL</span> הוא <strong>הגבול היומי בלבד</strong> — נפרד לחלוטין מה-Max Drawdown הכולל של החשבון.
                 </p>
                 <p>
                   אם מגיעים אליו, הפוזיציות נסגרות אוטומטית והמסחר באותו תיק נעצר עד יום המסחר הבא.
                 </p>
-                <p>החשבון נשאר פעיל.</p>
+                <p>החשבון נשאר פעיל — זו אינה כשלון מבחן.</p>
                 <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
                   בחשבונות <span dir="ltr">EOD</span> בלבד, הסטופ היומי קבוע לפי גודל החשבון:
                 </p>
