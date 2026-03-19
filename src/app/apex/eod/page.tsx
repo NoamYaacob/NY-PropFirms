@@ -308,6 +308,51 @@ export default function EODPage() {
           />
         </div>
 
+        {/* Max Drawdown Callout */}
+        <div className="mt-4">
+          <CalloutBox
+            variant="info"
+            title="מקסימום Drawdown — מבחן EOD"
+            accountType="eval"
+            source={S.EOD_EVALUATIONS}
+            body={
+              <div className="space-y-2">
+                <p>
+                  זהו גבול ההפסד הכללי של החשבון. פגיעה בו <strong>מכשילה את המבחן</strong>,
+                  בניגוד ל-<span dir="ltr">DLL</span> שהוא גבול יומי בלבד.
+                </p>
+                <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+                  ה-Max Drawdown קבוע לפי גודל החשבון ואינו משתנה במהלך המבחן:
+                </p>
+                <table className="w-full text-sm border-collapse">
+                  <thead>
+                    <tr style={{ borderBottom: "1px solid var(--surface-border)" }}>
+                      <th className="text-right pb-1.5 font-medium" style={{ color: "var(--text-muted)" }}>גודל חשבון</th>
+                      <th className="text-left pb-1.5 font-medium" style={{ color: "var(--text-muted)" }}>Max Drawdown</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      { size: "25K",  dd: "$1,000" },
+                      { size: "50K",  dd: "$2,000" },
+                      { size: "100K", dd: "$3,000" },
+                      { size: "150K", dd: "$4,000" },
+                    ].map((row) => (
+                      <tr key={row.size} style={{ borderBottom: "1px solid var(--surface-border)" }}>
+                        <td className="py-1 text-right" dir="ltr">{row.size}</td>
+                        <td className="py-1 text-left font-semibold" dir="ltr" style={{ color: "var(--red-400)" }}>{row.dd}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                  ה-Max Drawdown מחושב לפי יתרת סוף יום — הוא אינו נגרר בזמן אמת כמו ב-Intraday.
+                </p>
+              </div>
+            }
+          />
+        </div>
+
         <div className="mt-8">
           <CalloutBox
             variant="warning"
