@@ -1,8 +1,8 @@
 export type AccountType =
   | "eval"         // שלב המבחן (any track)
   | "pa"           // שלב ה-PA (any track, cross-track rules)
-  | "eod-pa"       // שלב ה-PA · EOD
-  | "intraday-pa"  // שלב ה-PA · Intraday
+  | "eod-pa"       // שלב ה-PA (EOD track)
+  | "intraday-pa"  // שלב ה-PA (Intraday track)
   | "universal"    // כל סוגי החשבונות
   | "verify";      // יש לאמת ישירות
 
@@ -27,13 +27,13 @@ const CONFIG: Record<AccountType, Config> = {
     border: "#352A60",
   },
   "eod-pa": {
-    label: "שלב ה-PA · EOD",
+    label: "שלב ה-PA",
     bg: "#1A1530",
     color: "#9B8AE0",
     border: "#352A60",
   },
   "intraday-pa": {
-    label: "שלב ה-PA · Intraday",
+    label: "שלב ה-PA",
     bg: "var(--teal-900)",
     color: "var(--teal-400)",
     border: "var(--teal-edge)",
