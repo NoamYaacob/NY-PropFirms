@@ -18,26 +18,24 @@ export function TierTableWidget() {
       className="mt-4 rounded-xl overflow-hidden"
       style={{ border: "1px solid var(--surface-border)" }}
     >
-      {/* ── Card header: title + helper + switcher ── */}
+      {/* ── Header: title + subtitle ── */}
       <div
-        className="px-4 py-3 flex flex-col gap-2"
+        className="px-4 pt-3 pb-2"
         style={{
           backgroundColor: "var(--surface-overlay)",
           borderBottom: "1px solid var(--surface-border)",
         }}
       >
-        <div>
-          <p className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
-            בחרו גודל חשבון
-          </p>
-          <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
-            ה-<span dir="ltr">Tier</span> קובע כמה חוזים מותר להחזיק ומה גודל ה-<span dir="ltr">DLL</span> בסשן הבא
-          </p>
-        </div>
+        <p className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
+          בחרו גודל חשבון
+        </p>
+        <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
+          ה-<span dir="ltr">Tier</span> קובע כמה חוזים מותר להחזיק ומה גובה ה-<span dir="ltr">DLL</span> בסשן הבא
+        </p>
 
-        {/* Segmented control */}
+        {/* ── Account-size segmented control — full width ── */}
         <div
-          className="inline-flex self-start rounded-lg overflow-hidden"
+          className="flex w-full mt-3 rounded-lg overflow-hidden"
           style={{ border: "1px solid var(--surface-border)" }}
           role="group"
           aria-label="בחרו גודל חשבון"
@@ -50,7 +48,7 @@ export function TierTableWidget() {
               <button
                 key={size}
                 onClick={() => setActiveSize(size)}
-                className="px-3.5 py-1 text-sm font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
+                className="flex-1 py-2 text-sm font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
                 style={
                   isActive
                     ? {
@@ -65,6 +63,7 @@ export function TierTableWidget() {
                       }
                 }
                 aria-pressed={isActive}
+                dir="ltr"
               >
                 {TIER_ACCOUNT_SIZE_LABELS[size]}
               </button>
@@ -75,13 +74,12 @@ export function TierTableWidget() {
 
       {/* ── Tier table ── */}
       <div className="overflow-x-auto">
-        <table className="w-full text-sm border-collapse table-fixed" dir="rtl">
-          {/* Fixed column widths prevent auto-distribution misalignment */}
+        <table className="w-full text-sm border-collapse" dir="rtl">
           <colgroup>
-            <col style={{ width: "18%" }} />
-            <col style={{ width: "38%" }} />
-            <col style={{ width: "26%" }} />
-            <col style={{ width: "18%" }} />
+            <col style={{ width: "18%" }} />  {/* Level */}
+            <col style={{ width: "40%" }} />  {/* Profit range */}
+            <col style={{ width: "18%" }} />  {/* Contracts */}
+            <col style={{ width: "24%" }} />  {/* DLL */}
           </colgroup>
           <thead>
             <tr
@@ -90,27 +88,26 @@ export function TierTableWidget() {
                 borderBottom: "1px solid var(--surface-border-strong)",
               }}
             >
-              {/* text-left matches body cells that use dir="ltr" (content starts from left edge) */}
               <th
-                className="text-left px-4 py-2.5 font-semibold text-xs uppercase tracking-wide"
+                className="text-left px-3 py-2 font-semibold text-xs uppercase tracking-wide"
                 style={{ color: "var(--text-muted)" }}
               >
                 <span dir="ltr">Level</span>
               </th>
               <th
-                className="text-left px-4 py-2.5 font-semibold text-xs uppercase tracking-wide"
+                className="text-left px-3 py-2 font-semibold text-xs uppercase tracking-wide"
                 style={{ color: "var(--text-muted)" }}
               >
                 טווח רווח
               </th>
               <th
-                className="text-center px-4 py-2.5 font-semibold text-xs uppercase tracking-wide"
+                className="text-center px-2 py-2 font-semibold text-xs uppercase tracking-wide"
                 style={{ color: "var(--text-muted)" }}
               >
-                מקסימום חוזים
+                חוזים
               </th>
               <th
-                className="text-center px-4 py-2.5 font-semibold text-xs uppercase tracking-wide"
+                className="text-center px-3 py-2 font-semibold text-xs uppercase tracking-wide"
                 style={{ color: "var(--gold-300)" }}
               >
                 <span dir="ltr">DLL</span>
@@ -131,14 +128,14 @@ export function TierTableWidget() {
                 }}
               >
                 <td
-                  className="px-4 py-2.5 font-semibold text-sm"
+                  className="px-3 py-2.5 font-semibold text-sm"
                   style={{ color: "var(--text-primary)" }}
                   dir="ltr"
                 >
-                  Level {row.level}
+                  {row.level}
                 </td>
                 <td
-                  className="px-4 py-2.5 text-sm text-left"
+                  className="px-3 py-2.5 text-sm text-left"
                   style={{ color: "var(--text-secondary)" }}
                 >
                   {row.profitRange.includes(" ומעלה") ? (
@@ -151,13 +148,13 @@ export function TierTableWidget() {
                   )}
                 </td>
                 <td
-                  className="text-center px-4 py-2.5 text-sm font-medium tabular-nums"
+                  className="text-center px-2 py-2.5 text-sm font-medium tabular-nums"
                   style={{ color: "var(--text-primary)" }}
                 >
                   {row.maxContracts}
                 </td>
                 <td
-                  className="text-center px-4 py-2.5 text-sm font-semibold tabular-nums"
+                  className="text-center px-3 py-2.5 text-sm font-semibold tabular-nums"
                   style={{ color: "var(--teal-400)" }}
                   dir="ltr"
                 >
