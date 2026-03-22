@@ -125,7 +125,7 @@ export default function PayoutsPage() {
               trigger: "מה זה DLL?",
               content: (
                 <div className="space-y-1.5 text-sm" style={{ color: "var(--text-secondary)" }}>
-                  <p><span dir="ltr">DLL</span> הוא סטופ יומי קבוע לאותו סשן.</p>
+                  <p><span dir="ltr">DLL</span> הוא סטופ יומי.</p>
                   <p>אם מגיעים אליו, הפוזיציות נסגרות אוטומטית והמסחר באותו תיק נעצר עד יום המסחר הבא.</p>
                   <p>החשבון נשאר פעיל.</p>
                   <p>ה-<span dir="ltr">DLL</span> מתאפס בפתיחת יום המסחר הבא.</p>
