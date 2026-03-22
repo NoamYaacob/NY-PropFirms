@@ -34,10 +34,22 @@ export const INTRADAY_EVAL_PRICES: Record<AccountSize, PriceEntry> = {
   "150K": { fullPrice: "$264.67",  discountedPrice: "$39.70" },
 };
 
-// ─── PA activation prices (fixed, not promotional) ────────────────────────────
+// ─── PA activation prices (One-Time Activation Fee, fixed, not promotional) ──
+// Source: https://apextraderfunding.com (account activation pages)
 
-export const EOD_PA_PRICE      = "$99";
-export const INTRADAY_PA_PRICE = "$79";
+export const EOD_PA_PRICES: Record<AccountSize, string> = {
+  "25K":  "$99",
+  "50K":  "$109",
+  "100K": "$119",
+  "150K": "$139",
+};
+
+export const INTRADAY_PA_PRICES: Record<AccountSize, string> = {
+  "25K":  "$79",
+  "50K":  "$89",
+  "100K": "$99",
+  "150K": "$109",
+};
 
 // ─── Ordered sizes for consistent table rendering ─────────────────────────────
 

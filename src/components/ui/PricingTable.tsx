@@ -3,21 +3,19 @@ import {
   INTRADAY_TEST_PRICES,
   ACCOUNT_SIZES,
 } from "@/lib/testPricing";
+import {
+  EOD_PA_PRICES,
+  INTRADAY_PA_PRICES,
+} from "@/lib/pricing";
 import { PRIMARY_COUPON } from "@/lib/coupons";
 
 interface PricingTableProps {
   type: "eod" | "intraday";
 }
 
-// PA prices are fixed and do not change with promotions.
-const PA_PRICES = {
-  eod:      "$99",
-  intraday: "$79",
-} as const;
-
 export function PricingTable({ type }: PricingTableProps) {
-  const testPrices = type === "eod" ? EOD_TEST_PRICES : INTRADAY_TEST_PRICES;
-  const paPrice    = PA_PRICES[type];
+  const testPrices = type === "eod" ? EOD_TEST_PRICES  : INTRADAY_TEST_PRICES;
+  const paPrices   = type === "eod" ? EOD_PA_PRICES    : INTRADAY_PA_PRICES;
 
   return (
     <div
@@ -135,28 +133,58 @@ export function PricingTable({ type }: PricingTableProps) {
         </div>
       </div>
 
-      {/* ── PA price — fixed, always shown, visually separated ─── */}
-      <div
-        className="px-4 py-3 flex items-center justify-between gap-4"
-        style={{
-          borderTop: "1px solid var(--gold-edge)",
-          backgroundColor: "var(--gold-900)",
-        }}
-      >
-        <div>
-          <p
-            className="text-xs font-semibold"
-            style={{ color: "var(--gold-400)" }}
-          >
-            מחיר <span dir="ltr">PA</span>
+      {/* ── PA activation prices — per account size ─────────────── */}
+      <div style={{ borderTop: "1px solid var(--gold-edge)" }}>
+        <div
+          className="px-4 py-2.5"
+          style={{ backgroundColor: "var(--gold-900)" }}
+        >
+          <p className="text-xs font-semibold" style={{ color: "var(--gold-400)" }}>
+            דמי הפעלת <span dir="ltr">PA</span>
           </p>
           <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
-            מחיר קבוע — נפרד ממחיר המבחן
+            תשלום חד-פעמי — נפרד ממחיר המבחן
           </p>
         </div>
-        <p className="text-xl font-bold" style={{ color: "var(--gold-300)" }}>
-          <span dir="ltr">{paPrice}</span>
-        </p>
+        <table
+          className="w-full text-sm border-collapse table-fixed"
+          style={{ backgroundColor: "var(--gold-900)" }}
+        >
+          <colgroup>
+            <col style={{ width: "50%" }} />
+            <col style={{ width: "50%" }} />
+          </colgroup>
+          <tbody>
+            {ACCOUNT_SIZES.map((size, i) => (
+              <tr
+                key={size}
+                style={{
+                  borderTop: "1px solid var(--gold-edge)",
+                  borderBottom:
+                    i < ACCOUNT_SIZES.length - 1
+                      ? "1px solid var(--gold-edge)"
+                      : undefined,
+                }}
+              >
+                <td
+                  className="py-2 px-4 text-xs"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  <span dir="ltr">{size}</span>
+                </td>
+                <td className="py-2 px-4 text-right">
+                  <span
+                    dir="ltr"
+                    className="font-bold text-sm"
+                    style={{ color: "var(--gold-300)" }}
+                  >
+                    {paPrices[size]}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
