@@ -133,49 +133,70 @@ export function PricingTable({ type }: PricingTableProps) {
         </div>
       </div>
 
-      {/* ── PA activation prices — per account size ─────────────── */}
-      <div style={{ borderTop: "1px solid var(--gold-edge)" }}>
-        <div
-          className="px-4 py-2.5"
-          style={{ backgroundColor: "var(--gold-900)" }}
+      {/* ── PA section header — mirrors exam header ───────────────── */}
+      <div
+        className="px-4 py-3 flex items-baseline justify-between gap-4"
+        style={{
+          backgroundColor: "var(--gold-900)",
+          borderTop: "1px solid var(--gold-edge)",
+          borderBottom: "1px solid var(--gold-edge)",
+        }}
+      >
+        <p
+          className="text-xs font-semibold"
+          style={{ color: "var(--gold-400)", letterSpacing: "0.05em" }}
         >
-          <p className="text-xs font-semibold" style={{ color: "var(--gold-400)" }}>
-            דמי הפעלת <span dir="ltr">PA</span>
-          </p>
-          <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
-            תשלום חד-פעמי — נפרד ממחיר המבחן
-          </p>
-        </div>
-        <table
-          className="w-full text-sm border-collapse table-fixed"
-          style={{ backgroundColor: "var(--gold-900)" }}
-        >
+          דמי הפעלת <span dir="ltr">PA</span>
+        </p>
+        <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+          תשלום חד-פעמי — נפרד ממחיר המבחן
+        </p>
+      </div>
+
+      {/* ── PA price table — mirrors exam table ───────────────────── */}
+      <div style={{ backgroundColor: "var(--surface-overlay)" }}>
+        <table className="w-full text-sm border-collapse table-fixed">
           <colgroup>
-            <col style={{ width: "50%" }} />
-            <col style={{ width: "50%" }} />
+            <col style={{ width: "30%" }} />
+            <col style={{ width: "70%" }} />
           </colgroup>
+          <thead>
+            <tr style={{ borderBottom: "1px solid var(--surface-border)" }}>
+              <th
+                className="text-right py-2.5 px-4 font-medium text-xs"
+                style={{ color: "var(--text-muted)" }}
+              >
+                גודל חשבון
+              </th>
+              <th
+                className="text-right py-2.5 px-4 font-medium text-xs"
+                style={{ color: "var(--text-muted)" }}
+              >
+                דמי הפעלה
+              </th>
+            </tr>
+          </thead>
           <tbody>
             {ACCOUNT_SIZES.map((size, i) => (
               <tr
                 key={size}
                 style={{
-                  borderTop: "1px solid var(--gold-edge)",
                   borderBottom:
                     i < ACCOUNT_SIZES.length - 1
-                      ? "1px solid var(--gold-edge)"
+                      ? "1px solid var(--surface-border)"
                       : undefined,
                 }}
               >
                 <td
-                  className="py-2 px-4 text-xs"
-                  style={{ color: "var(--text-muted)" }}
+                  className="py-2.5 px-4 font-medium"
+                  style={{ color: "var(--text-primary)" }}
                 >
                   <span dir="ltr">{size}</span>
                 </td>
-                <td className="py-2 px-4 text-right">
+                <td className="py-2.5 px-4">
                   <span
                     dir="ltr"
-                    className="font-bold text-sm"
+                    className="font-bold"
                     style={{ color: "var(--gold-300)" }}
                   >
                     {paPrices[size]}
