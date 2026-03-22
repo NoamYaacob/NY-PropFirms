@@ -72,8 +72,8 @@ export default function PayoutsPage() {
       </nav>
 
       <h1
-        className="text-3xl sm:text-4xl font-bold mb-2 max-w-xs sm:max-w-none"
-        style={{ color: "var(--text-primary)" }}
+        className="font-bold mb-2 whitespace-nowrap"
+        style={{ color: "var(--text-primary)", fontSize: "clamp(1.35rem, 6vw, 2.5rem)" }}
       >
         כללי תשלום לחשבונות PA
       </h1>
