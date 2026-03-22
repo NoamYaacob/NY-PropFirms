@@ -71,11 +71,14 @@ export default function PayoutsPage() {
         <span style={{ color: "var(--text-secondary)" }}>תשלומים</span>
       </nav>
 
-      <h1 className="text-4xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>
-        תשלומים — כללי ה-PA הנוכחיים
+      <h1
+        className="text-3xl sm:text-4xl font-bold mb-2 max-w-xs sm:max-w-none"
+        style={{ color: "var(--text-primary)" }}
+      >
+        כללי תשלום לחשבונות PA
       </h1>
-      <p className="text-base mb-8" style={{ color: "var(--text-secondary)" }}>
-        כללי משיכה ב-PA של EOD ושל Intraday — לפי הכללים הרשמיים של Apex
+      <p className="text-base mb-8 max-w-sm sm:max-w-none" style={{ color: "var(--text-secondary)" }}>
+        EOD ו-Intraday — לפי הכללים הרשמיים של Apex
       </p>
 
       <CalloutBox
