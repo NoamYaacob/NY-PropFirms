@@ -77,8 +77,8 @@ export default function PayoutsPage() {
       >
         כללי תשלום לחשבונות PA
       </h1>
-      <p className="text-base mb-8 max-w-sm sm:max-w-none" style={{ color: "var(--text-secondary)" }}>
-        EOD ו-Intraday — לפי הכללים הרשמיים של Apex
+      <p className="text-base mb-8 max-w-md" style={{ color: "var(--text-secondary)" }}>
+        כל מה שחשוב לדעת על תשלומים בחשבונות PA של Apex, כולל ימי מסחר נדרשים, מינימום לבקשה, חוק עקביות ותנאי משיכה.
       </p>
 
       <CalloutBox
