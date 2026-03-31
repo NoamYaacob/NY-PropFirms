@@ -25,17 +25,17 @@ export const ACCOUNT_SIZES: AccountSize[] = ["25K", "50K", "100K", "150K"];
 // ─── EOD test prices ──────────────────────────────────────────────────────────
 
 export const EOD_TEST_PRICES: Record<AccountSize, TestPriceEntry> = {
-  "25K":  { fullPrice: "$177",    discountedPrice: "$26.55" },
-  "50K":  { fullPrice: "$197",    discountedPrice: "$29.55" },
-  "100K": { fullPrice: "$297",    discountedPrice: "$44.55" },
-  "150K": { fullPrice: "$397",    discountedPrice: "$59.55" },
+  "25K":  { fullPrice: "$299.00", discountedPrice: "$29.90" },
+  "50K":  { fullPrice: "$349.00", discountedPrice: "$34.90" },
+  "100K": { fullPrice: "$599.00", discountedPrice: "$59.90" },
+  "150K": { fullPrice: "$799.00", discountedPrice: "$79.90" },
 };
 
 // ─── Intraday test prices ─────────────────────────────────────────────────────
 
 export const INTRADAY_TEST_PRICES: Record<AccountSize, TestPriceEntry> = {
-  "25K":  { fullPrice: "$118.00", discountedPrice: "$17.70" },
-  "50K":  { fullPrice: "$131.33", discountedPrice: "$19.70" },
-  "100K": { fullPrice: "$198.00", discountedPrice: "$29.70" },
-  "150K": { fullPrice: "$264.67", discountedPrice: "$39.70" },
+  "25K":  { fullPrice: "$199.00", discountedPrice: "$19.90" },
+  "50K":  { fullPrice: "$249.00", discountedPrice: "$24.90" },
+  "100K": { fullPrice: "$399.00", discountedPrice: "$39.90" },
+  "150K": { fullPrice: "$599.00", discountedPrice: "$59.90" },
 };
