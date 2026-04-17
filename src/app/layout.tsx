@@ -9,6 +9,7 @@ import { Footer } from "@/components/layout/Footer";
 import { StickyMobileCTABar } from "@/components/layout/StickyMobileCTABar";
 import { WhatsAppFloat } from "@/components/ui/WhatsAppFloat";
 import { AccessibilityWidget } from "@/components/ui/AccessibilityWidget";
+import { Analytics } from "@vercel/analytics/next";
 
 const heebo = Heebo({
   subsets: ["hebrew", "latin"],
@@ -74,6 +75,7 @@ export default function RootLayout({
           {/* Vercel Analytics — automatic pageviews + custom events via src/lib/track.ts */}
           <Analytics />
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
