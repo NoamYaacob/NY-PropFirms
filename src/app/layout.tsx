@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Heebo } from "next/font/google";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 import { Providers } from "@/components/providers/Providers";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { Header } from "@/components/layout/Header";
