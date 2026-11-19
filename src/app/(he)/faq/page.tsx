@@ -275,7 +275,7 @@ export default function FAQPage() {
         <p className="text-sm" style={{ color: "var(--text-muted)" }}>
           לא מצאת תשובה?{" "}
           <a
-            href="https://support.apextraderfunding.com"
+            href="https://apextraderfunding.com/help-center/"
             target="_blank"
             rel="noopener noreferrer"
             className="underline hover:text-[var(--text-secondary)]"

@@ -38,7 +38,9 @@ export function EnFooter() {
           <Link href="/" hrefLang="he" className="underline" style={{ color: "var(--teal-400)" }}>
             <bdi lang="he">עברית</bdi>
           </Link>
-          {" · © 2026 NY Prop Firms"}
+          {" · © "}
+          {new Date().getFullYear()}
+          {" NY Prop Firms"}
         </p>
       </div>
     </footer>

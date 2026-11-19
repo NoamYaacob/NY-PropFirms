@@ -19,15 +19,17 @@ export function consistencyMessage(totalRaw: string, biggestRaw: string): string
   const percent = (biggest / total) * 100;
   const needed = biggest / 0.5;
   if (biggest > total) {
-    return `Your biggest day is larger than your net profit (losses after it). Consistency: ${percent.toFixed(0)}%. Not met.`;
+    return `Your biggest day is larger than your net profit (losing days reduced it). Consistency: ${percent.toFixed(0)}%. Not met. You need net profit above ${formatDollars(needed)}.`;
   }
   if (percent < 50) {
-    return `Consistency: ${percent.toFixed(1)}%. Below 50%: this rule is met (other payout rules still apply).`;
+    const shown = (Math.floor(percent * 10) / 10).toFixed(1);
+    return `Consistency: ${shown}%. Below 50%: this rule is met (other payout rules still apply).`;
   }
   if (percent === 50) {
-    return "Exactly 50%. Apex's pages conflict on this edge case; trade on until you're below 50%.";
+    return "Exactly 50%: treat this as not met. Apex's text says the biggest day must be less than 50%, but its example table marks exactly 50% as met. Trade on until you're below 50%.";
   }
-  return `Consistency: ${percent.toFixed(1)}%. Not met. You need net profit above ${formatDollars(needed)} (about ${formatDollars(needed - total)} more) without a bigger day.`;
+  const shown = (Math.ceil(percent * 10) / 10).toFixed(1);
+  return `Consistency: ${shown}%. Not met. You need net profit above ${formatDollars(needed)} (about ${formatDollars(needed - total)} more) without a bigger day.`;
 }
 
 export function ConsistencyCalculator() {
@@ -42,7 +44,7 @@ export function ConsistencyCalculator() {
       </h2>
       <div className="space-y-3 text-[15px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>
         <p>
-          Enter your profit since your last approved payout (or since the account started) and your biggest single profitable day in that period.
+          Enter your net profit since your last approved payout (or since the account started), after subtracting losing days, and your biggest single profitable day in that period.
         </p>
         <div className="grid gap-3 sm:grid-cols-2">
           <label className="block text-sm" style={{ color: "var(--text-muted)" }} htmlFor="tot">

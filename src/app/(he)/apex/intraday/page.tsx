@@ -411,7 +411,7 @@ export default function IntradayPage() {
             title="מגבלת 20 חשבונות PA פעילים"
             icon={ShieldAlert}
             accountType="pa"
-            source={S.PAYOUT_RULES}
+            source={S.INTRADAY_PAYOUTS}
             body="לסוחר מותר להחזיק עד 20 חשבונות PA פעילים בו-זמנית. חריגה ממגבלה זו חוסמת את האפשרות לבקש תשלומים."
           />
         </div>

@@ -64,7 +64,7 @@ export default function AboutPage() {
           <p>
             כדאי תמיד לבדוק גם את{" "}
             <a
-              href="https://support.apextraderfunding.com"
+              href="https://apextraderfunding.com/help-center/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 underline hover:text-[var(--text-primary)]"
@@ -131,7 +131,7 @@ export default function AboutPage() {
         <div className="flex flex-col gap-3">
           {[
             { label: "אתר Apex Trader Funding",  href: "https://apextraderfunding.com" },
-            { label: "מרכז התמיכה של Apex",      href: "https://support.apextraderfunding.com" },
+            { label: "מרכז התמיכה של Apex",      href: "https://apextraderfunding.com/help-center/" },
           ].map((link) => (
             <a
               key={link.href}

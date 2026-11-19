@@ -39,7 +39,7 @@ export function DisclaimerBlock({ variant = "inline" }: DisclaimerBlockProps) {
         המידע המוצג נכון למועד כתיבתו ועשוי להשתנות. לפני קבלת כל החלטה,
         בדקו תמיד ישירות מול{" "}
         <a
-          href="https://support.apextraderfunding.com"
+          href="https://apextraderfunding.com/help-center/"
           target="_blank"
           rel="noopener noreferrer"
           className="underline hover:text-[var(--text-primary)]"

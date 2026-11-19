@@ -55,6 +55,12 @@ export function CouponChip({ size = "sm" }: CouponChipProps) {
       <p className="text-xs font-semibold mt-1" data-disclosure="affiliate" style={{ color: "var(--text-primary)" }}>
         {CODE_BOX_DISCLOSURE}
       </p>
+      <p className="text-xs leading-relaxed" lang="en" style={{ color: "var(--text-secondary)" }}>
+        The link may pre-fill a code at checkout. Check which code is applied and compare the total.
+      </p>
+      <p className="text-xs leading-relaxed" lang="he" dir="rtl" style={{ color: "var(--text-secondary)" }}>
+        הקישור עשוי למלא קוד בקופה באופן אוטומטי. בדקו איזה קוד הוזן והשוו את הסכום.
+      </p>
       <p className="text-sm" style={{ color: "var(--text-muted)" }}>
         הזן את הקוד בעת פתיחת המבחן באתר Apex
       </p>

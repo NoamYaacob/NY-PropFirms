@@ -86,7 +86,7 @@ export default function PayoutsPage() {
         variant="info"
         title="חשוב לדעת לפני בקשת תשלום"
         body="העמוד הזה מרכז את כללי התשלומים של חשבונות PA בלבד, כולל ימי מסחר מתאימים, מינימום לבקשה, חוק עקביות, Safety Net ותקרות תשלום."
-        source={S.PAYOUT_RULES}
+        sources={[S.EOD_PAYOUTS, S.INTRADAY_PAYOUTS]}
       />
 
       {/* At-a-glance summary */}
@@ -234,7 +234,8 @@ export default function PayoutsPage() {
           title="מגבלת 20 חשבונות PA פעילים"
           icon={Users}
           accountType="pa"
-          source={S.PAYOUT_RULES}
+          source={S.EOD_PAYOUTS}
+          extraSources={[S.INTRADAY_PAYOUTS]}
           body="לסוחר מותר להחזיק עד 20 חשבונות PA פעילים בו-זמנית. חריגה מגבול זה חוסמת בקשות תשלום בכל החשבונות עד שהמספר יורד מתחת ל-20."
         />
 

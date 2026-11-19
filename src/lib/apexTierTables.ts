@@ -25,9 +25,9 @@ export const TIER_ACCOUNT_SIZE_LABELS: Record<TierAccountSize, string> = {
 };
 
 // ─── Tier table data ──────────────────────────────────────────────────────────
-// Source: https://support.apextraderfunding.com/hc/en-us/articles/47257193113371-Daily-Loss-Limit-Explained
-// Source: https://support.apextraderfunding.com/hc/en-us/articles/46729420990235-Scaling-Levels-PA-Explained
-// Source: https://support.apextraderfunding.com/hc/en-us/articles/47204516592795-EOD-Performance-Accounts-PA
+// Source: https://apextraderfunding.com/help-center/additional-helpful-items/daily-loss-limit-explained/
+// Source: https://apextraderfunding.com/help-center/additional-helpful-items/scaling-levels-pa-explained/
+// Source: https://apextraderfunding.com/help-center/eod-trailing-drawdown-accounts/eod-performance-accounts-pa/
 // Tier levels apply to both EOD PA and Intraday PA accounts.
 
 export const TIER_TABLES: Record<TierAccountSize, TierRow[]> = {

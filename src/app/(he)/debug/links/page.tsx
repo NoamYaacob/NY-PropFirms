@@ -20,18 +20,16 @@ const SOURCE_LINKS: LinkEntry[] = [
   { key: "DAILY_LOSS_LIMIT",     label: S.DAILY_LOSS_LIMIT.title,     url: S.DAILY_LOSS_LIMIT.href,     usedIn: "/apex/eod (eval DLL callout), /apex/intraday (eval callout), /apex/payouts (DLL accordion link)" },
   { key: "EOD_PA",               label: S.EOD_PA.title,               url: S.EOD_PA.href,               usedIn: "/apex/eod — EOD PA DLL tier-based explainer" },
   { key: "INTRADAY_PA",          label: S.INTRADAY_PA.title,          url: S.INTRADAY_PA.href,          usedIn: "/apex/intraday — Intraday PA DLL tier-based explainer" },
-  { key: "PAYOUT_RULES",         label: S.PAYOUT_RULES.title,         url: S.PAYOUT_RULES.href,         usedIn: "/apex/eod, /apex/intraday, /apex/payouts — Payout rules" },
   { key: "CONSISTENCY_50",       label: S.CONSISTENCY_50.title,       url: S.CONSISTENCY_50.href,       usedIn: "/apex/payouts — Consistency 50% rule" },
-  { key: "EOD_PAYOUTS",          label: S.EOD_PAYOUTS.title,          url: S.EOD_PAYOUTS.href,          usedIn: "/apex/payouts — EOD payout table source" },
-  { key: "INTRADAY_PAYOUTS",     label: S.INTRADAY_PAYOUTS.title,     url: S.INTRADAY_PAYOUTS.href,     usedIn: "/apex/payouts — Intraday payout table source" },
-  { key: "CONTRACT_SCALING",     label: S.CONTRACT_SCALING.title,     url: S.CONTRACT_SCALING.href,     usedIn: "— הוסר מהאתר, שמור במקורות לבדיקה בלבד" },
+  { key: "EOD_PAYOUTS",          label: S.EOD_PAYOUTS.title,          url: S.EOD_PAYOUTS.href,          usedIn: "/apex/eod, /apex/payouts — EOD payouts" },
+  { key: "INTRADAY_PAYOUTS",     label: S.INTRADAY_PAYOUTS.title,     url: S.INTRADAY_PAYOUTS.href,     usedIn: "/apex/intraday, /apex/payouts — Intraday payouts" },
   { key: "PROHIBITED",           label: S.PROHIBITED.title,           url: S.PROHIBITED.href,           usedIn: "/apex/compliance — MAC/IP, Trade Copying, HFT, Hedging cards" },
   { key: "CLOSE_459",            label: S.CLOSE_459.title,            url: S.CLOSE_459.href,            usedIn: "/apex/compliance — 4:59 PM ET CalloutBox" },
 ];
 
 const DIRECT_LINKS: LinkEntry[] = [
   { key: "APEX_URL",      label: "Apex Trader Funding — main site", url: "https://apextraderfunding.com",        usedIn: "Multiple pages — CTA buttons, StickyMobileCTABar" },
-  { key: "SUPPORT_ROOT",  label: "Apex Support Center — root",     url: "https://support.apextraderfunding.com", usedIn: "DisclaimerBlock (full), /faq, /about" },
+  { key: "HELP_CENTER",   label: "Apex Help Center",               url: "https://apextraderfunding.com/help-center/", usedIn: "DisclaimerBlock (full), /faq, /about" },
 ];
 
 const ALL_LINKS = [...SOURCE_LINKS, ...DIRECT_LINKS];

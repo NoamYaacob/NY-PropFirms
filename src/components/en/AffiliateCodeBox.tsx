@@ -72,6 +72,7 @@ export function AffiliateCodeBox({ position }: { position: "en_home_box" | "en_f
           </GoLink>
         </p>
         <p>The link may pre-fill a code at checkout. Check which code is applied and compare the total.</p>
+        <p lang="he" dir="rtl">הקישור עשוי למלא קוד בקופה באופן אוטומטי. בדקו איזה קוד הוזן והשוו את הסכום.</p>
         <p className="text-sm" style={{ color: "var(--text-muted)" }}>
           Prices and promotions change often and aren&apos;t shown here on purpose. Read the rules on Apex&apos;s own pages before you buy:{" "}
           <SourceLink id="eod_eval">EOD Evaluations</SourceLink>

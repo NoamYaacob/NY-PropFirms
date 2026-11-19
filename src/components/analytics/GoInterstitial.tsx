@@ -46,11 +46,20 @@ export function GoInterstitial() {
   return (
     <main className="container-page py-16 max-w-xl">
       <p className="text-sm leading-relaxed" lang="en" style={{ color: "var(--text-secondary)" }}>
-        Independent site. I&apos;m an Apex Trader Funding affiliate and may earn a commission if you use code NOAM.{" "}
+        Independent site. I&apos;m an Apex Trader Funding affiliate and may earn a commission if you buy through this link or use code NOAM.{" "}
         <strong style={{ color: "var(--text-primary)" }}>#ad</strong>
       </p>
       <p className="text-sm leading-relaxed mt-3" lang="he" dir="rtl" style={{ color: "var(--text-secondary)" }}>
         #פרסומת · גילוי נאות: NOAM הוא קוד ההפניה שלנו, וייתכן שנקבל עמלה אם תשתמשו בו או בקישורי Apex באתר. השימוש בקוד אינו חובה.
+      </p>
+      <p className="text-sm leading-relaxed mt-3" lang="en" style={{ color: "var(--text-secondary)" }}>
+        The link may pre-fill a code at checkout. Check which code is applied and compare the total.
+      </p>
+      <p className="text-sm leading-relaxed mt-2" lang="he" dir="rtl" style={{ color: "var(--text-secondary)" }}>
+        הקישור עשוי למלא קוד בקופה באופן אוטומטי. בדקו איזה קוד הוזן והשוו את הסכום.
+      </p>
+      <p className="text-sm leading-relaxed mt-3" style={{ color: "var(--text-secondary)" }}>
+        Futures trading involves substantial risk of loss. Apex accounts are simulated. · המסחר בחוזים עתידיים כרוך בסיכון גבוה להפסד. חשבונות Apex הם חשבונות מדומים.
       </p>
       <p className="mt-6 text-base font-semibold" style={{ color: "var(--text-primary)" }}>
         Continuing to Apex…

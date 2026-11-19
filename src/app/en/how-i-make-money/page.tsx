@@ -46,7 +46,7 @@ export default function HowIMakeMoneyPage() {
         <EnSection title="What that means for this site">
           <ul className="list-disc ps-5 space-y-1">
             <li>
-              Apex&apos;s Help Center lists its rules by account type and size.
+              <strong style={{ color: "var(--text-primary)" }}>Rules come from Apex&apos;s Help Center.</strong> It lists them by account type and size. Check the rules for the exact account you buy.
             </li>
             <li>
               <strong style={{ color: "var(--text-primary)" }}>I don&apos;t claim the code gives a discount.</strong> Apex runs its own promotions; compare the checkout price with and without the code.

@@ -9,6 +9,7 @@ interface CalloutBoxProps {
   title?: string;
   body: React.ReactNode;
   source?: SourceBadgeProps;
+  sources?: SourceBadgeProps[];
   accountType?: AccountType;
 }
 
@@ -41,8 +42,10 @@ export function CalloutBox({
   title,
   body,
   source,
+  sources,
   accountType,
 }: CalloutBoxProps) {
+  const sourceList = sources ?? (source ? [source] : []);
   const Icon = ICON[variant];
   const cssClass = `callout-${variant}`;
 
@@ -73,9 +76,11 @@ export function CalloutBox({
       </div>
 
       {/* Source */}
-      {source && (
-        <div>
-          <SourceBadge {...source} />
+      {sourceList.length > 0 && (
+        <div className="flex flex-wrap gap-2">
+          {sourceList.map((item) => (
+            <SourceBadge key={item.href} {...item} />
+          ))}
         </div>
       )}
     </div>
