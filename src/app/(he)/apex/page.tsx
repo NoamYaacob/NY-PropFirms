@@ -81,8 +81,8 @@ const COMPARISON_ROWS: ComparisonRow[] = [
   },
   {
     feature: "חוק עקביות ב-PA",
-    eodValue: "50% מהרווח היומי הגבוה ביותר",
-    intradayValue: "50% מהרווח היומי הגבוה ביותר",
+    eodValue: "היום הרווחי ביותר < 50% מהרווח הנטו מאז התשלום האחרון",
+    intradayValue: "היום הרווחי ביותר < 50% מהרווח הנטו מאז התשלום האחרון",
   },
   {
     feature: "מספר תשלומים מקסימלי",
@@ -217,7 +217,7 @@ export default function ApexHubPage() {
         רוצים להתחיל? אפשר לפתוח מבחן דרך Apex ולהשתמש בקוד NOAM.
       </p>
       <div className="flex flex-col sm:flex-row items-center gap-4">
-        <Button label="פתח מבחן ב-Apex" href={APEX_URL} variant="primary" external />
+        <Button label="פתח מבחן ב-Apex" href={APEX_URL} variant="primary" external ctaId="apex_hub" />
         <CouponChip size="sm" />
       </div>
     </div>

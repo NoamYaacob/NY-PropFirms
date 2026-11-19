@@ -67,7 +67,7 @@ export function PricingTable({ type }: PricingTableProps) {
                 className="text-right py-2.5 px-4 font-medium text-xs"
                 style={{ color: "var(--text-muted)" }}
               >
-                מחיר אחרי הנחה
+                מחיר נוכחי
               </th>
             </tr>
           </thead>
@@ -114,15 +114,11 @@ export function PricingTable({ type }: PricingTableProps) {
           style={{ borderTop: "1px solid var(--surface-border)" }}
         >
           <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-            המחיר לאחר ההנחה משקף{" "}
-            <span style={{ color: "var(--gold-400)", fontWeight: 600 }}>90% הנחה</span>
-            {" "}עם קוד הקופון{" "}
-            <span
-              dir="ltr"
-              style={{ color: "var(--gold-400)", fontWeight: 600 }}
-            >
+            המחירים בטבלה הם המחירים שמופיעים באתר Apex. הקוד והקישור לא משנים אף כלל. ל-Apex יש מבצעים משלה, לכן השוו את המחיר בקופה עם הקוד{" "}
+            <span dir="ltr" style={{ color: "var(--gold-400)", fontWeight: 600 }}>
               {PRIMARY_COUPON}
-            </span>
+            </span>{" "}
+            ובלעדיו.
           </p>
           <p
             className="text-xs"

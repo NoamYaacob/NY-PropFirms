@@ -7,6 +7,7 @@ import { SectionDivider } from "@/components/ui/SectionDivider";
 import { TimelineStrip } from "@/components/ui/TimelineStrip";
 import { Accordion, AccordionItem } from "@/components/ui/Accordion";
 import { S } from "@/lib/sources";
+import { CONSISTENCY_DEFINITION, CONSISTENCY_LOSING_DAYS } from "@/lib/disclosureCopy";
 import { PayoutTablesWidget } from "@/components/ui/PayoutTablesWidget";
 
 export const metadata: Metadata = {
@@ -42,7 +43,7 @@ const FAQ_ITEMS: AccordionItem[] = [
   {
     id: "losing-days",
     trigger: "האם ימי הפסד פוגעים בחוק עקביות 50%?",
-    content: "לא. ימי הפסד לא נכללים בחישוב העקביות — רק ימים רווחיים.",
+    content: CONSISTENCY_LOSING_DAYS,
   },
   {
     id: "20-pa",
@@ -160,17 +161,8 @@ export default function PayoutsPage() {
           source={S.CONSISTENCY_50}
           body={
             <>
-              <p>
-                היום הרווחי ביותר שלך חייב להיות <strong>פחות מ-50%</strong> מסך
-                הרווח הכולל.
-              </p>
-              <p className="mt-2">
-                כל עוד עברת 50%, כפתור בקשת התשלום לא זמין.
-                ברגע שהיחס יורד מתחת ל-50% — אפשר לבקש תשלום.
-              </p>
-              <p className="mt-2" style={{ color: "var(--green-400)" }}>
-                ✅ ימי הפסד לא נכללים בחישוב — רק ימים רווחיים.
-              </p>
+              <p>{CONSISTENCY_DEFINITION}</p>
+              <p className="mt-2">{CONSISTENCY_LOSING_DAYS}</p>
             </>
           }
         />

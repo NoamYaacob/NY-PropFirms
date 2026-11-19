@@ -1,7 +1,7 @@
 /**
  * Central config for Apex TEST / Evaluation prices.
  *
- * These are the only prices that change (promotional discounts vary).
+ * These are the only prices that change (Apex promotions vary).
  * To update: edit this file only — no other file needs to change.
  *
  * PA prices are fixed and live in the UI component, not here.
@@ -13,7 +13,7 @@
 export type AccountSize = "25K" | "50K" | "100K" | "150K";
 
 export type TestPriceEntry = {
-  /** Full / list price before coupon discount */
+  /** Full / list price */
   fullPrice: string;
   /** Price after applying coupon code NOAM */
   discountedPrice: string;

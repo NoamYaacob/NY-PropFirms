@@ -5,16 +5,17 @@ import { Accordion, AccordionItem } from "@/components/ui/Accordion";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { CouponChip } from "@/components/ui/CouponChip";
 import { Button } from "@/components/ui/Button";
+import { FAQ_WHAT_IS_NOAM, FAQ_WHAT_IS_SITE } from "@/lib/disclosureCopy";
 
 export const metadata: Metadata = {
   title: "שאלות נפוצות על Apex Trader Funding בעברית | NY Prop Firms",
   description:
-    "תשובות לשאלות הנפוצות ביותר על Apex Trader Funding בעברית: מבחן, PA, DLL, תשלומים, קופון הנחה, כללים עדכניים ועוד.",
+    "תשובות לשאלות הנפוצות ביותר על Apex Trader Funding בעברית: מבחן, PA, DLL, תשלומים, קוד הפניה, כללים עדכניים ועוד.",
   alternates: { canonical: "https://ny-propfirms.com/faq" },
   openGraph: {
     title: "שאלות נפוצות על Apex Trader Funding בעברית | NY Prop Firms",
     description:
-      "תשובות לשאלות הנפוצות ביותר על Apex Trader Funding בעברית: מבחן, PA, DLL, תשלומים, קופון הנחה, כללים עדכניים ועוד.",
+      "תשובות לשאלות הנפוצות ביותר על Apex Trader Funding בעברית: מבחן, PA, DLL, תשלומים, קוד הפניה, כללים עדכניים ועוד.",
     url: "https://ny-propfirms.com/faq",
   },
 };
@@ -25,7 +26,7 @@ const GENERAL: AccordionItem[] = [
   {
     id: "g1",
     trigger: "מה זה NY Prop Firms?",
-    content: "אתר שמציג בעברית את כללי חברות הפרופ. אנחנו לא Apex Trader Funding, לא שותפים שלה ולא מייצגים אותה. המטרה: להציג בעברית את המידע הרשמי לציבור הסוחרים הישראלי.",
+    content: FAQ_WHAT_IS_SITE,
   },
   {
     id: "g2",
@@ -136,12 +137,12 @@ const COUPON: AccordionItem[] = [
   {
     id: "c1",
     trigger: "מה זה קוד NOAM?",
-    content: "קוד הנחה שאפשר להזין בעת פתיחת מבחן באתר Apex Trader Funding.",
+    content: FAQ_WHAT_IS_NOAM,
   },
   {
     id: "c2",
     trigger: "איפה מזינים את הקוד?",
-    content: "בדף התשלום של Apex, בשדה קוד הקופון / Promo Code. יש להזין לפני השלמת הרכישה.",
+    content: "בדף התשלום של Apex, בשדה Promo Code. יש להזין לפני השלמת הרכישה.",
   },
   {
     id: "c3",
@@ -183,7 +184,7 @@ const CATEGORIES = [
   { id: "general",    label: "כלליות",        items: GENERAL },
   { id: "evaluation", label: "מבחן",           items: EVALUATION },
   { id: "pa",         label: "PA ותשלומים",   items: PA },
-  { id: "coupon",     label: "קוד הנחה",       items: COUPON },
+  { id: "coupon",     label: "קוד הפניה",      items: COUPON },
   { id: "terms",      label: "מונחים",         items: TERMS },
 ];
 
@@ -267,7 +268,7 @@ export default function FAQPage() {
       {/* Coupon CTA */}
       <div className="mt-12 flex flex-col sm:flex-row items-center gap-4">
         <CouponChip size="sm" />
-        <Button label="פתח מבחן ב-Apex" href={APEX_URL} variant="primary" external />
+        <Button label="פתח מבחן ב-Apex" href={APEX_URL} variant="primary" external ctaId="faq_cta" />
       </div>
 
       <div className="mt-8">

@@ -4,13 +4,13 @@
  * To update prices, edit this file only — no other file needs to change.
  *
  * Source: https://apextraderfunding.com/evaluation-plans
- * Coupon: NOAM (primary discount code)
+ * Referral code: NOAM
  */
 
 export type AccountSize = "25K" | "50K" | "100K" | "150K";
 
 export type PriceEntry = {
-  /** List / full price before coupon discount */
+  /** List / full price */
   fullPrice: string;
   /** Price after applying coupon code NOAM */
   discountedPrice: string;

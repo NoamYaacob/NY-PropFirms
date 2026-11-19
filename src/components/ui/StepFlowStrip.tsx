@@ -1,9 +1,12 @@
 import Link from "next/link";
+import { GoLink } from "@/components/analytics/GoLink";
 
 export interface StepItem {
   number: number;
   label: string;
   href?: string;
+  /** Set when href is the Apex affiliate URL. The click is routed through /go/apex. */
+  ctaId?: string;
 }
 
 interface StepFlowStripProps {
@@ -42,7 +45,15 @@ export function StepFlowStrip({ steps }: StepFlowStripProps) {
               >
                 {step.number}
               </div>
-              {step.href ? (
+              {step.href && step.ctaId ? (
+                <GoLink
+                  ctaId={step.ctaId}
+                  className="text-sm font-medium"
+                  style={{ color: "var(--text-primary)" }}
+                >
+                  {step.label}
+                </GoLink>
+              ) : step.href ? (
                 <Link
                   href={step.href}
                   className="text-sm font-medium"

@@ -7,7 +7,14 @@ export const metadata: Metadata = {
   title: "NY Prop Firms — המדריך הישראלי לחברות פרופ",
   description:
     "הסברים ברורים בעברית על Apex Trader Funding: EOD, Intraday, PA, תשלומים, DLL, Tier וכיצד לעבור את המבחן בהצלחה.",
-  alternates: { canonical: "https://ny-propfirms.com/" },
+  alternates: {
+    canonical: "https://ny-propfirms.com/",
+    languages: {
+      "he-IL": "https://ny-propfirms.com/",
+      "en-US": "https://ny-propfirms.com/en",
+      "x-default": "https://ny-propfirms.com/",
+    },
+  },
   openGraph: {
     title: "NY Prop Firms — המדריך הישראלי לחברות פרופ",
     description:
@@ -16,6 +23,7 @@ export const metadata: Metadata = {
   },
 };
 import { Button } from "@/components/ui/Button";
+import { AffiliateNote } from "@/components/AffiliateNote";
 import { CouponChip } from "@/components/ui/CouponChip";
 import { ComparisonBlock, ComparisonRow } from "@/components/ui/ComparisonBlock";
 import { StepFlowStrip } from "@/components/ui/StepFlowStrip";
@@ -176,10 +184,12 @@ export default function HomePage() {
               variant="secondary"
               size="lg"
               external
+              ctaId="home_hero"
             />
           </div>
 
           <CouponChip size="sm" />
+          <AffiliateNote />
         </div>
       </section>
 
@@ -190,7 +200,7 @@ export default function HomePage() {
             steps={[
               { number: 1, label: "בחרו מסלול: EOD או Intraday", href: "/apex" },
               { number: 2, label: "עברו על החוקים החשובים" },
-              { number: 3, label: "פתחו חשבון עם NOAM", href: APEX_URL },
+              { number: 3, label: "פתחו חשבון עם NOAM", href: APEX_URL, ctaId: "home_steps" },
             ]}
           />
         </section>
@@ -258,7 +268,7 @@ export default function HomePage() {
             className="text-xl font-bold text-center"
             style={{ color: "var(--text-primary)" }}
           >
-            קוד קופון לפתיחת מבחן
+            קוד הפניה לפתיחת מבחן
           </h2>
           <p className="text-sm text-center" style={{ color: "var(--text-muted)" }}>
             מזינים את הקוד בקופה באתר Apex
@@ -270,6 +280,7 @@ export default function HomePage() {
             variant="primary"
             size="lg"
             external
+            ctaId="home_box"
           />
         </section>
 

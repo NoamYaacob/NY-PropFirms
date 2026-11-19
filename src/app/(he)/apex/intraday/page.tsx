@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/Button";
 import { CouponChip } from "@/components/ui/CouponChip";
 import { PricingTable } from "@/components/ui/PricingTable";
 import { S } from "@/lib/sources";
+import { CONSISTENCY_DEFINITION, CONSISTENCY_LOSING_DAYS } from "@/lib/disclosureCopy";
 import { TierTableWidget } from "@/components/ui/TierTableWidget";
 
 export const metadata: Metadata = {
@@ -293,6 +294,7 @@ export default function IntradayPage() {
             variant="primary"
             size="lg"
             external
+            ctaId="apex_intraday"
           />
         </div>
       </section>
@@ -342,16 +344,8 @@ export default function IntradayPage() {
             source={S.CONSISTENCY_50}
             body={
               <>
-                <p>
-                  היום הרווחי ביותר שלך חייב להיות <strong>פחות מ-50%</strong>{" "}
-                  מסך הרווח הכולל.
-                </p>
-                <p className="mt-2">
-                  כל עוד עברת 50%, כפתור בקשת התשלום לא זמין.
-                </p>
-                <p className="mt-2" style={{ color: "var(--green-400)" }}>
-                  ✅ החישוב מתייחס רק לימים רווחיים.
-                </p>
+                <p>{CONSISTENCY_DEFINITION}</p>
+                <p className="mt-2">{CONSISTENCY_LOSING_DAYS}</p>
               </>
             }
           />
@@ -481,7 +475,7 @@ export default function IntradayPage() {
 
         {/* CTA */}
         <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
-          <Button label="פתח מבחן ב-Apex" href={APEX_URL} variant="primary" external />
+          <Button label="פתח מבחן ב-Apex" href={APEX_URL} variant="primary" external ctaId="apex_intraday_bottom" />
           <CouponChip size="sm" />
         </div>
       </section>

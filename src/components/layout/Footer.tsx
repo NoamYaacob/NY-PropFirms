@@ -52,20 +52,19 @@ export function Footer() {
           }}
         >
           <p>
-            אתר זה אינו שייך ל-Apex Trader Funding ואינו מייצג אותה. המידע מוצג בעברית, על בסיס מסמכי Apex הרשמיים.
-          </p>
-          <p>
-            ייתכן שנקבל עמלת הפניה בעת שימוש בקוד <span dir="ltr">NOAM</span>. אין כאן ייעוץ
-            השקעות. המסחר בחוזים עתידיים כרוך בסיכון גבוה.{" "}
-            <Link
-              href="/about"
-              className="underline hover:text-[var(--text-secondary)]"
-            >
+            אתר עצמאי. האתר אינו שייך ל-Apex Trader Funding ואינו מייצג אותה; אנחנו שותפי הפניה שלה, וייתכן שנקבל עמלה
+            בעת שימוש בקוד <span dir="ltr">NOAM</span> או בקישורי Apex באתר. המידע מוצג בעברית, על בסיס מסמכי Apex הרשמיים. אין כאן ייעוץ השקעות.
+            המסחר בחוזים עתידיים כרוך בסיכון גבוה להפסד. חשבונות ההערכה וה-PA של Apex הם חשבונות מדומים.{" "}
+            <Link href="/about#disclosure" className="underline hover:text-[var(--text-secondary)]">
               גילוי נאות מלא
+            </Link>
+            {" · "}
+            <Link href="/about#privacy" className="underline hover:text-[var(--text-secondary)]">
+              פרטיות ואנליטיקה
             </Link>
           </p>
           <p className="mt-3" style={{ color: "var(--surface-border-strong)" }}>
-            © 2025 NY Prop Firms
+            © {new Date().getFullYear()} NY Prop Firms
           </p>
         </div>
       </div>

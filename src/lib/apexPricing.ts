@@ -1,8 +1,8 @@
 export type PriceRow = {
   size: "25K" | "50K" | "100K" | "150K";
-  /** Full/regular price before discount, e.g. "$177" — null if unavailable */
+  /** Full/regular price, e.g. "$177" — null if unavailable */
   regular: string | null;
-  /** Current/discounted price, e.g. "$26.55" */
+  /** Current price, e.g. "$26.55" */
   discounted: string | null;
 };
 

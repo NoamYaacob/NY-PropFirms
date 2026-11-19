@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Heebo } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { Analytics } from "@vercel/analytics/react";
+import { FirstTouchUtm } from "@/components/analytics/FirstTouchUtm";
 import { Providers } from "@/components/providers/Providers";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { Header } from "@/components/layout/Header";
@@ -63,6 +64,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <Providers>
+          <FirstTouchUtm />
           <Header />
           <main className="pt-16">{children}</main>
           <Footer />

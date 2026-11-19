@@ -2,20 +2,19 @@ import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { ExternalLink } from "lucide-react";
 import { SectionDivider } from "@/components/ui/SectionDivider";
-import { CopyButton } from "@/components/ui/CopyButton";
 import { Button } from "@/components/ui/Button";
 import { WhatsAppButtons } from "@/components/ui/WhatsAppButtons";
-import { SECONDARY_COUPON } from "@/lib/coupons";
+import { ABOUT_DISCLOSURE, PRIVACY_NOTICE } from "@/lib/disclosureCopy";
 
 export const metadata: Metadata = {
   title: "אודות NY Prop Firms — מי אנחנו וגילוי נאות",
   description:
-    "NY Prop Firms הוא מדריך בעברית לכללי Apex Trader Funding. גילוי נאות מלא: אנחנו אתר מידע עצמאי, לא Apex ולא שותפים שלה.",
+    "NY Prop Firms הוא מדריך בעברית לכללי Apex Trader Funding. האתר אינו שייך ל-Apex Trader Funding ואינו מייצג אותה. אנחנו שותפי הפניה (Affiliate) של Apex.",
   alternates: { canonical: "https://ny-propfirms.com/about" },
   openGraph: {
     title: "אודות NY Prop Firms — מי אנחנו וגילוי נאות",
     description:
-      "NY Prop Firms הוא מדריך בעברית לכללי Apex Trader Funding. גילוי נאות מלא: אנחנו אתר מידע עצמאי, לא Apex ולא שותפים שלה.",
+      "NY Prop Firms הוא מדריך בעברית לכללי Apex Trader Funding. האתר אינו שייך ל-Apex Trader Funding ואינו מייצג אותה. אנחנו שותפי הפניה (Affiliate) של Apex.",
     url: "https://ny-propfirms.com/about",
   },
 };
@@ -95,38 +94,31 @@ export default function AboutPage() {
       <SectionDivider variant="subtle" />
 
       {/* Affiliate disclosure */}
-      <section className="mb-8">
+      <section id="disclosure" className="mb-8 scroll-mt-24">
         <h2 className="text-xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>
           גילוי עמלת הפניה
         </h2>
         <div
-          className="rounded-xl p-5 text-sm leading-relaxed space-y-2"
+          className="rounded-xl p-5 text-sm leading-relaxed"
           style={{
             backgroundColor: "var(--gold-900)",
             border: "1px solid var(--gold-edge)",
             color: "var(--text-secondary)",
           }}
         >
-          <p>ייתכן שנקבל עמלת הפניה אם תפתחו חשבון דרך קוד <span dir="ltr">NOAM</span>.</p>
-          <p>אין לכם עלות נוספת בגלל זה.</p>
-          <p>השימוש בקוד הוא בחירה שלכם בלבד.</p>
+          <p>{ABOUT_DISCLOSURE}</p>
         </div>
       </section>
 
       <SectionDivider variant="subtle" />
 
-      {/* Secondary coupon — subtle, fallback only */}
-      <section className="mb-8">
-        <h2 className="text-base font-semibold mb-2" style={{ color: "var(--text-secondary)" }}>
-          קוד נוסף
+      <section id="privacy" className="mb-8 scroll-mt-24">
+        <h2 className="text-xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>
+          פרטיות ואנליטיקה
         </h2>
-        <div className="text-sm leading-relaxed space-y-2" style={{ color: "var(--text-muted)" }}>
-          <p>
-            ברוב המקרים הקוד הראשי הוא <span dir="ltr" className="font-medium">NOAM</span>.
-            אם מסיבה כלשהי הקוד לא מתקבל בקופה, אפשר לנסות גם את <span dir="ltr">TLHCODE</span>.
-          </p>
-          <CopyButton value={SECONDARY_COUPON} label="העתק TLHCODE" size="sm" />
-        </div>
+        <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+          {PRIVACY_NOTICE}
+        </p>
       </section>
 
       <SectionDivider variant="subtle" />

@@ -179,6 +179,15 @@ export function Header() {
             })}
           </nav>
 
+          <Link
+            href="/en"
+            hrefLang="en"
+            lang="en"
+            className="px-2 py-2 text-sm font-medium"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            English
+          </Link>
           <ThemeToggle />
 
           {/* Mobile hamburger */}
