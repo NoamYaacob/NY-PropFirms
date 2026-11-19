@@ -6,6 +6,17 @@ function formatDollars(n: number): string {
   return "$" + Math.round(n).toLocaleString("en-US");
 }
 
+/**
+ * Tenths of a percent in integer space.
+ * Math.round(ratio * 10000) snaps binary noise to the nearest 0.01%
+ * before flooring or ceiling to 0.1%, so the shown tenth is not 0.1 off.
+ */
+function formatTenths(ratio: number, direction: "down" | "up"): string {
+  const hundredths = Math.round(ratio * 10000);
+  const tenths = direction === "down" ? Math.floor(hundredths / 10) : Math.ceil(hundredths / 10);
+  return (tenths / 10).toFixed(1);
+}
+
 /** Same branches as the approved preview calculator, including the exactly-50% edge. */
 export function consistencyMessage(totalRaw: string, biggestRaw: string): string {
   const total = parseFloat(totalRaw);
@@ -16,19 +27,20 @@ export function consistencyMessage(totalRaw: string, biggestRaw: string): string
     }
     return "Enter both numbers.";
   }
-  const percent = (biggest / total) * 100;
+  const ratio = biggest / total;
+  const percent = ratio * 100;
   const needed = biggest / 0.5;
   if (biggest > total) {
     return `Your biggest day is larger than your net profit (losing days reduced it). Consistency: ${percent.toFixed(0)}%. Not met. You need net profit above ${formatDollars(needed)}.`;
   }
   if (percent < 50) {
-    const shown = (Math.floor(percent * 10) / 10).toFixed(1);
+    const shown = formatTenths(ratio, "down");
     return `Consistency: ${shown}%. Below 50%: this rule is met (other payout rules still apply).`;
   }
   if (percent === 50) {
     return "Exactly 50%: treat this as not met. Apex's text says the biggest day must be less than 50%, but its example table marks exactly 50% as met. Trade on until you're below 50%.";
   }
-  const shown = (Math.ceil(percent * 10) / 10).toFixed(1);
+  const shown = formatTenths(ratio, "up");
   return `Consistency: ${shown}%. Not met. You need net profit above ${formatDollars(needed)} (about ${formatDollars(needed - total)} more) without a bigger day.`;
 }
 
