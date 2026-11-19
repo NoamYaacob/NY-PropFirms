@@ -7,7 +7,7 @@ import { SectionDivider } from "@/components/ui/SectionDivider";
 import { TimelineStrip } from "@/components/ui/TimelineStrip";
 import { Accordion, AccordionItem } from "@/components/ui/Accordion";
 import { S } from "@/lib/sources";
-import { CONSISTENCY_DEFINITION, CONSISTENCY_LOSING_DAYS } from "@/lib/disclosureCopy";
+import { CONSISTENCY_DEFINITION, CONSISTENCY_LOSING_DAYS, CONSISTENCY_LOSING_DAYS_CARD } from "@/lib/disclosureCopy";
 import { PayoutTablesWidget } from "@/components/ui/PayoutTablesWidget";
 
 export const metadata: Metadata = {
@@ -162,7 +162,7 @@ export default function PayoutsPage() {
           body={
             <>
               <p>{CONSISTENCY_DEFINITION}</p>
-              <p className="mt-2">{CONSISTENCY_LOSING_DAYS}</p>
+              <p className="mt-2">{CONSISTENCY_LOSING_DAYS_CARD}</p>
             </>
           }
         />

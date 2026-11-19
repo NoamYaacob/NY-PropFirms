@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/Button";
 import { CouponChip } from "@/components/ui/CouponChip";
 import { PricingTable } from "@/components/ui/PricingTable";
 import { S } from "@/lib/sources";
-import { CONSISTENCY_DEFINITION, CONSISTENCY_LOSING_DAYS } from "@/lib/disclosureCopy";
+import { CONSISTENCY_DEFINITION, CONSISTENCY_LOSING_DAYS_CARD } from "@/lib/disclosureCopy";
 import { TierTableWidget } from "@/components/ui/TierTableWidget";
 
 export const metadata: Metadata = {
@@ -401,7 +401,7 @@ export default function EODPage() {
             body={
               <>
                 <p>{CONSISTENCY_DEFINITION}</p>
-                <p className="mt-2">{CONSISTENCY_LOSING_DAYS}</p>
+                <p className="mt-2">{CONSISTENCY_LOSING_DAYS_CARD}</p>
               </>
             }
           />
