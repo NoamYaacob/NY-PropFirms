@@ -114,7 +114,7 @@ export function PricingTable({ type }: PricingTableProps) {
           style={{ borderTop: "1px solid var(--surface-border)" }}
         >
           <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-            המחירים בטבלה הם המחירים שמופיעים באתר Apex. הקוד והקישור לא משנים אף כלל. ל-Apex יש מבצעים משלה, לכן השוו את המחיר בקופה עם הקוד{" "}
+            המחירים בטבלה הם המחירים שמופיעים באתר Apex. במרכז העזרה של Apex הכללים מוגדרים לפי סוג החשבון וגודלו. ל-Apex יש מבצעים משלה, לכן השוו את המחיר בקופה עם הקוד{" "}
             <span dir="ltr" style={{ color: "var(--gold-400)", fontWeight: 600 }}>
               {PRIMARY_COUPON}
             </span>{" "}

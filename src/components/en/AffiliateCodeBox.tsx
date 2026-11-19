@@ -39,7 +39,7 @@ export function AffiliateCodeBox({ position }: { position: "en_home_box" | "en_f
       <div className="space-y-3 text-[15px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>
         <p>
           <strong style={{ color: "var(--text-primary)" }}>I&apos;m an Apex Trader Funding affiliate.</strong> If you use code{" "}
-          <strong style={{ color: "var(--text-primary)" }}>NOAM</strong> at checkout, or buy through the affiliate link below, I may earn a referral commission. NOAM is a referral code, and using it is optional. The code and link don&apos;t change any rule. Apex runs its own promotions, so compare the checkout price with and without the code.
+          <strong style={{ color: "var(--text-primary)" }}>NOAM</strong> at checkout, or buy through the affiliate link below, I may earn a referral commission. NOAM is a referral code, and using it is optional. Apex&apos;s Help Center lists its rules by account type and size. Apex runs its own promotions, so compare the checkout price with and without the code.
         </p>
         <p>
           <span
@@ -71,6 +71,7 @@ export function AffiliateCodeBox({ position }: { position: "en_home_box" | "en_f
             Go to Apex (affiliate link) →
           </GoLink>
         </p>
+        <p>The link may pre-fill a code at checkout. Check which code is applied and compare the total.</p>
         <p className="text-sm" style={{ color: "var(--text-muted)" }}>
           Prices and promotions change often and aren&apos;t shown here on purpose. Read the rules on Apex&apos;s own pages before you buy:{" "}
           <SourceLink id="eod_eval">EOD Evaluations</SourceLink>

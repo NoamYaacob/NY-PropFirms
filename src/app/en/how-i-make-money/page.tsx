@@ -39,14 +39,14 @@ export default function HowIMakeMoneyPage() {
           </h2>
           <p className="text-[15px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>
             I&apos;m an Apex Trader Funding affiliate. When someone buys an eligible Apex account with my code{" "}
-            <strong style={{ color: "var(--text-primary)" }}>NOAM</strong>, or through a link on this site marked &quot;affiliate link&quot;, Apex may pay me a referral fee. NOAM is a referral code, and using it is optional. The code and link don&apos;t change any rule. Apex runs its own promotions, so compare the checkout price with and without the code.
+            <strong style={{ color: "var(--text-primary)" }}>NOAM</strong>, or through a link on this site marked &quot;affiliate link&quot;, Apex may pay me a referral fee. NOAM is a referral code, and using it is optional. Apex&apos;s Help Center lists its rules by account type and size. Apex runs its own promotions, so compare the checkout price with and without the code.
           </p>
         </section>
 
         <EnSection title="What that means for this site">
           <ul className="list-disc ps-5 space-y-1">
             <li>
-              <strong style={{ color: "var(--text-primary)" }}>The rules are the same with or without the code.</strong> The code doesn&apos;t unlock different rules.
+              Apex&apos;s Help Center lists its rules by account type and size.
             </li>
             <li>
               <strong style={{ color: "var(--text-primary)" }}>I don&apos;t claim the code gives a discount.</strong> Apex runs its own promotions; compare the checkout price with and without the code.
@@ -79,7 +79,7 @@ export default function HowIMakeMoneyPage() {
             <a href={URLS.vercel_privacy} target="_blank" rel="noopener noreferrer" className="underline" style={{ color: "var(--teal-400)" }}>
               Vercel Web Analytics privacy
             </a>
-            ). When you click a link to Apex you leave this site, and Apex&apos;s own privacy and cookie policies apply there. Apex may use them to credit the referral.
+            ). Apex&apos;s affiliate link sets an Apex cookie (180 days, per Apex&apos;s own redirect responses) so Apex can credit the referral. Apex&apos;s privacy and cookie policies apply there.
           </p>
         </EnSection>
 

@@ -13,7 +13,7 @@ export function EnFooter() {
     >
       <div className="container-page py-8 space-y-3 text-sm leading-relaxed">
         <p>
-          <strong style={{ color: "var(--text-primary)" }}>#ad · Affiliate disclosure.</strong> NY Prop Firms is independent and is not owned by, operated by, or acting for Apex Trader Funding. I&apos;m an Apex affiliate and may earn a referral commission when you buy with code NOAM or through Apex links marked &quot;affiliate link&quot;. The code and link don&apos;t change any rule. Apex runs its own promotions, so compare the checkout price with and without the code.{" "}
+          <strong style={{ color: "var(--text-primary)" }}>#ad · Affiliate disclosure.</strong> NY Prop Firms is independent and is not owned by, operated by, or acting for Apex Trader Funding. I&apos;m an Apex affiliate and may earn a referral commission when you buy with code NOAM or through Apex links marked &quot;affiliate link&quot;. Apex&apos;s Help Center lists its rules by account type and size. Apex runs its own promotions, so compare the checkout price with and without the code.{" "}
           <Link href="/en/how-i-make-money" className="underline" style={{ color: "var(--teal-400)" }}>
             How I make money
           </Link>

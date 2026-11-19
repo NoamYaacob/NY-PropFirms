@@ -22,10 +22,10 @@ const FAQS: FaqItem[] = [
   },
   {
     q: "Do you earn money from this?",
-    text: "Yes. If you buy with code NOAM or through an affiliate link, Apex may pay me a referral fee. The code and link don't change any rule. Apex runs its own promotions, so compare the checkout price with and without the code. Details",
+    text: "Yes. If you buy with code NOAM or through an affiliate link, Apex may pay me a referral fee. Apex's Help Center lists its rules by account type and size. Apex runs its own promotions, so compare the checkout price with and without the code. Details",
     a: (
       <>
-        Yes. If you buy with code NOAM or through an affiliate link, Apex may pay me a referral fee. The code and link don&apos;t change any rule. Apex runs its own promotions, so compare the checkout price with and without the code.{" "}
+        Yes. If you buy with code NOAM or through an affiliate link, Apex may pay me a referral fee. Apex&apos;s Help Center lists its rules by account type and size. Apex runs its own promotions, so compare the checkout price with and without the code.{" "}
         <Link href="/en/how-i-make-money" className="underline" style={{ color: "var(--teal-400)" }}>
           Details
         </Link>
@@ -34,8 +34,8 @@ const FAQS: FaqItem[] = [
   },
   {
     q: "Does the code change the rules?",
-    text: "No. Rules are the same with or without it.",
-    a: "No. Rules are the same with or without it.",
+    text: "Apex's Help Center lists its rules by account type and size and doesn't list separate rules for referral codes. Check the rules for the exact account you buy.",
+    a: "Apex's Help Center lists its rules by account type and size and doesn't list separate rules for referral codes. Check the rules for the exact account you buy.",
   },
   {
     q: "Does hitting the daily loss limit fail my EOD evaluation?",

@@ -55,7 +55,7 @@ const HOME_FAQ = [
   },
   {
     q: "Does the code change the rules?",
-    a: "No. Rules are the same with or without it.",
+    a: "Apex's Help Center lists its rules by account type and size and doesn't list separate rules for referral codes. Check the rules for the exact account you buy.",
   },
   {
     q: "Does hitting the daily loss limit fail my EOD evaluation?",
@@ -90,7 +90,7 @@ export default function EnglishHomePage() {
               Every rule links to the exact Apex Help Center page it came from. If Apex changes a rule, the official page wins.
             </InfoCard>
             <InfoCard title="Independent, disclosed">
-              Not owned by or acting for Apex. I&apos;m an Apex affiliate (code NOAM). You get the same rules with or without the code.
+              Not owned by or acting for Apex. I&apos;m an Apex affiliate (code NOAM). Apex&apos;s Help Center lists its rules by account type and size.
             </InfoCard>
           </div>
         </EnSection>
