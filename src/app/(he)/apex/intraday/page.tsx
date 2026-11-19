@@ -105,11 +105,7 @@ export default function IntradayPage() {
         </div>
       </div>
 
-      {/* ── PRICING ─────────────────────────────────────────────── */}
-      <h2 className="text-xl font-bold mb-4" style={{ color: "var(--text-primary)" }}>
-        מחירי מבחן Intraday
-      </h2>
-      <PricingTable type="intraday" />
+      <PricingTable />
 
       {/* ── EVALUATION SECTION ────────────────────────────────── */}
       <section id="test">

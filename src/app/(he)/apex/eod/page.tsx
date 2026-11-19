@@ -103,11 +103,7 @@ export default function EODPage() {
         </div>
       </div>
 
-      {/* ── PRICING ─────────────────────────────────────────────── */}
-      <h2 className="text-xl font-bold mb-4" style={{ color: "var(--text-primary)" }}>
-        מחירי מבחן EOD
-      </h2>
-      <PricingTable type="eod" />
+      <PricingTable />
 
       {/* ── EVALUATION ─────────────────────────────────────────── */}
       <section id="evaluation">
