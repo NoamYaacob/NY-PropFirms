@@ -79,7 +79,7 @@ export default function HowIMakeMoneyPage() {
             <a href={URLS.vercel_privacy} target="_blank" rel="noopener noreferrer" className="underline" style={{ color: "var(--teal-400)" }}>
               Vercel Web Analytics privacy
             </a>
-            ). Apex&apos;s affiliate link sets an Apex cookie (180 days, per Apex&apos;s own redirect responses) so Apex can credit the referral. Apex&apos;s privacy and cookie policies apply there.
+            ). Apex&apos;s affiliate link sets an Apex cookie (180 days, per Apex&apos;s own redirect responses) so Apex can credit the referral. When you click through, you leave this site for Apex Trader Funding; their terms, pricing and rules apply there. Apex&apos;s privacy and cookie policies apply there.
           </p>
         </EnSection>
 
