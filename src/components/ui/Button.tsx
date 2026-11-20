@@ -38,7 +38,7 @@ const styles: Record<ButtonVariant, string> = {
 
 const sizes: Record<ButtonSize, string> = {
   lg: "px-6 py-3 text-base rounded-lg",
-  md: "px-5 py-2.5 text-sm rounded-lg",
+  md: "min-h-11 px-5 py-2.5 text-sm rounded-lg",
   sm: "px-4 py-2 text-xs rounded-md",
 };
 

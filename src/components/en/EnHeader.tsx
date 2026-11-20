@@ -37,7 +37,7 @@ export function EnHeader() {
       }}
     >
       <div className="container-page flex items-center justify-between gap-3 min-h-16 py-3">
-        <Link href="/en" className="font-bold text-base tracking-tight shrink-0" style={{ color: "var(--text-primary)" }}>
+        <Link href="/en" className="font-bold text-base tracking-tight min-w-0 leading-tight" style={{ color: "var(--text-primary)" }}>
           <span style={{ color: "var(--gold-300)" }}>NY Prop Firms</span>
           <span className="font-medium" style={{ color: "var(--text-muted)" }}>
             {" "}
@@ -45,7 +45,7 @@ export function EnHeader() {
           </span>
         </Link>
 
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 shrink-0">
           <nav className="hidden lg:flex items-center gap-1" aria-label="Main">
             {NAV.map((item) => {
               const current = isCurrent(pathname, item.href);
@@ -68,7 +68,7 @@ export function EnHeader() {
             href="/"
             hrefLang="he"
             lang="he"
-            className="px-2 py-2 text-sm font-medium"
+            className="inline-flex items-center min-h-11 px-2 text-sm font-medium"
             style={{ color: "var(--text-secondary)" }}
           >
             עברית
@@ -76,7 +76,7 @@ export function EnHeader() {
           <ThemeToggle locale="en" />
           <button
             type="button"
-            className="lg:hidden p-2 rounded-md"
+            className="lg:hidden inline-flex items-center justify-center min-h-11 min-w-11 rounded-md"
             style={{ color: "var(--text-secondary)" }}
             onClick={() => setOpen((value) => !value)}
             aria-label={open ? "Close menu" : "Open menu"}

@@ -13,7 +13,7 @@ export function ThemeToggle({ locale = "he" }: { locale?: "he" | "en" }) {
     <button
       onClick={toggle}
       aria-label={label}
-      className="p-2 rounded-md transition-colors hover:bg-[var(--surface-overlay)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gold-400)]"
+      className="inline-flex items-center justify-center min-h-11 min-w-11 rounded-md transition-colors hover:bg-[var(--surface-overlay)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gold-400)]"
       style={{ color: "var(--text-secondary)" }}
     >
       {isDark ? <Sun size={18} /> : <Moon size={18} />}

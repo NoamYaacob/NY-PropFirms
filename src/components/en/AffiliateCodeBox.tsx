@@ -55,7 +55,7 @@ export function AffiliateCodeBox({ position }: { position: "en_home_box" | "en_f
             <button
               type="button"
               onClick={copyCode}
-              className="font-sans text-xs font-semibold rounded-md px-2.5 py-1.5"
+              className="font-sans text-xs font-semibold rounded-md min-h-11 px-3"
               style={{ backgroundColor: "var(--gold-500)", color: "var(--text-inverse)" }}
             >
               {copied ? "Copied" : "Copy code"}
@@ -65,7 +65,7 @@ export function AffiliateCodeBox({ position }: { position: "en_home_box" | "en_f
         <p>
           <GoLink
             ctaId={position}
-            className="inline-flex items-center font-semibold rounded-lg px-4 py-2.5 text-sm"
+            className="inline-flex items-center font-semibold rounded-lg min-h-11 px-4 py-2.5 text-sm"
             style={{ backgroundColor: "var(--gold-500)", color: "var(--text-inverse)" }}
           >
             Go to Apex (affiliate link) →
