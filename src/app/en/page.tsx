@@ -160,7 +160,7 @@ export default function EnglishHomePage() {
               <strong style={{ color: "var(--text-primary)" }}>Minimum balance.</strong> Already includes the safety net and the $500 minimum payout.
             </li>
             <li>
-              <strong style={{ color: "var(--text-primary)" }}>50% consistency.</strong> No single profitable day can be 50% or more of your profit since your last approved payout. If it is, the request option stays hidden until it isn&apos;t.{" "}
+              <strong style={{ color: "var(--text-primary)" }}>50% consistency.</strong> A payout gate on the Performance Account (evaluations: &quot;Not Applied&quot;). Apex compares your best single day with 50% of your net profit since your last approved payout; losing days count. If the check isn&apos;t met, the request option stays hidden and the account stays active. For exactly how the cutoff is applied, see <SourceLink id="consist">Apex&apos;s consistency page</SourceLink>.{" "}
               <Link href="/en/apex-payouts#calculator" className="underline" style={{ color: "var(--teal-400)" }}>
                 Try the calculator →
               </Link>
@@ -213,7 +213,7 @@ export default function EnglishHomePage() {
               <strong style={{ color: "var(--text-primary)" }}>Daily loss limit:</strong> none, a session pause, or a hard fail.
             </li>
             <li>
-              <strong style={{ color: "var(--text-primary)" }}>Consistency rule:</strong> a cap on how much of your profit one day can be.
+              <strong style={{ color: "var(--text-primary)" }}>Consistency rule:</strong> a payout gate on the Performance Account that compares your best single day with 50% of your net profit since the last approved payout.
             </li>
             <li>
               <strong style={{ color: "var(--text-primary)" }}>Minimum days and payout timing:</strong> how many qualifying days before a request.

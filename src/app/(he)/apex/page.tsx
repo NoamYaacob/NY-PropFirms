@@ -7,6 +7,7 @@ import { ComparisonBlock, ComparisonRow } from "@/components/ui/ComparisonBlock"
 import { Accordion, AccordionItem } from "@/components/ui/Accordion";
 import { Button } from "@/components/ui/Button";
 import { CouponChip } from "@/components/ui/CouponChip";
+import { CONSISTENCY_TABLE_CELL } from "@/lib/disclosureCopy";
 
 export const metadata: Metadata = {
   title: "Apex Trader Funding בעברית — כל הכללים | NY Prop Firms",
@@ -81,8 +82,8 @@ const COMPARISON_ROWS: ComparisonRow[] = [
   },
   {
     feature: "חוק עקביות ב-PA",
-    eodValue: "היום הרווחי ביותר < 50% מהרווח הנטו מאז התשלום האחרון",
-    intradayValue: "היום הרווחי ביותר < 50% מהרווח הנטו מאז התשלום האחרון",
+    eodValue: CONSISTENCY_TABLE_CELL,
+    intradayValue: CONSISTENCY_TABLE_CELL,
   },
   {
     feature: "מספר תשלומים מקסימלי",

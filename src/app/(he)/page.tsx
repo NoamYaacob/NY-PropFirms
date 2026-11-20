@@ -28,6 +28,7 @@ import { CouponChip } from "@/components/ui/CouponChip";
 import { ComparisonBlock, ComparisonRow } from "@/components/ui/ComparisonBlock";
 import { StepFlowStrip } from "@/components/ui/StepFlowStrip";
 import { WhatsAppButtons } from "@/components/ui/WhatsAppButtons";
+import { CONSISTENCY_TABLE_CELL } from "@/lib/disclosureCopy";
 const APEX_URL = "https://apextraderfunding.com/member/aff/go/noamyaacob?c=BSQTZBMJ";
 
 const COMPARISON_ROWS: ComparisonRow[] = [
@@ -75,8 +76,8 @@ const COMPARISON_ROWS: ComparisonRow[] = [
   },
   {
     feature: "חוק עקביות ב-PA",
-    eodValue: "היום הרווחי ביותר < 50% מהרווח הנטו מאז התשלום האחרון",
-    intradayValue: "היום הרווחי ביותר < 50% מהרווח הנטו מאז התשלום האחרון",
+    eodValue: CONSISTENCY_TABLE_CELL,
+    intradayValue: CONSISTENCY_TABLE_CELL,
   },
   {
     feature: "מספר תשלומים מקסימלי",

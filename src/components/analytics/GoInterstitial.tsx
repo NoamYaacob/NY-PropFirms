@@ -58,8 +58,10 @@ export function GoInterstitial() {
       <p className="text-sm leading-relaxed mt-2" lang="he" dir="rtl" style={{ color: "var(--text-secondary)" }}>
         הקישור עשוי למלא קוד בקופה באופן אוטומטי. בדקו איזה קוד הוזן והשוו את הסכום.
       </p>
-      <p className="text-sm leading-relaxed mt-3" style={{ color: "var(--text-secondary)" }}>
-        Futures trading involves substantial risk of loss. Apex accounts are simulated. · המסחר בחוזים עתידיים כרוך בסיכון גבוה להפסד. חשבונות Apex הם חשבונות מדומים.
+      <p className="text-sm leading-relaxed mt-3" dir="ltr" style={{ color: "var(--text-secondary)" }}>
+        <span lang="en" dir="ltr">Futures trading involves substantial risk of loss. Apex accounts are simulated.</span>
+        {" · "}
+        <span lang="he" dir="rtl">המסחר בחוזים עתידיים כרוך בסיכון גבוה להפסד. חשבונות Apex הם חשבונות מדומים.</span>
       </p>
       <p className="mt-6 text-base font-semibold" style={{ color: "var(--text-primary)" }}>
         Continuing to Apex…

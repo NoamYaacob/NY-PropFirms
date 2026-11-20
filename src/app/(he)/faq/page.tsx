@@ -5,7 +5,7 @@ import { Accordion, AccordionItem } from "@/components/ui/Accordion";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { CouponChip } from "@/components/ui/CouponChip";
 import { Button } from "@/components/ui/Button";
-import { FAQ_WHAT_IS_NOAM, FAQ_WHAT_IS_SITE } from "@/lib/disclosureCopy";
+import { CONSISTENCY_DEFINITION, CONSISTENCY_LOSING_DAYS, FAQ_WHAT_IS_NOAM, FAQ_WHAT_IS_SITE } from "@/lib/disclosureCopy";
 
 export const metadata: Metadata = {
   title: "שאלות נפוצות על Apex Trader Funding בעברית | NY Prop Firms",
@@ -104,12 +104,12 @@ const PA: AccordionItem[] = [
   {
     id: "p1",
     trigger: "מה זה חוק עקביות 50%?",
-    content: "היום הרווחי ביותר שלך חייב להיות פחות מ-50% מהרווח הנטו מאז התשלום האחרון שאושר (או מפתיחת החשבון). כל עוד עברת 50%, כפתור בקשת התשלום לא זמין.",
+    content: CONSISTENCY_DEFINITION,
   },
   {
     id: "p2",
     trigger: "האם ימי הפסד פוגעים בחוק עקביות 50%?",
-    content: "כן. החישוב מתבסס על הרווח הנטו מאז התשלום האחרון שאושר (או מפתיחת החשבון), כך שימי הפסד מקטינים את הרווח הנטו ומקשים לעמוד בכלל. לדוגמה: יום של \u200e+$1,000 ואחריו יום של \u200e\u2212$200 נותנים \u200e$1,000 \u00f7 $800 = 125%, כלומר הכלל לא מתקיים עדיין.",
+    content: CONSISTENCY_LOSING_DAYS,
   },
   {
     id: "p3",

@@ -1,3 +1,4 @@
+import { CONSISTENCY_DEFINITION, CONSISTENCY_LOSING_DAYS_CARD } from "@/lib/disclosureCopy";
 // ── Bot configuration ────────────────────────────────────────────────
 export const BOT_CONFIG = {
   fullName: "עוזר AI של NY Prop Firms",
@@ -110,7 +111,7 @@ function makeAfter6(): BotResponse {
 
 function makeConsistency(): BotResponse {
   return {
-    text: "**חוק עקביות 50%:**\n\nהיום הרווחי ביותר שלך חייב להיות פחות מ-50% מהרווח הנטו מאז התשלום האחרון שאושר (או מפתיחת החשבון). כל עוד עברת 50%, כפתור בקשת התשלום לא זמין.\n\nימי הפסד נספרים: החישוב מתבסס על הרווח הנטו מאז התשלום האחרון שאושר (או מפתיחת החשבון), כך שימי הפסד מקטינים את הרווח הנטו ומקשים לעמוד בכלל. לדוגמה: יום של \u200e+$1,000 ואחריו יום של \u200e\u2212$200 נותנים \u200e$1,000 \u00f7 $800 = 125%, כלומר הכלל לא מתקיים עדיין.",
+    text: "**חוק עקביות 50%:**\n\n" + CONSISTENCY_DEFINITION + "\n\n" + CONSISTENCY_LOSING_DAYS_CARD,
     chips: ["איך עובדים התשלומים?", "מה זה Safety Net?"],
   };
 }

@@ -71,7 +71,7 @@ export default function ApexPayoutsPage() {
               <strong style={{ color: "var(--text-primary)" }}>The safety net stays for the life of the PA.</strong> Only profit above it can be withdrawn.
             </li>
             <li>
-              <strong style={{ color: "var(--text-primary)" }}>50% consistency:</strong> no single profitable day can be 50% or more of your net profit since your last approved payout. It resets after each approved payout.
+              <strong style={{ color: "var(--text-primary)" }}>50% consistency:</strong> Apex compares your largest profitable day with 50% of your net profit since your last approved payout (or since the account started, if none has been approved). Losing days count, because the figure is net profit. If the check isn&apos;t met, the request button stays hidden and the account stays active. For exactly how the cutoff is applied, see <SourceLink id="consist">Apex&apos;s 50% Consistency Requirement page</SourceLink>.
             </li>
             <li>
               <strong style={{ color: "var(--text-primary)" }}>Max 6 payouts per PA</strong>, each with a cap. After the sixth, the PA closes.
@@ -134,10 +134,10 @@ export default function ApexPayoutsPage() {
 
         <EnSection title="Worked example: consistency (50K, illustrative)">
           <p>
-            Since your last payout you made +$400, +$300, +$900, +$500, +$300 = $2,400. Biggest day: $900. $900 ÷ $2,400 = 37.5%, below 50%: the consistency rule is met. If the $900 day had been $1,300, you&apos;d be at $2,800 total and $1,300 ÷ $2,800 = 46.4%, still met. In a different stretch, one $1,500 day inside a $2,900 total would be 51.7%: not met yet.
+            Since your last approved payout you made +$400, +$300, +$900, +$500, +$300 = $2,400. Biggest day: $900. $900 ÷ $2,400 = 37.5%, below the 50% reference. If the $900 day had been $2,100 instead, net profit would be $3,600 and $2,100 ÷ $3,600 = 58.3%, above it: the payout request option would likely stay hidden. A losing day lowers net profit and raises the share. For exactly how the cutoff is applied, see <SourceLink id="consist">Apex&apos;s 50% Consistency page</SourceLink>.
           </p>
           <SourceLine>
-            Formula from <SourceLink id="consist">Apex&apos;s 50% Consistency page</SourceLink>. Numbers are illustrative, not results.
+            Comparison from <SourceLink id="consist">Apex&apos;s 50% Consistency page</SourceLink>. Numbers are illustrative, not results.
           </SourceLine>
         </EnSection>
       </div>
