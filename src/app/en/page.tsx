@@ -81,6 +81,18 @@ export default function EnglishHomePage() {
       </EnHero>
 
       <div className="container-page py-8">
+        <Link
+          href="/en/apex-payouts#calculator"
+          className="card block p-4 mb-5"
+          style={{ color: "inherit" }}
+        >
+          <span className="block font-semibold" style={{ color: "var(--text-primary)" }}>
+            Consistency calculator
+          </span>
+          <span className="block text-sm mt-1" style={{ color: "var(--text-secondary)" }}>
+            Check your best day against 50% of net profit since the last approved payout. Exact cutoff: Apex&apos;s consistency page.
+          </span>
+        </Link>
         <EnSection id="what" title="What this site is">
           <div className="grid gap-3 md:grid-cols-3">
             <InfoCard title="Plain English">
@@ -128,7 +140,7 @@ export default function EnglishHomePage() {
               Your drawdown level is calculated once per day from your closing balance and enforced in real time during the next session. A fixed daily loss limit pauses trading for the rest of the session when hit; it doesn&apos;t fail the evaluation. Touching the drawdown level does.
             </InfoCard>
             <InfoCard title="Intraday trailing drawdown">
-              Your drawdown level follows your highest balance in real time, <em>including open (unrealized) profit</em>, and never moves down. There&apos;s no daily loss limit in the evaluation; the trailing level is the only brake.
+              Your drawdown level follows your highest balance in real time, <em>including open (unrealized) profit</em>, and never moves down. There&apos;s no daily loss limit in the evaluation; crossing the trailing drawdown level can fail the evaluation.
             </InfoCard>
           </div>
           <h3 className="text-lg font-semibold" style={{ color: "var(--text-primary)" }}>

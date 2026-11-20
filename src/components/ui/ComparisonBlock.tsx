@@ -21,7 +21,7 @@ export function ComparisonBlock({ rows, compact = false, showSources = true }: C
     >
       {/* Header */}
       <div
-        className="grid grid-cols-3 text-xs font-semibold uppercase tracking-wider"
+        className="hidden sm:grid grid-cols-3 text-xs font-semibold uppercase tracking-wider"
         style={{
           backgroundColor: "var(--surface-overlay)",
           color: "var(--text-secondary)",
@@ -37,7 +37,7 @@ export function ComparisonBlock({ rows, compact = false, showSources = true }: C
       {rows.map((row, i) => (
         <div
           key={i}
-          className="grid grid-cols-3 items-center border-b last:border-b-0"
+          className="grid grid-cols-1 sm:grid-cols-3 items-start sm:items-center border-b last:border-b-0"
           style={{
             borderColor: "var(--surface-border)",
             backgroundColor: i % 2 === 0 ? "var(--surface-raised)" : "var(--surface-subtle)",
@@ -50,15 +50,17 @@ export function ComparisonBlock({ rows, compact = false, showSources = true }: C
             {row.feature}
           </div>
           <div
-            className="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-center"
+            className="px-2 sm:px-4 py-2 sm:py-3 text-sm sm:text-sm sm:text-center"
             style={{ color: "var(--text-secondary)" }}
           >
+            <span className="sm:hidden font-medium" style={{ color: "#7EA0FF" }}>EOD · </span>
             {row.eodValue}
           </div>
           <div
-            className="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-center"
+            className="px-2 sm:px-4 py-2 sm:py-3 text-sm sm:text-center"
             style={{ color: "var(--text-secondary)" }}
           >
+            <span className="sm:hidden font-medium" style={{ color: "var(--teal-400)" }}>Intraday · </span>
             {row.intradayValue}
             {showSources && row.source && <SourceBadge {...row.source} short />}
           </div>

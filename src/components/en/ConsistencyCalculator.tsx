@@ -48,7 +48,7 @@ export function ConsistencyCalculator() {
       </h2>
       <div className="space-y-3 text-[15px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>
         <p>
-          Enter your net profit since your last approved payout (or since the account started), after subtracting losing days, and your biggest single profitable day in that period.
+          Enter your net profit since your last approved payout (or since the account started), including losing days, and your biggest single profitable day in that period.
         </p>
         <div className="grid gap-3 sm:grid-cols-2">
           <label className="block text-sm" style={{ color: "var(--text-muted)" }} htmlFor="tot">

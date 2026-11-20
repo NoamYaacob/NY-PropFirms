@@ -48,6 +48,9 @@ export default function SourcesPage() {
           <p>
             When Apex updates a page, the official page wins. &quot;Page updated&quot; is the last-modified date Apex&apos;s site reports for that page (US Eastern).
           </p>
+          <p className="sm:hidden text-xs" style={{ color: "var(--text-muted)" }}>
+            Swipe for more →
+          </p>
           <div className="overflow-x-auto my-3">
             <table className="w-full min-w-[520px] text-sm border-collapse">
               <thead>

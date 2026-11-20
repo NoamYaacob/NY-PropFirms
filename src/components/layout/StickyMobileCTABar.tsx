@@ -47,7 +47,7 @@ export function StickyMobileCTABar() {
           label="פתח ב-Apex"
           href={APEX_URL}
           variant="primary"
-          size="sm"
+          size="md"
           external
           ctaId="sticky_bar"
         />

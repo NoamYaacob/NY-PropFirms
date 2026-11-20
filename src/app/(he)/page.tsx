@@ -188,6 +188,9 @@ export default function HomePage() {
               ctaId="home_hero"
             />
           </div>
+          <p className="text-xs text-center max-w-md" style={{ color: "var(--text-muted)" }}>
+            המסחר בחוזים עתידיים כרוך בסיכון גבוה להפסד. חשבונות ההערכה וה-PA של Apex הם חשבונות מדומים.
+          </p>
 
           <CouponChip size="sm" />
           <AffiliateNote />
@@ -195,6 +198,18 @@ export default function HomePage() {
       </section>
 
       <div className="container-page pb-4">
+        <Link
+          href="/en/apex-payouts#calculator"
+          className="card block p-4 mb-8"
+          style={{ color: "inherit" }}
+        >
+          <span className="block font-semibold" style={{ color: "var(--text-primary)" }}>
+            מחשבון עקביות
+          </span>
+          <span className="block text-sm mt-1" style={{ color: "var(--text-secondary)" }}>
+            בדקו את היום הטוב ביותר מול 50% מהרווח הנטו מאז התשלום האחרון שאושר. הסף המדויק: בעמוד העקביות של Apex.
+          </span>
+        </Link>
         {/* ── Step Flow ─────────────────────────────────────── */}
         <section className="mb-16">
           <StepFlowStrip

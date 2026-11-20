@@ -192,7 +192,7 @@ export function Header() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 rounded-md"
+            className="md:hidden inline-flex items-center justify-center min-h-11 min-w-11 rounded-md"
             style={{ color: "var(--text-secondary)" }}
             onClick={() => setMobileOpen((v) => !v)}
             aria-label="תפריט"

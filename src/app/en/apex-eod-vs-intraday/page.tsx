@@ -88,7 +88,7 @@ export default function EodVsIntradayPage() {
               <strong style={{ color: "var(--text-primary)" }}>Do you often let winners run, then give some back?</strong> Intraday trailing counts the open peak, so that habit eats your room. EOD only counts what you close with.
             </li>
             <li>
-              <strong style={{ color: "var(--text-primary)" }}>Do you sometimes have one day where everything goes wrong?</strong> In an EOD evaluation, the daily loss limit stops the day before it gets worse. In an Intraday evaluation, only the trailing level stops you.
+              <strong style={{ color: "var(--text-primary)" }}>Do you sometimes have one day where everything goes wrong?</strong> In an EOD evaluation, the daily loss limit stops the day before it gets worse. In an Intraday evaluation, only the trailing drawdown level can fail the evaluation.
             </li>
           </ol>
           <Warn>

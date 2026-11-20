@@ -24,8 +24,65 @@ export function RuleTable({
   rows: string[][];
   foot?: string[];
 }) {
+  const valueHeads = head.slice(1);
+  const cardPerSize = valueHeads.length >= 4;
+
   return (
-    <div className="overflow-x-auto my-3 -mx-1">
+    <div className="my-3">
+      <div className="sm:hidden space-y-3">
+        {cardPerSize
+          ? valueHeads.map((sizeLabel, col) => (
+              <div
+                key={`${sizeLabel}-${col}`}
+                className="rounded-lg p-3"
+                style={{ border: "1px solid var(--surface-border)", backgroundColor: "var(--surface-overlay)" }}
+              >
+                <p className="font-semibold mb-2" style={{ color: "var(--text-primary)" }}>
+                  {sizeLabel}
+                </p>
+                <dl className="space-y-1.5 text-sm">
+                  {rows.map((row) => (
+                    <div key={row[0]} className="flex justify-between gap-3">
+                      <dt style={{ color: "var(--text-primary)" }}>{row[0]}</dt>
+                      <dd className="text-right whitespace-nowrap tabular-nums" style={{ color: "var(--text-secondary)" }}>
+                        {row[col + 1]}
+                      </dd>
+                    </div>
+                  ))}
+                  {foot && foot[col + 1] ? (
+                    <div className="flex justify-between gap-3 font-semibold">
+                      <dt style={{ color: "var(--text-primary)" }}>{foot[0]}</dt>
+                      <dd className="text-right whitespace-nowrap tabular-nums" style={{ color: "var(--text-primary)" }}>
+                        {foot[col + 1]}
+                      </dd>
+                    </div>
+                  ) : null}
+                </dl>
+              </div>
+            ))
+          : rows.map((row) => (
+              <div
+                key={row[0]}
+                className="rounded-lg p-3"
+                style={{ border: "1px solid var(--surface-border)", backgroundColor: "var(--surface-overlay)" }}
+              >
+                <p className="font-semibold mb-2" style={{ color: "var(--text-primary)" }}>
+                  {row[0]}
+                </p>
+                <dl className="space-y-1.5 text-sm">
+                  {valueHeads.map((label, col) => (
+                    <div key={label}>
+                      <dt className="text-xs" style={{ color: "var(--text-muted)" }}>
+                        {label}
+                      </dt>
+                      <dd style={{ color: "var(--text-secondary)" }}>{row[col + 1]}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            ))}
+      </div>
+      <div className="hidden sm:block overflow-x-auto -mx-1">
       <table className="w-full min-w-[520px] text-sm border-collapse">
         <thead>
           <tr style={{ backgroundColor: "var(--surface-overlay)" }}>
@@ -78,6 +135,7 @@ export function RuleTable({
           </tfoot>
         ) : null}
       </table>
+      </div>
     </div>
   );
 }
