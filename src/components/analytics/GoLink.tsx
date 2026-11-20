@@ -7,12 +7,14 @@ import { track } from "@/lib/track";
 
 type Props = {
   ctaId: string;
+  /** Visible-name override for open_apex_cta_click. Defaults to the sanitized ctaId. */
+  trackLabel?: string;
   className?: string;
   style?: CSSProperties;
   children: ReactNode;
 };
 
-export function GoLink({ ctaId, className, style, children }: Props) {
+export function GoLink({ ctaId, trackLabel, className, style, children }: Props) {
   const pathname = usePathname();
   const fallback = sanitizeSrc(ctaId) ?? "unknown";
   const [href, setHref] = useState(goPath(fallback));
@@ -32,7 +34,7 @@ export function GoLink({ ctaId, className, style, children }: Props) {
         event.currentTarget.href = goPath(resolveGoSrc(ctaId));
       }}
       onClick={() => {
-        track("open_apex_cta_click", { label: fallback, page: pathname });
+        track("open_apex_cta_click", { label: trackLabel ?? fallback, page: pathname });
       }}
     >
       {children}

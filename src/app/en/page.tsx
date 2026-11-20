@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { AffiliateCodeBox } from "@/components/en/AffiliateCodeBox";
+import { GoLink } from "@/components/analytics/GoLink";
 import { EnHero, EnSection, InfoCard, Note, RuleTable, SourceLine, SourceLink } from "@/components/en/blocks";
 import { SIZES } from "@/lib/en/links";
 import { enMetadata } from "@/lib/en/metadata";
@@ -90,7 +91,7 @@ export default function EnglishHomePage() {
             Consistency calculator
           </span>
           <span className="block text-sm mt-1" style={{ color: "var(--text-secondary)" }}>
-            Check your best day against 50% of net profit since the last approved payout. Exact cutoff: Apex&apos;s consistency page.
+            PA payout gate: compare your best single day with 50% of net profit since the last approved payout. Losing days count. Exact cutoff: Apex&apos;s consistency page.
           </span>
         </Link>
         <EnSection id="what" title="What this site is">
@@ -161,6 +162,34 @@ export default function EnglishHomePage() {
             </Link>
           </p>
         </EnSection>
+
+        <section className="card p-5 md:p-6 mb-5" aria-labelledby="en-mid-cta-h">
+          <h2 id="en-mid-cta-h" className="text-2xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>
+            If you decide to use Apex
+          </h2>
+          <p className="text-[15px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+            Code NOAM is optional. Compare the checkout total yourself. This page does not claim a discount, a price, or that codes can be stacked.
+          </p>
+          <p className="text-[15px] leading-relaxed mt-3" style={{ color: "var(--text-secondary)" }}>
+            Ad: I earn a commission if you use my code NOAM.
+          </p>
+          <p className="text-[15px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+            Disclosure: I&apos;m an Apex affiliate.
+          </p>
+          <p className="text-[15px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+            Not advice. Futures trading involves substantial risk of loss. Evals and PAs are simulated.
+          </p>
+          <p className="mt-4">
+            <GoLink
+              ctaId="en_mid_cta"
+              trackLabel="Explore Apex Accounts"
+              className="inline-flex items-center font-semibold rounded-lg min-h-11 px-4 py-2.5 text-sm"
+              style={{ backgroundColor: "var(--gold-500)", color: "var(--text-inverse)" }}
+            >
+              Explore Apex Accounts
+            </GoLink>
+          </p>
+        </section>
 
         <EnSection id="pay" title="Getting paid: the four numbers that matter (EOD Performance Account)">
           <RuleTable head={EOD_PAY.head} rows={EOD_PAY.rows} />
