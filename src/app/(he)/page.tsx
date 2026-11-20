@@ -188,8 +188,8 @@ export default function HomePage() {
               ctaId="home_hero"
             />
           </div>
-          <p className="text-xs text-center max-w-md" style={{ color: "var(--text-muted)" }}>
-            המסחר בחוזים עתידיים כרוך בסיכון גבוה להפסד. חשבונות ההערכה וה-PA של Apex הם חשבונות מדומים.
+          <p className="text-[15px] leading-relaxed text-center max-w-md" style={{ color: "var(--text-secondary)" }}>
+            לא ייעוץ. המסחר בחוזים עתידיים כרוך בסיכון גבוה להפסד. חשבונות ההערכה וה-PA של Apex הם חשבונות מדומים.
           </p>
 
           <CouponChip size="sm" />
