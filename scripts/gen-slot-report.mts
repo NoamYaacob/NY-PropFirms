@@ -2,7 +2,7 @@
 // Generated report: route -> token -> declared context -> rendered lines -> records rendered.
 import { writeFileSync } from "node:fs";
 import { SITE_DATA_RECORDS } from "../src/data/apexRecords.ts";
-import { ctxFor } from "../src/components/copy/slotContext.ts";
+import { ctxFor, distinctKeysOnLine } from "../src/components/copy/slotContext.ts";
 import { lineText, resolveSlot } from "../src/components/copy/slotModel.ts";
 import { listTokenSites } from "../src/components/copy/slotEnumerate.ts";
 
@@ -14,7 +14,7 @@ let lineCount = 0;
 const body: string[] = [];
 for (const s of listTokenSites()) {
   const ctx = ctxFor(s.page, s.token, s.line)!;
-  const lines = resolveSlot(s.token, ctx);
+  const lines = resolveSlot(s.token, ctx, distinctKeysOnLine(s.page, s.line).length);
   for (const l of lines) {
     lineCount++;
     if (!l.body && !l.link && !l.links?.length) empty++;
