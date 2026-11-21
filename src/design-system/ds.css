@@ -1762,7 +1762,7 @@ div[id] {
 .ds-slot-line {
   display: inline;
   color: var(--ds-strong);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .ds-slot-line {

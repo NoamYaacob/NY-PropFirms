@@ -112,13 +112,18 @@ function SlotKey({ k }: { k: string }): ReactNode {
       let v: unknown = r.value;
       if (field && v && typeof v === "object") v = (v as Record<string, unknown>)[field];
       if (r.value_type === "absent_by_rule") {
-        bits.push("none (no Daily Loss Limit)");
+        bits.push(r.applies_to.size !== "all" ? `${r.applies_to.size} none (no Daily Loss Limit)` : "none (no Daily Loss Limit)");
         continue;
       }
       if (v == null || typeof v === "object") continue;
       if (r.derived_from) derived = true;
+      if (typeof v === "string" && v.length > 70) continue; // long RI paraphrases stay out; the page copy carries the meaning, the chip carries the source
       const text = typeof v === "number" ? (field?.includes("profit") || r.unit?.startsWith("USD") ? usd(v) : fmt(r, v)) : String(v);
       bits.push(r.applies_to.size !== "all" ? `${r.applies_to.size} ${text}` : text);
+    }
+    if (bits.length > 1 && list.every((r) => r.applies_to.size !== "all")) {
+      const vals = bits.map((b) => b.slice(b.indexOf(" ") + 1));
+      if (vals.every((x) => x === vals[0])) bits.splice(0, bits.length, `all sizes ${vals[0]}`);
     }
     if (!bits.length) continue;
     parts.push(
