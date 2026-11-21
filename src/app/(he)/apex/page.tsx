@@ -163,7 +163,21 @@ export default function ApexHubPage() {
             >
               Legacy Products
             </a>
-            , מופיעה כעת גם הצעה לזמן מוגבל. בדקו באתר Apex מה זמין כעת. חשבונות Legacy כפופים לחוקים נפרדים.
+            <span dir="ltr">
+              {" ("}
+              <a
+                href="https://apextraderfunding.com/help-center/legacy-products/legacy-products-overview/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 whitespace-nowrap"
+                style={{ color: "var(--teal-400)" }}
+              >
+                Legacy Products Overview
+              </a>
+              {")"}
+            </span>
+            <span dir="rtl">,</span>
+            {" מופיעה כעת גם הצעה לזמן מוגבל. בדקו באתר Apex מה זמין כעת. חשבונות Legacy כפופים לחוקים נפרדים."}
           </>
         }
       />

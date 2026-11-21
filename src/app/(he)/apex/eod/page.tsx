@@ -342,7 +342,7 @@ export default function EODPage() {
                     ))}
                   </tbody>
                 </table>
-                <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                <p className="text-[15px]" style={{ color: "var(--text-primary)" }}>
                   רף ה-<span dir="ltr">EOD</span> מחושב לפי יתרת סוף יום, ונאכף בזמן אמת בסשן הבא. הרף עולה כשיש שיא חדש בסוף יום, ואינו יורד. זה שונה מרף ה-<span dir="ltr">Intraday</span>, שנגרר בזמן אמת.
                 </p>
               </div>
@@ -536,7 +536,7 @@ export default function EODPage() {
                     ))}
                   </tbody>
                 </table>
-                <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                <p className="text-[15px]" style={{ color: "var(--text-primary)" }}>
                   רף ה-<span dir="ltr">EOD</span> מחושב פעם ביום לפי יתרת סוף היום הגבוהה ביותר (ב-<span dir="ltr">4:59:59 PM ET</span>), ונאכף בזמן אמת בסשן הבא. הרף עולה כשיש שיא חדש בסוף יום, ואינו יורד. ב-<span dir="ltr">PA</span>, כשהרף מגיע ליתרת הפתיחה בתוספת <span dir="ltr">$100</span> — למשל <span dir="ltr">$50,100</span> בחשבון <span dir="ltr">50K</span> — הוא נעצר ונשאר קבוע. בחשבון <span dir="ltr">50K</span> זה קורה כשיתרת סוף היום הגבוהה ביותר מגיעה ל-<span dir="ltr">$52,100</span>.
                 </p>
               </div>
