@@ -1,0 +1,6 @@
+{
+  "generated_by": "compliance/tools/validate_prices.py --gate",
+  "generated_for": "NY-PropFirms build",
+  "gate_result": "0 of 126 rows displayable at generation time (2026-11-21)",
+  "rows": []
+}

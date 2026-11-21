@@ -2,39 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-/**
- * Fetch Heebo Bold from Google Fonts with a hard 4-second timeout.
- * Returns null on any failure so the route still renders (Latin fallback).
- */
-async function loadHeebo(): Promise<ArrayBuffer | null> {
-  try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 4000);
-
-    const css = await fetch(
-      "https://fonts.googleapis.com/css2?family=Heebo:wght@700",
-      {
-        signal: controller.signal,
-        headers: { "User-Agent": "Mozilla/5.0 (compatible; Next.js OG)" },
-      }
-    ).then((r) => r.text());
-
-    clearTimeout(timer);
-
-    const url = css.match(/url\(([^)]+woff2[^)]*)\)/)?.[1];
-    if (!url) return null;
-
-    return fetch(url, { signal: AbortSignal.timeout(4000) }).then((r) =>
-      r.arrayBuffer()
-    );
-  } catch {
-    return null;
-  }
-}
-
 export async function GET() {
-  const fontData = await loadHeebo();
-
   const img = new ImageResponse(
     (
       <div
@@ -47,7 +15,7 @@ export async function GET() {
           alignItems: "center",
           justifyContent: "center",
           position: "relative",
-          fontFamily: "Heebo, sans-serif",
+          fontFamily: "sans-serif",
         }}
       >
         {/* Top gold accent bar — backgroundImage required for gradients in Satori */}
@@ -94,17 +62,16 @@ export async function GET() {
           </span>
         </div>
 
-        {/* Hebrew subtitle */}
+        {/* English subtitle (no Hebrew, no external font fetch) */}
         <div
           style={{
             fontSize: 42,
             fontWeight: 700,
             color: "#EAEAF0",
             marginBottom: "24px",
-            direction: "rtl",
           }}
         >
-          המדריך הישראלי לחברות פרופ
+          Futures prop rules, decoded
         </div>
 
         {/* Supporting line */}
@@ -136,9 +103,6 @@ export async function GET() {
     {
       width: 1200,
       height: 630,
-      fonts: fontData
-        ? [{ name: "Heebo", data: fontData, weight: 700, style: "normal" }]
-        : [],
     }
   );
 
