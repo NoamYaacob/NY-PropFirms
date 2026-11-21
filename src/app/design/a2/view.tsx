@@ -9,12 +9,12 @@ import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 /* Canonical strings, per compliance/en_site_rules_policy.md v2. */
 const HDR_BAR = "#ad · Affiliate site: I may earn a commission if you use code NOAM or an affiliate link. Not financial advice.";
-const DISC_LINE = "Disclosure: I’m an Apex affiliate.";
+const DISC_LINE = "Disclosure: I'm an Apex affiliate.";
 const AD_LINE = "Ad: I earn a commission if you use my code NOAM.";
 const CODE_CAVEAT = "Code NOAM is optional. Compare the checkout total yourself. This page does not claim a discount, or that codes can be stacked.";
 const RISK_COMPACT = "Not advice. Futures trading involves substantial risk of loss. Evals and PAs are simulated.";
 const FTR_FULL =
-  "#ad · Affiliate disclosure: Independent site, not affiliated with or endorsed by Apex Trader Funding. I earn a commission if you use code NOAM or an affiliate link. Apex’s Help Center lists its rules by account type and size. Not financial or investment advice. Futures trading involves substantial risk of loss. Evaluations and Performance Accounts (PAs) are simulated. Official Apex pages control.";
+  "#ad · Affiliate disclosure: Independent site, not affiliated with or endorsed by Apex Trader Funding. I earn a commission if you use code NOAM or an affiliate link. Apex's Help Center lists its rules by account type and size. Not financial or investment advice. Futures trading involves substantial risk of loss. Evaluations and Performance Accounts (PAs) are simulated. Official Apex pages control.";
 
 const NAV = [
   "Home",
@@ -30,7 +30,7 @@ const NAV = [
   "About & Affiliate Disclosure",
 ] as const;
 
-const STAMP = "Nov 21, 2026, 12:00 PM ET";
+const STAMP = "<date time ET>";
 
 const TICKER = [
   ["NQ", "$20"],
@@ -209,7 +209,7 @@ function Hero() {
         </p>
         <h1 className="mt-3 text-[1.7rem] md:text-[2.2rem]">Futures prop rules, decoded.</h1>
         <p className="mt-3 max-w-xl text-[17px] leading-snug" style={{ color: "var(--a2-text)" }}>
-          An independent desk for Apex Trader Funding. EOD and Intraday are different paths. Apex does not endorse this site.
+          An independent desk about Apex Trader Funding rules. EOD and Intraday are different paths. Apex does not endorse this site.
         </p>
         <div className="mt-3 max-w-xl">
           <p className="a2-legal">{DISC_LINE}</p>
@@ -347,6 +347,7 @@ function Stats() {
       <p className="mt-2 text-[15px]" style={{ color: "var(--a2-text)" }}>
         Illustrative marks only. NQ $20, MNQ $2, ES $50, and MES $5 are CME point values.
       </p>
+      <CmeSource />
     </section>
   );
 }
@@ -445,7 +446,7 @@ function DistancePanel() {
           <span className="a2-mono a2-readout-val">[verified figure]</span>
         </div>
         <p className="mt-3 text-[15px] font-semibold" style={{ color: "var(--a2-strong)" }}>
-          unofficial helper, not advice
+          Unofficial helper, not advice; Apex's system decides.
         </p>
         <p className="text-[15px] leading-snug" style={{ color: "var(--a2-strong)" }}>
           {scopeLine(account, drawdown)}
@@ -493,19 +494,20 @@ function MultiplierPanel() {
           <Stepper label="Points" value={points} onChange={setPoints} min={0} />
         </div>
         <div className="a2-readout mt-3">
-          <span className="a2-mono a2-kicker">Illustrative product</span>
+          <span className="a2-mono a2-kicker">Notional P&L move</span>
           <span className="a2-mono a2-readout-val">${product.toLocaleString("en-US")}</span>
           <span className="a2-mono a2-readout-eq">
             {safeCount} × {safePoints} × ${POINT[symbol]}
           </span>
         </div>
         <p className="mt-3 text-[15px] font-semibold" style={{ color: "var(--a2-strong)" }}>
-          unofficial helper, not advice
+          Unofficial helper, not advice; Apex's system decides.
         </p>
         <p className="text-[15px] leading-snug" style={{ color: "var(--a2-strong)" }}>
-          Illustrative product of N, points, and the CME point value. It does not apply to an evaluation or a Performance Account, and it does not apply to EOD or Intraday.
+          N × P points on {symbol} = ${product.toLocaleString("en-US")} notional P&amp;L move (CME arithmetic only; not trade or stop advice). It does not use account drawdown or balance.
         </p>
 
+        <CmeSource />
         <div className="a2-caps mt-4">
           <table className="w-full text-left text-[15px]" style={{ color: "var(--a2-strong)" }}>
             <caption className="mb-1 text-left text-[15px] font-semibold">Apex cap reference · Evaluation</caption>
@@ -532,6 +534,27 @@ function MultiplierPanel() {
         <ToolFoot />
       </div>
     </article>
+  );
+}
+
+const CME_LINKS = [
+  ["NQ", "https://www.cmegroup.com/markets/equities/nasdaq/e-mini-nasdaq-100.contractSpecs.html"],
+  ["MNQ", "https://www.cmegroup.com/markets/equities/nasdaq/micro-e-mini-nasdaq-100.contractSpecs.html"],
+  ["ES / MES", "https://www.cmegroup.com/markets/equities/sp-500-and-nasdaq-100-futures.html"],
+] as const;
+
+function CmeSource() {
+  return (
+    <div className="a2-source">
+      <span className="a2-mono a2-source-k">Source</span>
+      <span>CME Group contract multipliers:</span>
+      {CME_LINKS.map(([label, href]) => (
+        <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+          {label}
+        </a>
+      ))}
+      <span className="a2-mono a2-source-d">checked Nov 21, 2026</span>
+    </div>
   );
 }
 
@@ -611,12 +634,14 @@ function Prices() {
                 <PriceRow label="Activation fee" value="$XXX" />
               </dl>
             )}
-            <p className="mt-auto pt-4 text-[15px] leading-snug" style={{ color: "var(--a2-strong)" }}>
-              Last updated {STAMP} · Source:{" "}
-              <a href="#" className="underline" style={{ color: "var(--a2-strong)" }} onClick={(event) => event.preventDefault()}>
-                Apex pricing page
-              </a>
-            </p>
+            {plan.hidden ? null : (
+              <p className="mt-auto pt-4 text-[15px] leading-snug" style={{ color: "var(--a2-strong)" }}>
+                Last updated {STAMP} · Source:{" "}
+                <a href="#" className="underline" style={{ color: "var(--a2-strong)" }} onClick={(event) => event.preventDefault()}>
+                  Apex pricing page
+                </a>
+              </p>
+            )}
           </article>
         ))}
       </div>
