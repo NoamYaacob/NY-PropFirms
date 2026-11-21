@@ -2,15 +2,18 @@
 import { Sun, Moon } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 
-export function ThemeToggle() {
+export function ThemeToggle({ locale = "he" }: { locale?: "he" | "en" }) {
   const { theme, toggle } = useTheme();
   const isDark = theme === "dark";
+  const label = locale === "en"
+    ? isDark ? "Switch to light mode" : "Switch to dark mode"
+    : isDark ? "מצב בהיר" : "מצב כהה";
 
   return (
     <button
       onClick={toggle}
-      aria-label={isDark ? "מצב בהיר" : "מצב כהה"}
-      className="p-2 rounded-md transition-colors hover:bg-[var(--surface-overlay)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gold-400)]"
+      aria-label={label}
+      className="inline-flex items-center justify-center min-h-11 min-w-11 rounded-md transition-colors hover:bg-[var(--surface-overlay)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gold-400)]"
       style={{ color: "var(--text-secondary)" }}
     >
       {isDark ? <Sun size={18} /> : <Moon size={18} />}

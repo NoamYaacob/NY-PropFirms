@@ -3,66 +3,60 @@ export interface Source {
   href: string;
 }
 
+const HC = "https://apextraderfunding.com/help-center/";
+
 export const S = {
   EVALUATION_FEES: {
     title: "Evaluation Plan Fees and Access Explained",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/46723099925403",
+    href: HC + "billing/evaluation-plan-fees-and-access-explained/",
   },
   EOD_EVALUATIONS: {
     title: "EOD Evaluations",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/46724640813083",
+    href: HC + "eod-trailing-drawdown-accounts/eod-evaluations/",
   },
   INTRADAY_EVALUATIONS: {
     title: "Intraday Trailing Drawdown Evaluations",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/45683414022299",
+    href: HC + "evaluation-accounts-ea/intraday-trailing-drawdown-evaluations/",
   },
   INTRADAY_TRAILING_DD: {
     title: "Intraday Trailing Drawdown Explained",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/45683513113115-Intraday-Trailing-Drawdown-Explained",
+    href: HC + "intraday-trailing-drawdown-accounts/intraday-trailing-drawdown-explained/",
   },
   DAILY_LOSS_LIMIT: {
     title: "Daily Loss Limit Explained",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/47257193113371",
+    href: HC + "additional-helpful-items/daily-loss-limit-explained/",
   },
   EOD_PA: {
     title: "EOD Performance Accounts (PA)",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/47204516592795-EOD-Performance-Accounts-PA",
+    href: HC + "eod-trailing-drawdown-accounts/eod-performance-accounts-pa/",
   },
   INTRADAY_PA: {
     title: "Intraday Trailing Drawdown Performance Accounts (PA)",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/47206242141979-Intraday-Trailing-Drawdown-Performance-Accounts-PA",
-  },
-  PAYOUT_RULES: {
-    title: "PA Payout Rules and Payout Method",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/31519771933211",
+    href: HC + "intraday-trailing-drawdown-accounts/intraday-trailing-drawdown-performance-accounts-pa/",
   },
   CONSISTENCY_50: {
     title: "50% Consistency Requirement",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/47237316722075",
+    href: HC + "additional-helpful-items/50-consistency-requirement/",
   },
   EOD_PAYOUTS: {
     title: "EOD Payouts",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/47205823183003",
+    href: HC + "eod-trailing-drawdown-accounts/eod-payouts/",
   },
   INTRADAY_PAYOUTS: {
     title: "Intraday Trailing Drawdown Payouts",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/47206370796827",
+    href: HC + "intraday-trailing-drawdown-accounts/intraday-trailing-drawdown-payouts/",
   },
   SCALING_LEVELS_PA: {
     title: "Scaling Levels (PA) Explained",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/46729420990235-Scaling-Levels-PA-Explained",
-  },
-  CONTRACT_SCALING: {
-    title: "Contract Scaling Rule",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/40463165052955",
+    href: HC + "additional-helpful-items/scaling-levels-pa-explained/",
   },
   PROHIBITED: {
     title: "Prohibited Activities",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/40463668243099-Prohibited-Activities",
+    href: HC + "getting-started/prohibited-activities/",
   },
   CLOSE_459: {
-    title: "In Which Markets Must Trades Be Closed Earlier Than Before 4:59 PM ET?",
-    href: "https://support.apextraderfunding.com/hc/en-us/articles/4413998546587",
+    title: "Futures Trading Times",
+    href: HC + "getting-started/futures-trading-times/",
   },
   EVALUATION_PLANS: {
     title: "Apex Evaluation Plans",

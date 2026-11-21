@@ -26,8 +26,8 @@ export const ACCOUNT_SIZE_LABELS: Record<AccountSize, string> = {
 };
 
 // ─── Payout table data (source: Apex Trader Funding official tables) ──────────
-// Intraday: https://support.apextraderfunding.com/hc/en-us/articles/47206370796827
-// EOD:      https://support.apextraderfunding.com/hc/en-us/articles/47205823183003
+// Intraday: https://apextraderfunding.com/help-center/intraday-trailing-drawdown-accounts/intraday-trailing-drawdown-payouts/
+// EOD:      https://apextraderfunding.com/help-center/eod-trailing-drawdown-accounts/eod-payouts/
 
 export const PAYOUT_TABLES: Record<TabKey, Record<AccountSize, PayoutTableData>> = {
 

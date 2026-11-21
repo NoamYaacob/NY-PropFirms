@@ -1,0 +1,480 @@
+import type { Metadata } from "next";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { Activity, BarChart2, Clock, ShieldAlert, Wallet, TrendingUp } from "lucide-react";
+import { RuleCard } from "@/components/ui/RuleCard";
+import { CalloutBox } from "@/components/ui/CalloutBox";
+import { SectionDivider } from "@/components/ui/SectionDivider";
+import { TimelineStrip } from "@/components/ui/TimelineStrip";
+import { Button } from "@/components/ui/Button";
+import { CouponChip } from "@/components/ui/CouponChip";
+import { PricingTable } from "@/components/ui/PricingTable";
+import { S } from "@/lib/sources";
+import { CONSISTENCY_DEFINITION, CONSISTENCY_LOSING_DAYS_CARD } from "@/lib/disclosureCopy";
+import { TierTableWidget } from "@/components/ui/TierTableWidget";
+
+export const metadata: Metadata = {
+  title: "Apex Intraday — כללי מבחן ו-PA בעברית | NY Prop Firms",
+  description:
+    "כל כללי Apex Intraday בעברית: רף הפסד נגרר, אין DLL במבחן, DLL לפי Tier ב-PA, עקביות 50% ורשת ביטחון — עם מקורות רשמיים.",
+  alternates: { canonical: "https://ny-propfirms.com/apex/intraday" },
+  openGraph: {
+    title: "Apex Intraday — כללי מבחן ו-PA בעברית | NY Prop Firms",
+    description:
+      "כל כללי Apex Intraday בעברית: רף הפסד נגרר, אין DLL במבחן, DLL לפי Tier ב-PA, עקביות 50% ורשת ביטחון — עם מקורות רשמיים.",
+    url: "https://ny-propfirms.com/apex/intraday",
+  },
+};
+
+const APEX_URL = "https://apextraderfunding.com/member/aff/go/noamyaacob?c=BSQTZBMJ";
+
+const BREADCRUMB_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "בית", item: "https://ny-propfirms.com/" },
+    { "@type": "ListItem", position: 2, name: "Apex", item: "https://ny-propfirms.com/apex" },
+    { "@type": "ListItem", position: 3, name: "Intraday", item: "https://ny-propfirms.com/apex/intraday" },
+  ],
+};
+
+export default function IntradayPage() {
+  return (
+    <div className="container-page py-12">
+      <JsonLd data={BREADCRUMB_JSONLD} />
+      {/* Breadcrumb */}
+      <nav className="text-sm mb-6 flex items-center gap-2" style={{ color: "var(--text-muted)" }}>
+        <a href="/apex" className="hover:text-[var(--text-secondary)]">Apex</a>
+        <span>/</span>
+        <span style={{ color: "var(--text-secondary)" }}>Intraday</span>
+      </nav>
+
+      <h1 className="text-4xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>
+        Apex Intraday — כללי המבחן וחשבון ה-PA
+      </h1>
+      <p className="text-base mb-4" style={{ color: "var(--text-secondary)" }}>
+        כללי המבחן, ה-PA, התשלומים, ה-DLL ורף ההפסד במסלול Intraday
+      </p>
+
+      {/* Stage toggle */}
+      <div
+        className="inline-flex rounded-xl overflow-hidden mb-8"
+        style={{ border: "1px solid var(--surface-border)" }}
+      >
+        <a
+          href="#test"
+          className="px-5 py-2.5 text-sm font-semibold"
+          style={{
+            backgroundColor: "var(--teal-900)",
+            color: "var(--teal-400)",
+            borderInlineEnd: "1px solid var(--teal-edge)",
+          }}
+        >
+          שלב המבחן
+        </a>
+        <a
+          href="#pa"
+          className="px-5 py-2.5 text-sm font-semibold"
+          style={{ backgroundColor: "transparent", color: "var(--text-muted)" }}
+        >
+          שלב ה-PA
+        </a>
+      </div>
+
+      {/* Key stats */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
+        <div className="card p-4 text-center">
+          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>תוקף המבחן</p>
+          <p className="font-bold" style={{ color: "var(--text-primary)" }}>30 ימים</p>
+        </div>
+
+        <div className="card p-4 text-center">
+          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>רף הפסד — איך זה עובד</p>
+          <p className="font-bold" style={{ color: "var(--teal-400)" }}>
+            רף הפסד נגרר בזמן אמת
+          </p>
+        </div>
+
+        <div className="card p-4 text-center">
+          <p className="text-xs mb-1" style={{ color: "var(--text-muted)" }}>סטופ יומי — מבחן</p>
+          <p className="font-bold" style={{ color: "var(--text-primary)" }}>
+            אין סטופ יומי (<span dir="ltr">DLL</span>)
+          </p>
+          <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>
+            ב-PA יש DLL לפי Tier
+          </p>
+        </div>
+      </div>
+
+      <PricingTable />
+
+      {/* ── EVALUATION SECTION ────────────────────────────────── */}
+      <section id="test">
+        <h2 className="text-2xl font-bold mb-6" style={{ color: "var(--gold-300)" }}>
+          שלב המבחן (Intraday)
+        </h2>
+
+        {/* No DLL callout */}
+        <CalloutBox
+          variant="success"
+          title="שלב המבחן (Intraday) — אין DLL"
+          accountType="eval"
+          source={S.INTRADAY_EVALUATIONS}
+          body={
+            <div className="space-y-2">
+              <p>
+                במבחן <span dir="ltr">Intraday</span> אין סטופ יומי. ניהול הסיכון נעשה דרך
+                רף הפסד נגרר בזמן אמת.
+              </p>
+              <p>
+                <strong>
+                  ב-<span dir="ltr">PA</span> יש <span dir="ltr">DLL</span> לפי{" "}
+                  <span dir="ltr">Tier</span>.
+                </strong>{" "}
+                <a href="#tier-dll" style={{ color: "var(--teal-400)", textDecoration: "underline" }}>
+                  קפוץ לכללי DLL ב-PA ↓
+                </a>
+              </p>
+            </div>
+          }
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <RuleCard
+            title="רף הפסד נגרר בזמן אמת"
+            icon={Activity}
+            accountType="eval"
+            source={S.INTRADAY_TRAILING_DD}
+            body={
+              <div className="space-y-2">
+                <p>
+                  רף ההפסד עוקב בזמן אמת אחרי השיא הגבוה ביותר של החשבון, כולל רווחים פתוחים וסגורים.
+                </p>
+                <p>
+                  כשמגיעים לשיא חדש, הרף עולה מיד — ולעולם לא יורד בחזרה.
+                </p>
+                <p>
+                  <strong style={{ color: "var(--text-primary)" }}>
+                    אם היתרה נוגעת ברף או יורדת מתחתיו: הפוזיציות נסגרות אוטומטית.
+                    במבחן — החשבון נכשל. ב-<span dir="ltr">PA</span> — החשבון נסגר.
+                  </strong>
+                </p>
+                <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                  זה שונה מה-<span dir="ltr">DLL</span>, שעוצר את המסחר באותו תיק עד יום המסחר הבא אבל לא סוגר את
+                  החשבון.
+                </p>
+              </div>
+            }
+          />
+
+          <RuleCard
+            title="מקסימום חוזים — שלב המבחן"
+            icon={BarChart2}
+            accountType="eval"
+            source={S.INTRADAY_EVALUATIONS}
+            body={
+              <div className="space-y-2">
+                <p>במבחן Intraday, מספר החוזים המקסימלי נקבע לפי גודל החשבון:</p>
+                <table className="w-full text-sm border-collapse mt-1">
+                  <thead>
+                    <tr style={{ borderBottom: "1px solid var(--surface-border)" }}>
+                      <th className="text-right pb-1.5 font-medium" style={{ color: "var(--text-muted)" }}>גודל חשבון</th>
+                      <th className="text-left pb-1.5 font-medium" style={{ color: "var(--text-muted)" }}>מקסימום חוזים</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      { size: "25K", contracts: "2 חוזים" },
+                      { size: "50K", contracts: "4 חוזים" },
+                      { size: "100K", contracts: "6 חוזים" },
+                      { size: "150K", contracts: "10 חוזים" },
+                    ].map((row) => (
+                      <tr key={row.size} style={{ borderBottom: "1px solid var(--surface-border)" }}>
+                        <td className="py-1 text-right" dir="ltr">{row.size}</td>
+                        <td className="py-1 text-left font-semibold" style={{ color: "var(--teal-400)" }}>{row.contracts}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            }
+          />
+
+          <RuleCard
+            title="יעד רווח — שלב המבחן"
+            icon={TrendingUp}
+            accountType="eval"
+            source={S.INTRADAY_EVALUATIONS}
+            body={
+              <div className="space-y-2">
+                <p>יעד הרווח לסיום המבחן נקבע לפי גודל החשבון:</p>
+                <table className="w-full text-sm border-collapse mt-1">
+                  <thead>
+                    <tr style={{ borderBottom: "1px solid var(--surface-border)" }}>
+                      <th className="text-right pb-1.5 font-medium" style={{ color: "var(--text-muted)" }}>גודל חשבון</th>
+                      <th className="text-left pb-1.5 font-medium" style={{ color: "var(--text-muted)" }}>יעד רווח</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      { size: "25K", target: "$1,500" },
+                      { size: "50K", target: "$3,000" },
+                      { size: "100K", target: "$6,000" },
+                      { size: "150K", target: "$9,000" },
+                    ].map((row) => (
+                      <tr key={row.size} style={{ borderBottom: "1px solid var(--surface-border)" }}>
+                        <td className="py-1 text-right" dir="ltr">{row.size}</td>
+                        <td className="py-1 text-left font-semibold" dir="ltr" style={{ color: "var(--teal-400)" }}>{row.target}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                  ניתן לעבור את המבחן כבר ביום מסחר אחד בלבד.
+                </p>
+                <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                  הזמן המקסימלי להשלמת המבחן הוא עד 30 ימים.
+                </p>
+              </div>
+            }
+          />
+
+          <RuleCard
+            title="תוקף המבחן"
+            icon={Clock}
+            accountType="eval"
+            source={S.EVALUATION_FEES}
+            body={
+              <>
+                <p>המבחן הוא <strong>תשלום חד-פעמי</strong> ל-30 ימים קלנדריים.</p>
+                <p className="mt-2">אין חידוש אוטומטי, אין מנוי ואין אפשרות לאיפוס.</p>
+                <p className="mt-2">אחרי מעבר, יש <strong>7 ימים קלנדריים</strong> להפעלת חשבון ה-PA.</p>
+              </>
+            }
+          />
+
+          <RuleCard
+            title="חלון המסחר — עד 4:59 PM ET"
+            icon={Clock}
+            accountType="universal"
+            source={S.CLOSE_459}
+            body={
+              <p>
+                אפשר לפתוח עסקאות מ-<strong>6:00 PM ET</strong> ועד{" "}
+                <strong>4:59 PM ET</strong> של היום הבא.
+              </p>
+            }
+          />
+        </div>
+
+        <div className="mt-6">
+          <CalloutBox
+            variant="warning"
+            title="הוראות תלויות — שימו לב"
+            source={S.CLOSE_459}
+            body={
+              <div className="space-y-1.5">
+                <p>הוראות שמחוברות לפוזיציה, כמו סטופ או לימיט, נסגרות יחד עם הפוזיציה.</p>
+                <p>הוראות עצמאיות שלא מחוברות לפוזיציה אינן מתבטלות אוטומטית.</p>
+                <p>
+                  צריך לבטל אותן ידנית לפני <span dir="ltr">4:59 PM ET</span>.
+                </p>
+              </div>
+            }
+          />
+        </div>
+
+        <div className="mt-8">
+          <Button
+            label="פתחו מבחן Intraday עם NOAM"
+            href={APEX_URL}
+            variant="primary"
+            size="lg"
+            external
+            ctaId="apex_intraday"
+          />
+        </div>
+      </section>
+
+      {/* ── Phase Divider ─────────────────────────────────────── */}
+      <SectionDivider
+        variant="phase"
+        rightLabel="↑ שלב המבחן"
+        leftLabel="↓ שלב ה-PA"
+      />
+
+      {/* ── PA SECTION ──────────────────────────────────────────── */}
+      <section id="pa">
+        <h2 className="text-2xl font-bold mb-6" style={{ color: "var(--teal-400)" }}>
+          שלב ה-PA מסוג Intraday
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <RuleCard
+            title="רף הפסד נגרר ב-PA"
+            icon={Activity}
+            accountType="intraday-pa"
+            source={S.INTRADAY_PA}
+            body={
+              <div className="space-y-2">
+                <p>
+                  ב-<span dir="ltr">PA</span>, רף ההפסד הנגרר ממשיך לפעול בזמן אמת — עוקב אחרי
+                  השיא הגבוה ביותר כולל רווחים פתוחים וסגורים.
+                </p>
+                <p>
+                  <strong style={{ color: "var(--text-primary)" }}>
+                    פגיעה ברף סוגרת את הפוזיציות אוטומטית ומסיימת את חשבון ה-PA לצמיתות.
+                  </strong>
+                </p>
+                <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                  שים לב: זה שונה מה-<span dir="ltr">DLL</span>. פגיעה ב-<span dir="ltr">DLL</span>{" "}
+                  רק עוצרת את המסחר באותו תיק עד יום המסחר הבא — החשבון נשאר פעיל.
+                </p>
+              </div>
+            }
+          />
+
+          <RuleCard
+            title="חוק עקביות 50% (Consistency)"
+            icon={TrendingUp}
+            accountType="intraday-pa"
+            source={S.CONSISTENCY_50}
+            body={
+              <>
+                <p>{CONSISTENCY_DEFINITION}</p>
+                <p className="mt-2">{CONSISTENCY_LOSING_DAYS_CARD}</p>
+              </>
+            }
+          />
+
+          <RuleCard
+            title="רשת ביטחון לפי גודל חשבון"
+            icon={ShieldAlert}
+            accountType="intraday-pa"
+            source={S.INTRADAY_PAYOUTS}
+            body={
+              <div className="space-y-2">
+                <div>
+                  <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+                    רשת הביטחון היא רף ההפסד של החשבון בתוספת <span dir="ltr">$100</span>.
+                  </p>
+                  <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+                    רק רווח מעל רשת הביטחון ניתן למשיכה.
+                  </p>
+                </div>
+                <table className="w-full text-sm border-collapse">
+                  <thead>
+                    <tr style={{ borderBottom: "1px solid var(--surface-border)" }}>
+                      <th className="text-right pb-1.5 font-medium" style={{ color: "var(--text-muted)" }}>גודל חשבון</th>
+                      <th className="text-left pb-1.5 font-medium" style={{ color: "var(--text-muted)" }}>רשת ביטחון</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      { size: "25K", net: "$26,100" },
+                      { size: "50K", net: "$52,100" },
+                      { size: "100K", net: "$103,100" },
+                      { size: "150K", net: "$154,100" },
+                    ].map((row) => (
+                      <tr key={row.size} style={{ borderBottom: "1px solid var(--surface-border)" }}>
+                        <td className="py-1 text-right" dir="ltr">{row.size}</td>
+                        <td className="py-1 text-left font-semibold" dir="ltr" style={{ color: "var(--teal-400)" }}>{row.net}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                  רשת הביטחון נשארת בתוקף לאורך כל חיי חשבון ה-PA.
+                </p>
+              </div>
+            }
+          />
+
+          <RuleCard
+            title="מבנה חלוקת הרווחים"
+            icon={Wallet}
+            accountType="universal"
+            source={S.INTRADAY_PAYOUTS}
+            body={
+              <>
+                <p>
+                  <strong style={{ color: "var(--gold-300)" }}>100% לסוחר</strong>{" "}
+                  על כל תשלום מאושר.
+                </p>
+                <p className="mt-2" style={{ color: "var(--text-muted)" }}>
+                  Apex משלמים 100% מסכום התשלום שאושר, בכפוף לכללי הזכאות לתשלום.
+                </p>
+              </>
+            }
+          />
+
+          <RuleCard
+            title="מגבלת 20 חשבונות PA פעילים"
+            icon={ShieldAlert}
+            accountType="pa"
+            source={S.INTRADAY_PAYOUTS}
+            body="לסוחר מותר להחזיק עד 20 חשבונות PA פעילים בו-זמנית. חריגה ממגבלה זו חוסמת את האפשרות לבקש תשלומים."
+          />
+        </div>
+
+        {/* DLL in Intraday PA — tier-based */}
+        <div id="tier-dll" className="mt-4">
+          <CalloutBox
+            variant="info"
+            title="DLL לפי Tier ב-PA"
+            accountType="intraday-pa"
+            body={
+              <div className="space-y-2">
+                <p>
+                  בחשבונות <span dir="ltr">PA</span>, ה-<span dir="ltr">DLL</span> ומקסימום
+                  החוזים נקבעים לפי ה-<span dir="ltr">Tier</span> של החשבון.
+                </p>
+                <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+                  ה-<span dir="ltr">Tier</span> מתעדכן לפי יתרת סוף היום, וחל על הסשן הבא.
+                </p>
+                <TierTableWidget />
+              </div>
+            }
+          />
+        </div>
+
+        {/* 6-payout timeline */}
+        <div className="mt-8 card p-6">
+          <h3 className="font-semibold mb-4 text-base" style={{ color: "var(--text-primary)" }}>
+            מגבלת 6 תשלומים לחשבון
+          </h3>
+          <TimelineStrip
+            steps={[
+              { label: "תשלום 1" },
+              { label: "תשלום 2" },
+              { label: "תשלום 3" },
+              { label: "תשלום 4" },
+              { label: "תשלום 5" },
+              { label: "תשלום 6" },
+              { label: "חשבון נסגר", variant: "closure" },
+            ]}
+          />
+          <p className="text-sm mt-4" style={{ color: "var(--text-secondary)" }}>
+            אחרי התשלום השישי, חשבון ה-PA נסגר.
+          </p>
+          <div className="mt-3">
+            <a
+              href={S.INTRADAY_PAYOUTS.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs inline-flex items-center gap-1 hover:underline"
+              style={{ color: "var(--teal-400)" }}
+            >
+              {S.INTRADAY_PAYOUTS.title} ↗
+            </a>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
+          <Button label="פתח מבחן ב-Apex" href={APEX_URL} variant="primary" external ctaId="apex_intraday_bottom" />
+          <CouponChip size="sm" />
+        </div>
+      </section>
+    </div>
+  );
+}

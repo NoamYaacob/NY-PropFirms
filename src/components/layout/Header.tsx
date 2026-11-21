@@ -179,11 +179,20 @@ export function Header() {
             })}
           </nav>
 
+          <Link
+            href="/en"
+            hrefLang="en"
+            lang="en"
+            className="px-2 py-2 text-sm font-medium"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            English
+          </Link>
           <ThemeToggle />
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 rounded-md"
+            className="md:hidden inline-flex items-center justify-center min-h-11 min-w-11 rounded-md"
             style={{ color: "var(--text-secondary)" }}
             onClick={() => setMobileOpen((v) => !v)}
             aria-label="תפריט"

@@ -9,6 +9,7 @@ interface RuleCardProps {
   icon?: LucideIcon;
   accountType?: AccountType;
   source: SourceBadgeProps;
+  extraSources?: SourceBadgeProps[];
   variant?: "default" | "prohibited";
   verifyNote?: string;
 }
@@ -19,9 +20,11 @@ export function RuleCard({
   icon: Icon,
   accountType,
   source,
+  extraSources = [],
   variant = "default",
   verifyNote,
 }: RuleCardProps) {
+  const sourceList = [source, ...extraSources];
   const isProhibited = variant === "prohibited";
 
   return (
@@ -70,8 +73,10 @@ export function RuleCard({
 
       {/* Footer */}
       {!verifyNote && (
-        <div className="pt-1">
-          <SourceBadge {...source} />
+        <div className="pt-1 flex flex-wrap gap-2">
+          {sourceList.map((item) => (
+            <SourceBadge key={item.href} {...item} />
+          ))}
         </div>
       )}
     </div>
