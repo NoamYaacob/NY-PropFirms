@@ -79,7 +79,7 @@ test("contract: cap table is separate and only reference", () => {
   assert.ok(cap.kind === "ok" && cap.cap === 12);
   const pa = lookupCap("PA scaling tier", "EOD", "150K");
   assert.ok(pa.kind === "ok" && pa.cap === 10);
-  assert.match(exceedsCap(13, cap) ?? "", /Exceeds published contract limit/);
+  assert.match(exceedsCap(13, cap) ?? "", /Exceeds published limit/);
   assert.equal(exceedsCap(12, cap), null);
 });
 

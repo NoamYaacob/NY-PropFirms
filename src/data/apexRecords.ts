@@ -1,5 +1,5 @@
 /**
- * GENERATED from research/site_data/apex_site_data_2026-11-21.json (RI, schema 1.1, 289 records).
+ * GENERATED from research/site_data/apex_site_data_2026-11-21.json (RI, schema 1.1, 291 records).
  * Do not edit by hand. Prices are deliberately absent (they render only from src/data/prices.gated.json).
  */
 export interface SiteRecord {
@@ -6790,6 +6790,45 @@ export const SITE_DATA_RECORDS: SiteRecord[] = [
 },
 {
 "id": "SD289",
+"slot_id": "S72/G14",
+"key": "sources.status_updates",
+"value": "https://apextraderfunding.com/help-center/helpful-items/status-updates/",
+"unit": "url",
+"value_type": "text",
+"applies_to": {
+"account_type": "n/a",
+"stage": "n/a",
+"size": "n/a"
+},
+"source_url": "https://apextraderfunding.com/help-center/helpful-items/status-updates/",
+"source_title": "Status Updates",
+"source_modified": "2026-09-23T11:05:28",
+"checked_at": "2026-11-19",
+"status": "VERIFIED_SNAPSHOT",
+"note": "Official Apex Help Center Status Updates page. Page modified (ET) is in source_modified. Body text in the snapshot is a generic \"All systems are operating as expected\" line; no Thanksgiving or holiday notice was read from it by RI (see hours.thanksgiving_2026_flatten_time NOT_FOUND).",
+"evidence_kind": "help_center_snapshot"
+},
+{
+"id": "SD290",
+"slot_id": "S72/G14",
+"key": "sources.pricing_page",
+"value": "https://apextraderfunding.com/",
+"unit": "url",
+"value_type": "text",
+"applies_to": {
+"account_type": "n/a",
+"stage": "n/a",
+"size": "n/a"
+},
+"source_url": "https://apextraderfunding.com/",
+"source_title": "Apex Trader Funding homepage (account picker pricing view)",
+"checked_at": "2026-11-21",
+"status": "VERIFIED_SNAPSHOT",
+"note": "URL/title/date record only. NO prices or amounts here. Title is RI label (page <title> not recorded). Evidence is a browser read at 2026-11-21 08:56 IST plus one screenshot; no raw HTML. Price rows still hidden by validate_prices.py --gate (0/126). Legacy prices live on /legacy-products/ and are never shown.",
+"evidence_kind": "ri_fetch_record_no_raw_file"
+},
+{
+"id": "SD291",
 "slot_id": "S72",
 "key": "sources.registry",
 "value": [
@@ -7053,6 +7092,24 @@ export const SITE_DATA_RECORDS: SiteRecord[] = [
 "evidence_path": "research/helpcenter/snapshots/2026-11-19/_index.json",
 "evidence_kind": "help_center_snapshot",
 "publisher": "Apex Trader Funding"
+},
+{
+"url": "https://apextraderfunding.com/help-center/helpful-items/status-updates/",
+"title": "Status Updates",
+"source_modified": "2026-09-23T11:05:28",
+"checked_at": "2026-11-19",
+"evidence_path": "research/helpcenter/snapshots/2026-11-19/status-updates.md",
+"evidence_kind": "help_center_snapshot",
+"publisher": "Apex Trader Funding"
+},
+{
+"url": "https://apextraderfunding.com/",
+"title": "Apex Trader Funding homepage (account picker pricing view)",
+"source_modified": null,
+"checked_at": "2026-11-21",
+"evidence_path": "research/apex_prices_current.json (source_url, verified_at 2026-11-21T08:56+02:00); screenshot research/apex_prices_history/screens/2026-11-21T0856_tradovate_25k_intraday_standard.png; research/PRICES_STATUS_2026-11-21.md",
+"evidence_kind": "ri_fetch_record_no_raw_file",
+"publisher": "Apex Trader Funding"
 }
 ],
 "unit": "list of sources",
@@ -7066,7 +7123,7 @@ export const SITE_DATA_RECORDS: SiteRecord[] = [
 "source_title": "Apex Help Center snapshot set (127 articles)",
 "checked_at": "2026-11-19",
 "status": "VERIFIED_SNAPSHOT",
-"note": "29 entries. Legacy and unrelated pages are included only if a record cites them.",
+"note": "31 entries. Legacy and unrelated pages are included only if a record cites them.",
 "derived_from": "Every distinct source_url / also_source URL in this file, plus the CME URLs recorded in en_rule_slots section 4. CME entries have no raw file.",
 "evidence_kind": "help_center_snapshot"
 }

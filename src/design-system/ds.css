@@ -1713,3 +1713,76 @@ div[id] {
 .grid > * {
   min-width: 0;
 }
+
+/* copy renderer */
+.ds-ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.35rem;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--ds-text);
+}
+
+.ds-ol {
+  list-style: decimal;
+}
+
+.ds-body-p {
+  margin: 0.6rem 0 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ds-text);
+  max-width: 46rem;
+}
+
+.ds-intro > * + * {
+  margin-top: 0.6rem;
+}
+
+.ds-intro .ds-body-p:first-child {
+  font-size: 17px;
+}
+
+.ds-introgrid {
+  display: grid;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .ds-introgrid {
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+    gap: 2rem;
+  }
+}
+
+.ds-slot,
+.ds-slot-line {
+  display: inline;
+  color: var(--ds-strong);
+  font-weight: 600;
+}
+
+.ds-slot-line {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.ds-slot-d {
+  font-weight: 400;
+  font-style: normal;
+  color: var(--ds-text);
+  font-size: 14px;
+}
+
+.ds-section code {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 0.95em;
+}
+
+.ds-ul a,
+.ds-body-p a {
+  text-underline-offset: 3px;
+}

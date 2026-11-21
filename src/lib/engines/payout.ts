@@ -50,7 +50,7 @@ export function computePayout(input: PayoutInput): PayoutResult {
 
   const maxPayouts = val(p.maxPayouts);
   if (maxPayouts != null && approved >= maxPayouts) {
-    return { kind: "closed", message: `Apex states the PA closes after ${maxPayouts} payouts. Check Apex's payout page for what happens after the last one.` };
+    return { kind: "closed", message: "Maximum approved payouts reached: Apex's pages word what happens next differently. Check Apex's payout page." };
   }
 
   const lines: CheckLine[] = [];
@@ -110,8 +110,8 @@ export function computePayout(input: PayoutInput): PayoutResult {
           ? "Below the 50% mark."
           : "Above the 50% mark."
     }`;
-  } else if (consistency.kind === "na") cDetail = consistency.message;
-  else if (consistency.kind === "error") cDetail = consistency.message;
+  } else if (consistency.kind === "na") cDetail = "Consistency N/A — positive net profit is required.";
+  else if (consistency.kind === "error") cDetail = "Consistency N/A — positive net profit is required.";
   lines.push({ id: "consistency", label: "50% Consistency gate", state: cState, detail: cDetail });
 
   lines.push({

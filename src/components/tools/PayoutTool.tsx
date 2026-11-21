@@ -31,10 +31,10 @@ export function PayoutTool({ id = "payout-eligibility", anchorOffset = false }: 
       anchorOffset={anchorOffset}
       title="Payout Eligibility Checker"
       pill="Performance Account (PA) only"
-      framing="Evaluations are not eligible for payouts. Pick your PA type and size, then enter your numbers. This is a checklist, not a promise."
+      framing="Performance Accounts only. Apex writes its payout requirements for Performance Accounts. This is a checklist, not a promise."
       disclaimer={
         <p>
-          Unofficial helper, not advice; Apex&apos;s system decides. Applies to Performance Accounts only (Evaluations are not eligible for payouts). Meeting published checklist criteria does not guarantee payout approval; Apex&apos;s automated system makes the final determination. Losing days count in net profit.
+          Unofficial helper, not advice; Apex&apos;s system decides. Applies to Performance Accounts only (Apex&apos;s payout requirements are written for Performance Accounts). Meeting published checklist criteria does not guarantee payout approval; Apex&apos;s automated system makes the final determination. Losing days count in net profit.
         </p>
       }
       links={

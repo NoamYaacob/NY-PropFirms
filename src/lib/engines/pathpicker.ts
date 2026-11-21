@@ -19,7 +19,7 @@ export type PickerResult =
   | { kind: "prompt"; missing: string[] }
   | { kind: "result"; fit: "EOD mechanics fit" | "Intraday mechanics fit" | "Mixed / Trade-Off View"; reasons: string[]; platformNote: string };
 
-export const HEADLINE = "Rule-Mechanics Fit Summary (Informational Comparison Only, Not a Recommendation to Buy)";
+export const HEADLINE = "Rule-Mechanics Fit Summary (Informational Comparison Only — Not a Recommendation to Buy)";
 
 type Vote = "eod" | "intraday" | "split";
 

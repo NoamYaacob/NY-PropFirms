@@ -19,7 +19,7 @@ export interface ConsistencyInput {
   bestDay: number | null | undefined;
 }
 
-export const NA_NET_PROFIT = "N/A. Positive net profit is required before consistency can be calculated; the account stays active.";
+export const NA_NET_PROFIT = "N/A — positive net profit is required before consistency can be calculated; account stays active";
 
 const toCents = (n: number) => Math.round(n * 100);
 
@@ -35,7 +35,7 @@ export function computeConsistency(input: ConsistencyInput): ConsistencyResult {
   const { netProfit, bestDay } = input;
   if (netProfit == null || bestDay == null || Number.isNaN(netProfit) || Number.isNaN(bestDay)) return { kind: "prompt" };
   if (!Number.isFinite(netProfit) || !Number.isFinite(bestDay)) return { kind: "error", message: "Enter finite dollar amounts." };
-  if (bestDay < 0) return { kind: "error", message: "Biggest single profitable day cannot be negative." };
+  if (bestDay < 0) return { kind: "error", message: "Enter a best day of $0 or more." };
   if (netProfit <= 0) return { kind: "na", message: NA_NET_PROFIT };
   const netCents = toCents(netProfit);
   const bestCents = toCents(bestDay);

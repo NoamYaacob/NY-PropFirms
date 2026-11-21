@@ -38,9 +38,9 @@ export type DrawdownResult =
 
 export type DllRow = { kind: "none" } | { kind: "fixed"; amount: number } | { kind: "tiered" } | { kind: "unavailable" };
 
-export const BREACH_TEXT = "Threshold breached. The evaluation fails or the PA closes under Apex's rules.";
+export const BREACH_TEXT = "Threshold breached — evaluation fails or PA permanently closes per Apex rules";
 /** Official fill sentence exists on the Intraday Evaluation article only. Never shown for EOD. */
-export const INTRADAY_FILL_NOTE = " Liquidation happens at market price, so the final filled balance may be slightly above or below the threshold.";
+export const INTRADAY_FILL_NOTE = ". Liquidation happens at market price, so the final filled balance may be slightly above or below the threshold.";
 export const LOCK_CHECK_TEXT = "Apex words this lock rule differently across its pages, or it depends on your platform. Check the lock rule on Apex's page for your account.";
 
 function dllFor(stage: Stage, type: AccountType, size: Size): DllRow {
@@ -60,7 +60,7 @@ export function computeDrawdown(input: DrawdownInput): DrawdownResult {
   const mdd = stage === "Evaluation" ? EVAL[type][size].maxDrawdown : PA[type][size].maxDrawdown;
   if (!usable(mdd) || mdd.value == null) return { kind: "needs-check", message: LOCK_CHECK_TEXT };
   if (peakBalance < start) return { kind: "error", message: "Highest balance cannot be below the starting balance." };
-  if (peakBalance < currentBalance) return { kind: "error", message: "Highest balance cannot be below the current balance." };
+  if (peakBalance < currentBalance) return { kind: "error", message: "Peak balance can't be lower than your current balance." };
   const pv = CME[symbol].pointValue;
   if (!usable(pv) || pv.value == null) return { kind: "needs-check", message: "CME point value not confirmed." };
 

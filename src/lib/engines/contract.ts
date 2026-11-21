@@ -52,6 +52,6 @@ export function lookupCap(stage: CapStage, type: AccountType, size: Size): CapLo
 /** Reference notice only. Never derives a recommended N. */
 export function exceedsCap(n: number, lookup: CapLookup): string | null {
   if (lookup.kind !== "ok") return null;
-  if (Number.isInteger(n) && n > lookup.cap) return `Exceeds published contract limit for ${lookup.stage}, ${lookup.type}, ${lookup.size}.`;
+  if (Number.isInteger(n) && n > lookup.cap) return "Exceeds published limit for the selected stage, type and size";
   return null;
 }

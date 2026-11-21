@@ -264,7 +264,7 @@ export const OFFICIAL_LINKS = {
   legacyInactivity: "https://apextraderfunding.com/help-center/performance-accounts-pa/legacy-pa-inactivity-policy/",
   paLimit: "https://apextraderfunding.com/help-center/performance-accounts-pa/how-many-paid-funded-accounts-am-i-allowed-to-have/",
   helpCenter: "https://apextraderfunding.com/help-center/",
-  statusUpdates: "https://apextraderfunding.com/help-center/",
+  statusUpdates: "https://apextraderfunding.com/help-center/helpful-items/status-updates/",
   cmeHolidays: "https://www.cmegroup.com/trading-hours.html",
 } as const;
 

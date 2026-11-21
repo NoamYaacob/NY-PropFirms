@@ -18,14 +18,15 @@ export function PricingSection() {
       </div>
       {rows.length === 0 ? (
         <div className="ds-card ds-pricefall">
-          <p className="ds-pricefall-t">{PRICING_FALLBACK}</p>
+          <p className="ds-body-p" style={{ marginTop: 0 }}>Prices change often, so this site does not show a number it cannot check against Apex&apos;s own page.</p>
           <div className="ds-cta-disc" style={{ marginTop: 0 }}>
             <p className="ds-legal ds-legal-strong">{AD_LINE}</p>
             <p className="ds-legal ds-legal-strong">{DISC_LINE}</p>
             <p className="ds-risk">{RISK_COMPACT}</p>
           </div>
+          <p className="ds-pricefall-t">{PRICING_FALLBACK}:</p>
           <GoLink ctaId="en_pricing_link" trackLabel={PRICING_FALLBACK} className="ds-btn">
-            {PRICING_FALLBACK}
+            Go to Apex (affiliate link) →
           </GoLink>
         </div>
       ) : (
