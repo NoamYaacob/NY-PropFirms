@@ -173,7 +173,7 @@ export default function IntradayPage() {
             source={S.INTRADAY_EVALUATIONS}
             body={
               <div className="space-y-2">
-                <p>במבחן Intraday, מספר החוזים המקסימלי נקבע לפי גודל החשבון:</p>
+                <p>במבחן Intraday, מספר החוזים המקסימלי נקבע לפי גודל החשבון, וזהה למבחן EOD:</p>
                 <table className="w-full text-sm border-collapse mt-1">
                   <thead>
                     <tr style={{ borderBottom: "1px solid var(--surface-border)" }}>
@@ -183,10 +183,10 @@ export default function IntradayPage() {
                   </thead>
                   <tbody>
                     {[
-                      { size: "25K", contracts: "2 חוזים" },
-                      { size: "50K", contracts: "4 חוזים" },
-                      { size: "100K", contracts: "6 חוזים" },
-                      { size: "150K", contracts: "10 חוזים" },
+                      { size: "25K", contracts: "4 חוזים" },
+                      { size: "50K", contracts: "6 חוזים" },
+                      { size: "100K", contracts: "8 חוזים" },
+                      { size: "150K", contracts: "12 חוזים" },
                     ].map((row) => (
                       <tr key={row.size} style={{ borderBottom: "1px solid var(--surface-border)" }}>
                         <td className="py-1 text-right" dir="ltr">{row.size}</td>
@@ -195,6 +195,9 @@ export default function IntradayPage() {
                     ))}
                   </tbody>
                 </table>
+                <p>
+                  עשרה חוזי מיקרו שווים לחוזה סטנדרטי אחד. המגבלה חלה על כל הפוזיציות הפתוחות יחד, ונותרת קבועה לאורך המבחן. ב-<span dir="ltr">PA</span> המקסימום שונה, ונקבע לפי ה-<span dir="ltr">Tier</span>.
+                </p>
               </div>
             }
           />

@@ -76,9 +76,14 @@ const COMPARISON_ROWS: ComparisonRow[] = [
     intradayValue: "רף הפסד נגרר",
   },
   {
-    feature: "מה קורה בפגיעה",
-    eodValue: "המסחר נעצר לאותו יום",
-    intradayValue: "אין פגיעה יומית, רק רף הפסד נגרר",
+    feature: "מה קורה בפגיעה ברף ההפסד",
+    eodValue: "במבחן — החשבון נכשל. ב-PA — החשבון נסגר.",
+    intradayValue: "במבחן — החשבון נכשל. ב-PA — החשבון נסגר.",
+  },
+  {
+    feature: "מה קורה בפגיעה ב-DLL",
+    eodValue: "הפוזיציות נסגרות והמסחר נעצר עד סוף הסשן; החשבון נשאר פעיל. חל במבחן וב-PA.",
+    intradayValue: "במבחן אין DLL. ב-PA — הפוזיציות נסגרות והמסחר נעצר עד סוף הסשן; החשבון נשאר פעיל.",
   },
   {
     feature: "חוק עקביות ב-PA",
@@ -145,7 +150,21 @@ export default function ApexHubPage() {
       <CalloutBox
         variant="info"
         title="חשוב לדעת"
-        body="האתר מתייחס רק למוצרים החדשים של Apex: EOD ו-Intraday. המוצרים הישנים (Legacy) לא מוצגים כאן כמסלולים פעילים או רלוונטיים לפתיחה חדשה."
+        body={
+          <>
+            האתר מתייחס רק למוצרים החדשים של Apex: EOD ו-Intraday. במרכז העזרה של Apex עדיין נכתב שחשבונות Legacy אינם זמינים לרכישה חדשה מאז 1 במרץ 2026; באתר Apex, בדף הבית ובדף{" "}
+            <a
+              href="https://apextraderfunding.com/legacy-products/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2"
+              style={{ color: "var(--teal-400)" }}
+            >
+              Legacy Products
+            </a>
+            , מופיעה כעת גם הצעה לזמן מוגבל. בדקו באתר Apex מה זמין כעת. חשבונות Legacy כפופים לחוקים נפרדים.
+          </>
+        }
       />
 
       {/* Navigation Cards */}

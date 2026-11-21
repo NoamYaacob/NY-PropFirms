@@ -319,7 +319,7 @@ export default function EODPage() {
                   בניגוד ל-<span dir="ltr">DLL</span> שהוא גבול יומי בלבד.
                 </p>
                 <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-                  ה-Max Drawdown קבוע לפי גודל החשבון ואינו משתנה במהלך המבחן:
+                  סכום ה-Max Drawdown נקבע לפי גודל החשבון:
                 </p>
                 <table className="w-full text-sm border-collapse">
                   <thead>
@@ -343,7 +343,7 @@ export default function EODPage() {
                   </tbody>
                 </table>
                 <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-                  ה-Max Drawdown מחושב לפי יתרת סוף יום — הוא אינו נגרר בזמן אמת כמו ב-Intraday.
+                  רף ה-<span dir="ltr">EOD</span> מחושב לפי יתרת סוף יום, ונאכף בזמן אמת בסשן הבא. הרף עולה כשיש שיא חדש בסוף יום, ואינו יורד. זה שונה מרף ה-<span dir="ltr">Intraday</span>, שנגרר בזמן אמת.
                 </p>
               </div>
             }
@@ -503,14 +503,17 @@ export default function EODPage() {
             variant="info"
             title="מקסימום Drawdown — חשבון PA"
             accountType="eod-pa"
-            source={S.EOD_PAYOUTS}
+            source={{
+              title: "EOD Drawdown Explained",
+              href: "https://apextraderfunding.com/help-center/eod-trailing-drawdown-accounts/eod-drawdown-explained/",
+            }}
             body={
               <div className="space-y-2">
                 <p>
-                  זהו גבול ההפסד הכללי של חשבון ה-<span dir="ltr">PA</span>. פגיעה בו <strong>מכשילה את החשבון</strong>.
+                  זהו גבול ההפסד הכללי של חשבון ה-<span dir="ltr">PA</span>. פגיעה בו סוגרת את החשבון.
                 </p>
                 <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-                  ה-Max Drawdown קבוע לפי גודל החשבון ואינו משתנה לאורך חיי ה-<span dir="ltr">PA</span>:
+                  סכום ה-Max Drawdown נקבע לפי גודל החשבון:
                 </p>
                 <table className="w-full text-sm border-collapse">
                   <thead>
@@ -534,7 +537,7 @@ export default function EODPage() {
                   </tbody>
                 </table>
                 <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-                  ה-Max Drawdown מחושב לפי יתרת סוף יום — הוא אינו נגרר בזמן אמת.
+                  רף ה-<span dir="ltr">EOD</span> מחושב פעם ביום לפי יתרת סוף היום הגבוהה ביותר (ב-<span dir="ltr">4:59:59 PM ET</span>), ונאכף בזמן אמת בסשן הבא. הרף עולה כשיש שיא חדש בסוף יום, ואינו יורד. ב-<span dir="ltr">PA</span>, כשהרף מגיע ליתרת הפתיחה בתוספת <span dir="ltr">$100</span> — למשל <span dir="ltr">$50,100</span> בחשבון <span dir="ltr">50K</span> — הוא נעצר ונשאר קבוע. בחשבון <span dir="ltr">50K</span> זה קורה כשיתרת סוף היום הגבוהה ביותר מגיעה ל-<span dir="ltr">$52,100</span>.
                 </p>
               </div>
             }
