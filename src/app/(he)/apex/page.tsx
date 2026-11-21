@@ -157,7 +157,8 @@ export default function ApexHubPage() {
               href="https://apextraderfunding.com/legacy-products/"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline underline-offset-2"
+              dir="ltr"
+              className="underline underline-offset-2 whitespace-nowrap"
               style={{ color: "var(--teal-400)" }}
             >
               Legacy Products
