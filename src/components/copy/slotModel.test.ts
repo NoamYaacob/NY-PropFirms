@@ -140,3 +140,42 @@ test("CF F1/F2 spot checks", () => {
   // one render per key per line
   assert.deepEqual(T("evaluation-rules", "{S04:eval.max_contracts_fixed}", "x"), []);
 });
+
+test("no rendered line is a label plus a source chip without a value", () => {
+  for (const s of sites) {
+    const ctx = ctxFor(s.page, s.token, s.line)!;
+    for (const l of resolveSlot(s.token, ctx)) {
+      const hasValue = l.body.trim().length > 0 || !!l.link || !!l.links?.length;
+      assert.ok(hasValue, `${s.page} ${s.token}: empty line "${lineText(l)}"`);
+    }
+  }
+});
+
+test("every typed or staged value line carries a type/stage label unless the copy names exactly that type and stage right before it", () => {
+  for (const s of sites) {
+    const ctx = ctxFor(s.page, s.token, s.line)!;
+    const where = `${s.page} ${s.token}`;
+    if (ctx.named) {
+      assert.ok(ctx.type !== "each" && ctx.type !== "na" && ctx.stage !== "each" && ctx.stage !== "na", `${where}: named needs an exact type and stage`);
+      assert.ok(s.line.includes("**EOD PA:**") || s.line.includes("**Intraday PA:**") || s.line.includes("**EOD Evaluation:**") || s.line.includes("**Intraday Evaluation:**"), `${where}: named site has no bold type/stage label in the copy`);
+    }
+    for (const l of resolveSlot(s.token, ctx)) {
+      if (!l.recordIds.length || !l.body) continue; // link-only lines carry no value
+      const rec = byId.get(l.recordIds[0])!;
+      const typed = ["EOD", "Intraday", "Legacy"].includes(rec.applies_to.account_type) || rec.applies_to.stage === "Eval" || rec.applies_to.stage === "PA";
+      if (typed && !ctx.named) assert.ok(l.label, `${where}: unlabelled "${lineText(l)}"`);
+      if (rec.applies_to.stage === "Eval" && !ctx.named) assert.ok(/Evaluation/.test(l.label), `${where}: Evaluation value without "Evaluation" label: "${lineText(l)}"`);
+      if (rec.applies_to.stage === "PA" && !ctx.named && rec.applies_to.account_type !== "Legacy") assert.ok(/PA/.test(l.label), `${where}: PA value without "PA" label`);
+    }
+  }
+});
+
+test("a suppressed repeat (dup) is only allowed when the key is fully rendered elsewhere on the same page", () => {
+  for (const s of sites) {
+    const ctx = ctxFor(s.page, s.token, s.line)!;
+    if (!ctx.dup) continue;
+    const key = s.token.slice(1, -1).split(":")[1];
+    const full = sites.some((o) => o.page === s.page && o.token.slice(1, -1).split(":")[1].split("|").some((k) => key.split("|").includes(k)) && !ctxFor(o.page, o.token, o.line)!.dup && resolveSlot(o.token, ctxFor(o.page, o.token, o.line)!).some((l) => l.body));
+    assert.ok(full, `${s.page} ${s.token}: dup without a full render on the page`);
+  }
+});

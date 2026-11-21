@@ -125,29 +125,65 @@ interface Row {
   other: SiteRecord[];
 }
 
+const clean = (t: string) => t.replace(/\s*\(see [a-z_.]+\)/g, "").trim();
+
+/** Text of one record's value for a token (null = nothing printable). Objects print their fields with words, never a bare source chip. */
+function valueText(r: SiteRecord, field: string | undefined): string | null {
+  let v: unknown = r.value;
+  if (field === "note") return r.note ? clean(r.note) : null;
+  if (field && v && typeof v === "object") v = (v as Record<string, unknown>)[field];
+  if (v == null) return null;
+  if (typeof v === "number") return field ? fieldPhrase(field, v) ?? fmtNum(r, v) : fmtNum(r, v);
+  if (typeof v === "string") {
+    if (r.key === "eval.lock_rule.tradovate" && typeof r.quote === "string") return r.quote;
+    return clean(v);
+  }
+  const o = v as Record<string, unknown>;
+  const num = (x: unknown) => (typeof x === "number" ? x : NaN);
+  switch (r.key) {
+    case "pa.scaling_tiers": {
+      const tiers = (Array.isArray(v) ? v : []) as Array<{ level: number; profit_from: number; profit_to: number | null; max_contracts: number; dll: number }>;
+      return tiers.map((t) => `Level ${t.level} (${usd(t.profit_from)}${t.profit_to == null ? " and up" : ` to ${usd(t.profit_to)}`}): ${t.max_contracts} contract${t.max_contracts === 1 ? "" : "s"}, DLL ${usd(t.dll)}`).join("; ");
+    }
+    case "pa.payout.sequential_caps":
+      return (Array.isArray(v) ? v : []).map((x) => usd(num(x))).join(" / ");
+    case "pa.inactivity.new":
+      return `at least ${num(o.min_days)} profit days of ${usd(num(o.min_net_profit_per_day))} or more net profit within every rolling ${num(o.window_days)}-day window`;
+    case "pa.inactivity.legacy_pre_2026_03_01":
+      return `at least ${num(o.min_days)} profit day of ${usd(num(o.min_net_profit_per_day))} or more net profit within a ${num(o.window_days)}-day window`;
+    case "pa.inactivity.new_notices":
+      return `courtesy notices on days ${(o.courtesy_notice_days as number[]).join(" and ")} of inactivity; the account appears under Dormant PAs from day ${num(o.dormant_from_day)}; permanent closure at day ${num(o.permanent_closure_day)}`;
+    case "pa.inactivity.legacy_warnings":
+      return `yellow warning on day ${num(o.warning_1_yellow_day)}, orange warning on day ${num(o.warning_2_orange_day)}; the account may be terminated on day ${num(o.termination_red_day)}`;
+    case "eval.pass_conditions":
+      return (Array.isArray(v) ? v : []).map(String).join("; ");
+    case "worked_example.eod_walkthrough": {
+      const steps = (o.steps as Array<{ step: string; closing_balance: number; threshold: number; note?: string }>) ?? [];
+      return `${o.account}, starting balance ${usd(num(o.starting_balance))}, max drawdown ${usd(num(o.max_drawdown))}. ` + steps.map((x) => `${x.step}: close ${usd(x.closing_balance)}, threshold ${usd(x.threshold)}${x.note ? ` (${x.note})` : ""}`).join("; ");
+    }
+    case "worked_example.same_trade":
+      return `${o.label}. ${o.account}. ${o.trade} Intraday threshold: ${usd(num(o.intraday_threshold_during_session))} during the session and ${usd(num(o.intraday_threshold_after_close))} after the close. EOD threshold: ${usd(num(o.eod_threshold_during_session))} during the session and ${usd(num(o.eod_threshold_after_close))} after the close.`;
+    default:
+      return null;
+  }
+}
+
 function bodyFor(rows: SiteRecord[], field: string | undefined, ctx: SiteCtx): { body: string; derived?: string } {
   const bits: Array<{ size: string; text: string }> = [];
   let derived = false;
   let worked = false;
   for (const r of rows) {
-    let v: unknown = r.value;
-    if (field && v && typeof v === "object") v = (v as Record<string, unknown>)[field];
     const size = r.applies_to.size;
     if (r.value_type === "absent_by_rule") {
-      bits.push({ size, text: "none (no Daily Loss Limit)" });
+      bits.push({ size, text: "none (no Evaluation Daily Loss Limit)" });
       continue;
     }
-    if (v == null || typeof v === "object") continue;
+    const text = valueText(r, field);
+    if (text == null || text === "") continue;
     if (r.derived_from) {
       derived = true;
       if (r.derived_from.includes("official 50K")) worked = true;
     }
-    let text: string;
-    if (typeof v === "number") text = field ? fieldPhrase(field, v) ?? fmtNum(r, v) : fmtNum(r, v);
-    else if (typeof v === "string" && v.length > 70) {
-      if (r.key === "eval.lock_rule.tradovate" && typeof r.quote === "string") text = r.quote;
-      else continue;
-    } else text = String(v);
     bits.push({ size, text });
   }
   let out: string[];
@@ -155,22 +191,22 @@ function bodyFor(rows: SiteRecord[], field: string | undefined, ctx: SiteCtx): {
   if (sized && bits.length > 1 && bits.every((b) => b.text === bits[0].text)) out = [`all sizes ${bits[0].text}`];
   else if (sized) out = bits.map((b) => `${b.size} ${b.text}`);
   else out = bits.map((b) => b.text);
+  const suffix = out.length && rows[0]?.key === "pa.payout.sequential_caps" ? " (payouts #1 to #6)" : "";
   return {
-    body: out.join(" · "),
+    body: out.join(" · ") + suffix,
     derived: derived ? (worked ? "(derived from Apex's official table; 50K is Apex's worked example)" : "(derived from Apex's official table)") : undefined,
   };
 }
 
 export function resolveSlot(raw: string, ctx: SiteCtx): SlotLine[] {
-  if (ctx.dup) return [];
+  if (ctx.dup || ctx.none) return [];
   const inner = raw.slice(1, -1);
   const m = /^(S\d+):(.+)$/.exec(inner);
   if (!m) return [];
   const keys = m[2].split("|");
   const out: SlotLine[] = [];
   const multi = keys.length > 1;
-  const fullyScoped = ctx.type !== "each" && ctx.stage !== "each";
-
+  
   // all keys unverified? collect first
   const perKey: Array<{ k: string; field?: string; recs: SiteRecord[] }> = [];
   for (const k of keys) {
@@ -237,7 +273,7 @@ export function resolveSlot(raw: string, ctx: SiteCtx): SlotLine[] {
       } else merged.push({ ...l });
     }
     for (const l of merged) {
-      const g = fullyScoped ? "" : l.gname;
+      const g = ctx.named ? "" : l.gname;
       l.label = [g, keyLabel].filter(Boolean).join(" · ");
       out.push(l);
     }
@@ -255,7 +291,7 @@ export function resolveSlot(raw: string, ctx: SiteCtx): SlotLine[] {
       if (seen.has(u)) continue;
       seen.add(u);
       const names = urls.get(u) ?? [];
-      const gl = fullyScoped ? "" : names.length === 2 && names.every((n) => /^(EOD|Intraday)/.test(n)) ? `EOD and Intraday ${names[0].replace(/^(EOD|Intraday)\s*/, "")}`.trim() : names.join(" and ");
+      const gl = ctx.named ? "" : names.length === 2 && names.every((n) => /^(EOD|Intraday)/.test(n)) ? `EOD and Intraday ${names[0].replace(/^(EOD|Intraday)\s*/, "")}`.trim() : names.join(" and ");
       const sentenceLine: SlotLine = {
         label: urls.size > 1 || anyVerified || multi ? gl : "",
         body: anyVerified ? NEUTRAL : "",

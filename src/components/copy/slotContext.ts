@@ -15,6 +15,10 @@ export interface SiteCtx {
   stage: CtxStage;
   size: "all" | "25K" | "50K" | "100K" | "150K";
   dup?: boolean;
+  /** index-only record that is never printed (RI's reasoning-facts index) */
+  none?: boolean;
+  /** the copy puts a bold label naming exactly this type and stage right before the token, so the line adds no label of its own */
+  named?: boolean;
 }
 interface Site {
   page: string;
@@ -27,6 +31,7 @@ interface Site {
 const c = (type: CtxType, stage: CtxStage, size: SiteCtx["size"] = "all"): SiteCtx => ({ type, stage, size });
 const DUP: SiteCtx = { type: "na", stage: "na", size: "all", dup: true };
 const NA = c("na", "na");
+const NONE: SiteCtx = { type: "na", stage: "na", size: "all", none: true };
 const EACH_EVAL = c("each", "Eval");
 const EACH_PA = c("each", "PA");
 
@@ -72,7 +77,7 @@ export const SITES: Site[] = [
   { page: "eod-vs-intraday", token: FILL, ctx: c("Intraday", "Eval") },
   { page: "eod-vs-intraday", token: "{S32:eval.daily_loss_limit}", ctx: EACH_EVAL },
   { page: "eod-vs-intraday", token: "{S33:eval.lock_level.rithmic_wealthcharts|eval.lock_rule.tradovate}", ctx: EACH_EVAL },
-  { page: "eod-vs-intraday", token: "{S34:path_picker.reasoning_facts}", ctx: NA },
+  { page: "eod-vs-intraday", token: "{S34:path_picker.reasoning_facts}", ctx: NONE },
   { page: "eod-vs-intraday", token: "{S13:sources.tool_list.S13}", ctx: NA },
   { page: "eod-vs-intraday", token: "{S35:sources.tool_list.S35}", ctx: NA },
   { page: "eod-vs-intraday", token: CME4, ctx: NA },
@@ -143,12 +148,14 @@ export const SITES: Site[] = [
   { page: "performance-account-rules", token: "{S12:eval.daily_loss_limit}", ctx: c("Intraday", "Eval") },
   { page: "performance-account-rules", token: "{S06:eval.consistency}", ctx: EACH_EVAL },
   { page: "performance-account-rules", token: "{S58:pa.max_active_pa_household}", ctx: c("na", "PA") },
-  { page: "performance-account-rules", token: "{S10:pa.start_threshold|pa.max_drawdown}", line: "**EOD PA:**", ctx: c("EOD", "PA") },
-  { page: "performance-account-rules", token: "{S10:pa.start_threshold|pa.max_drawdown}", line: "**Intraday PA:**", ctx: c("Intraday", "PA") },
+  { page: "performance-account-rules", token: "{S10:pa.start_threshold|pa.max_drawdown}", line: "**EOD PA:**", ctx: { ...c("EOD", "PA"), named: true } },
+  { page: "performance-account-rules", token: "{S10:pa.start_threshold|pa.max_drawdown}", line: "**Intraday PA:**", ctx: { ...c("Intraday", "PA"), named: true } },
   { page: "performance-account-rules", token: "{S11:pa.lock_threshold_level|pa.lock_trigger_balance}", ctx: EACH_PA },
   { page: "performance-account-rules", token: "{S49:rules.trailing_threshold_not_a_stop}", ctx: NA },
   { page: "performance-account-rules", token: "{S60:pa.dll_note}", ctx: EACH_PA },
-  { page: "performance-account-rules", token: "{S61:pa.scaling_tiers}", ctx: EACH_PA },
+  { page: "performance-account-rules", token: "{S61:pa.scaling_tiers}", line: "Contract limits by tier and size", ctx: EACH_PA },
+  // same key as the full render on the "Contract limits by tier and size" line below: printed once on the page
+  { page: "performance-account-rules", token: "{S61:pa.scaling_tiers}", ctx: DUP },
   { page: "performance-account-rules", token: "{S25:pa.scaling_tiers}", ctx: DUP },
   { page: "performance-account-rules", token: "{S27:contracts.micro_equivalency}", ctx: NA },
   { page: "performance-account-rules", token: "{S28:contracts.order_rejection_pa}", ctx: c("na", "PA") },
@@ -187,7 +194,7 @@ export const SITES: Site[] = [
   { page: "trading-calculators", token: "{S29:contracts.order_rejection_eval}", ctx: c("na", "Eval") },
   { page: "trading-calculators", token: "{S32:eval.daily_loss_limit}", ctx: EACH_EVAL },
   { page: "trading-calculators", token: "{S33:eval.lock_level.rithmic_wealthcharts|eval.lock_rule.tradovate}", ctx: EACH_EVAL },
-  { page: "trading-calculators", token: "{S34:path_picker.reasoning_facts}", ctx: NA },
+  { page: "trading-calculators", token: "{S34:path_picker.reasoning_facts}", ctx: NONE },
   { page: "trading-calculators", token: "{S35:sources.tool_list.S35}", ctx: NA },
   // ---- updates
   { page: "updates", token: "{S71:meta.audit_date}", ctx: NA },
