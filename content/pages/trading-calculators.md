@@ -52,7 +52,7 @@ Each state links to [Apex's 50% Consistency Requirement page](https://apextrader
 - Net profit of zero or less: "N/A — positive net profit is required before consistency can be calculated; account stays active"
 - Best day below zero: "Enter a best day of $0 or more."
 
-> Unofficial helper, not advice; Apex's system decides. Applies to Performance Accounts only (Evaluations: 'Not Applied'). Losing days count in net profit. Near 50% (from 49.95% up to, not including, 50.05%) this site gives no pass/fail verdict. That range is this site's own rule, not an Apex rule, and Apex's Help Center words the exact-50% case differently — check Apex's 50% Consistency Requirement page.
+> Unofficial helper, not advice; Apex's system decides. Performance Accounts only (Evaluations: 'Not Applied'). Losing days count in net profit. Near 50% (from 49.95% up to, not including, 50.05%) this site gives no pass/fail verdict. That range is this site's own rule, not Apex's, and Apex words the exact-50% case differently; see [Apex's 50% Consistency Requirement page](https://apextraderfunding.com/help-center/additional-helpful-items/50-consistency-requirement/).
 > Not advice. Futures trading involves substantial risk of loss. Evals and PAs are simulated.
 > Browser-only: nothing you type is stored or sent. [How this site handles privacy](/about#privacy)
 
@@ -92,9 +92,9 @@ This unofficial helper estimates the distance, in dollars and in NQ, MNQ, ES, or
 
 Unofficial helper, not advice; Apex's system decides.
 
-This tool estimates the distance, in dollars and in contract points, from a stated balance to the published Apex trailing or end-of-day threshold for the selected simulated account. Select Evaluation or Performance Account, EOD or Intraday, and the account size. The threshold is an account rule, not a stop order and not a target to trade to. Using the trailing threshold as a stop-loss is a prohibited activity. Drawdown is not your stop.
+Distance, in dollars and contract points, from a stated balance to the published Apex threshold for the selected simulated account. The threshold is not a stop order; using the trailing threshold as a stop-loss is prohibited.
 
-Point values are CME Group contract multipliers, checked on CME's pages on 21 Nov 2026: NQ $20/point, MNQ $2/point, ES $50/point, MES $5/point. Re-check CME before launch. Apex dollar thresholds are filled only from the official Help Center with a source URL and retrieval date.
+Point values are CME Group contract multipliers, checked on CME's pages on 21 Nov 2026: NQ $20/point, MNQ $2/point, ES $50/point, MES $5/point.
 
 Sources: [Apex Prohibited Activities](https://apextraderfunding.com/help-center/getting-started/prohibited-activities/) · Apex drawdown pages {S13:sources.tool_list.S13} · CME contract specs {S13:cme.NQ.point_value|cme.MNQ.point_value|cme.ES.point_value|cme.MES.point_value} · [Privacy](/about#privacy)
 > Not advice. Futures trading involves substantial risk of loss. Evals and PAs are simulated.
@@ -136,7 +136,7 @@ Sources: [Apex Prohibited Activities](https://apextraderfunding.com/help-center/
 - Net profit of zero or less: "Consistency N/A — positive net profit is required."
 - Negative or non-whole day counts are rejected.
 
-> Unofficial helper, not advice; Apex's system decides. Applies to Performance Accounts only (Apex's payout requirements are written for Performance Accounts). Meeting published checklist criteria does not guarantee payout approval; Apex's automated system makes the final determination. Losing days count in net profit.
+> Unofficial helper, not advice; Apex's system decides. Performance Accounts only. Meeting the published checklist does not guarantee payout approval; Apex's automated system makes the final determination. Losing days count in net profit.
 
 Sources: Apex EOD Payouts and Intraday Payouts {S23:sources.tool_list.S23} · [Apex's 50% Consistency Requirement page](https://apextraderfunding.com/help-center/additional-helpful-items/50-consistency-requirement/) · [Privacy](/about#privacy)
 > Not advice. Futures trading involves substantial risk of loss. Evals and PAs are simulated.
@@ -158,7 +158,7 @@ Two separate parts. They are never combined.
 - **Price move (points)**
 - **Result:** N × P points on [Instrument] = $D notional P&L move (CME arithmetic only; not trade or stop advice)
 
-Contract point values come from CME Group, checked 21 Nov 2026 (re-check before launch).
+Contract point values come from CME Group, checked 21 Nov 2026.
 
 **Part 2. Published Apex contract limits (reference table)**
 
@@ -168,7 +168,7 @@ Contract point values come from CME Group, checked 21 Nov 2026 (re-check before 
 - **Order rejection (by stage)** {S28:contracts.order_rejection_eval|contracts.order_rejection_pa}
 - If the quantity entered is above the published limit: "Exceeds published limit for the selected stage, type and size" {S29:contracts.order_rejection_eval}. This is a reference note only.
 
-> Unofficial helper, not advice; Apex's system decides. Shows published Apex contract limits by stage (Evaluation vs PA scaling tier) in a separate reference table, and CME Group contract point values (NQ $20/pt, MNQ $2/pt, ES $50/pt, MES $5/pt, checked 21 Nov 2026; re-check before launch). Arithmetic is not a stop-loss, a trade recommendation, or a sizing recommendation. Drawdown is not your stop; using the trailing threshold as a stop-loss is prohibited.
+> Unofficial helper, not advice; Apex's system decides. Notional CME arithmetic only (NQ $20/pt, MNQ $2/pt, ES $50/pt, MES $5/pt, checked 21 Nov 2026), not trade, sizing or stop advice. The Apex cap table is a separate reference by stage. Drawdown is not your stop.
 
 Sources: Apex Evaluation, PA, Scaling and [Prohibited Activities](https://apextraderfunding.com/help-center/getting-started/prohibited-activities/) pages · CME Group contract specs · [Privacy](/about#privacy)
 > Not advice. Futures trading involves substantial risk of loss. Evals and PAs are simulated.
@@ -203,7 +203,7 @@ This only shows how Evaluation locks differ by platform {S33:eval.lock_level.rit
 - "Not sure yet" shows both platform-lock behaviors.
 - Links only to [EOD vs Intraday](/eod-vs-intraday), [Evaluation Rules](/evaluation-rules), [PA Rules](/performance-account-rules) and [Account Comparison](/account-comparison). No buy button in the result.
 
-> Unofficial helper, not advice; Apex's system decides. Maps trading-style mechanics to published Apex EOD and Intraday rules for educational comparison only — this is not financial advice and not a recommendation to buy any evaluation or account.
+> Unofficial helper, not advice; Apex's system decides. Maps trading-style mechanics to published Apex EOD and Intraday rules for education only; not a recommendation to buy any evaluation or account.
 
 Sources: Apex EOD and Intraday rule pages {S35:sources.tool_list.S35} · [Privacy](/about#privacy)
 > Not advice. Futures trading involves substantial risk of loss. Evals and PAs are simulated.

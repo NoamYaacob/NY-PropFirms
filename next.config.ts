@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { REDIRECTS } from "./src/lib/redirects";
 
 /**
  * 308 redirect map from kpis/redirect_and_measurement_plan.md v3 and sitemap v2.3.1.
@@ -8,26 +9,9 @@ import type { NextConfig } from "next";
  * Hebrew and other-firm page files stay in the repo; the old paths are disabled by redirect only
  * (/firms/*, /debug/links stay live, noindex and unlinked).
  */
-const REDIRECTS: Array<[string, string]> = [
-  ["/en", "/"],
-  ["/en/apex-eod-vs-intraday", "/eod-vs-intraday"],
-  ["/en/apex-payouts", "/payout-rules"],
-  ["/en/account-size", "/account-comparison"],
-  ["/en/faq", "/faq"],
-  ["/en/how-i-make-money", "/about"],
-  ["/en/sources", "/sources"],
-  ["/apex", "/apex-rules"],
-  ["/apex/eod", "/eod-vs-intraday"],
-  ["/apex/intraday", "/eod-vs-intraday"],
-  ["/apex/payouts", "/payout-rules"],
-  ["/apex/compliance", "/apex-rules#prohibited-activities"],
-  ["/en/apex-rules", "/apex-rules"],
-  ["/en/rules-checklist", "/apex-rules#before-you-buy"],
-  ["/en/newsletter", "/"],
-  ["/en/consistency-calculator", "/trading-calculators"],
-];
-
 const nextConfig: NextConfig = {
+  // trailing-slash variants are redirected in src/proxy.ts so they take one hop
+  skipTrailingSlashRedirect: true,
   experimental: {
     turbopackUseSystemTlsCerts: true,
   },

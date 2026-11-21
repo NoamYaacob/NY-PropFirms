@@ -37,7 +37,7 @@ export function PathPickerTool({ id = "path-picker", anchorOffset = false }: { i
       framing="Four neutral questions about trading mechanics. Apex EOD and Intraday only. This is not a recommendation to buy any account."
       disclaimer={
         <p>
-          Unofficial helper, not advice; Apex&apos;s system decides. Maps trading-style mechanics to published Apex EOD and Intraday rules for educational comparison only. This is not financial advice and not a recommendation to buy any evaluation or account.
+          Unofficial helper, not advice; Apex&apos;s system decides. Maps trading-style mechanics to published Apex EOD and Intraday rules for education only; not a recommendation to buy any evaluation or account.
         </p>
       }
       links={

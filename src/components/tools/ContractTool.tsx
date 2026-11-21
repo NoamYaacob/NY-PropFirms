@@ -28,7 +28,7 @@ export function ContractTool({ id = "contract-reference", anchorOffset = false }
       pill="N × pts × $/pt"
       disclaimer={
         <p>
-          Unofficial helper, not advice; Apex&apos;s system decides. Shows published Apex contract limits by stage (Evaluation vs PA scaling tier) in a separate reference table, and CME Group contract point values (NQ $20/pt, MNQ $2/pt, ES $50/pt, MES $5/pt, checked 21 Nov 2026; re-check before launch). Arithmetic is not a stop-loss, a trade recommendation, or a sizing recommendation. Drawdown is not your stop; using the trailing threshold as a stop-loss is prohibited.
+          Unofficial helper, not advice; Apex&apos;s system decides. Notional CME arithmetic only (NQ $20/pt, MNQ $2/pt, ES $50/pt, MES $5/pt, checked 21 Nov 2026), not trade, sizing or stop advice. The Apex cap table is a separate reference by stage. Drawdown is not your stop.
         </p>
       }
       links={

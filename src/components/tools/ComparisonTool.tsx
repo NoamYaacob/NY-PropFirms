@@ -28,7 +28,7 @@ export function ComparisonTool({ id = "account-comparison", anchorOffset = false
       framing="Current Apex EOD and Intraday accounts only (Legacy not included). Evaluation and Performance Account rules are shown separately."
       disclaimer={
         <p>
-          Unofficial comparison helper, not advice; Apex&apos;s system decides. Current Apex EOD and Intraday accounts only (Legacy not included). Evaluation and Performance Account rules are shown separately. Point equivalents use CME Group contract multipliers checked 21 Nov 2026 (NQ $20, MNQ $2, ES $50, MES $5/pt; re-check before launch). Official Apex Help Center pages govern.
+          Unofficial comparison helper, not advice; Apex&apos;s system decides. Current Apex EOD and Intraday accounts only (Legacy not included); Evaluation and Performance Account rules shown separately. Point equivalents use CME multipliers checked 21 Nov 2026 (NQ $20, MNQ $2, ES $50, MES $5/pt).
         </p>
       }
       links={

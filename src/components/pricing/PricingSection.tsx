@@ -12,10 +12,13 @@ export function PricingSection() {
   const rows = GATED_PRICE_ROWS;
   return (
     <Section id="pricing" title="Current Apex pricing">
-      <div className="ds-pair">
-        <p className="ds-legal ds-legal-strong">{DISC_LINE}</p>
-        <p className="ds-risk">{RISK_COMPACT}</p>
-      </div>
+      {/* CF P1: in the fallback state the AD_LINE + DISC_LINE + RISK_COMPACT block right before the link is the only strip. State B keeps the pair next to the cards. */}
+      {rows.length > 0 ? (
+        <div className="ds-pair">
+          <p className="ds-legal ds-legal-strong">{DISC_LINE}</p>
+          <p className="ds-risk">{RISK_COMPACT}</p>
+        </div>
+      ) : null}
       {rows.length === 0 ? (
         <div className="ds-card ds-pricefall">
           <p className="ds-body-p" style={{ marginTop: 0 }}>Prices change often, so this site does not show a number it cannot check against Apex&apos;s own page.</p>

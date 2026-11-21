@@ -34,7 +34,7 @@ export function PayoutTool({ id = "payout-eligibility", anchorOffset = false }: 
       framing="Performance Accounts only. Apex writes its payout requirements for Performance Accounts. This is a checklist, not a promise."
       disclaimer={
         <p>
-          Unofficial helper, not advice; Apex&apos;s system decides. Applies to Performance Accounts only (Apex&apos;s payout requirements are written for Performance Accounts). Meeting published checklist criteria does not guarantee payout approval; Apex&apos;s automated system makes the final determination. Losing days count in net profit.
+          Unofficial helper, not advice; Apex&apos;s system decides. Performance Accounts only. Meeting the published checklist does not guarantee payout approval; Apex&apos;s automated system makes the final determination. Losing days count in net profit.
         </p>
       }
       links={

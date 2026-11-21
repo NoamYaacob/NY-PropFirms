@@ -40,9 +40,9 @@ export function buildRows(phase: Phase, size: Size, models: Model[]): CompareRow
     add("Daily Loss Limit", (t) => cellFrom(EVAL[t][size].dll, (v) => (v == null ? "N/A (no Evaluation DLL)" : usd(v)), (v) => v));
     add("Contract cap (fixed in the Evaluation)", (t) => cellFrom(EVAL[t][size].maxContracts, (v) => String(v)));
     add("Access period", (t) => cellFrom(EVAL[t][size].accessDays, (v) => `${v} calendar days`));
-    add("Consistency", () => ({ text: "Not Applied in Evaluations", src: EVAL.EOD[size].profitTarget.url }));
+    add("Consistency", (t) => cellFrom(EVAL[t][size].consistency, () => "Not Applied in Evaluations"));
   } else {
-    add("Max Drawdown (distance)", (t) => cellFrom(EVAL[t][size].maxDrawdown, (v) => usd(v as number), (v) => v));
+    add("Max Drawdown (distance)", (t) => cellFrom(PA[t][size].maxDrawdown, (v) => usd(v as number), (v) => v));
     add("Contract cap (scaling ceiling)", (t) => cellFrom(PA[t][size].maxContractsCeiling, (v) => String(v)));
     add("Daily Loss Limit", (t) => cellFrom(PA[t][size].scaling, (v) => `Tiered: ${(v ?? []).map((x) => usd(x.dll)).join(" / ")}`));
     add("Qualifying days", (t) => cellFrom(PA[t][size].qualifyingDays, (v) => `${v} days`));

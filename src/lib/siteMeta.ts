@@ -8,8 +8,8 @@ export function pageMeta(path: string, title: string, description: string): Meta
     title: { absolute: title },
     description,
     alternates: { canonical: url, languages: { "en-US": url, "x-default": url } },
-    openGraph: { type: "website", url, siteName: "NY Prop Firms", title, description, locale: "en_US" },
-    twitter: { card: "summary_large_image", title, description },
+    openGraph: { type: "website", url, siteName: "NY Prop Firms", title, description, locale: "en_US", images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630, alt: "NY Prop Firms" }] },
+    twitter: { card: "summary_large_image", title, description, images: [`${SITE_URL}/og-image.png`] },
     robots: { index: true, follow: true },
   };
 }

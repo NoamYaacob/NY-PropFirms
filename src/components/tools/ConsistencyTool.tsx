@@ -22,7 +22,7 @@ export function ConsistencyTool({ id = "consistency", anchorOffset = false }: { 
       framing="Applies to EOD PA and Intraday PA, all sizes. Consistency is 'Not Applied' in Evaluations."
       disclaimer={
         <p>
-          Unofficial helper, not advice; Apex&apos;s system decides. Applies to Performance Accounts only (Evaluations: &apos;Not Applied&apos;). Losing days count in net profit. Near 50% (from 49.95% up to, not including, 50.05%) this site gives no pass/fail verdict. That range is this site&apos;s own rule, not an Apex rule, and Apex&apos;s Help Center words the exact-50% case differently. Check Apex&apos;s 50% Consistency Requirement page.
+          Unofficial helper, not advice; Apex&apos;s system decides. Performance Accounts only (Evaluations: &apos;Not Applied&apos;). Losing days count in net profit. Near 50% (from 49.95% up to, not including, 50.05%) this site gives no pass/fail verdict. That range is this site&apos;s own rule, not Apex&apos;s, and Apex words the exact-50% case differently; see Apex&apos;s 50% Consistency Requirement page.
         </p>
       }
       links={<ExtLink href={CONSISTENCY.url}>Apex: 50% Consistency Requirement</ExtLink>}

@@ -15,7 +15,8 @@ export function loadCopy(name: string): { meta: Meta; blocks: Block[] } {
 }
 
 /** Inline markdown: **bold**, *italic*, `code`, [text](href), {tokens}. */
-export function inline(text: string): ReactNode[] {
+export function inline(text: string, page = "", root?: string): ReactNode[] {
+  const line = root ?? text;
   const out: ReactNode[] = [];
   const re = /(\*\*[^*]+\*\*|\*[^*\s][^*]*\*|`[^`]+`|\[[^\]]+\]\([^)]+\)|\{[A-Za-z0-9_:.|*-]+\})/g;
   let last = 0;
@@ -25,12 +26,12 @@ export function inline(text: string): ReactNode[] {
     if (m.index > last) out.push(text.slice(last, m.index));
     const t = m[0];
     const key = `i${n++}`;
-    if (t.startsWith("**")) out.push(<strong key={key}>{inline(t.slice(2, -2))}</strong>);
+    if (t.startsWith("**")) out.push(<strong key={key}>{inline(t.slice(2, -2), page, line)}</strong>);
     else if (t.startsWith("`")) out.push(<code key={key}>{t.slice(1, -1)}</code>);
     else if (t.startsWith("[")) {
       const lm = /^\[([^\]]+)\]\(([^)]+)\)$/.exec(t)!;
       const href = lm[2];
-      const label = inline(lm[1]);
+      const label = inline(lm[1], page, line);
       if (href.startsWith("/go/apex/")) {
         // Affiliate links are rendered only by the CTA / pricing components (GoLink). Never a plain anchor here.
         out.push(<span key={key}>{label}</span>);
@@ -48,8 +49,14 @@ export function inline(text: string): ReactNode[] {
         );
       }
     } else if (t.startsWith("{")) {
-      if (/^\{S\d+:/.test(t)) out.push(<Slot key={key} raw={t} />);
-    } else out.push(<em key={key}>{inline(t.slice(1, -1))}</em>);
+      if (/^\{S\d+:/.test(t)) {
+        // punctuation right after a token is printed inside the slot's last line, so it never wraps alone
+        const tail = /^[.,;)]/.exec(text.slice(m.index + t.length))?.[0] ?? "";
+        out.push(<Slot key={key} raw={t} page={page} line={line} tail={tail || undefined} />);
+        last = m.index + t.length + tail.length;
+        continue;
+      }
+    } else out.push(<em key={key}>{inline(t.slice(1, -1), page, line)}</em>);
     last = m.index + t.length;
   }
   if (last < text.length) out.push(text.slice(last));
@@ -91,7 +98,7 @@ function renderBlock(b: Block, key: string, props: CopyPageProps, inFaqOpen = fa
       const clean = b.text.replace(/\s*\{[^}]*\}/g, "");
       return (
         <Tag key={key} id={b.id} className={b.level >= 3 ? "ds-h3" : "ds-h2"}>
-          {inline(clean)}
+          {inline(clean, props.name)}
         </Tag>
       );
     }
@@ -102,7 +109,7 @@ function renderBlock(b: Block, key: string, props: CopyPageProps, inFaqOpen = fa
       if (spInline && props.special?.[spInline[1]]) return <div key={key}>{props.special[spInline[1]]}</div>;
       return (
         <p key={key} className={b.text === DISC_LINE || b.text === AD_LINE ? "ds-legal ds-legal-strong" : b.text === CODE_CAVEAT ? "ds-legal" : b.text === RISK_COMPACT ? "ds-risk" : "ds-body-p"}>
-          {inline(b.text)}
+          {inline(b.text, props.name)}
         </p>
       );
     }
@@ -110,7 +117,7 @@ function renderBlock(b: Block, key: string, props: CopyPageProps, inFaqOpen = fa
       return (
         <ul key={key} className="ds-ul">
           {b.items.map((it, i) => (
-            <li key={i}>{inline(it)}</li>
+            <li key={i}>{inline(it, props.name)}</li>
           ))}
         </ul>
       );
@@ -118,7 +125,7 @@ function renderBlock(b: Block, key: string, props: CopyPageProps, inFaqOpen = fa
       return (
         <ol key={key} className="ds-ul ds-ol">
           {b.items.map((it, i) => (
-            <li key={i}>{inline(it)}</li>
+            <li key={i}>{inline(it, props.name)}</li>
           ))}
         </ol>
       );
@@ -129,7 +136,7 @@ function renderBlock(b: Block, key: string, props: CopyPageProps, inFaqOpen = fa
         <div key={key} className="ds-pair">
           {b.lines.map((l, i) => (
             <p key={i} className={l === DISC_LINE || l === AD_LINE ? "ds-legal ds-legal-strong" : l === RISK_COMPACT ? "ds-risk" : "ds-legal"}>
-              {inline(l)}
+              {inline(l, props.name)}
             </p>
           ))}
         </div>
@@ -142,7 +149,7 @@ function renderBlock(b: Block, key: string, props: CopyPageProps, inFaqOpen = fa
               <tr>
                 {b.header.map((h, i) => (
                   <th key={i} scope="col">
-                    {inline(h)}
+                    {inline(h, props.name)}
                   </th>
                 ))}
               </tr>
@@ -156,7 +163,7 @@ function renderBlock(b: Block, key: string, props: CopyPageProps, inFaqOpen = fa
                 ) : (
                   <tr key={i}>
                     {r.map((c, j) => (
-                      <td key={j}>{inline(c)}</td>
+                      <td key={j}>{inline(c, props.name)}</td>
                     ))}
                   </tr>
                 ),
@@ -199,7 +206,7 @@ export function CopyPage(props: CopyPageProps) {
           <div className={props.introAside ? "ds-introgrid" : ""}>
             <div>
               {props.titlePrefix}
-              {h1 ? <h1 className="ds-h1">{inline(h1.text)}</h1> : null}
+              {h1 ? <h1 className="ds-h1">{inline(h1.text, props.name)}</h1> : null}
               <div className="ds-intro">{introBlocks.map((b, i) => renderBlock(b, `in${i}`, props))}</div>
             </div>
             {props.introAside}
@@ -217,7 +224,7 @@ export function CopyPage(props: CopyPageProps) {
           <section key={si} id={id} className="ds-section" aria-labelledby={`${id}-h`}>
             <Wrap>
               <h2 id={`${id}-h`} className="ds-h2">
-                {inline(clean)}
+                {inline(clean, props.name)}
               </h2>
               {props.faq ? renderFaq(s.body, props) : s.body.map((b, i) => renderBlock(b, `s${si}b${i}`, props))}
               {hook?.after}

@@ -62,7 +62,7 @@ Each state links to [Apex's 50% Consistency Requirement page](https://apextrader
 - Net profit of zero or less: "N/A — positive net profit is required before consistency can be calculated; account stays active"
 - Best day below zero: "Enter a best day of $0 or more."
 
-> Unofficial helper, not advice; Apex's system decides. Applies to Performance Accounts only (Evaluations: 'Not Applied'). Losing days count in net profit. Near 50% (from 49.95% up to, not including, 50.05%) this site gives no pass/fail verdict. That range is this site's own rule, not an Apex rule, and Apex's Help Center words the exact-50% case differently — check Apex's 50% Consistency Requirement page.
+> Unofficial helper, not advice; Apex's system decides. Performance Accounts only (Evaluations: 'Not Applied'). Losing days count in net profit. Near 50% (from 49.95% up to, not including, 50.05%) this site gives no pass/fail verdict. That range is this site's own rule, not Apex's, and Apex words the exact-50% case differently; see [Apex's 50% Consistency Requirement page](https://apextraderfunding.com/help-center/additional-helpful-items/50-consistency-requirement/).
 > Not advice. Futures trading involves substantial risk of loss. Evals and PAs are simulated.
 > Browser-only: nothing you type is stored or sent. [How this site handles privacy](/about#privacy)
 

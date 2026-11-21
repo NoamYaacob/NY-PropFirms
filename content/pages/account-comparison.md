@@ -48,7 +48,7 @@ Compare current Apex EOD and Intraday accounts. Evaluation and Performance Accou
 
 Every row links to its official Apex page. Switching to Evaluation hides PA-only rows.
 
-> Unofficial comparison helper, not advice; Apex's system decides. Current Apex EOD and Intraday accounts only (Legacy not included). Evaluation and Performance Account rules are shown separately. Point equivalents use CME Group contract multipliers checked 21 Nov 2026 (NQ $20, MNQ $2, ES $50, MES $5/pt; re-check before launch). Official Apex Help Center pages govern.
+> Unofficial comparison helper, not advice; Apex's system decides. Current Apex EOD and Intraday accounts only (Legacy not included); Evaluation and Performance Account rules shown separately. Point equivalents use CME multipliers checked 21 Nov 2026 (NQ $20, MNQ $2, ES $50, MES $5/pt).
 
 Sources: [Official Sources](/sources) · CME contract specs {S31:cme.NQ.point_value|cme.MNQ.point_value|cme.ES.point_value|cme.MES.point_value} · [Privacy](/about#privacy)
 > Not advice. Futures trading involves substantial risk of loss. Evals and PAs are simulated.

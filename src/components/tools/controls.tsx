@@ -83,7 +83,7 @@ export function ToolShell({
 }) {
   return (
     <article id={id} className={`ds-card ds-term ${anchorOffset ? "ds-anchor" : ""}`} aria-labelledby={`${id}-title`}>
-      <div className="ds-bar">
+      <div className="ds-bar ds-bar-disc">
         <span className="ds-dots" aria-hidden>
           <i />
           <i />
@@ -93,8 +93,8 @@ export function ToolShell({
           {title}
         </h2>
         {pill ? <span className="ds-pill ds-mono">{pill}</span> : null}
+        <span className="ds-fine ds-bar-discl">{DISC_LINE}</span>
       </div>
-      <p className="ds-fine ds-tooldisc">{DISC_LINE}</p>
       <div className="ds-term-body">
         {framing ? <p className="ds-framing">{framing}</p> : null}
         {children}

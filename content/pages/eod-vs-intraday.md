@@ -78,9 +78,9 @@ This unofficial helper estimates the distance, in dollars and in NQ, MNQ, ES, or
 
 Unofficial helper, not advice; Apex's system decides.
 
-This tool estimates the distance, in dollars and in contract points, from a stated balance to the published Apex trailing or end-of-day threshold for the selected simulated account. Select Evaluation or Performance Account, EOD or Intraday, and the account size. The threshold is an account rule, not a stop order and not a target to trade to. Using the trailing threshold as a stop-loss is a prohibited activity. Drawdown is not your stop.
+Distance, in dollars and contract points, from a stated balance to the published Apex threshold for the selected simulated account. The threshold is not a stop order; using the trailing threshold as a stop-loss is prohibited.
 
-Point values are CME Group contract multipliers, checked on CME's pages on 21 Nov 2026: NQ $20/point, MNQ $2/point, ES $50/point, MES $5/point. Re-check CME before launch. Apex dollar thresholds are filled only from the official Help Center with a source URL and retrieval date.
+Point values are CME Group contract multipliers, checked on CME's pages on 21 Nov 2026: NQ $20/point, MNQ $2/point, ES $50/point, MES $5/point.
 
 Sources: [Apex Prohibited Activities](https://apextraderfunding.com/help-center/getting-started/prohibited-activities/) · Apex drawdown pages {S13:sources.tool_list.S13} · CME contract specs {S13:cme.NQ.point_value|cme.MNQ.point_value|cme.ES.point_value|cme.MES.point_value} · [Privacy](/about#privacy)
 > Not advice. Futures trading involves substantial risk of loss. Evals and PAs are simulated.
@@ -114,7 +114,7 @@ This only shows how Evaluation locks differ by platform {S33:eval.lock_level.rit
 - "Not sure yet" shows both platform-lock behaviors.
 - Links only to [EOD vs Intraday](/eod-vs-intraday), [Evaluation Rules](/evaluation-rules), [PA Rules](/performance-account-rules) and [Account Comparison](/account-comparison). No buy button in the result.
 
-> Unofficial helper, not advice; Apex's system decides. Maps trading-style mechanics to published Apex EOD and Intraday rules for educational comparison only — this is not financial advice and not a recommendation to buy any evaluation or account.
+> Unofficial helper, not advice; Apex's system decides. Maps trading-style mechanics to published Apex EOD and Intraday rules for education only; not a recommendation to buy any evaluation or account.
 
 Sources: Apex EOD and Intraday rule pages {S35:sources.tool_list.S35} · [Privacy](/about#privacy)
 > Not advice. Futures trading involves substantial risk of loss. Evals and PAs are simulated.

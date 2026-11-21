@@ -8,7 +8,7 @@ import { CmeSource, FactChip } from "@/design-system/Blocks";
 import { ExtLink, NumField, Readout, Seg, ToolShell, parseNum } from "./controls";
 
 const FRAMING =
-  "This unofficial helper estimates the distance, in dollars and in NQ, MNQ, ES, or MES points, from a stated simulated-account balance to Apex's published trailing or end-of-day threshold for the account you select. It is not a stop, a target, or a position-size recommendation.";
+  "Distance, in dollars and contract points, from a stated balance to the published Apex threshold for the selected simulated account. The threshold is not a stop order; using the trailing threshold as a stop-loss is prohibited.";
 
 export function DrawdownTool({ id = "drawdown-distance", anchorOffset = false }: { id?: string; anchorOffset?: boolean }) {
   const [stage, setStage] = useState<Stage>("Evaluation");
@@ -35,10 +35,7 @@ export function DrawdownTool({ id = "drawdown-distance", anchorOffset = false }:
       disclaimer={
         <>
           <p className="font-semibold">Unofficial helper, not advice; Apex&apos;s system decides.</p>
-          <p>
-            This tool estimates the distance, in dollars and in contract points, from a stated balance to the published Apex trailing or end-of-day threshold for the selected simulated account. Select Evaluation or Performance Account, EOD or Intraday, and the account size. The threshold is an account rule, not a stop order and not a target to trade to. Using the trailing threshold as a stop-loss is a prohibited activity. Drawdown is not your stop.
-          </p>
-          <p>Point values are CME Group contract multipliers, checked on CME&apos;s pages on 21 Nov 2026: NQ $20/point, MNQ $2/point, ES $50/point, MES $5/point. Re-check CME before launch. Apex dollar thresholds are filled only from the official Help Center with a source URL and retrieval date.</p>
+          <p>Point values are CME Group contract multipliers, checked on CME&apos;s pages on 21 Nov 2026: NQ $20/point, MNQ $2/point, ES $50/point, MES $5/point.</p>
         </>
       }
       links={

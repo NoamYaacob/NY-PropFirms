@@ -47,7 +47,7 @@ Each entry shows the page title, the direct link, Apex's last-modified date (ET)
 
 <a id="cme"></a>
 ## CME contract values
-Point values used in the calculators: NQ $20/point, MNQ $2/point, ES $50/point, MES $5/point. Checked on CME's pages on 21 Nov 2026. Re-check before launch.
+Point values used in the calculators: NQ $20/point, MNQ $2/point, ES $50/point, MES $5/point. Checked on CME's pages on 21 Nov 2026.
 {S72:sources.registry} <!-- NQ, MNQ, ES, MES only -->
 
 ## Spotted an error?

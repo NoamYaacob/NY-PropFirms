@@ -95,6 +95,8 @@ export interface EvalParams {
   maxContracts: Fact<number>;
   accessDays: Fact<number>;
   startThreshold: Fact<number>;
+  /** Verified text "Not Applied" in Evaluations, from the per-type eval.consistency record. */
+  consistency: Fact<string>;
 }
 
 export interface ScalingTier {
@@ -147,6 +149,7 @@ export const EVAL: Record<AccountType, Record<Size, EvalParams>> = build((t, s) 
   maxContracts: fact("eval.max_contracts_fixed", t, "Evaluation", s),
   accessDays: fact("eval.access_period_days", t, "Evaluation", s),
   startThreshold: fact("eval.start_threshold", t, "Evaluation", s),
+  consistency: fact("eval.consistency", t, "Evaluation", s),
 }));
 
 export const PA: Record<AccountType, Record<Size, PaParams>> = build((t, s) => ({
