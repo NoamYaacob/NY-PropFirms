@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: "/go/",
+      disallow: ["/go/", "/design/"],
     },
     sitemap: "https://ny-propfirms.com/sitemap.xml",
   };
