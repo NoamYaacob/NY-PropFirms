@@ -427,23 +427,19 @@ function DistancePanel() {
           </div>
         </div>
         <div className="a2-screen">
-          <svg viewBox="0 0 370 250" className="block h-auto w-full" role="img" aria-label="Sample distance between a path and the level. Informational only.">
-            <g transform="scale(1 1.62)">
-              {[30, 70, 110].map((gy) => (
-                <line key={gy} x1="10" x2="360" y1={gy} y2={gy} stroke="var(--a2-grid)" vectorEffect="non-scaling-stroke" />
-              ))}
-              <path d="M10 112 C 40 110, 62 84, 100 80 S 160 104, 200 88 S 262 52, 300 60 S 336 64, 360 40" fill="none" stroke="var(--a2-strong)" strokeWidth="1.8" vectorEffect="non-scaling-stroke" />
-              <path d={level} fill="none" stroke="var(--gold-500)" strokeWidth="2.4" vectorEffect="non-scaling-stroke" />
-              <line x1="360" x2="360" y1="40" y2={drawdown === "eod" ? 82 : 54} stroke="var(--a2-gold)" strokeWidth="1.6" strokeDasharray="3 3" vectorEffect="non-scaling-stroke" />
-            </g>
-            <text x="10" y="242" fill="var(--a2-text)" fontSize="13">
-              {drawdown === "eod" ? "level steps at the close" : "level follows the session"}
-            </text>
+          <svg viewBox="0 0 370 150" preserveAspectRatio="none" className="a2-screen-svg" role="img" aria-label="Sample distance between a path and the level. Informational only.">
+            {[30, 70, 110].map((gy) => (
+              <line key={gy} x1="10" x2="360" y1={gy} y2={gy} stroke="var(--a2-grid)" vectorEffect="non-scaling-stroke" />
+            ))}
+            <path d="M10 112 C 40 110, 62 84, 100 80 S 160 104, 200 88 S 262 52, 300 60 S 336 64, 360 40" fill="none" stroke="var(--a2-strong)" strokeWidth="1.8" vectorEffect="non-scaling-stroke" />
+            <path d={level} fill="none" stroke="var(--gold-500)" strokeWidth="2.4" vectorEffect="non-scaling-stroke" />
+            <line x1="360" x2="360" y1="40" y2={drawdown === "eod" ? 82 : 54} stroke="var(--a2-gold)" strokeWidth="1.6" strokeDasharray="3 3" vectorEffect="non-scaling-stroke" />
           </svg>
+          <p className="a2-screen-note">{drawdown === "eod" ? "level steps at the close" : "level follows the session"}</p>
         </div>
         <div className="a2-readout">
           <span className="a2-mono a2-kicker">Distance</span>
-          <span className="a2-mono a2-readout-val">[verified figure]</span>
+          <span className="a2-mono a2-readout-val">[sourced figure]</span>
         </div>
         <p className="mt-3 text-[15px] font-semibold" style={{ color: "var(--a2-strong)" }}>
           Unofficial helper, not advice; Apex's system decides.

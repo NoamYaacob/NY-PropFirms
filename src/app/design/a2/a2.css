@@ -803,3 +803,25 @@
     font-size: 1.65rem;
   }
 }
+
+.a2-screen {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 230px;
+}
+
+.a2-screen-svg {
+  width: 100%;
+  height: 100%;
+  min-height: 230px;
+}
+
+.a2-screen-note {
+  position: absolute;
+  left: 0.9rem;
+  bottom: 0.5rem;
+  margin: 0;
+  font-size: 14px;
+  color: var(--a2-text);
+}
