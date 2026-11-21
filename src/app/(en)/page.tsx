@@ -60,7 +60,7 @@ export default function HomePage() {
       </Wrap>
 
       <Section id="tool-index" title="Tools on this desk">
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="ds-toolgrid grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {TOOLS.map(([title, href, sub]) => (
             <Link key={title} href={href} className="ds-card ds-routecard">
               <span className="ds-routecard-t">{title}</span>

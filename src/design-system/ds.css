@@ -1678,3 +1678,21 @@ div[id] {
   border: 1px solid var(--ds-line);
   box-shadow: none;
 }
+
+@media (max-width: 640px) {
+  .ds-toolgrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+  .ds-toolgrid .ds-routecard {
+    padding: 0.65rem 0.75rem;
+  }
+  .ds-toolgrid .ds-routecard-t {
+    font-size: 1rem;
+    line-height: 1.15;
+  }
+  .ds-toolgrid .ds-routecard-b {
+    font-size: 14px;
+    line-height: 1.3;
+  }
+}
