@@ -19,6 +19,8 @@ export interface SiteCtx {
   none?: boolean;
   /** the copy puts a bold label naming exactly this type and stage right before the token, so the line adds no label of its own */
   named?: boolean;
+  /** the copy names this key (the rule) immediately before the token, so a multi-key line adds no key noun of its own (CF F1-r1) */
+  keyNamed?: boolean;
 }
 interface Site {
   page: string;
@@ -34,6 +36,8 @@ const NA = c("na", "na");
 const NONE: SiteCtx = { type: "na", stage: "na", size: "all", none: true };
 const EACH_EVAL = c("each", "Eval");
 const EACH_PA = c("each", "PA");
+/** CF F1-r1: the copy names the rule right before the token (see ops/en_build_changelog.md for the full keyNamed list) */
+const KN = (x: SiteCtx): SiteCtx => ({ ...x, keyNamed: true });
 
 const CME4 = "{S13:cme.NQ.point_value|cme.MNQ.point_value|cme.ES.point_value|cme.MES.point_value}";
 const CME4_31 = "{S31:cme.NQ.point_value|cme.MNQ.point_value|cme.ES.point_value|cme.MES.point_value}";
@@ -62,11 +66,11 @@ export const SITES: Site[] = [
   { page: "eod-vs-intraday", token: "{S15:dd.mechanics}", line: "Intraday counts unrealized peaks as they happen; EOD uses", ctx: c("each", "na") },
   { page: "eod-vs-intraday", token: "{S14:dd.mechanics}", ctx: c("each", "na") },
   { page: "eod-vs-intraday", token: "{S12:eval.daily_loss_limit}", line: "The EOD PA has a tiered DLL", ctx: c("EOD", "Eval") },
-  { page: "eod-vs-intraday", token: "{S60:pa.dll_note}", line: "The EOD PA has a tiered DLL", ctx: c("EOD", "PA") },
+  { page: "eod-vs-intraday", token: "{S60:pa.dll_note}", line: "The EOD PA has a tiered DLL", ctx: KN(c("EOD", "PA")) },
   { page: "eod-vs-intraday", token: "{S12:eval.daily_loss_limit}", line: "The Intraday PA has a tiered DLL", ctx: c("Intraday", "Eval") },
-  { page: "eod-vs-intraday", token: "{S60:pa.dll_note}", line: "The Intraday PA has a tiered DLL", ctx: c("Intraday", "PA") },
+  { page: "eod-vs-intraday", token: "{S60:pa.dll_note}", line: "The Intraday PA has a tiered DLL", ctx: KN(c("Intraday", "PA")) },
   { page: "eod-vs-intraday", token: "{S12:eval.daily_loss_limit}", ctx: EACH_EVAL },
-  { page: "eod-vs-intraday", token: "{S60:pa.dll_note}", ctx: EACH_PA },
+  { page: "eod-vs-intraday", token: "{S60:pa.dll_note}", ctx: KN(EACH_PA) },
   { page: "eod-vs-intraday", token: "{S55:eval.lock_level.rithmic_wealthcharts|eval.lock_rule.tradovate}", ctx: EACH_EVAL },
   { page: "eod-vs-intraday", token: "{S20:pa.payout.min_daily_profit}", ctx: EACH_PA },
   { page: "eod-vs-intraday", token: "{S21:pa.payout.sequential_caps}", ctx: EACH_PA },
@@ -98,8 +102,8 @@ export const SITES: Site[] = [
   { page: "evaluation-rules", token: "{S56:pa.activation_window_days}", ctx: c("na", "Eval") },
   // ---- faq
   { page: "faq", token: "{S57:pa.is_simulated_funded}", ctx: EACH_PA },
-  { page: "faq", token: "{S66:eval.pass_conditions}", ctx: EACH_EVAL },
-  { page: "faq", token: "{S63:payout.pa_only_applicability}", ctx: EACH_PA },
+  { page: "faq", token: "{S66:eval.pass_conditions}", ctx: KN(EACH_EVAL) },
+  { page: "faq", token: "{S63:payout.pa_only_applicability}", ctx: KN(EACH_PA) },
   { page: "faq", token: "{S41:hours.flatten_before|hours.trading_resumes|hours.trading_day_definition}", ctx: NA },
   { page: "faq", token: "{S42:hours.holiday_dll_continuation|hours.holiday_trading_allowed}", ctx: NA },
   { page: "faq", token: "{S15:dd.mechanics}", ctx: c("each", "na") },
@@ -118,10 +122,10 @@ export const SITES: Site[] = [
   { page: "home", token: "{S10:eval.start_threshold|pa.start_threshold}", ctx: c("each", "each") },
   { page: "home", token: "{S11:eval.lock_level.rithmic_wealthcharts|eval.lock_rule.tradovate|pa.lock_threshold_level}", ctx: c("each", "each") },
   { page: "home", token: "{S12:eval.daily_loss_limit}", ctx: EACH_EVAL },
-  { page: "home", token: "{S60:pa.dll_note}", ctx: EACH_PA },
-  { page: "home", token: "{S14:dd.mechanics}", ctx: c("each", "na") },
-  { page: "home", token: "{S15:dd.mechanics}", ctx: c("each", "na") },
-  { page: "home", token: FILL, ctx: c("Intraday", "Eval") },
+  { page: "home", token: "{S60:pa.dll_note}", ctx: KN(EACH_PA) },
+  { page: "home", token: "{S14:dd.mechanics}", ctx: KN(c("each", "na")) },
+  { page: "home", token: "{S15:dd.mechanics}", ctx: KN(c("each", "na")) },
+  { page: "home", token: FILL, ctx: KN(c("Intraday", "Eval")) },
   { page: "home", token: CME4, ctx: NA },
   { page: "home", token: "{S13:sources.tool_list.S13}", ctx: NA },
   // ---- payout-rules
@@ -173,7 +177,7 @@ export const SITES: Site[] = [
   { page: "trading-calculators", token: "{S10:eval.start_threshold|pa.start_threshold}", ctx: c("each", "each") },
   { page: "trading-calculators", token: "{S11:eval.lock_level.rithmic_wealthcharts|eval.lock_rule.tradovate|pa.lock_threshold_level}", ctx: c("each", "each") },
   { page: "trading-calculators", token: "{S12:eval.daily_loss_limit}", ctx: EACH_EVAL },
-  { page: "trading-calculators", token: "{S60:pa.dll_note}", ctx: EACH_PA },
+  { page: "trading-calculators", token: "{S60:pa.dll_note}", ctx: KN(EACH_PA) },
   { page: "trading-calculators", token: "{S14:dd.mechanics}", ctx: c("each", "na") },
   { page: "trading-calculators", token: "{S15:dd.mechanics}", ctx: c("each", "na") },
   { page: "trading-calculators", token: FILL, ctx: c("Intraday", "Eval") },
@@ -204,4 +208,16 @@ export const SITES: Site[] = [
 export function ctxFor(page: string, token: string, line: string): SiteCtx | undefined {
   const cands = SITES.filter((s) => s.page === page && s.token === token);
   return cands.find((s) => s.line && line.includes(s.line))?.ctx ?? cands.find((s) => !s.line)?.ctx;
+}
+
+/** CF F1-r1: number of distinct keys that print on one copy line (dup and none sites print nothing and do not count). */
+export function distinctKeysOnLine(page: string, line: string): string[] {
+  const keys = new Set<string>();
+  for (const m of line.matchAll(/\{(S\d+:[A-Za-z0-9_:.|*-]+)\}/g)) {
+    if (m[1].includes("sources.registry")) continue;
+    const ctx = ctxFor(page, m[0], line);
+    if (!ctx || ctx.dup || ctx.none) continue;
+    for (const k of m[1].split(":")[1].split("|")) keys.add(k);
+  }
+  return [...keys];
 }

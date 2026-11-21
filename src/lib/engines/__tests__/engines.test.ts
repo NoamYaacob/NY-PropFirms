@@ -145,6 +145,15 @@ test("payout: below thresholds and caps", () => {
   assert.ok(r.kind === "ok");
   if (r.kind === "ok") { const by = Object.fromEntries(r.lines.map((l) => [l.id, l.state])); assert.equal(by.balance, "below"); assert.equal(by.days, "below"); assert.equal(by.cap, "below"); }
 });
+test("payout (CF R2): balance clears the minimum but the planned request is above the requestable amount", () => {
+  const r = computePayout({ ...pay, balance: 53000, requestAmount: 1500 });
+  assert.ok(r.kind === "ok");
+  if (r.kind === "ok") {
+    const l = r.lines.find((x) => x.id === "balance")!;
+    assert.equal(l.state, "below");
+    assert.match(l.detail, /Planned request \$1,500 is above the \$900 requestable here\./);
+  }
+});
 test("payout: max payouts, validation, at-line", () => {
   assert.equal(computePayout({ ...pay, approvedPayouts: 6 }).kind, "closed");
   assert.equal(computePayout({ ...pay, qualifyingDays: 2.5 }).kind, "error");

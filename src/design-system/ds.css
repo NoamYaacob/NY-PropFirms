@@ -847,6 +847,24 @@
   color: inherit;
 }
 
+/* CF F6: the link reset above (0,1,1) must not beat the button text colour; every state keeps the dark-on-gold label */
+.ds a.ds-btn,
+.ds a.ds-btn:hover,
+.ds a.ds-btn:focus,
+.ds a.ds-btn:focus-visible,
+.ds a.ds-btn:active,
+.ds a.ds-btn:visited {
+  color: #1a1408;
+}
+.ds a.ds-btn.ds-btn-ghost,
+.ds a.ds-btn.ds-btn-ghost:hover,
+.ds a.ds-btn.ds-btn-ghost:focus,
+.ds a.ds-btn.ds-btn-ghost:focus-visible,
+.ds a.ds-btn.ds-btn-ghost:active,
+.ds a.ds-btn.ds-btn-ghost:visited {
+  color: var(--ds-strong);
+}
+
 /* header bar + header */
 .ds-hdrbar {
   position: relative;

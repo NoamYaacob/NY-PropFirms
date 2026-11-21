@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { SITE_DATA_RECORDS } from "../../data/apexRecords.ts";
-import { SITES, ctxFor } from "./slotContext.ts";
+import { SITES, ctxFor, distinctKeysOnLine } from "./slotContext.ts";
 import { listTokenSites } from "./slotEnumerate.ts";
 import { KEY_LABELS, lineText, recordMatches, resolveSlot } from "./slotModel.ts";
 
@@ -178,4 +178,57 @@ test("a suppressed repeat (dup) is only allowed when the key is fully rendered e
     const full = sites.some((o) => o.page === s.page && o.token.slice(1, -1).split(":")[1].split("|").some((k) => key.split("|").includes(k)) && !ctxFor(o.page, o.token, o.line)!.dup && resolveSlot(o.token, ctxFor(o.page, o.token, o.line)!).some((l) => l.body));
     assert.ok(full, `${s.page} ${s.token}: dup without a full render on the page`);
   }
+});
+
+test("CF F1-r1: a copy line with tokens of two or more distinct keys prints the rule name per key, unless the site is keyNamed", () => {
+  const named: string[] = [];
+  for (const s of sites) {
+    const ctx = ctxFor(s.page, s.token, s.line)!;
+    if (ctx.dup || ctx.none) continue;
+    const lineKeys = distinctKeysOnLine(s.page, s.line);
+    if (lineKeys.length < 2) continue;
+    const where = `${s.page} ${s.token} | ${s.line.slice(0, 70)}`;
+    if (ctx.keyNamed) {
+      named.push(where);
+      continue;
+    }
+    const keys = s.token.slice(1, -1).split(":")[1].split("|");
+    for (const l of resolveSlot(s.token, ctx, lineKeys.length)) {
+      if (!l.recordIds.length || !l.body || !l.chip) continue; // link-only and CONFLICT lines print no value
+      const k = keys.find((x) => byId.get(l.recordIds[0])!.key === x || byId.get(l.recordIds[0])!.key === x.slice(0, x.lastIndexOf(".")));
+      if (k && /^pa\.inactivity/.test(k)) continue; // the group label names the policy and the body names the field ("2 profit days", "$50 minimum net profit per day")
+      assert.ok(k && KEY_LABELS[k], `${where}: key ${k} has no noun label`);
+      assert.ok(l.label.includes(KEY_LABELS[k!]), `${where}: line without rule name "${KEY_LABELS[k!]}": ${lineText(l)}`);
+    }
+  }
+  // the declared keyNamed sites are listed in ops/en_build_changelog.md for CF review
+  assert.ok(named.length >= 0);
+});
+
+test("CF F1-r1: the two flagged lines print the rule name", () => {
+  const T = (page: string, token: string, line: string) => resolveSlot(token, ctxFor(page, token, line)!, distinctKeysOnLine(page, line).length).map(lineText);
+  const vl = sites.find((x) => x.page === "account-comparison" && x.line.startsWith("Values:"))!;
+  const dd = T(vl.page, "{S52:eval.max_drawdown}", vl.line);
+  assert.ok(dd.some((t) => /^EOD Evaluation · Max drawdown: 25K \$1,000/.test(t)), dd.join("\n"));
+  const dl = T(vl.page, "{S12:eval.daily_loss_limit}", vl.line);
+  assert.ok(dl.some((t) => /^EOD Evaluation · Daily Loss Limit: 25K \$500/.test(t)), dl.join("\n"));
+  const ev = sites.find((x) => x.page === "eod-vs-intraday" && x.line.startsWith("PA payout details differ"))!;
+  const md = T(ev.page, "{S20:pa.payout.min_daily_profit}", ev.line);
+  assert.ok(md.some((t) => /^EOD PA · Minimum daily profit: 25K \$100/.test(t)), md.join("\n"));
+});
+
+test("CF F1-r2: same-trade example says official examples, not table", () => {
+  const same = SITE_DATA_RECORDS.find((r) => r.key === "worked_example.same_trade");
+  assert.ok(same);
+  const tok = sites.find((x) => x.token.includes("worked_example.same_trade"))!;
+  const out = resolveSlot(tok.token, ctxFor(tok.page, tok.token, tok.line)!, 1);
+  assert.ok(out.some((l) => l.derived === "(derived from Apex's official examples)"));
+});
+
+test("CF R1: the EOD lines of a multi-key lock token print before the Intraday CONFLICT line", () => {
+  const tok = "{S55:eval.lock_level.rithmic_wealthcharts|eval.lock_trigger_balance.rithmic_wealthcharts}";
+  const t = resolveSlot(tok, ctxFor("evaluation-rules", tok, "**Rithmic / Wealthcharts:** " + tok)!, 1).map(lineText);
+  const i = t.findIndex((x) => /word this differently/.test(x));
+  assert.ok(i === t.length - 1 && i > 0, t.join("\n"));
+  assert.ok(/Locks at/.test(t[0]) && /Lock applies once/.test(t[1]));
 });

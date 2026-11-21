@@ -119,7 +119,7 @@ export function MiniSrc({ fact, size }: { fact: Fact<unknown>; size?: Size | nul
   const derived = derivedLabel(fact, size ?? null);
   return (
     <a className="ds-minisrc" href={fact.url} target="_blank" rel="noopener noreferrer" title={`${fact.title}, checked ${checkedLabel(fact)}${derived ? `. ${derived}` : ""}`}>
-      Source{derived ? " (derived)" : ""} · {checkedLabel(fact).replace(/, \d{4}$/, "")}
+      Source{derived ? " (derived)" : ""} · {checkedLabel(fact)}
     </a>
   );
 }

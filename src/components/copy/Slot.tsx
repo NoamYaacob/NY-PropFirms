@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { ctxFor } from "./slotContext";
+import { ctxFor, distinctKeysOnLine } from "./slotContext";
 import { resolveSlot, type SlotLine } from "./slotModel";
 
 /**
@@ -45,7 +45,7 @@ function Line({ l, tail }: { l: SlotLine; tail?: string }) {
 export function Slot({ raw, page, line, tail }: { raw: string; page: string; line: string; tail?: string }) {
   const ctx = ctxFor(page, raw, line);
   if (!ctx) return null;
-  const lines = resolveSlot(raw, ctx);
+  const lines = resolveSlot(raw, ctx, distinctKeysOnLine(page, line).length);
   if (!lines.length) return tail ? <>{tail}</> : null;
   return (
     <span className="ds-slot">

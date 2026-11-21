@@ -119,14 +119,15 @@ export function EvalLockTable() {
   );
 }
 
-export function PaScalingTable({ type, size }: { type: AccountType; size: Size }) {
+/** `both`: Apex lists the same tier tables for EOD and Intraday PAs, so the caption names both (CF R3). */
+export function PaScalingTable({ type, size, both = false }: { type: AccountType; size: Size; both?: boolean }) {
   const f = PA[type][size].scaling;
   if (!usable(f) || !f.value) return <Fallback fact={f} />;
   return (
     <div className="ds-tablewrap">
       <table className="ds-table">
         <caption>
-          {type} PA, {size}: scaling tiers
+          {both ? "EOD and Intraday PA" : `${type} PA`}, {size}: scaling tiers
         </caption>
         <thead>
           <tr>

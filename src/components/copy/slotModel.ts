@@ -40,6 +40,8 @@ const KEY_LABEL: Record<string, string> = {
   "pa.payout.min_payout_amount": "Minimum payout",
   "pa.payout.min_trading_days": "Qualifying days",
   "pa.payout.min_daily_profit": "Minimum daily profit",
+  "pa.payout.sequential_caps": "Sequential payout caps",
+  "pa.payout.max_payouts": "Maximum approved payouts",
   "eval.profit_target": "Profit target",
   "eval.daily_loss_limit": "Daily Loss Limit",
   "eval.max_contracts_fixed": "Max contracts (fixed)",
@@ -194,20 +196,28 @@ function bodyFor(rows: SiteRecord[], field: string | undefined, ctx: SiteCtx): {
   const suffix = out.length && rows[0]?.key === "pa.payout.sequential_caps" ? " (payouts #1 to #6)" : "";
   return {
     body: out.join(" · ") + suffix,
-    derived: derived ? (worked ? "(derived from Apex's official table; 50K is Apex's worked example)" : "(derived from Apex's official table)") : undefined,
+    derived: derived
+      ? rows[0]?.key === "worked_example.same_trade"
+        ? "(derived from Apex's official examples)"
+        : worked
+          ? "(derived from Apex's official table; 50K is Apex's worked example)"
+          : "(derived from Apex's official table)"
+      : undefined,
   };
 }
 
-export function resolveSlot(raw: string, ctx: SiteCtx): SlotLine[] {
+export function resolveSlot(raw: string, ctx: SiteCtx, lineKeyCount = 1): SlotLine[] {
   if (ctx.dup || ctx.none) return [];
   const inner = raw.slice(1, -1);
   const m = /^(S\d+):(.+)$/.exec(inner);
   if (!m) return [];
   const keys = m[2].split("|");
   const out: SlotLine[] = [];
-  const multi = keys.length > 1;
-  
+  // CF F1-r1: a token with several keys, or a line with tokens of >= 2 distinct keys, prints the rule name per key (unless keyNamed)
+  const multi = keys.length > 1 || (lineKeyCount > 1 && !ctx.keyNamed);
   // all keys unverified? collect first
+  // CF R1: unverified (CONFLICT) lines of every key go after the verified lines of all keys
+  const unverifiedOut: SlotLine[] = [];
   const perKey: Array<{ k: string; field?: string; recs: SiteRecord[] }> = [];
   for (const k of keys) {
     if (k === "rules.news_trading" || k === "sources.registry") continue;
@@ -298,10 +308,10 @@ export function resolveSlot(raw: string, ctx: SiteCtx): SlotLine[] {
         link: { href: u, text: "Official page" },
         recordIds: list.map((r) => r.id),
       };
-      if (!out.some((x) => x.link?.href === u && x.label === sentenceLine.label && x.body === sentenceLine.body)) out.push(sentenceLine);
+      if (![...out, ...unverifiedOut].some((x) => x.link?.href === u && x.label === sentenceLine.label && x.body === sentenceLine.body)) unverifiedOut.push(sentenceLine);
     }
   }
-  return out;
+  return [...out, ...unverifiedOut];
 }
 
 export function lineText(l: SlotLine): string {

@@ -61,11 +61,14 @@ export function computePayout(input: PayoutInput): PayoutResult {
     const eligibleAbove = balance - safety;
     const okBalance = balance >= minReq;
     const okRequest = request >= minPay && request <= Math.max(0, eligibleAbove);
+    const requestable = Math.max(0, eligibleAbove);
+    // CF R2: say which part is below when the balance itself clears the minimum
+    const why = okBalance && request > requestable ? ` Planned request ${money(request)} is above the ${money(requestable)} requestable here.` : okBalance && request < minPay ? ` Planned request ${money(request)} is below the minimum payout.` : "";
     lines.push({
       id: "balance",
       label: "Balance vs Safety Net and minimum request",
       state: okBalance && okRequest ? "meets" : "below",
-      detail: `Safety Net ${money(safety)}; minimum balance to request ${money(minReq)}; minimum payout ${money(minPay)}. Only profit above the Safety Net can be requested (${money(Math.max(0, eligibleAbove))} here).`,
+      detail: `Safety Net ${money(safety)}; minimum balance to request ${money(minReq)}; minimum payout ${money(minPay)}. Only profit above the Safety Net can be requested (${money(requestable)} here).${why}`,
     });
   } else {
     lines.push({ id: "balance", label: "Balance vs Safety Net and minimum request", state: "not-computed", detail: NOT_COMPUTED });

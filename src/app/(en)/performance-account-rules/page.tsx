@@ -15,7 +15,7 @@ export default function PaRulesPage() {
             <div className="mt-3 grid gap-2">
               {SIZES.map((s) => (
                 <Details key={s} summary={`${s} scaling tiers and Daily Loss Limit`}>
-                  <PaScalingTable type="EOD" size={s} />
+                  <PaScalingTable type="EOD" size={s} both />
                 </Details>
               ))}
               <p className="ds-hint">Apex lists the same tier tables for EOD and Intraday PAs.</p>
