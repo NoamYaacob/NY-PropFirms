@@ -1,0 +1,240 @@
+.a2 {
+  --a2-text: #c9cdd6;
+  --a2-strong: #f4f6fb;
+  --a2-gold: #e3c56a;
+  --a2-line: rgba(227, 197, 106, 0.28);
+  --a2-card: var(--surface-raised);
+  position: relative;
+  isolation: isolate;
+  font-family: var(--font-a2), "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--a2-text);
+  background:
+    radial-gradient(ellipse 55% 42% at 8% -8%, rgba(201, 168, 76, 0.28), transparent 58%),
+    radial-gradient(ellipse 42% 36% at 100% 0%, rgba(201, 168, 76, 0.14), transparent 52%),
+    radial-gradient(ellipse 30% 24% at 70% 18%, rgba(255, 244, 214, 0.04), transparent 60%),
+    var(--surface-base);
+}
+
+[data-theme="light"] .a2 {
+  --a2-text: #1a1e2a;
+  --a2-strong: #101218;
+  --a2-gold: #8a6414;
+  --a2-line: rgba(138, 100, 20, 0.35);
+  background:
+    radial-gradient(ellipse 55% 42% at 8% -8%, rgba(184, 138, 40, 0.16), transparent 58%),
+    radial-gradient(ellipse 40% 32% at 100% 0%, rgba(184, 138, 40, 0.08), transparent 50%),
+    var(--surface-base);
+}
+
+.a2::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E");
+}
+
+.a2::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.35;
+  background-image:
+    linear-gradient(var(--a2-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--a2-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(180deg, #000 0%, transparent 72%);
+}
+
+.a2 > * {
+  position: relative;
+  z-index: 1;
+}
+
+.a2 h1,
+.a2 h2,
+.a2 h3,
+.a2 .a2-display {
+  font-family: var(--font-a2), "Segoe UI", Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  color: var(--a2-strong);
+  line-height: 0.96;
+}
+
+.a2-mono,
+.a2-mono button,
+.a2-mono input {
+  font-family: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+.a2-logo {
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.a2-wordmark {
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+}
+
+.a2-card {
+  border-radius: 18px;
+  border: 1px solid var(--surface-border-strong);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), transparent 32%),
+    var(--a2-card);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+}
+
+[data-theme="light"] .a2-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.7), transparent 40%),
+    var(--surface-raised);
+  box-shadow: 0 12px 32px rgba(16, 18, 24, 0.06);
+}
+
+.a2-legal,
+.a2-risk {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--a2-strong);
+  display: block;
+  visibility: visible;
+  max-height: none;
+  white-space: normal;
+}
+
+.a2-btn {
+  margin-top: 0.85rem;
+  display: inline-flex;
+  width: 100%;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 0.65rem 1.1rem;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: var(--gold-500);
+  color: #1a1408;
+}
+
+@media (min-width: 640px) {
+  .a2-btn {
+    width: auto;
+  }
+}
+
+.a2-chip {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--surface-border-strong);
+  padding: 0 0.85rem;
+  font-size: 13px;
+  color: var(--a2-strong);
+  background: transparent;
+}
+
+.a2-chip[aria-pressed="true"] {
+  background: var(--gold-500);
+  border-color: var(--gold-500);
+  color: #1a1408;
+}
+
+.a2-ticker {
+  overflow: hidden;
+  border-block: 1px solid var(--surface-border);
+  background: color-mix(in srgb, var(--surface-overlay) 88%, transparent);
+}
+
+.a2-ticker-track {
+  display: flex;
+  width: max-content;
+  gap: 1.75rem;
+  padding: 0.55rem 0;
+  white-space: nowrap;
+}
+
+.a2-spark {
+  width: 92px;
+  height: 28px;
+}
+
+.a2-spark path {
+  fill: none;
+  stroke: var(--gold-500);
+  stroke-width: 1.6;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .a2-ticker-track {
+    animation: a2-marquee 32s linear infinite;
+  }
+
+  .a2-card {
+    transition: transform 180ms ease, border-color 180ms ease;
+  }
+
+  @media (hover: hover) {
+    .a2-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--gold-edge);
+    }
+  }
+
+  .a2-draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: a2-draw 1.4s ease forwards;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .a2-ticker-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+    padding-inline: 1rem;
+  }
+
+  .a2-draw {
+    animation: none;
+  }
+}
+
+@keyframes a2-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes a2-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.a2 a:focus-visible,
+.a2 button:focus-visible,
+.a2 input:focus-visible {
+  outline: 2px solid var(--gold-400);
+  outline-offset: 3px;
+}

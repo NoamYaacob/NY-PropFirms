@@ -1,0 +1,125 @@
+body.design-body {
+  font-family: var(--font-source-sans), "Segoe UI", Helvetica, Arial, sans-serif;
+  background: var(--surface-base);
+  color: var(--text-primary);
+  overflow-x: clip;
+}
+
+body.design-body ::selection {
+  background: var(--gold-500);
+  color: #1a1408;
+}
+
+.opt-a {
+  font-family: var(--font-source-sans), "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.opt-a :is(h1, h2, .serif) {
+  font-family: var(--font-newsreader), Georgia, "Times New Roman", serif;
+}
+
+.opt-b {
+  font-family: var(--font-plex-sans), "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.opt-b .mono,
+.opt-b .mono button {
+  font-family: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+.opt-c {
+  font-family: var(--font-familjen), "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.risk-line {
+  display: block;
+  visibility: visible;
+  overflow: visible;
+  height: auto;
+  max-height: none;
+  white-space: normal;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(var(--surface-border-strong) 1px, transparent 1px),
+    linear-gradient(90deg, var(--surface-border-strong) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.045;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 200;
+  padding: 0.6rem 1rem;
+  background: var(--gold-500);
+  color: #1a1408;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.design-body a:focus-visible,
+.design-body button:focus-visible {
+  outline: 2px solid var(--gold-400);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rise {
+    animation: ny-rise 720ms ease both;
+  }
+
+  .rule-draw {
+    transform-origin: left center;
+    animation: ny-rule 900ms ease both;
+  }
+
+  .draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: ny-draw 1.5s ease forwards;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise,
+  .rule-draw,
+  .draw {
+    animation: none;
+  }
+}
+
+@keyframes ny-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes ny-rule {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes ny-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
