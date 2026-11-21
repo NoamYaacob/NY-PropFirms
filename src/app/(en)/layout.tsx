@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: { type: "website", siteName: "NY Prop Firms", locale: "en_US" },
 };
 
-const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}else if(window.matchMedia('(prefers-color-scheme: light)').matches){document.documentElement.setAttribute('data-theme','light');}else{document.documentElement.setAttribute('data-theme','dark');}}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`;
+const themeScript = `(function(){var r=document.documentElement;try{var t=localStorage.getItem('theme');r.setAttribute('data-theme',t==='light'?'light':'dark');}catch(e){r.setAttribute('data-theme','dark');}})();`;
 
 export default function EnglishRootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (

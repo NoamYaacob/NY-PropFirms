@@ -94,13 +94,13 @@ export function ToolShell({
         </h2>
         {pill ? <span className="ds-pill ds-mono">{pill}</span> : null}
       </div>
+      <p className="ds-fine ds-tooldisc">{DISC_LINE}</p>
       <div className="ds-term-body">
-        <p className="ds-legal ds-legal-strong ds-tooldisc">{DISC_LINE}</p>
         {framing ? <p className="ds-framing">{framing}</p> : null}
         {children}
-        <div className="ds-toolfoot">
-          <div className="ds-disclaimer">{disclaimer}</div>
-          <p className="ds-risk">{RISK_COMPACT}</p>
+        <div className="ds-toolfoot ds-finefoot">
+          <div className="ds-disclaimer ds-fine">{disclaimer}</div>
+          <p className="ds-risk ds-fine">{RISK_COMPACT}</p>
           <p className="ds-toollinks">
             {links}
             {links ? " · " : null}
