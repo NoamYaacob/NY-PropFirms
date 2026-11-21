@@ -1696,3 +1696,20 @@ div[id] {
     line-height: 1.3;
   }
 }
+
+.ds-screen,
+.ds-card,
+.ds-term-body,
+.ds-tablewrap {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.ds-screen-svg {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.grid > * {
+  min-width: 0;
+}
